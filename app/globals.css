@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-humo-900 antialiased;
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    text-wrap: balance;
+  }
+
+  /* Foco visible en todo lo enfocable — requisito de accesibilidad */
+  :focus-visible {
+    outline: 3px solid theme('colors.fry.DEFAULT');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* La frase ancla del párrafo Answer-First: color + peso, nunca sólo color */
+  .ancla {
+    @apply font-semibold text-fry-700;
+  }
+
+  .contenedor {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    @apply text-[11px] font-medium uppercase tracking-[0.16em] text-humo-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3
+           text-[15px] font-semibold transition-colors;
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+
+  .btn-primario {
+    @apply btn bg-fry text-navy-900 hover:bg-fry-600 hover:text-white;
+  }
+
+  .btn-secundario {
+    @apply btn border-2 border-navy-600 bg-transparent text-navy-600
+           hover:bg-navy-600 hover:text-white;
+  }
+
+  .btn-fantasma {
+    @apply btn border-2 border-white/40 text-white hover:border-white hover:bg-white/10;
+  }
+
+  .tarjeta {
+    @apply border border-hielo-300 bg-white shadow-panel;
+  }
+}

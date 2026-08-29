@@ -1,0 +1,10 @@
+# Sitio estatico servido desde el borde de Cloudflare.
+# No hay servidor ni base de datos en el camino del render: el HTML se
+# genera en build (next build -> out/) y aqui solo se sirve.
+name = "macsa-web"
+compatibility_date = "2026-08-29"
+
+[assets]
+directory = "./out"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
