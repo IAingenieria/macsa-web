@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import WhatsAppFab from '@/components/layout/WhatsAppFab'
+import BotWidget from '@/components/layout/BotWidget'
 import { EMPRESA, NOINDEX, SITE_URL } from '@/lib/site'
 import { ld, organizacionSchema } from '@/lib/schema'
 
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenido">{children}</main>
         <Footer />
         <WhatsAppFab />
+        <BotWidget />
       </body>
     </html>
   )

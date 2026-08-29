@@ -183,3 +183,11 @@ export const CONTEO = {
   total: CATALOGO.length,
   conRendimiento: CATALOGO.filter((p) => p.rendimiento).length,
 }
+
+/** Los productos de una lista concreta de codigos (para los productos ancla). */
+export const porSkus = (skus: string[]) => {
+  const orden = new Map(skus.map((s, i) => [s, i]))
+  return CATALOGO.filter((p) => orden.has(p.sku)).sort(
+    (a, b) => (orden.get(a.sku) ?? 0) - (orden.get(b.sku) ?? 0),
+  )
+}

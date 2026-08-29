@@ -12,6 +12,7 @@ import {
 import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, porModo, type Modo } from '@/lib/ciudades'
+import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -162,6 +163,16 @@ export default function Home() {
       </Seccion>
 
       <ComoPedir />
+
+      <Seccion
+        eyebrow="Contacto"
+        titulo="Te cotizamos hoy mismo"
+        intro="Déjanos tus datos y un asesor te contacta con precio y disponibilidad. O escríbenos por WhatsApp si prefieres resolverlo al momento."
+      >
+        <div className="max-w-2xl">
+          <FormularioProspecto />
+        </div>
+      </Seccion>
 
       <FAQ preguntas={PREGUNTAS} />
 

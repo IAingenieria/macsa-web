@@ -42,6 +42,11 @@ export default function Footer() {
                 Ver las 14 líneas
               </Link>
             </li>
+            <li>
+              <Link href="/tienda/" className="font-semibold text-fry hover:text-white">
+                Tienda con ficha por código
+              </Link>
+            </li>
           </ul>
         </div>
 

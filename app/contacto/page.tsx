@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Breadcrumb, Seccion } from '@/components/landing/Secciones'
 import Hero from '@/components/landing/Hero'
+import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { EMPRESA, waLink } from '@/lib/site'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
@@ -35,7 +36,17 @@ export default function Page() {
         ctaSecundario={{ href: '/alta-de-cliente/', label: 'Darme de alta' }}
       />
 
-      <Seccion eyebrow="Canales" titulo="Por dónde nos escribes">
+      <Seccion
+        eyebrow="Formulario"
+        titulo="Déjanos tus datos y te contactamos"
+        intro="Si prefieres que te busquemos nosotros, llénalo y un asesor te contacta hoy mismo con precio y disponibilidad."
+      >
+        <div className="max-w-2xl">
+          <FormularioProspecto titulo="Cuéntanos qué necesita tu cocina" />
+        </div>
+      </Seccion>
+
+      <Seccion eyebrow="Canales" titulo="Por dónde nos escribes" fondo="hielo">
         <div className="grid gap-px bg-hielo-300 lg:grid-cols-3">
           <div className="bg-white p-7">
             <h2 className="font-display text-[18px] font-bold text-navy">WhatsApp</h2>

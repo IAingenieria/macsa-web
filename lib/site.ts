@@ -13,6 +13,12 @@ export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX !== '0'
 
 export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? ''
 
+/**
+ * URL del widget de MacsaIA (Forja sirve `/widget.js`).
+ * Vacia hasta que se active el canal web en el bot de produccion.
+ */
+export const BOT_WIDGET = process.env.NEXT_PUBLIC_BOT_WIDGET ?? ''
+
 export const EMPRESA = {
   nombre: 'MACSA Foodservice',
   razonSocial: 'MACSA de la Sultana',

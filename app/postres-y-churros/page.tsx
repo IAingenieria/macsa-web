@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import PaginaFamilia from '@/components/landing/PaginaFamilia'
 import { familia, metaDesc } from '@/lib/familias'
-import { faqBase } from '@/lib/faq'
+import { guiaDe, preguntasDe } from '@/lib/guias'
 
 const f = familia('postres-y-churros')!
 
@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <PaginaFamilia f={f} preguntas={faqBase(f)} />
+  return <PaginaFamilia f={f} preguntas={preguntasDe(f)} guia={guiaDe(f.slug)} />
 }

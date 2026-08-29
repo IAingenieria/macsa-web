@@ -1,5 +1,5 @@
 import { Seccion } from '@/components/landing/Secciones'
-import { destacadosDe, porFamilia, type ProductoCatalogo } from '@/lib/catalogo'
+import { destacadosDe, porFamilia, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
 import { waLink } from '@/lib/site'
 
 /* ── Tarjeta de producto con foto oficial ──────────────────────────── */
@@ -66,19 +66,25 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
 
 export function GaleriaProductos({
   familia,
+  skus,
   titulo,
   ciudad,
   limite = 8,
 }: {
-  familia: string
+  familia?: string
+  /** Si viene, manda sobre la familia: son los codigos de un producto ancla. */
+  skus?: string[]
   titulo: string
   ciudad?: string
   limite?: number
 }) {
-  const productos = destacadosDe(familia, limite)
+  const universo = skus ? porSkus(skus) : familia ? porFamilia(familia) : []
+  const productos = skus
+    ? universo.slice(0, limite)
+    : destacadosDe(familia!, limite)
   if (!productos.length) return null
 
-  const total = porFamilia(familia).length
+  const total = universo.length
 
   return (
     <Seccion
@@ -102,8 +108,9 @@ export function GaleriaProductos({
 /* ── Rendimiento por porción ★ ─────────────────────────────────────── */
 /* El dato que ningún competidor publica y el que decide la compra.      */
 
-export function Rendimiento({ familia }: { familia: string }) {
-  const conRendimiento = porFamilia(familia).filter((p) => p.rendimiento && p.kg)
+export function Rendimiento({ familia, skus }: { familia?: string; skus?: string[] }) {
+  const universo = skus ? porSkus(skus) : familia ? porFamilia(familia) : []
+  const conRendimiento = universo.filter((p) => p.rendimiento && p.kg)
   if (conRendimiento.length < 2) return null
 
   const muestra = conRendimiento.slice(0, 8)

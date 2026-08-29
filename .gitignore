@@ -6,4 +6,4 @@ out/
 *.tsbuildinfo
 
 # Las paginas producto x ciudad las escribe scripts/generar_geo.mjs en cada build.
-app/*-en-*/
+app/(generado)/

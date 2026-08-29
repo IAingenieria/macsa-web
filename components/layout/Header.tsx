@@ -3,6 +3,7 @@ import { EMPRESA, waLink } from '@/lib/site'
 
 const NAV = [
   { href: '/catalogo/', label: 'Catálogo' },
+  { href: '/tienda/', label: 'Tienda' },
   { href: '/marcas/', label: 'Marcas' },
   { href: '/cobertura/', label: 'Cobertura' },
   { href: '/cadena-de-frio/', label: 'Cadena de frío' },
