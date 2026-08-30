@@ -16,6 +16,7 @@ import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
 import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
+import { ConsejosRelacionados } from '@/components/landing/Consejos'
 
 /**
  * PÁGINA PRODUCTO × CIUDAD — la que se genera en lote.
@@ -155,6 +156,8 @@ export default function PaginaGeo({
           ))}
         </div>
       </Seccion>
+
+      <ConsejosRelacionados slug={f.slug} />
 
       <CadenaFrio />
 

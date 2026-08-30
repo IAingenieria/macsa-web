@@ -103,6 +103,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/consejos/" className="text-hielo-300 hover:text-white">
+                Consejos de cocina
+              </Link>
+            </li>
+            <li>
               <Link href="/preguntas-frecuentes/" className="text-hielo-300 hover:text-white">
                 Preguntas frecuentes
               </Link>

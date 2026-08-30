@@ -15,6 +15,7 @@ import { GIROS } from '@/lib/giros'
 import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
 import { MODOS, porModo } from '@/lib/ciudades'
 import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
+import { ConsejosRelacionados } from '@/components/landing/Consejos'
 
 /**
  * La página PILAR de una familia: la fuente de verdad del contenido.
@@ -143,6 +144,11 @@ export default function PaginaFamilia({
           ))}
         </div>
       </Seccion>
+
+      <ConsejosRelacionados
+        slug={f.slug}
+        titulo={`Cómo sacarle más a tu ${f.nombre.toLowerCase()}`}
+      />
 
       <CadenaFrio />
 

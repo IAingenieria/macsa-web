@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { SITE_URL } from '@/lib/site'
 import { CATALOGO } from '@/lib/catalogo'
+import { TIPS } from '@/lib/tips'
 
 /**
  * El sitemap se construye barriendo `app/` en tiempo de build — igual que en
@@ -68,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: ahora,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    // Mismo caso: /consejos/[tip] tampoco lo ve el barrido de directorios.
+    ...TIPS.map((t) => ({
+      url: `${SITE_URL}/consejos/${t.slug}/`,
+      lastModified: ahora,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
   ]
 }

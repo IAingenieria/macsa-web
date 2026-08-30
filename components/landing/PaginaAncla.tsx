@@ -12,6 +12,7 @@ import {
 } from '@/components/landing/Secciones'
 import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
+import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { ANCLAS, ancla as buscarAncla } from '@/lib/anclas'
 import { familia as buscarFamilia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
@@ -186,6 +187,11 @@ export default function PaginaAncla({
           ))}
         </div>
       </Seccion>
+
+      <ConsejosRelacionados
+        slug={a.slug}
+        titulo={`Cómo sacarle más a tu ${a.nombre.toLowerCase()}`}
+      />
 
       <CadenaFrio />
 
