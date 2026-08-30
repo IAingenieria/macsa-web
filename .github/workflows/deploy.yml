@@ -26,6 +26,11 @@ jobs:
       # que el dominio definitivo sirva el sitio, y NO antes: si se indexa el
       # provisional, el cambio de dominio arrastra mil duplicados.
       NEXT_PUBLIC_NOINDEX: '1'
+      # Widget de MacsaIA. El bot filtra por origen: solo acepta
+      # iaingenieria.github.io y responde 403 a cualquier otro. Por eso se
+      # define AQUI y no en el despliegue de Cloudflare — una burbuja que no
+      # contesta es peor que ninguna.
+      NEXT_PUBLIC_BOT_WIDGET: https://forja-crm-69958e.shy-block-053a.workers.dev/widget.js
     steps:
       - uses: actions/checkout@v4
 

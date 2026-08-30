@@ -1,11 +1,17 @@
 import { waLink } from '@/lib/site'
 
-/** Botón flotante de WhatsApp — regla de la anatomía: va en TODAS las páginas. */
+/**
+ * Boton flotante de WhatsApp — regla de la anatomia: va en TODAS las paginas.
+ *
+ * Va a la IZQUIERDA porque la burbuja de MacsaIA se pinta a la derecha
+ * (`posicion: "derecha"` en la configuracion del bot). Si las dos van al
+ * mismo lado se encinan y ninguna se puede tocar en movil.
+ */
 export default function WhatsAppFab({ mensaje }: { mensaje?: string }) {
   return (
     <a
       href={waLink(mensaje ?? 'Hola, quiero información de sus productos.')}
-      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center
+      className="fixed bottom-5 left-5 z-50 flex h-14 w-14 items-center justify-center
                  rounded-full bg-[#25D366] shadow-lg transition-transform hover:scale-105"
       aria-label="Escribir por WhatsApp"
     >

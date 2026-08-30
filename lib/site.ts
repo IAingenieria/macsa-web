@@ -54,8 +54,21 @@ export const EMPRESA = {
   corteHora: '20:00',
 } as const
 
+/**
+ * WhatsApp de MacsaIA: el mismo numero que atiende el bot en vivo.
+ *
+ * Todos los CTA del sitio llegan aqui a proposito. El bot contesta 24/7,
+ * tiene el catalogo cargado y captura el prospecto al CRM — y como el
+ * visitante escribe desde su telefono, el prospecto llega con numero, que
+ * es justo lo que le falta al chat de la web.
+ *
+ * Las lineas humanas de ventas NO desaparecen: siguen listadas completas
+ * en /contacto/ y en el pie de todas las paginas.
+ */
+export const WA_BOT = '528181791096'
+
 /** WhatsApp principal para todos los CTA del sitio. */
-export const WA_PRINCIPAL = EMPRESA.whatsapp[0].e164
+export const WA_PRINCIPAL = WA_BOT
 
 export function waLink(mensaje: string, numero: string = WA_PRINCIPAL) {
   return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`

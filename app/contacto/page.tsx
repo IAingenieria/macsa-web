@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Breadcrumb, Seccion } from '@/components/landing/Secciones'
 import Hero from '@/components/landing/Hero'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { EMPRESA, waLink } from '@/lib/site'
+import { EMPRESA, WA_BOT, waLink } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
@@ -56,7 +56,28 @@ export default function Page() {
             <p className="mt-2 text-[14px] leading-relaxed text-humo">
               Lo más rápido para levantar un pedido o pedir el catálogo.
             </p>
-            <ul className="mt-4 space-y-2">
+
+            {/* MacsaIA: contesta a cualquier hora y ya trae el catálogo. */}
+            <div className="mt-4 border-l-4 border-fry bg-fry-100 px-4 py-3">
+              <p className="font-display text-[14px] font-semibold text-navy">
+                Atención inmediata, a cualquier hora
+              </p>
+              <a
+                href={waLink('Hola, quiero información de sus productos.', WA_BOT)}
+                className="mt-1 block font-mono text-[14px] font-semibold text-fry-700 hover:text-navy"
+              >
+                +52 81 8179 1096
+              </a>
+              <p className="mt-1.5 text-[12.5px] leading-snug text-humo">
+                Te contesta nuestro asistente con el catálogo y las presentaciones. Si necesitas a
+                una persona, te pasa con un asesor.
+              </p>
+            </div>
+
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-humo-400">
+              Líneas de ventas
+            </p>
+            <ul className="mt-2 space-y-2">
               {EMPRESA.whatsapp.map((w) => (
                 <li key={w.e164}>
                   <a
