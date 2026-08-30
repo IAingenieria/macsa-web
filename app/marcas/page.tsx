@@ -4,6 +4,7 @@ import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import { MARCAS } from '@/lib/giros'
 import { FAMILIAS } from '@/lib/familias'
+import { asset } from '@/lib/site'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 const RELACIONES = [
   {
     marca: 'Lamb Weston',
+    logo: '/lamb-weston.png',
     relacion: 'Distribuidor oficial en Monterrey',
     detalle:
       'Desde hace alrededor de tres años y medio. La papa es nuestra línea principal y el catálogo cubre más de veinte cortes.',
@@ -72,7 +74,17 @@ export default function Page() {
               <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-fry-700">
                 {r.relacion}
               </p>
-              <h3 className="mt-2 font-display text-[20px] font-bold text-navy">{r.marca}</h3>
+              {'logo' in r && r.logo ? (
+                <img
+                  src={asset(r.logo as string)}
+                  alt={r.marca}
+                  width={444}
+                  height={113}
+                  className="mt-3 h-10 w-auto"
+                />
+              ) : (
+                <h3 className="mt-2 font-display text-[20px] font-bold text-navy">{r.marca}</h3>
+              )}
               <p className="mt-3 text-[14.5px] leading-relaxed text-humo">{r.detalle}</p>
               <Link
                 href={`/${r.familia}/`}

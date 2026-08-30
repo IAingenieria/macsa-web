@@ -10,13 +10,11 @@
  * de esas dos bases, no se locuta. Aquí aplica igual — el texto de cada
  * página es el guion, no una versión inventada.
  *
- * ⚠️ PENDIENTE QUE BLOQUEA LA PUBLICACIÓN REAL: los videos cierran con una
- * placa que usa el logo de Lamb Weston, y Edgar todavía no la aprueba. En un
- * sitio con `noindex` sirven para que Jorge y Edgar los revisen; antes de
- * conectar el dominio definitivo hace falta ese visto bueno.
+ * ✅ Edgar Mayén aprobó el uso del logo y la placa de cierre de Lamb Weston
+ * (2026-08-29). Era lo único que bloqueaba la publicación de las dos tandas.
  *
- * Falta el tip 10 («Cortes que llenan más el plato»): está producido pero no
- * se subió a Cloudinary. Cuando esté, se agrega aquí y la página aparece sola.
+ * La serie está completa: los 11 videos producidos, los 11 publicados.
+ * Quedan 23 ideas del catálogo sin producir.
  */
 
 const CDN = 'https://res.cloudinary.com/cd1ept1i/video/upload'
@@ -197,6 +195,33 @@ export const TIPS: Tip[] = [
     segundos: 30,
     archivo: 'v1788049101/tip09-el-termometro-va-entre-dos-bolsas-envio',
     relacionado: ['papa-a-la-francesa'],
+  },
+  {
+    n: 10,
+    slug: 'cortes-que-llenan-mas-el-plato',
+    titulo: 'Cortes que llenan más el plato',
+    gancho: 'Mismo peso. Y el plato se ve a la mitad.',
+    dolor: 'Servir la misma porción en gramos y que el plato se vea pobre.',
+    publico: 'El dueño',
+    fuente: 'Catálogo de cortes Lamb Weston',
+    puntos: [
+      'El corte recto es el de siempre: cubre lo que cubre.',
+      'La rejita cubre más superficie con los mismos gramos.',
+      'La espiral llena el plato y se ve al doble.',
+      'El gajo se ve abundante y aguanta más tiempo caliente.',
+      'El rizado atrapa más sazón y más salsa.',
+      'Más porciones por bolsa. Más plato por orden.',
+    ],
+    segundos: 30,
+    archivo: 'v1788049101/tip10-cortes-que-llenan-mas-el-plato-envio',
+    relacionado: [
+      'papa-a-la-francesa',
+      'papa-gajo',
+      'papa-crisscut',
+      'papa-3-8',
+      'papa-5-16',
+      'papa-1-4',
+    ],
   },
   {
     n: 11,

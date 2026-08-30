@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CONFIANZA, EMPRESA, waLink } from '@/lib/site'
+import { asset, CONFIANZA, EMPRESA, waLink } from '@/lib/site'
 import { MODOS, type Ciudad } from '@/lib/ciudades'
 import type { Producto } from '@/lib/familias'
 
@@ -69,14 +69,26 @@ export function Breadcrumb({ items }: { items: { nombre: string; url?: string }[
 export function BarraConfianza() {
   return (
     <section className="border-b border-hielo-300 bg-white">
-      <dl className="contenedor grid grid-cols-2 gap-px bg-hielo-200 lg:grid-cols-4">
-        {CONFIANZA.map((c) => (
-          <div key={c.etiqueta} className="bg-white px-4 py-5">
-            <dt className="font-display text-lg font-bold text-fry-700">{c.valor}</dt>
-            <dd className="mt-1 text-[13px] leading-snug text-humo">{c.etiqueta}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className="contenedor flex flex-col gap-px lg:flex-row lg:items-stretch">
+        <dl className="grid flex-1 grid-cols-2 gap-px bg-hielo-200 lg:grid-cols-4">
+          {CONFIANZA.map((c) => (
+            <div key={c.etiqueta} className="bg-white px-4 py-5">
+              <dt className="font-display text-lg font-bold text-fry-700">{c.valor}</dt>
+              <dd className="mt-1 text-[13px] leading-snug text-humo">{c.etiqueta}</dd>
+            </div>
+          ))}
+        </dl>
+        {/* Uso del logotipo autorizado por Edgar Mayen (Lamb Weston), 2026-08-29. */}
+        <div className="flex items-center justify-center border-t border-hielo-200 bg-white px-6 py-5 lg:border-l lg:border-t-0">
+          <img
+            src={asset('/lamb-weston.png')}
+            alt="Lamb Weston — Possibilities in Potatoes"
+            width={444}
+            height={113}
+            className="h-9 w-auto"
+          />
+        </div>
+      </div>
     </section>
   )
 }
