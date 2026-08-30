@@ -41,8 +41,10 @@ function registros(archivo) {
     .map((b) => {
       const slug = b.match(/^\s*'([^']+)'/)?.[1]
       const nombre = b.match(/nombre:\s*'([^']+)'/)?.[1]
+      const region = b.match(/region:\s*'([^']+)'/)?.[1]
+      const estado = b.match(/estado:\s*'([^']+)'/)?.[1]
       if (!slug) return null
-      return { slug, nombre: nombre ?? slug, pilar: /pilar:\s*true/.test(b) }
+      return { slug, nombre: nombre ?? slug, region, estado, pilar: /pilar:\s*true/.test(b) }
     })
     .filter(Boolean)
 }
@@ -73,35 +75,45 @@ export default function Page() {
 }
 `
 
-const anclaCiudad = (slug, ciudad, nombre, ciudadNombre) => `${MARCA}
+const anclaCiudad = (slug, c, nombre) => `${MARCA}
 import type { Metadata } from 'next'
 import PaginaAncla from '@/components/landing/PaginaAncla'
 
 export const metadata: Metadata = {
-  title: '${nombre} en ${ciudadNombre} — entrega para restaurantes',
+  title: '${nombre} en ${c.nombre} — entrega para restaurantes',
   description:
-    '${nombre} congelada con entrega en ${ciudadNombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
-  alternates: { canonical: '/${slug}-en-${ciudad}/' },
+    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
+  alternates: { canonical: '/${slug}-en-${c.slug}/' },
+  // Sobrescribe el geo.region del layout: si no, una pagina de Saltillo se
+  // declararia de Nuevo Leon.
+  other: {
+    'geo.region': '${c.region}',
+    'geo.placename': '${c.nombre}, ${c.estado}',
+  },
 }
 
 export default function Page() {
-  return <PaginaAncla anclaSlug="${slug}" ciudadSlug="${ciudad}" />
+  return <PaginaAncla anclaSlug="${slug}" ciudadSlug="${c.slug}" />
 }
 `
 
-const familiaCiudad = (slug, ciudad, nombre, ciudadNombre) => `${MARCA}
+const familiaCiudad = (slug, c, nombre) => `${MARCA}
 import type { Metadata } from 'next'
 import PaginaGeo from '@/components/landing/PaginaGeo'
 
 export const metadata: Metadata = {
-  title: '${nombre} en ${ciudadNombre} — entrega para restaurantes',
+  title: '${nombre} en ${c.nombre} — entrega para restaurantes',
   description:
-    '${nombre} congelada con entrega en ${ciudadNombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
-  alternates: { canonical: '/${slug}-en-${ciudad}/' },
+    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
+  alternates: { canonical: '/${slug}-en-${c.slug}/' },
+  other: {
+    'geo.region': '${c.region}',
+    'geo.placename': '${c.nombre}, ${c.estado}',
+  },
 }
 
 export default function Page() {
-  return <PaginaGeo familiaSlug="${slug}" ciudadSlug="${ciudad}" />
+  return <PaginaGeo familiaSlug="${slug}" ciudadSlug="${c.slug}" />
 }
 `
 
@@ -134,14 +146,14 @@ function generar() {
     escribir(a.slug, pilarAncla(a.slug, a.nombre))
     pilares++
     for (const c of ciudades) {
-      escribir(`${a.slug}-en-${c.slug}`, anclaCiudad(a.slug, c.slug, a.nombre, c.nombre))
+      escribir(`${a.slug}-en-${c.slug}`, anclaCiudad(a.slug, c, a.nombre))
       geoAnclas++
     }
   }
 
   for (const f of familias) {
     for (const c of ciudades) {
-      escribir(`${f.slug}-en-${c.slug}`, familiaCiudad(f.slug, c.slug, f.nombre, c.nombre))
+      escribir(`${f.slug}-en-${c.slug}`, familiaCiudad(f.slug, c, f.nombre))
       geoFamilias++
     }
   }
