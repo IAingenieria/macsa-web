@@ -4,6 +4,7 @@ import Hero from '@/components/landing/Hero'
 import { Breadcrumb, CTAFinal, FAQ, Seccion } from '@/components/landing/Secciones'
 import { CIUDADES, MODOS, porModo, type Modo } from '@/lib/ciudades'
 import { EMPRESA, waLink } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -57,6 +58,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, quiero saber si entregan en mi ciudad."
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
+        imagen={HEROES['cobertura'].imagen}
+        lambWeston={HEROES['cobertura'].lambWeston}
       />
 
       <Seccion

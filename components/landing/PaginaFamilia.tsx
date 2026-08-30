@@ -16,6 +16,7 @@ import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
 import { MODOS, porModo } from '@/lib/ciudades'
 import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
+import { heroFamilia } from '@/lib/heroes'
 
 /**
  * La página PILAR de una familia: la fuente de verdad del contenido.
@@ -73,6 +74,8 @@ export default function PaginaFamilia({
         ]}
         ctaWhatsApp={`Hola, quiero información y precio de ${f.nombre.toLowerCase()}.`}
         ctaSecundario={{ href: '/cobertura/', label: '¿Llegan a mi ciudad?' }}
+        imagen={heroFamilia(f.slug).imagen}
+        lambWeston={heroFamilia(f.slug).lambWeston}
       />
 
       <BarraConfianza />

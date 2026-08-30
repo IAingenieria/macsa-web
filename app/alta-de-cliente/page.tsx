@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/landing/Hero'
 import { Breadcrumb, CTAFinal, FAQ, Seccion } from '@/components/landing/Secciones'
 import { EMPRESA, waLink } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -71,6 +72,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, quiero darme de alta como cliente. Mi negocio es…"
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
+        imagen={HEROES['alta-de-cliente'].imagen}
+        lambWeston={HEROES['alta-de-cliente'].lambWeston}
       />
 
       <Seccion eyebrow="Proceso" titulo="Cómo se abre la cuenta">

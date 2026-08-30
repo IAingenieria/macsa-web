@@ -8,6 +8,7 @@ import {
   FAQ,
   Seccion,
 } from '@/components/landing/Secciones'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -60,6 +61,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, quiero saber cómo entregan el producto congelado."
         ctaSecundario={{ href: '/cobertura/', label: 'Ver cobertura' }}
+        imagen={HEROES['cadena-de-frio'].imagen}
+        lambWeston={HEROES['cadena-de-frio'].lambWeston}
       />
 
       <BarraConfianza />

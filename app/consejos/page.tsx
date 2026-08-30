@@ -3,6 +3,7 @@ import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import { TarjetaTip } from '@/components/landing/Consejos'
 import { TIPS } from '@/lib/tips'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -33,6 +34,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, vi los consejos de cocina y quiero información de sus productos."
         ctaSecundario={{ href: '/papa-a-la-francesa/', label: 'Ver la línea de papa' }}
+        imagen={HEROES['consejos'].imagen}
+        lambWeston={HEROES['consejos'].lambWeston}
       />
 
       <BarraConfianza />

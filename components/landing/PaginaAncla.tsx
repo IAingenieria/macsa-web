@@ -13,6 +13,7 @@ import {
 import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
+import { heroAncla } from '@/lib/heroes'
 import { ANCLAS, ancla as buscarAncla } from '@/lib/anclas'
 import { familia as buscarFamilia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
@@ -155,6 +156,8 @@ export default function PaginaAncla({
             ? { href: `/${a.slug}/`, label: 'Ver el producto' }
             : { href: '/cobertura/', label: '¿Llegan a mi ciudad?' }
         }
+        imagen={heroAncla(a.slug).imagen}
+        lambWeston={heroAncla(a.slug).lambWeston}
       />
 
       <BarraConfianza />

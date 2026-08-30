@@ -13,6 +13,7 @@ import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, porModo, type Modo } from '@/lib/ciudades'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
+import { HEROES } from '@/lib/heroes'
 import { faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -73,6 +74,8 @@ export default function Home() {
         ]}
         ctaWhatsApp="Hola, quiero información de sus productos y precios."
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
+        imagen={HEROES['home'].imagen}
+        lambWeston={HEROES['home'].lambWeston}
       />
 
       <BarraConfianza />

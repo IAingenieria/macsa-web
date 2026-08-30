@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import { EMPRESA } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -63,6 +64,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, quiero conocer más de MACSA."
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
+        imagen={HEROES['nosotros'].imagen}
+        lambWeston={HEROES['nosotros'].lambWeston}
       />
 
       <BarraConfianza />

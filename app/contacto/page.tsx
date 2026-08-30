@@ -4,6 +4,7 @@ import { Breadcrumb, Seccion } from '@/components/landing/Secciones'
 import Hero from '@/components/landing/Hero'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { EMPRESA, waLink } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -34,6 +35,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, quiero información de sus productos."
         ctaSecundario={{ href: '/alta-de-cliente/', label: 'Darme de alta' }}
+        imagen={HEROES['contacto'].imagen}
+        lambWeston={HEROES['contacto'].lambWeston}
       />
 
       <Seccion

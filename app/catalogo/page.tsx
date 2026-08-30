@@ -5,6 +5,7 @@ import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/land
 import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { EMPRESA } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -35,6 +36,8 @@ export default function Page() {
         ]}
         ctaWhatsApp="Hola, ¿me pueden mandar el catálogo y la lista de precios?"
         ctaSecundario={{ href: '/cobertura/', label: '¿Llegan a mi ciudad?' }}
+        imagen={HEROES['catalogo'].imagen}
+        lambWeston={HEROES['catalogo'].lambWeston}
       />
 
       <BarraConfianza />

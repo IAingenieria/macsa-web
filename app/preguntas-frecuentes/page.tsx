@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/landing/Hero'
 import { Breadcrumb, CTAFinal, FAQ } from '@/components/landing/Secciones'
 import { EMPRESA } from '@/lib/site'
+import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -78,6 +79,8 @@ export default function Page() {
         anclas={['exclusiva a negocios', 'una muestra sin compromiso']}
         ctaWhatsApp="Hola, tengo una duda sobre sus productos."
         ctaSecundario={{ href: '/alta-de-cliente/', label: 'Darme de alta' }}
+        imagen={HEROES['preguntas-frecuentes'].imagen}
+        lambWeston={HEROES['preguntas-frecuentes'].lambWeston}
       />
 
       <FAQ preguntas={PREGUNTAS} />
