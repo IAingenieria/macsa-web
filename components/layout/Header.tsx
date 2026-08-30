@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { EMPRESA, waLink } from '@/lib/site'
+import { asset, EMPRESA, waLink } from '@/lib/site'
 
 const NAV = [
   { href: '/catalogo/', label: 'Catálogo' },
@@ -15,12 +15,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-hielo-300 bg-white/95 backdrop-blur">
       <div className="contenedor flex h-16 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3" aria-label={`${EMPRESA.nombre} — inicio`}>
-          <span
+          <img
+            src={asset('/isotipo-macsa.png')}
+            alt=""
             aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center rounded-sm bg-navy font-display text-[15px] font-bold text-fry"
-          >
-            M
-          </span>
+            width={38}
+            height={36}
+            className="h-9 w-auto"
+          />
           <span className="leading-none">
             <span className="block font-display text-[17px] font-bold tracking-tight text-navy">
               MACSA

@@ -13,6 +13,8 @@ export const organizacionSchema = {
   name: EMPRESA.nombre,
   legalName: EMPRESA.razonSocial,
   url: SITE_URL,
+  logo: `${SITE_URL}/isotipo-macsa.png`,
+  image: `${SITE_URL}/isotipo-macsa.png`,
   description: EMPRESA.descripcion,
   slogan: EMPRESA.claim,
   address: {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { EMPRESA } from '@/lib/site'
+import { asset, EMPRESA } from '@/lib/site'
 import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { porModo } from '@/lib/ciudades'
@@ -11,6 +11,15 @@ export default function Footer() {
     <footer className="mt-24 border-t-4 border-fry bg-navy-900 text-hielo-200">
       <div className="contenedor grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
+          {/* El logo es de un solo tono, asi que sobre el navy se invierte a
+              blanco con un filtro en vez de cargar otra imagen. */}
+          <img
+            src={asset('/isotipo-macsa.png')}
+            alt="MACSA"
+            width={56}
+            height={53}
+            className="mb-4 h-12 w-auto brightness-0 invert"
+          />
           <p className="font-display text-lg font-bold text-white">{EMPRESA.nombre}</p>
           <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-fry">
             {EMPRESA.razonSocial}

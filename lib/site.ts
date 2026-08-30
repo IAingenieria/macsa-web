@@ -5,6 +5,16 @@
  * Nada aquí se inventa: si un dato no está confirmado, no aparece en el sitio.
  */
 
+/**
+ * Prefijo de ruta. En GitHub Pages el sitio vive en /macsa-web, en Cloudflare
+ * en la raiz. `next/link` lo agrega solo, pero un <img src> NO: hay que
+ * anteponerlo a mano o la imagen da 404 en Pages y en ningun otro lado.
+ */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
+/** Ruta a un archivo de public/, con el prefijo correcto. */
+export const asset = (ruta: string) => `${BASE_PATH}${ruta}`
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://macsa-web.shy-block-053a.workers.dev'
 

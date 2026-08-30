@@ -2,8 +2,15 @@ import type { Config } from 'tailwindcss'
 
 /**
  * Sistema de diseño MACSA Foodservice.
- * La paleta cuenta el recorrido del producto: congelador (azules de acero)
- * → andén → freidora (el ámbar). Un solo acento cálido, todo lo demás frío.
+ *
+ * ⭐ El azul NO es una elección de diseño: es el color de marca, medido del
+ * logotipo oficial que mandó Jorge (MACSA_LOGO_COLOR_RGB). El logo es
+ * monocromo, un solo tono: #002C49 · rgb(0, 44, 73). Toda la escala navy
+ * se construye alrededor de ese valor y `navy.DEFAULT` es el color exacto.
+ *
+ * El ámbar (`fry`) SÍ es elección nuestra: el logo no trae segundo color, y
+ * un acento cálido era necesario para los llamados a la acción. Si el manual
+ * de identidad de MACSA define un secundario, ese manda sobre éste.
  */
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.{ts,tsx}'],
@@ -11,20 +18,20 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: '#0E2438',
-          900: '#081726',
-          800: '#0E2438',
-          700: '#163449',
-          600: '#1E4666',
-          500: '#2C5D84',
+          DEFAULT: '#002C49', // ← color oficial del logotipo MACSA
+          900: '#001B2E',
+          800: '#002C49',
+          700: '#013D63',
+          600: '#0A527E',
+          500: '#16679A',
         },
         hielo: {
-          DEFAULT: '#DCE9F2',
-          50: '#F4F8FB',
-          100: '#E8F0F6',
-          200: '#DCE9F2',
-          300: '#BFD4E4',
-          400: '#94B2C9',
+          DEFAULT: '#D2E2EC',
+          50: '#F1F6FA',
+          100: '#E3EDF4',
+          200: '#D2E2EC',
+          300: '#B4CCDD',
+          400: '#85A7C1',
         },
         fry: {
           DEFAULT: '#E8A33D',
@@ -34,12 +41,12 @@ const config: Config = {
         },
         ruta: '#2F7D5B',
         humo: {
-          DEFAULT: '#4A5C6B',
-          900: '#0E1A24',
-          700: '#33454F',
-          500: '#4A5C6B',
-          400: '#6E818F',
-          300: '#9FB0BC',
+          DEFAULT: '#4A5F6E',
+          900: '#0A1822',
+          700: '#2F4351',
+          500: '#4A5F6E',
+          400: '#6E8493',
+          300: '#9EB2BF',
         },
       },
       fontFamily: {
@@ -51,7 +58,7 @@ const config: Config = {
         prosa: '68ch',
       },
       boxShadow: {
-        panel: '0 1px 2px rgba(14,36,56,.06), 0 8px 24px -12px rgba(14,36,56,.18)',
+        panel: '0 1px 2px rgba(0,44,73,.06), 0 8px 24px -12px rgba(0,44,73,.18)',
       },
     },
   },
