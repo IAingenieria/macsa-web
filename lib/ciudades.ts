@@ -1,21 +1,22 @@
 /**
- * Las 26 ciudades y su MODO DE ENTREGA.
+ * Las 23 ciudades y su MODO DE ENTREGA (sin Tamaulipas).
  *
  * Regla de oro del proyecto: una página nunca promete más de lo que la
  * operación sostiene. El modo decide qué dice la sección de cobertura y,
  * en el caso de `consulta`, la página no promete entrega — sólo captura.
  *
- * ⚠️ La zona de Tampico (Tampico, Ciudad Madero, Altamira y Ciudad Victoria)
- * y con ella el modo `dedicado` se RETIRARON el 2026-08-31 por instrucción de
- * Edgar: anunciarse ahí hace ruido con el distribuidor que ya atiende esa
- * zona. No es un olvido — no reponerlas sin que Edgar lo pida.
- * Reynosa, Nuevo Laredo y Matamoros se quedan: son la frontera, otra zona,
- * y siguen en `consulta`, que no promete entrega.
+ * ⚠️ TAMAULIPAS COMPLETO está FUERA. En dos pasos:
+ *   · 2026-08-31 (Edgar): la zona de Tampico (Tampico, Cd. Madero, Altamira y
+ *     Cd. Victoria) y con ella el modo `dedicado` — anunciarse ahí hace ruido
+ *     con el distribuidor que ya atiende esa zona.
+ *   · 2026-09-01 (Jorge, en persona): "todo Tamaulipas se cae" — salen también
+ *     Reynosa, Nuevo Laredo y Matamoros, que estaban en `consulta`.
+ * No es un olvido: no reponer ninguna sin que Jorge o Edgar lo pidan.
  */
 
 export type Modo = 'diaria' | 'desarrollo' | 'corredor' | 'consulta'
 
-export type Estado = 'Nuevo León' | 'Tamaulipas' | 'Coahuila'
+export type Estado = 'Nuevo León' | 'Coahuila'
 
 export interface Ciudad {
   slug: string
@@ -99,15 +100,11 @@ export const CIUDADES: Ciudad[] = [
   },
 
   // ── Modo 4 · Bajo consulta ──────────────────────────────────────────
-  { slug: 'reynosa', nombre: 'Reynosa', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },
-  { slug: 'nuevo-laredo', nombre: 'Nuevo Laredo', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },
-  { slug: 'matamoros-tamaulipas', nombre: 'Matamoros', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },
   { slug: 'monclova', nombre: 'Monclova', estado: 'Coahuila', region: 'MX-COA', modo: 'consulta' },
 ]
 
 export const ESTADOS: { nombre: Estado; slug: string }[] = [
   { nombre: 'Nuevo León', slug: 'nuevo-leon' },
-  { nombre: 'Tamaulipas', slug: 'tamaulipas' },
   { nombre: 'Coahuila', slug: 'coahuila' },
 ]
 
