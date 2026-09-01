@@ -1,8 +1,8 @@
 {
-  "_nota": "Snapshot del catálogo real. Se regenera con scripts/sincronizar_catalogo.mjs. Sólo productos activos, no descontinuados y CON foto oficial del fabricante. NO contiene precios: publicarlos es decisión de Jorge.",
+  "_nota": "Snapshot del catálogo real. Se regenera con scripts/sincronizar_catalogo.mjs. Sólo productos activos, no descontinuados, CON foto oficial del fabricante y CON precio en alguna lista: lo que no se puede cotizar no se publica. NO contiene precios: publicarlos es decisión de Jorge.",
   "_fuente": "precios_listas_macsa · proyecto Supabase CEDIS",
   "_generado": "2026-09-01",
-  "_filtro": "activo is not false and descontinuado is not true and imagen_url is not null",
+  "_filtro": "activo is not false and descontinuado is not true and imagen_url is not null and (p1 > 0 or p2 > 0 or p3 > 0)",
   "productos": [
     {
       "s": "AMM",
@@ -133,36 +133,12 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/12045_LW-Supreme-Thin-CC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
-      "s": "12143",
-      "d": "Hash Brown Ovals",
-      "c": "Papa",
-      "p": "Caja 13.6 kg (30 lb)",
-      "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/12143_LW-Oval-Hash-Brown-Patties-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "2200D",
-      "d": "2200D CASCARA DE PAPA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/2200D_LW-Fried-Potato-Skins-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "22G",
       "d": "22G CASCARA DE PAPA",
       "c": "Papa",
       "p": "Caja 6.8 kg (15 lb)",
       "w": 15,
       "i": "https://lambweston.scene7.com/is/image/lambweston/22G_Trinity?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "25030",
-      "d": "25030 PAPA RECTA 1/4 CON CASACRA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/25030_LW-Private-Reserve-SS-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "30410",
@@ -178,7 +154,7 @@
       "c": "Papa",
       "p": "Caja 4.5 kg (10 lb)",
       "w": 10,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/30423?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/30423_LW-Gourmet-Breaded-Onion-Rings-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "30H",
@@ -187,14 +163,6 @@
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
       "i": "https://lambweston.scene7.com/is/image/lambweston/30H_Chips-Skin-On-Frozen-Potatoes_Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "32C",
-      "d": "32C PAPA DE 1/4 CON CASCARA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32C_LW-Private-Reserve-SS-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "32L",
@@ -218,15 +186,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32Q?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "32R",
-      "d": "32R 32R PAPA GAJO NATURAL 6/5 LB",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32R_LW-Private-Reserve-Wedge-Cut-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/32Q_LW-Private-Reserve-Steak-Cut-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "34000",
@@ -237,30 +197,6 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p08_d655a438.webp"
     },
     {
-      "s": "45Q",
-      "d": "45Q PAPA 1/4 CON COBERTURA DE CERVEZA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/45Q?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "45R",
-      "d": "45R PAPA RECTA 1/2X1/4 COBERTURA DE CERVEZA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/45R_LW-Seasoned-Platter-Fries-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "A24",
-      "d": "A24 PAPA CRISPY EN CUBOS",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/A24_LW-Seasoned-CrispyCubes-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "A26",
       "d": "Tater Rounds",
       "c": "Papa",
@@ -269,28 +205,12 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/A26_LW-Tater-Roundabouts-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
-      "s": "A28",
-      "d": "A28 PAPA CUBO SAZONADA 6/6 LB",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/A28_LW-Seasoned-CrispyCubes-Original-Recipe-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "B36",
       "d": "B36 PAPA RECTA 3/8 PREMIUM EXTRA LARGA",
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
       "i": "https://lambweston.scene7.com/is/image/lambweston/B36_LW-Supreme-RC-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "B43",
-      "d": "B43 PAPA SAZONADA 5/16",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/B43_LW-Seasoned-Thin-RC-Skin-On-Original-Recipe-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "B91",
@@ -306,7 +226,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C0034?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/C0034_LW-Colossal-Crisp-SS-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "C0057",
@@ -315,14 +235,6 @@
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
       "i": "https://lambweston.scene7.com/is/image/lambweston/C0057_LW-Colossal-Crisp-RC-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "C0063",
-      "d": "C0063 PAPA RECTA 5/16",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C0063-parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "C27",
@@ -341,14 +253,6 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/C2700_plated-1?$PORTRAIT_X1_JPG$"
     },
     {
-      "s": "C67",
-      "d": "C67 CUBO DE PAPA FRITO",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C67_LW-Skillet-Browns-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "CHZ",
       "d": "CHZ CHICHARO ZANAHORIA 12/40 OZ",
       "c": "Papa",
@@ -357,20 +261,12 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_48eaabfc.webp"
     },
     {
-      "s": "D17",
-      "d": "D17 SEASONED 8 CUT WEDGE",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/D17_LW-Seasoned-Deli-Wedge-Chicken-Batter-Recipe-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "D23",
       "d": "D23 PAPA CRISSCUT SAZONADA",
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/D23-1?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/D23_LW-Seasoned-CrissCut-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "EE48",
@@ -397,14 +293,6 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_b54fc10e.webp"
     },
     {
-      "s": "F6032",
-      "d": "PAPA RECTA 3/8 CON CASARA 36 LB",
-      "c": "Papa",
-      "p": "Caja 16.32 kg",
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p05_79470e08.webp"
-    },
-    {
       "s": "F6037",
       "d": "Muncher Tocino",
       "c": "Papa",
@@ -419,14 +307,6 @@
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
       "i": "https://lambweston.scene7.com/is/image/lambweston/Straight_Seashore_Parchment_0519?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "FC002",
-      "d": "FC002 PAPA RALLADA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/FC002-Trinity-Shredded-Hash-Browns?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "H0057",
@@ -469,22 +349,6 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/I11_LW-Supreme-CC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
-      "s": "J73",
-      "d": "J73 CUBOS DE PAPA 5/8",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/J73_LW-IQF-Cubes-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "J75",
-      "d": "J75 CUBOS DE PAPA DE CASCARA ROJA 5/8",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/J75_LW-IQF-Red-Skin-Cubes-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "L0092",
       "d": "L0092 SWEET POTATO 5/16",
       "c": "Papa",
@@ -517,54 +381,6 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/LW203_LW-COD-SS-Crispy-on-Delivery-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
-      "s": "LW204",
-      "d": "LW204 PAPA CRISPY ON DELIVERY 5/16",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/LW204_Thin_RC_Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "LW508",
-      "d": "LW508 MEZCLA DE PAPA ORNEADAS",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/LW508_LW-Oven-Roasted-Potato-Medley-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "M0011",
-      "d": "M0011 PURE YUKON",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/M0011_LW-Supreme-Gold-Mashed-Lightly-Seasoned-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "M14",
-      "d": "M14 PURE SAZONADO LIGERO",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/M14_LW-Supreme-Mashed-Lightly-Seasoned-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "M16",
-      "d": "M16 PURE ORIGINAL",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/M16_LW-Supreme-Original-Mashed-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "M18",
-      "d": "M18 PURE CON AJO",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/M18_LW-Supreme-Mashed-Roasted-Garlic-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "M22",
       "d": "M22 PURE MEZCLA",
       "c": "Papa",
@@ -581,28 +397,12 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_fe3334ce.webp"
     },
     {
-      "s": "N88",
-      "d": "N88 PURE ESTILO CASERO",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/N88_LW-Supreme-Homestyle-Mashed-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
       "s": "P38",
       "d": "P38 MUNCHER JALAPEÑO QUESO CHEDDAR 18LB",
       "c": "Papa",
       "p": "Caja 8.2 kg (18 lb)",
       "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/P38?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "P39",
-      "d": "P39 PAPA CON FORMA DE JALAPEÑO CON CHEDDRA",
-      "c": "Papa",
-      "p": "Caja 8.2 kg (18 lb)",
-      "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/P39_LW-Southwestern-Cheddar-Cheese-Diced-Potatoes-Jalapenos-Pepper-Shape-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/P38_LW-Southwestern-Cheddar-Cheese-Diced-Potatoes-Jalapenos-Round-Shape-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "P40",
@@ -610,31 +410,7 @@
       "c": "Papa",
       "p": "Caja 8.2 kg (18 lb)",
       "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/P40?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "RE001",
-      "d": "RE001 PAPA CRISPY 5/16",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/Fridge_Friendly_Fries_PARCHMENT_960px_by_640px_014?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "S0010",
-      "d": "S0010 PAPA TWISTER STEALTH",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S0010_LW-Stealth-Fries-Twister-Fries-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "S0017",
-      "d": "S0017 PAPA STEALH 1/2",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S0017_LW-Stealth-Fries-Concertinas-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/P40_LW-Cheddar-Cheese-Diced-Potatoes-Round-Shape-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "S0022",
@@ -642,15 +418,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S0022?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "S0032",
-      "d": "S0032 PAPA STEALH 1/4 6/6 LB",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S35_LW-Stealth-Fries-Thin-RC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/S0022_LW-Stealth-Fries-Thin-CC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "S01",
@@ -674,7 +442,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S13?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/S13_LW-Stealth-Fries-Trim-Fries-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "S15",
@@ -690,7 +458,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S19?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/S19_LW-Stealth-Fries-RC-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "S34",
@@ -698,15 +466,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S34?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "S53",
-      "d": "S53 PAPA RECTA STEALH 1/4",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S53-2?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/S34_LW-Stealth-Fries-SS-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "S57",
@@ -714,31 +474,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb, bolsa papel)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S57?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "S69",
-      "d": "S69 PAPA HASH BROWNS RALLADA",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S69_LW-Shredded-IQF-Hash-Browns-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "SS102",
-      "d": "SS102 PAPA SAZONADA 3/16",
-      "c": "Papa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/SS102_LW-Seasoned-Seashore-Style-Flats-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "X9181",
-      "d": "X9181 LW SEASONED 1/4 TWISTER",
-      "c": "Papa",
-      "p": "Caja 13.6 kg (30 lb)",
-      "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/X9181?$PORTRAIT_X1_JPG$"
+      "i": "https://lambweston.scene7.com/is/image/lambweston/S57_LW-Stealth-Fries-RC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
       "s": "X9182",
@@ -779,30 +515,6 @@
       "p": "Caja 12 kg",
       "w": null,
       "i": "https://bachoco.com.mx/wp-content/uploads/2019/08/charola-alitas-picositas-600x600-1.png"
-    },
-    {
-      "s": "POL-HP",
-      "d": "Hamburguesa de Pechuga Pilgrims",
-      "c": "Pollo",
-      "p": "Caja 12 kg",
-      "w": null,
-      "i": "https://pilgrims.com.mx/wp-content/uploads/2023/12/PIlgrims_hamburguesa_pollo-1-1024x1024.png"
-    },
-    {
-      "s": "POL-NP",
-      "d": "Nugget de Pechuga Pilgrims",
-      "c": "Pollo",
-      "p": "Caja 12 kg",
-      "w": null,
-      "i": "https://pilgrims.com.mx/wp-content/uploads/2023/12/Pilgrims_nuggets.png"
-    },
-    {
-      "s": "POL-PP",
-      "d": "Pechuga Picosita Pilgrims",
-      "c": "Pollo",
-      "p": "Caja 12 kg",
-      "w": null,
-      "i": "https://pilgrims.com.mx/wp-content/uploads/2023/12/Pilgrims_Filete_Picante-1-1024x1024.png"
     },
     {
       "s": "POL-TE",
@@ -899,14 +611,6 @@
       "p": "7pq/12pz",
       "w": null,
       "i": "https://potatorolls.com/wp-content/uploads/12_Slider_R20.8.15_500px.png"
-    },
-    {
-      "s": "SRIRACHA",
-      "d": "SALSA SRIRACHA TAPA VERDE",
-      "c": "Salsa",
-      "p": "Por definir",
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p24_367c6ef5.webp"
     }
   ]
 }

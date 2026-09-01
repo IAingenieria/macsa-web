@@ -16,6 +16,11 @@
  *    precio de distribuidor: no puede salir jamás al navegador.
  *  - Sólo productos CON foto oficial: una ficha sin imagen no vende, y una
  *    con la imagen equivocada es peor que ninguna.
+ *  - Sólo productos CON PRECIO en algún tier. Lo marcó Edgar el 1-sep: el
+ *    sitio enseñaba `LW508` y otros 31 que están activos en la tabla pero sin
+ *    precio en ninguna lista, así que el cliente los ve, los pide y el
+ *    vendedor no los puede cotizar. "Nos vamos por la lista de precios."
+ *    NO se traen los precios — sólo se pregunta si existen.
  *
  * Uso:
  *   SB_URL=https://<ref>.supabase.co SB_KEY=<service_key> \
@@ -39,6 +44,12 @@ if (!SB_URL || !SB_KEY) {
 }
 
 const COLUMNAS = 'sku,descripcion,categoria,presentacion,peso_lb,imagen_url'
+/**
+ * "Se puede cotizar" = tiene precio en p1, p2 o p3. Se pide como filtro del
+ * servidor y no como columna: los precios no bajan a esta máquina ni entran
+ * al snapshot, que es público. `p1` es el precio de distribuidor.
+ */
+const CON_PRECIO = 'or=(p1.gt.0,p2.gt.0,p3.gt.0)'
 const PAGINA = 500
 
 /**
@@ -56,6 +67,7 @@ async function traerTodo() {
       `&descontinuado=not.is.true` +
       `&descripcion=not.is.null` +
       `&imagen_url=not.is.null` +
+      `&${CON_PRECIO}` +
       `&order=categoria.asc,sku.asc`
 
     const res = await fetch(url, {
@@ -80,11 +92,14 @@ const filas = await traerTodo()
 const salida = {
   _nota:
     'Snapshot del catálogo real. Se regenera con scripts/sincronizar_catalogo.mjs. ' +
-    'Sólo productos activos, no descontinuados y CON foto oficial del fabricante. ' +
+    'Sólo productos activos, no descontinuados, CON foto oficial del fabricante ' +
+    'y CON precio en alguna lista: lo que no se puede cotizar no se publica. ' +
     'NO contiene precios: publicarlos es decisión de Jorge.',
   _fuente: 'precios_listas_macsa · proyecto Supabase CEDIS',
   _generado: new Date().toISOString().slice(0, 10),
-  _filtro: 'activo is not false and descontinuado is not true and imagen_url is not null',
+  _filtro:
+    'activo is not false and descontinuado is not true and imagen_url is not null ' +
+    'and (p1 > 0 or p2 > 0 or p3 > 0)',
   productos: filas.map((f) => ({
     s: f.sku,
     d: f.descripcion,
