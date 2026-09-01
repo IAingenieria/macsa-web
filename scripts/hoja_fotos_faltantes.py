@@ -21,10 +21,18 @@ import io
 import json
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from presentacion import presentacion_de
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARPETA = os.path.join(RAIZ, "_fotos_catalogo")
 SALIDA = os.path.join(CARPETA, "fotos-que-faltan.html")
+
+# La carpeta donde Emiliano sube las fotos. Un artifact no puede recibir
+# archivos, asi que el canal de las imagenes vive fuera de la pagina.
+DRIVE = "https://drive.google.com/drive/folders/1mSumNDTlApKcShgFp7H5xdX83RU4ghfD?usp=drive_link"
 
 # Cómo se llama cada categoría de la base en el lenguaje del catálogo.
 NOMBRES = {
@@ -80,7 +88,9 @@ def main():
             "sku": sku,
             "nombre": bonito(p.get("descripcion"), sku),
             "cat": NOMBRES.get(p.get("categoria") or "", p.get("categoria") or "Otros"),
-            "pres": p.get("presentacion") or "",
+            # La columna de la base dice "Por definir" en 115 de estos; la
+            # descripcion si lo trae, asi que se saca de ahi.
+            "pres": presentacion_de(p.get("descripcion"), sku, p.get("presentacion")) or "",
             "lb": p.get("peso_lb"),
             "ultima": ult.get(sku, ""),
         }
@@ -119,7 +129,10 @@ def main():
         "n_total": 394,
     }
 
-    html = PLANTILLA.replace("__DATOS__", json.dumps(datos, ensure_ascii=False))
+    html = (
+        PLANTILLA.replace("__DATOS__", json.dumps(datos, ensure_ascii=False))
+        .replace("__DRIVE__", DRIVE)
+    )
     io.open(SALIDA, "w", encoding="utf-8", newline="\n").write(html)
     print(f"se venden y no tienen foto: {len(vivos)}")
     print(f"sin venta en 2026:          {len(dormidos)}")
@@ -183,6 +196,13 @@ PLANTILLA = """<title>Fotos que faltan</title>
   .como ol { margin:0; padding-left:20px; color:var(--tinta-suave); }
   .como li { margin:5px 0; }
   .como code { font-family:"IBM Plex Mono",monospace; background:var(--panel); padding:1px 5px; border:1px solid var(--borde); font-size:13px; }
+  .carpeta { display:inline-block; margin-top:6px; padding:8px 14px; background:var(--navy); color:#fff;
+    text-decoration:none; font-family:Archivo,sans-serif; font-weight:600; font-size:13.5px; }
+  .carpeta:hover { background:var(--navy-600); }
+  .estado { font-size:12px; color:var(--tinta-tenue); white-space:nowrap; }
+  .estado[data-modo="nube"]::before { content:"● "; color:var(--ruta); }
+  .estado[data-modo="enviando"]::before { content:"● "; color:var(--humo-400); }
+  .estado[data-modo="local"]::before { content:"● "; color:var(--fry-700); }
 
   .resumen { display:flex; gap:1px; background:var(--borde); border:1px solid var(--borde); margin:24px 0 8px; flex-wrap:wrap; }
   .dato { flex:1 1 150px; background:var(--panel); padding:14px 16px; }
@@ -234,9 +254,10 @@ PLANTILLA = """<title>Fotos que faltan</title>
     </div>
     <div class="der">
       <span class="cuenta"><strong id="hechas">0</strong> revisados</span>
+      <span class="estado" id="estado"></span>
       <div class="medidor"><span id="medidor"></span></div>
       <button class="sec" id="limpiar">Empezar de nuevo</button>
-      <button id="copiar">Copiar lo marcado</button>
+      <button id="copiar">Ver lo marcado</button>
     </div>
   </div>
 </header>
@@ -259,10 +280,15 @@ PLANTILLA = """<title>Fotos que faltan</title>
       producto servido si es lo que hay en el catálogo del fabricante).</li>
       <li><strong>El archivo se llama como el código</strong>: <code>B36.jpg</code>,
       <code>HZ-MZ.jpg</code>, <code>4440.jpg</code>. Así entran solas al sitio; si vienen con otro
-      nombre hay que emparejarlas a mano y ahí se cuelan los errores.</li>
+      nombre hay que emparejarlas a mano y ahí es donde se cuelan los errores.</li>
       <li>De 800 px o más por lado. Sirve JPG, PNG o WEBP.</li>
-      <li>Ve marcando aquí lo que ya tengas, y al final dale a <strong>Copiar lo marcado</strong> y
-      pásaselo a Luis con las fotos.</li>
+      <li>Súbelas a esta carpeta:<br>
+        <a class="carpeta" href="__DRIVE__" target="_blank" rel="noopener noreferrer">
+          Fotos del catálogo — Google Drive
+        </a>
+      </li>
+      <li>Y ve marcando aquí lo que ya subiste. <strong>Lo que marques se guarda solo</strong> y
+      Luis lo ve desde su lado: no hace falta que mandes nada más.</li>
     </ol>
   </div>
 
@@ -288,7 +314,7 @@ PLANTILLA = """<title>Fotos que faltan</title>
 
 <div id="panel">
   <div class="caja">
-    <strong>Lo marcado — mándaselo a Luis junto con las fotos</strong>
+    <strong>Lo marcado</strong>
     <textarea id="salida" readonly></textarea>
     <div style="margin-top:8px; display:flex; gap:8px;">
       <button id="alportapapeles">Copiar al portapapeles</button>
@@ -303,6 +329,53 @@ PLANTILLA = """<title>Fotos que faltan</title>
   const CLAVE = 'macsa-fotos-faltantes-v1'
   let estado = {}
   try { estado = JSON.parse(localStorage.getItem(CLAVE) || '{}') } catch (e) { estado = {} }
+
+  /**
+   * El avance se guarda en el servidor, no en el navegador.
+   *
+   * La hoja la llena Emiliano desde su computadora y la revisa Luis desde la
+   * suya: si el estado viviera en localStorage, cada uno vería el suyo y se
+   * perdería al cambiar de equipo. localStorage se conserva sólo como red de
+   * seguridad para que un corte de internet no borre lo ya marcado en pantalla.
+   */
+  let ultimoEnvio = null
+
+  function pintarEstado(modo) {
+    const e = document.getElementById('estado')
+    if (!e) return
+    e.dataset.modo = modo
+    e.textContent =
+      modo === 'nube' ? 'Guardado' : modo === 'enviando' ? 'Guardando…' : 'Sin conexión'
+  }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(estado)) } catch (e) {}
+    clearTimeout(ultimoEnvio)
+    pintarEstado('enviando')
+    // Los clics seguidos se agrupan en un solo envío.
+    ultimoEnvio = setTimeout(() => {
+      fetch('estado', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ marcas: estado }),
+      })
+        .then((r) => (r.ok ? pintarEstado('nube') : pintarEstado('local')))
+        .catch(() => pintarEstado('local'))
+    }, 500)
+  }
+
+  // Lo que ya esté guardado manda sobre lo que traiga este navegador.
+  fetch('estado')
+    .then((r) => r.json())
+    .then((d) => {
+      if (d && d.marcas && Object.keys(d.marcas).length) {
+        estado = d.marcas
+        document.querySelectorAll('tr[data-sku]').forEach(refrescar)
+        avance()
+      }
+      pintarEstado('nube')
+    })
+    .catch(() => pintarEstado('local'))
 
   document.getElementById('resumen').innerHTML = `
     <div class="dato"><div class="n">${D.n_total}</div><div class="t">productos en la lista</div></div>
@@ -370,9 +443,9 @@ PLANTILLA = """<title>Fotos que faltan</title>
     const tr = b.closest('tr')
     const sku = tr.dataset.sku
     estado[sku] = estado[sku] === b.dataset.v ? null : b.dataset.v
-    try { localStorage.setItem(CLAVE, JSON.stringify(estado)) } catch (err) {}
     refrescar(tr)
     avance()
+    guardar()
   })
 
   document.getElementById('copiar').addEventListener('click', () => {
@@ -397,6 +470,7 @@ PLANTILLA = """<title>Fotos que faltan</title>
     try { localStorage.removeItem(CLAVE) } catch (e) {}
     document.querySelectorAll('tr[data-sku]').forEach(refrescar)
     avance()
+    guardar()
   })
 </script>
 """

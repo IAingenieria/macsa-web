@@ -58,6 +58,91 @@ export interface ProductoCatalogo {
 
 const LB_A_KG = 0.45359237
 
+/* ── Presentación ────────────────────────────────────────────────────
+ * La columna `presentacion` de la base dice "Por definir" en buena parte del
+ * catálogo, pero la descripción de Microsip SÍ la trae, al final y en
+ * mayúsculas: "SALSA MANGO HABANERO GALON", "SAZONADOR LEMON PEPPER BOTE 800
+ * GR", "CATSUP HEINZ 1000 SOBRE DE 9GR". Enseñar "presentación a confirmar"
+ * cuando el dato está a la vista en el propio nombre es tirar información que
+ * ya está capturada — sobre 285 productos recupera 86.
+ *
+ * No inventa: si la descripción no dice envase ni medida, devuelve null y la
+ * ficha se queda sin presentación, que es lo honesto.
+ * El gemelo en Python es `scripts/presentacion.py`, que alimenta la hoja de
+ * fotos faltantes; los dos tienen que decir lo mismo.
+ */
+
+const ENVASES: [RegExp, string][] = [
+  // "GALO" sin N aparece por descripciones truncadas en Microsip.
+  [/\bGAL(?:[OÓ]N|O)?\b/, 'Galón'],
+  [/\bBID[OÓ]N\b/, 'Bidón'],
+  [/\bCUBETA\b/, 'Cubeta'],
+  [/\bBOTE\b/, 'Bote'],
+  [/\bBOTELLITA\b/, 'Botellita'],
+  [/\bBOTELLA\b/, 'Botella'],
+  [/\bPOUCH\b/, 'Pouch'],
+  [/\bBOLSA\b/, 'Bolsa'],
+  [/\bSOBRES?\b/, 'Sobre'],
+  [/\bCAJA\b|\bCJ\b/, 'Caja'],
+]
+
+const UNIDAD: Record<string, string> = {
+  KILO: 'kg', KILOS: 'kg', KG: 'kg', KGS: 'kg',
+  LB: 'lb', LBS: 'lb',
+  L: 'L', LT: 'L', LTS: 'L',
+  ML: 'ml',
+  G: 'g', GR: 'g', GRS: 'g',
+  OZ: 'oz',
+}
+
+const unidad = (t: string) => UNIDAD[t.toUpperCase()] ?? t.toLowerCase()
+const numero = (t: string) => {
+  const n = t.replace(',', '.')
+  return n.endsWith('.0') ? n.slice(0, -2) : n
+}
+
+/** "1000 SOBRE DE 9GR", "500 PZ 8GR", "4 BLS DE 3KG" */
+const RE_CUENTA_DE =
+  /\b(\d{1,4})\s*(?:SOBRES?|PZ|PZS|PIEZAS?|BLS|BOLSAS?)\s*(?:DE\s*)?(\d+(?:\.\d+)?)\s*(GR?|G|ML|KG|L)\b/
+/** 500/8G, 72/30G, 12/12.7OZ, y el "6/5 LB" de Lamb Weston (6 bolsas de 5 lb). */
+const RE_PAR = /\b(\d{1,4})\s*\/\s*(\d+(?:\.\d+)?)\s*(GR?|G|ML|OZ|KGS?|LBS?|L)\b/
+const RE_MEDIDA =
+  /(?<![\d/.-])(\d+(?:[.,]\d+)?)\s*(KILOS?|KGS?|KG|LBS?|LB|LTS?|LT|L|ML|GRS?|GR|G|OZ)\b/
+const RE_PIEZAS = /\b(\d{1,4})\s*(?:PZ|PZS|PIEZAS?)\b/
+
+export function presentacionDe(
+  descripcion: string,
+  sku: string,
+  presentacion: string | null,
+): string | null {
+  const dada = (presentacion ?? '').trim()
+  if (dada && dada.toLowerCase() !== 'por definir') return dada
+
+  let d = (descripcion ?? '').toUpperCase()
+  if (sku && d.startsWith(sku.toUpperCase())) d = d.slice(sku.length)
+  if (!d.trim()) return null
+
+  const envase = ENVASES.find(([re]) => re.test(d))?.[1] ?? null
+
+  // "1000 sobres de 9 g" manda: dice cuántas piezas Y de cuánto.
+  const par = d.match(RE_CUENTA_DE) ?? d.match(RE_PAR)
+  if (par) {
+    const cuerpo = `${par[1]} pz de ${numero(par[2])} ${unidad(par[3])}`
+    return envase && envase !== 'Sobre' ? `${envase} ${cuerpo}` : cuerpo
+  }
+
+  const medida = d.match(RE_MEDIDA)
+  if (medida) {
+    const cuerpo = `${numero(medida[1])} ${unidad(medida[2])}`
+    return envase ? `${envase} ${cuerpo}` : cuerpo
+  }
+
+  const piezas = d.match(RE_PIEZAS)
+  if (piezas) return envase ? `${envase} ${piezas[1]} pz` : `${piezas[1]} pz`
+
+  return envase
+}
+
 /** Siglas que NO deben pasar a Title Case. */
 const SIGLAS = new Set([
   'LW', 'IQF', 'BBQ', 'COD', 'RD', 'TCF', 'AMM', 'HZ', 'PXLF', 'XL', 'SS',
@@ -285,7 +370,7 @@ export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[])
   return {
     sku: f.s,
     nombre: tituloBonito(f.d, f.s),
-    presentacion: f.p && f.p !== 'Por definir' ? f.p : null,
+    presentacion: presentacionDe(f.d, f.s, f.p),
     imagen: f.i,
     familia: familiaDe(f),
     pesoLb: f.w,
