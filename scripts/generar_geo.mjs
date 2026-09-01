@@ -82,7 +82,7 @@ import PaginaAncla from '@/components/landing/PaginaAncla'
 export const metadata: Metadata = {
   title: '${nombre} en ${c.nombre} — entrega para restaurantes',
   description:
-    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
+    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío garantizada, sin cortes, y existencia continua. Punto de venta y servicio a domicilio.',
   alternates: { canonical: '/${slug}-en-${c.slug}/' },
   // Sobrescribe el geo.region del layout: si no, una pagina de Saltillo se
   // declararia de Nuevo Leon.
@@ -104,7 +104,7 @@ import PaginaGeo from '@/components/landing/PaginaGeo'
 export const metadata: Metadata = {
   title: '${nombre} en ${c.nombre} — entrega para restaurantes',
   description:
-    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío sin cortes, producto IQF y existencia continua. Venta exclusiva a negocios.',
+    '${nombre} congelada con entrega en ${c.nombre}. Distribuidor con cadena de frío garantizada, sin cortes, y existencia continua. Punto de venta y servicio a domicilio.',
   alternates: { canonical: '/${slug}-en-${c.slug}/' },
   other: {
     'geo.region': '${c.region}',

@@ -36,11 +36,11 @@ export const ANCLAS: Ancla[] = [
     h1: 'Media pechuga de pollo sin piel congelada',
     familia: 'pollo',
     answerFirst:
-      'La media pechuga de pollo sin piel es el producto de mayor movimiento de MACSA y llega congelada IQF en caja de 13 kg. Rinde para milanesa, empanizado, plancha y guisado con el mismo código, que es justo lo que necesita una cocina de alto volumen para no multiplicar claves de inventario.',
+      'La media pechuga de pollo sin piel es el producto de mayor movimiento de MACSA y llega congelada en caja de 13 kg. Rinde para milanesa, empanizado, plancha y guisado con el mismo código, que es justo lo que necesita una cocina de alto volumen para no multiplicar claves de inventario.',
     anclas: ['el producto de mayor movimiento', 'con el mismo código'],
     skus: ['PSCH13', 'PSCH18', 'PSCH', 'POL-AGR'],
     factura: 21090000,
-    giros: ['comida-corrida', 'cocina-institucional', 'fast-food', 'dark-kitchen'],
+    giros: ['comida-corrida', 'comedor-industrial', 'fast-food', 'dark-kitchen'],
   },
   {
     slug: 'papa-crisscut',
@@ -50,7 +50,7 @@ export const ANCLAS: Ancla[] = [
     answerFirst:
       'La papa crisscut sazonada es el corte enrejado que más se comparte en barra: se ve más en el plato y aguanta la salsa sin ablandarse. MACSA la maneja como distribuidor oficial de Lamb Weston, congelada IQF en caja de 12.2 kg, lista para ir del congelador a la freidora.',
     anclas: ['se ve más en el plato', 'distribuidor oficial de Lamb Weston'],
-    skus: ['D23', 'X9182', 'S15'],
+    skus: ['D23', 'S15'],
     factura: 7910000,
     giros: ['bar-y-cantina', 'alitas-y-boneless', 'hamburgueseria'],
   },
@@ -124,7 +124,7 @@ export const ANCLAS: Ancla[] = [
     anclas: ['listo para calentar y servir', 'no depende de quién esté en la estufa'],
     skus: ['M22', 'M14', 'M16', 'M18', 'M0011', 'N88'],
     factura: 3886000,
-    giros: ['comida-corrida', 'cocina-institucional', 'hotel'],
+    giros: ['comida-corrida', 'comedor-industrial', 'hotel'],
   },
   {
     slug: 'papa-gajo',
@@ -134,7 +134,7 @@ export const ANCLAS: Ancla[] = [
     answerFirst:
       'La papa gajo sazonada de ocho cortes es la guarnición que más llena el plato por caja, y la que se pide para compartir en barra. MACSA la maneja sazonada y natural, en caja de 13.6 kg y congelada IQF, como distribuidor oficial de Lamb Weston en Monterrey.',
     anclas: ['más llena el plato por caja', 'distribuidor oficial de Lamb Weston'],
-    skus: ['C27', 'C2700', '32R', 'D17'],
+    skus: ['C2700', '32R'],
     factura: 2067000,
     giros: ['bar-y-cantina', 'alitas-y-boneless', 'taqueria'],
   },
@@ -156,7 +156,7 @@ export const ANCLAS: Ancla[] = [
     h1: 'Boneless de pollo congelado natural y enchilado',
     familia: 'pollo',
     answerFirst:
-      'El boneless de pollo es la base del negocio de alitas, y MACSA lo maneja natural y enchilado. El natural te deja salsear al momento con los sabores que tengas en barra; el enchilado ya trae el picante integrado. Todo congelado IQF, con cadena de frío sin cortes.',
+      'El boneless de pollo es la base del negocio de alitas, y MACSA lo maneja natural y enchilado. El natural te deja salsear al momento con los sabores que tengas en barra; el enchilado ya trae el picante integrado. Todo congelado, con cadena de frío sin cortes.',
     anclas: ['la base del negocio de alitas', 'salsear al momento'],
     skus: ['POL-FN', 'POL-FE', 'BN', 'BE'],
     factura: 1864000,
@@ -172,7 +172,7 @@ export const ANCLAS: Ancla[] = [
     anclas: ['la porción exacta que necesitas', 'más barata por porción'],
     skus: ['EM96', 'EE48', 'EED'],
     factura: 2022000,
-    giros: ['comida-corrida', 'cocina-institucional', 'food-truck', 'hotel'],
+    giros: ['comida-corrida', 'comedor-industrial', 'food-truck', 'hotel'],
   },
   {
     slug: 'papa-1-4',

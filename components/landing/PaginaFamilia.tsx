@@ -69,7 +69,7 @@ export default function PaginaFamilia({
             etiqueta: 'Códigos',
             valor: f.productos.length ? `${f.productos.length} en catálogo` : 'Lista completa a solicitud',
           },
-          { etiqueta: 'Congelado', valor: 'IQF, sin descongelar' },
+          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },
         ]}
         ctaWhatsApp={`Hola, quiero información y precio de ${f.nombre.toLowerCase()}.`}

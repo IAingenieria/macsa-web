@@ -101,7 +101,7 @@ export default function PaginaAncla({
     },
     {
       p: '¿Hay que descongelar antes de usarlo?',
-      r: 'No. Todo el congelado es IQF, pieza por pieza: va directo del congelador a la freidora o a la plancha, sin descongelar.',
+      r: 'No. El producto va directo del congelador a la freidora o a la plancha, sin descongelar: descongelarlo es justo lo que lo deja aguado.',
     },
     {
       p: '¿Siempre tienen el mismo producto?',
@@ -144,7 +144,7 @@ export default function PaginaAncla({
             valor: c ? modo!.promesa : 'Al día siguiente en el área metropolitana',
           },
           { etiqueta: 'Códigos', valor: `${a.skus.length} presentaciones` },
-          { etiqueta: 'Congelado', valor: 'IQF, sin descongelar' },
+          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
         ]}
         ctaWhatsApp={
           c

@@ -7,12 +7,14 @@ import { BOT_WIDGET } from '@/lib/site'
  * con su base de conocimiento cargada. Forja sirve el widget en `/widget.js`
  * — la misma etiqueta que el dueño pegaría en cualquier sitio.
  *
- * ⚠️ Hoy ese endpoint responde 404: «El canal web de este bot no está
- * activado». Activarlo es un cambio de configuración en el bot de producción,
- * así que no se hace desde aquí. Cuando Luis lo habilite, basta con poner la
- * URL en `NEXT_PUBLIC_BOT_WIDGET` y el chat aparece en todas las páginas.
+ * El bot filtra por ORIGEN. Medido el 2026-08-31: pasan `iaingenieria.github.io`
+ * y `macsa-web.shy-block-053a.workers.dev` (los dos destinos del sitio, que el
+ * bot lista en `WEB_SITES`); cualquier otro recibe 403.
  *
- * Mientras tanto no se renderiza nada: un widget roto es peor que ninguno.
+ * Si se agrega un destino nuevo —el dominio definitivo, por ejemplo— hay que
+ * darlo de alta en el bot ANTES de encender esta variable ahí: un widget que
+ * no contesta es peor que ninguno. Por eso, si la variable viene vacía, no se
+ * renderiza nada.
  */
 export default function BotWidget() {
   if (!BOT_WIDGET) return null

@@ -14,14 +14,14 @@ import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Cadena de frío y cómo llega el producto',
   description:
-    'Congelador, andén refrigerado y camioneta refrigerada: el recorrido no se rompe en ningún punto. Todo el congelado es IQF y va directo del congelador a la freidora.',
+    'Congelador, andén refrigerado y camioneta refrigerada: el recorrido no se rompe en ningún punto. Buscamos las mejores marcas del mercado y las entregamos como salieron de fábrica.',
   alternates: { canonical: '/cadena-de-frio/' },
 }
 
 const PREGUNTAS = [
   {
     p: '¿Qué significa que el producto sea IQF?',
-    r: 'IQF quiere decir congelado pieza por pieza. Las piezas no se pegan entre sí, así que puedes tomar la porción exacta que necesitas sin descongelar la caja completa, y el producto va directo del congelador a la freidora.',
+    r: 'IQF es congelación rápida individual: cada pieza se congela por separado, así que no se pegan entre sí y puedes tomar la porción exacta que necesitas sin descongelar la caja completa. Si la caja llega hecha un bloque, el producto se descongeló en algún punto del camino. Aplica a la papa Lamb Weston, a las verduras y el elote, y a los quesos empanizados de Sargento y Martin’s. La pechuga, la carne para hamburguesa y otros productos vienen en bloque por su propia naturaleza, y no los anunciamos como IQF.',
   },
   {
     p: '¿Las camionetas de reparto son refrigeradas?',
@@ -51,12 +51,12 @@ export default function Page() {
       <Hero
         eyebrow="Lo que más cuidamos"
         h1="La cadena de frío no se rompe en ningún punto"
-        answerFirst="La cadena de frío es lo que más cuida MACSA y la razón por la que el producto llega como debe llegar. El recorrido es congelador, andén refrigerado y camioneta refrigerada, sin ningún tramo a la intemperie. Todo el congelado es IQF, así que va directo del congelador a la freidora."
-        anclas={['sin ningún tramo a la intemperie', 'directo del congelador a la freidora']}
+        answerFirst="La cadena de frío es lo que más cuida MACSA y la razón por la que el producto llega como debe llegar. Buscamos las mejores marcas del mercado y cuidamos la cadena de conservación de punta a punta: el recorrido es congelador, andén refrigerado y camioneta refrigerada, sin ningún tramo a la intemperie."
+        anclas={['sin ningún tramo a la intemperie', 'cadena de conservación de punta a punta']}
         chips={[
           { etiqueta: 'Almacén', valor: 'Andén refrigerado' },
           { etiqueta: 'Reparto', valor: 'Unidades con refrigeración y congelación' },
-          { etiqueta: 'Producto', valor: 'IQF, pieza por pieza' },
+          { etiqueta: 'Calidad', valor: 'Las mejores marcas del mercado' },
           { etiqueta: 'Devoluciones', valor: 'Formato firmado por el almacenista' },
         ]}
         ctaWhatsApp="Hola, quiero saber cómo entregan el producto congelado."

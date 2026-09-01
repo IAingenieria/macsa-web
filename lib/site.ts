@@ -44,11 +44,13 @@ export const EMPRESA = {
     pais: 'MX',
   },
   telefonos: ['+52 81 2209 2277', '+52 81 2254 2834'],
-  whatsapp: [
-    { numero: '+52 81 2038 9285', e164: '528120389285' },
-    { numero: '+52 81 2037 9014', e164: '528120379014' },
-    { numero: '+52 81 8680 6859', e164: '528186806859' },
-  ],
+  /**
+   * Un solo WhatsApp para todo el sitio, por instruccion de Edgar (31-ago-2026).
+   * Los tres celulares de vendedores que estaban aqui se retiraron: repartian
+   * al prospecto segun a quien le escribiera y ninguno quedaba registrado.
+   * Todo entra ahora por MacsaIA, que captura al CRM y lo asigna despues.
+   */
+  whatsapp: [{ numero: '+52 81 8179 1096', e164: '528181791096' }],
   correo: 'ventasmty@elmariscal.mx',
   portalUrl: 'https://macsa-portal.shy-block-053a.workers.dev',
   corteHora: '20:00',
@@ -74,10 +76,26 @@ export function waLink(mensaje: string, numero: string = WA_PRINCIPAL) {
   return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
 }
 
-/** Señales de confianza — sólo hechos verificables de la base de conocimiento. */
+/**
+ * Señales de confianza — sólo hechos verificables de la base de conocimiento.
+ *
+ * ⚠️ El IQF salió de aquí el 31-ago-2026 por instrucción de Edgar: no todo el
+ * catálogo es IQF. La papa Lamb Weston, las verduras, el elote y los quesos
+ * empanizados sí; la pechuga y la carne para hamburguesa llegan en bloque.
+ * Anunciarlo como si fuera de todo el catálogo era prometer de más, y un chef
+ * de escuela sabe distinguirlo. Se dice familia por familia, no en el claim.
+ */
 export const CONFIANZA = [
   { valor: 'Oficial', etiqueta: 'Distribuidor Lamb Weston en Monterrey' },
   { valor: 'Directo', etiqueta: 'Agrosuper y Martin’s, sin intermediarios' },
-  { valor: 'IQF', etiqueta: 'Congelado pieza por pieza' },
-  { valor: 'Sin cortes', etiqueta: 'Cadena de frío de punta a punta' },
+  { valor: 'Calidad', etiqueta: 'Las mejores marcas del mercado' },
+  { valor: 'Logística', etiqueta: 'Cadena de frío garantizada, sin cortes' },
 ] as const
+
+/**
+ * El párrafo de calidad, como lo pidió Edgar: la promesa no es un tecnicismo
+ * de congelación, es que buscamos las mejores marcas y las entregamos como
+ * deben llegar. Se usa en Nosotros, en Cadena de frío y en el pie.
+ */
+export const PROMESA_CALIDAD =
+  'Buscamos las mejores marcas del mercado para tu negocio y cuidamos la cadena de conservación de punta a punta, para que el producto te llegue con la calidad con la que salió de fábrica.'

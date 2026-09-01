@@ -70,7 +70,7 @@ export const GIROS: Giro[] = [
   {
     slug: 'cafeteria',
     nombre: 'Cafetería',
-    titulo: 'Cafeterías',
+    titulo: 'Cafeterías y cafeterías industriales',
     necesita: ['postres-y-churros', 'panaderia', 'aderezos', 'condimentos-heinz'],
   },
   {
@@ -79,27 +79,98 @@ export const GIROS: Giro[] = [
     titulo: 'Food trucks',
     necesita: ['papa-a-la-francesa', 'panaderia', 'carne-y-hamburguesa', 'verduras-y-elote'],
   },
+  // Edgar pidio separarlos el 31-ago-2026: una escuela y un comedor de planta
+  // compran distinto, y juntos en "cocina institucional" no se reconocia
+  // ninguno de los dos.
   {
-    slug: 'cocina-institucional',
-    nombre: 'Cocina institucional',
-    titulo: 'Comedores industriales, hospitales y escuelas',
+    slug: 'escuela-y-universidad',
+    nombre: 'Escuelas y universidades',
+    titulo: 'Escuelas y universidades',
+    necesita: ['papa-a-la-francesa', 'pollo', 'panaderia', 'postres-y-churros', 'verduras-y-elote'],
+  },
+  {
+    slug: 'comedor-industrial',
+    nombre: 'Comedor industrial',
+    titulo: 'Comedores industriales y hospitales',
     necesita: ['pollo', 'verduras-y-elote', 'papa-a-la-francesa', 'aceite-para-freir'],
   },
 ]
 
 export const giro = (slug: string) => GIROS.find((g) => g.slug === slug)
 
-/** Las 20 marcas del portafolio, agrupadas como las presenta el catálogo. */
-export const MARCAS: { categoria: string; marcas: string[] }[] = [
-  { categoria: 'Papas', marcas: ['Lamb Weston'] },
-  { categoria: 'Pollo', marcas: ['Agrosuper', 'Freskecito', 'Bachoco', "Pilgrim's"] },
-  { categoria: 'Carnes y hamburguesa', marcas: ['UGASA', 'Smithfield'] },
-  { categoria: 'Appetizers y quesos', marcas: ['Comarco', 'Sargento'] },
-  { categoria: 'Verduras congeladas', marcas: ['Twin City Foods'] },
-  { categoria: 'Panadería', marcas: ["Martin's Famous Potato Rolls"] },
-  { categoria: 'Salsas para alitas', marcas: ['Mr. Wings', 'Hello Buffalo', 'Cajun Chef', 'La Pócima'] },
-  { categoria: 'Aderezos y salsas', marcas: ['VenturaFoods', 'Ricos', 'abal'] },
-  { categoria: 'Condimentos', marcas: ['Heinz'] },
-  { categoria: 'Aceites para freír', marcas: ['King Fry', 'Golden Chef'] },
-  { categoria: 'Toppings para pizza', marcas: ['Paradiso'] },
+/**
+ * El portafolio de marcas, y con cuáles la relación es DIRECTA.
+ *
+ * Edgar repasó la lista el 31-ago-2026 y la corrigió marca por marca: casi
+ * todo el portafolio es directo — Lamb Weston, el pollo, las hamburguesas,
+ * Comarco, Sargento, Martin's, Heinz, Mr. Wings y Ricos — y la excepción es
+ * Ventura Foods, que llega por intermediario. Decirlo es una ventaja real
+ * frente al competidor, y decirlo mal es prometer lo que no se sostiene: por
+ * eso `directo` se marca marca por marca y no por categoría.
+ */
+export interface MarcaPortafolio {
+  nombre: string
+  directo: boolean
+}
+
+export const MARCAS: { categoria: string; marcas: MarcaPortafolio[] }[] = [
+  { categoria: 'Papas', marcas: [{ nombre: 'Lamb Weston', directo: true }] },
+  {
+    categoria: 'Pollo',
+    marcas: [
+      { nombre: 'Agrosuper', directo: true },
+      { nombre: 'Freskecito', directo: true },
+      { nombre: 'Bachoco', directo: true },
+      { nombre: "Pilgrim's", directo: true },
+    ],
+  },
+  {
+    categoria: 'Carnes y hamburguesa',
+    marcas: [
+      { nombre: 'UGASA', directo: true },
+      { nombre: 'Smithfield', directo: true },
+    ],
+  },
+  {
+    categoria: 'Appetizers y quesos',
+    marcas: [
+      { nombre: 'Comarco', directo: true },
+      { nombre: 'Sargento', directo: true },
+    ],
+  },
+  { categoria: 'Verduras congeladas', marcas: [{ nombre: 'Twin City Foods', directo: true }] },
+  {
+    categoria: 'Panadería',
+    marcas: [{ nombre: "Martin's Famous Potato Rolls", directo: true }],
+  },
+  {
+    categoria: 'Salsas para alitas',
+    marcas: [
+      { nombre: 'Mr. Wings', directo: true },
+      { nombre: 'Hello Buffalo', directo: false },
+      { nombre: 'Cajun Chef', directo: false },
+      { nombre: 'La Pócima', directo: false },
+    ],
+  },
+  {
+    categoria: 'Aderezos y salsas',
+    marcas: [
+      { nombre: 'Ricos', directo: true },
+      // La unica del portafolio que NO es directa. Lo marco Edgar.
+      { nombre: 'VenturaFoods', directo: false },
+      { nombre: 'abal', directo: false },
+    ],
+  },
+  { categoria: 'Condimentos', marcas: [{ nombre: 'Heinz', directo: true }] },
+  {
+    categoria: 'Aceites para freír',
+    marcas: [
+      { nombre: 'King Fry', directo: false },
+      { nombre: 'Golden Chef', directo: false },
+    ],
+  },
+  { categoria: 'Toppings para pizza', marcas: [{ nombre: 'Paradiso', directo: false }] },
 ]
+
+/** Cuántas marcas del portafolio son relación directa. */
+export const MARCAS_DIRECTAS = MARCAS.flatMap((c) => c.marcas).filter((m) => m.directo)

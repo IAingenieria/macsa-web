@@ -107,7 +107,7 @@ export default function PaginaGeo({
           { etiqueta: 'Ciudad', valor: `${c.nombre}, ${c.estado}` },
           { etiqueta: 'Entrega', valor: modo.promesa },
           { etiqueta: 'Marcas', valor: f.marcas.slice(0, 2).join(', ') },
-          { etiqueta: 'Congelado', valor: 'IQF, sin descongelar' },
+          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
         ]}
         ctaWhatsApp={`Hola, escribo desde ${c.nombre}. Quiero precio de ${f.nombre.toLowerCase()}.`}
         ctaSecundario={{ href: `/${f.slug}/`, label: `Ver toda la línea` }}

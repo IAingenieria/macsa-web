@@ -219,7 +219,7 @@ export function TablaProductos({
 /* ── §8 · Cadena de frío ───────────────────────────────────────────── */
 
 const ESLABONES = [
-  { paso: 'Congelador', detalle: 'El producto se almacena congelado, pieza por pieza (IQF).' },
+  { paso: 'Congelador', detalle: 'El producto se almacena congelado a temperatura constante.' },
   { paso: 'Andén refrigerado', detalle: 'La carga sale por andén refrigerado, no a la intemperie.' },
   { paso: 'Camioneta refrigerada', detalle: 'Todas las unidades tienen refrigeración y congelación.' },
   { paso: 'Tu cocina', detalle: 'Llega congelado y va directo a la freidora, sin descongelar.' },
@@ -230,7 +230,7 @@ export function CadenaFrio() {
     <Seccion
       eyebrow="Cadena de frío"
       titulo="El recorrido no se rompe en ningún punto"
-      intro="Es lo que más cuidamos y la razón por la que el producto llega como debe llegar. Todo el congelado es IQF, así que no hay que descongelarlo."
+      intro="Es lo que más cuidamos y la razón por la que el producto llega como debe llegar. Va del congelador a tu cocina sin un solo tramo a la intemperie."
       fondo="hielo"
     >
       <ol className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-4">

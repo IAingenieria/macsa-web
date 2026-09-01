@@ -39,7 +39,7 @@ export async function generateMetadata({
     title: `${p.nombre} — código ${p.sku}`,
     description:
       `${p.nombre}, código ${p.sku}${p.presentacion ? `, ${p.presentacion}` : ''}. ` +
-      `Congelado IQF con entrega en Monterrey y su área metropolitana. ` +
+      `Congelado, con entrega en Monterrey y su área metropolitana. ` +
       `${fam ? `Línea de ${fam.nombre.toLowerCase()}.` : ''}`.slice(0, 158),
     alternates: { canonical: `/tienda/${p.sku.toLowerCase()}/` },
     openGraph: { images: [{ url: p.imagen, alt: p.nombre }] },
@@ -71,8 +71,10 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
     name: p.nombre,
     sku: p.sku,
     image: p.imagen,
-    description: `${p.nombre}${p.presentacion ? `, ${p.presentacion}` : ''}. Congelado IQF.`,
-    ...(fam?.marcas[0] ? { brand: { '@type': 'Brand', name: fam.marcas[0] } } : {}),
+    description: `${p.nombre}${p.presentacion ? `, ${p.presentacion}` : ''}. Producto congelado con cadena de frío garantizada.`,
+    ...(p.marca ?? fam?.marcas[0]
+      ? { brand: { '@type': 'Brand', name: p.marca ?? fam!.marcas[0] } }
+      : {}),
     ...(p.kg ? { weight: { '@type': 'QuantitativeValue', value: p.kg, unitCode: 'KGM' } } : {}),
     offers: {
       '@type': 'Offer',
@@ -105,7 +107,8 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
 
         <div>
           <p className="eyebrow !text-fry">
-            {fam?.nombre} · {fam?.marcas[0]}
+            {fam?.nombre}
+            {(p.marca ?? fam?.marcas[0]) && ` · ${p.marca ?? fam?.marcas[0]}`}
           </p>
           <h1 className="mt-3 font-display text-[2rem] font-bold leading-tight tracking-tight text-navy sm:text-[2.5rem]">
             {p.nombre}
@@ -131,7 +134,10 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
                 </dd>
               </div>
             )}
-            {p.rendimiento && (
+            {/* El rendimiento se dice en la unidad del producto: por porción
+                lo que se sirve al gramo, por pieza lo que se cuenta (cáscara de
+                papa, munchers, pan). Si no sabemos las piezas, no se dice nada. */}
+            {p.rendimiento?.tipo === 'porcion' && (
               <>
                 <div className="flex justify-between gap-6 py-3">
                   <dt className="text-[14.5px] text-humo">Rinde con porción de 150 g</dt>
@@ -147,12 +153,22 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
                 </div>
               </>
             )}
-            <div className="flex justify-between gap-6 py-3">
-              <dt className="text-[14.5px] text-humo">Congelado</dt>
-              <dd className="text-right font-display text-[15px] font-semibold text-navy">
-                IQF, pieza por pieza
-              </dd>
-            </div>
+            {p.rendimiento?.tipo === 'piezas' && (
+              <div className="flex justify-between gap-6 py-3">
+                <dt className="text-[14.5px] text-humo">Piezas por caja</dt>
+                <dd className="text-right font-mono text-[15px] font-semibold tabular-nums text-navy">
+                  {p.rendimiento.piezas}
+                </dd>
+              </div>
+            )}
+            {p.marca && (
+              <div className="flex justify-between gap-6 py-3">
+                <dt className="text-[14.5px] text-humo">Marca</dt>
+                <dd className="text-right font-display text-[15px] font-semibold text-navy">
+                  {p.marca}
+                </dd>
+              </div>
+            )}
             <div className="flex justify-between gap-6 py-3">
               <dt className="text-[14.5px] text-humo">Entrega</dt>
               <dd className="text-right font-display text-[15px] font-semibold text-navy">
@@ -176,7 +192,8 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
             <Link href="/alta-de-cliente/" className="font-semibold text-fry-700">
               te damos de alta el mismo día
             </Link>
-            . Venta exclusiva a negocios.
+            . También puedes pasar por él a nuestro punto de venta, desde una pieza o una caja
+            según el producto.
           </p>
         </div>
       </article>
@@ -207,7 +224,7 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
           {amm.map((c) => c.nombre).join(', ')}.
         </p>
         <Link href="/cobertura/" className="btn-secundario mt-6">
-          Ver las 30 ciudades y su modo de entrega
+          Ver las ciudades y su modo de entrega
         </Link>
       </Seccion>
 

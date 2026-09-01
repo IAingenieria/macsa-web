@@ -8,18 +8,18 @@ import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Cobertura de entrega — Nuevo León, Coahuila y Tamaulipas',
+  title: 'Cobertura de entrega — Nuevo León y Coahuila',
   description:
-    'Dónde entrega MACSA: ruta diaria en el área metropolitana de Monterrey, corredor Saltillo–Torreón y viaje dedicado a Tampico y Ciudad Victoria. 30 ciudades con su modo de entrega.',
+    'Dónde entrega MACSA: ruta diaria en el área metropolitana de Monterrey, ruta en desarrollo en el sur de Nuevo León y corredor Saltillo–Torreón con bodega propia en Torreón. 26 ciudades con su modo de entrega.',
   alternates: { canonical: '/cobertura/' },
 }
 
-const ORDEN: Modo[] = ['diaria', 'desarrollo', 'corredor', 'dedicado', 'consulta']
+const ORDEN: Modo[] = ['diaria', 'desarrollo', 'corredor', 'consulta']
 
 const PREGUNTAS = [
   {
     p: '¿Entregan fuera del área metropolitana de Monterrey?',
-    r: 'Sí, pero no de la misma forma en todas partes. En el área metropolitana tenemos ruta diaria. Sobre el corredor a Torreón entregamos aprovechando el viaje que ya hacemos, y a la zona de Tampico y Ciudad Victoria sale una unidad cuando el pedido justifica el viaje.',
+    r: 'Sí, pero no de la misma forma en todas partes. En el área metropolitana tenemos ruta diaria. En el corredor sur de Nuevo León repartimos en días fijos, y sobre el corredor a Saltillo y Torreón entregamos aprovechando el viaje que ya hacemos. En Torreón además tenemos una segunda bodega.',
   },
   {
     p: '¿Cuánto tarda en llegar mi pedido?',
@@ -46,12 +46,12 @@ export default function Page() {
       <Breadcrumb items={migas} />
 
       <Hero
-        eyebrow="Nuevo León · Coahuila · Tamaulipas"
+        eyebrow="Nuevo León · Coahuila"
         h1="Dónde entregamos, y cómo llega a cada ciudad"
-        answerFirst="MACSA entrega con ruta diaria en Monterrey y su área metropolitana, con reparto en desarrollo en el corredor sur de Nuevo León, sobre el corredor Saltillo–Torreón aprovechando el viaje que ya hacemos, y con viaje dedicado a la zona de Tampico y Ciudad Victoria cuando el pedido lo justifica."
-        anclas={['ruta diaria', 'el viaje que ya hacemos', 'viaje dedicado']}
+        answerFirst="MACSA entrega con ruta diaria en Monterrey y su área metropolitana, con reparto en desarrollo en el corredor sur de Nuevo León, y sobre el corredor Saltillo–Torreón aprovechando el viaje que ya hacemos. En Torreón contamos además con una segunda bodega, con productos adicionales a los que viajan en la ruta, y próximamente abrimos más ciudades de Coahuila."
+        anclas={['ruta diaria', 'el viaje que ya hacemos', 'una segunda bodega']}
         chips={[
-          { etiqueta: 'Ciudades', valor: `${CIUDADES.length} en tres estados` },
+          { etiqueta: 'Ciudades', valor: `${CIUDADES.length} con modo definido` },
           { etiqueta: 'Ruta diaria', valor: `${porModo('diaria').length} municipios del AMM` },
           { etiqueta: 'Corte', valor: `${EMPRESA.corteHora} h` },
           { etiqueta: 'CEDIS', valor: 'Guadalupe, Nuevo León' },
@@ -71,6 +71,10 @@ export default function Page() {
           {ORDEN.map((m) => {
             const modo = MODOS[m]
             const ciudades = porModo(m)
+            // Un modo sin ciudades no se pinta: la seccion de cobertura no
+            // puede anunciar "0 ciudades" de nada.
+            if (!ciudades.length) return null
+            const notas = ciudades.filter((c) => c.nota)
             return (
               <div key={m} className="border-l-4 border-fry pl-5 sm:pl-7">
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
@@ -98,6 +102,15 @@ export default function Page() {
                     </li>
                   ))}
                 </ul>
+                {notas.map((c) => (
+                  <p
+                    key={c.slug}
+                    className="mt-4 max-w-prosa border-l-2 border-hielo-300 pl-4 text-[14px] leading-relaxed text-humo"
+                  >
+                    <span className="font-display font-semibold text-navy">{c.nombre}:</span>{' '}
+                    {c.nota}
+                  </p>
+                ))}
               </div>
             )
           })}

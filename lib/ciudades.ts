@@ -1,12 +1,19 @@
 /**
- * Las 30 ciudades y su MODO DE ENTREGA.
+ * Las 26 ciudades y su MODO DE ENTREGA.
  *
  * Regla de oro del proyecto: una página nunca promete más de lo que la
  * operación sostiene. El modo decide qué dice la sección de cobertura y,
  * en el caso de `consulta`, la página no promete entrega — sólo captura.
+ *
+ * ⚠️ La zona de Tampico (Tampico, Ciudad Madero, Altamira y Ciudad Victoria)
+ * y con ella el modo `dedicado` se RETIRARON el 2026-08-31 por instrucción de
+ * Edgar: anunciarse ahí hace ruido con el distribuidor que ya atiende esa
+ * zona. No es un olvido — no reponerlas sin que Edgar lo pida.
+ * Reynosa, Nuevo Laredo y Matamoros se quedan: son la frontera, otra zona,
+ * y siguen en `consulta`, que no promete entrega.
  */
 
-export type Modo = 'diaria' | 'desarrollo' | 'corredor' | 'dedicado' | 'consulta'
+export type Modo = 'diaria' | 'desarrollo' | 'corredor' | 'consulta'
 
 export type Estado = 'Nuevo León' | 'Tamaulipas' | 'Coahuila'
 
@@ -17,6 +24,8 @@ export interface Ciudad {
   /** Código ISO para la meta geo.region */
   region: 'MX-NLE' | 'MX-TAM' | 'MX-COA'
   modo: Modo
+  /** Ventaja propia de esa ciudad que el modo no alcanza a decir. */
+  nota?: string
 }
 
 export const MODOS: Record<
@@ -42,13 +51,6 @@ export const MODOS: Record<
     promesa: 'Entrega aprovechando la ruta',
     detalle:
       'Ya hacemos el viaje a Torreón y Saltillo queda en el camino, así que la entrega no carga un flete dedicado. Se programa con la salida de la semana.',
-    color: 'navy',
-  },
-  dedicado: {
-    titulo: 'Viaje dedicado',
-    promesa: 'Sale una unidad por pedido completo',
-    detalle:
-      'Llegamos a la zona con unidad propia cuando el pedido justifica el viaje. Escríbenos con lo que necesitas y te confirmamos volumen y fecha.',
     color: 'navy',
   },
   consulta: {
@@ -87,15 +89,16 @@ export const CIUDADES: Ciudad[] = [
   { slug: 'saltillo', nombre: 'Saltillo', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
   { slug: 'ramos-arizpe', nombre: 'Ramos Arizpe', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
   { slug: 'arteaga', nombre: 'Arteaga', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
-  { slug: 'torreon', nombre: 'Torreón', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
+  {
+    slug: 'torreon',
+    nombre: 'Torreón',
+    estado: 'Coahuila',
+    region: 'MX-COA',
+    modo: 'corredor',
+    nota: 'En Torreón contamos con una segunda bodega para tu mayor comodidad, con productos adicionales a los que viajan en la ruta.',
+  },
 
-  // ── Modo 4 · Viaje dedicado por pedido completo ─────────────────────
-  { slug: 'tampico', nombre: 'Tampico', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'dedicado' },
-  { slug: 'ciudad-madero', nombre: 'Ciudad Madero', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'dedicado' },
-  { slug: 'altamira', nombre: 'Altamira', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'dedicado' },
-  { slug: 'ciudad-victoria', nombre: 'Ciudad Victoria', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'dedicado' },
-
-  // ── Modo 5 · Bajo consulta ──────────────────────────────────────────
+  // ── Modo 4 · Bajo consulta ──────────────────────────────────────────
   { slug: 'reynosa', nombre: 'Reynosa', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },
   { slug: 'nuevo-laredo', nombre: 'Nuevo Laredo', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },
   { slug: 'matamoros-tamaulipas', nombre: 'Matamoros', estado: 'Tamaulipas', region: 'MX-TAM', modo: 'consulta' },

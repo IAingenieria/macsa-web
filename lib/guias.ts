@@ -146,7 +146,7 @@ const CONTENIDO: Record<string, Contenido> = {
       filas: [
         { cuando: 'Vende hamburguesa de menú fijo', usa: 'Carne preformada — porción pareja' },
         { cuando: 'Arma su propia mezcla', usa: 'Carne molida a granel' },
-        { cuando: 'Necesita producto de cadena de frío larga', usa: 'Congelado IQF' },
+        { cuando: 'Necesita producto de cadena de frío larga', usa: 'Congelado, interfoliado con papel' },
       ],
     },
     preguntas: [
@@ -235,15 +235,22 @@ const CONTENIDO: Record<string, Contenido> = {
       titulo: 'Cómo elegir el topping',
       texto: 'En pizza lo que importa es que el mismo código esté disponible siempre: cambiar de topping a media temporada te cambia la receta.',
       filas: [
-        { cuando: 'Necesita consistencia todo el año', usa: 'Producto de línea Paradiso' },
-        { cuando: 'Quiere agregar entradas a la carta', usa: 'Dedos de queso y mozzarella sticks' },
+        { cuando: 'Monta pizza clásica', usa: 'Pepperoni Paradiso' },
+        { cuando: 'Busca sabor más fuerte', usa: 'Salchicha italiana Paradiso' },
+        { cuando: 'Necesita la base', usa: 'Salsa para pizza' },
+        { cuando: 'Sirve pizza con picante en mesa', usa: 'Chile quebrado Heinz' },
+        { cuando: 'Quiere agregar entradas a la carta', usa: 'Dedos de queso y munchers horneables' },
         { cuando: 'Vende papa como guarnición', usa: 'Papa 3/8 o crisscut' },
       ],
     },
     preguntas: [
       {
-        p: '¿Manejan toppings congelados listos para montar?',
-        r: 'Sí, de Paradiso. Producto de línea con existencia permanente: el mismo código está disponible cada vez que lo vuelves a pedir.',
+        p: '¿Qué toppings para pizza manejan?',
+        r: 'Pepperoni y salchicha italiana de Paradiso, además de la salsa para pizza y el chile quebrado Heinz para la mesa. Producto de línea con existencia permanente: el mismo código está disponible cada vez que lo vuelves a pedir.',
+      },
+      {
+        p: '¿Puedo pedir también las entradas en el mismo pedido?',
+        r: 'Sí. Los dedos de queso de Sargento y los munchers rellenos son horneables, así que salen del mismo horno de la pizza sin ocupar la freidora, y viajan en la misma entrega.',
       },
     ],
   },

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
-import { MARCAS } from '@/lib/giros'
+import { MARCAS, MARCAS_DIRECTAS } from '@/lib/giros'
 import { FAMILIAS } from '@/lib/familias'
 import { asset } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
@@ -11,7 +11,7 @@ import { breadcrumbSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Marcas que distribuimos',
   description:
-    'Distribuidor oficial de Lamb Weston en Monterrey y distribuidor directo de Agrosuper y Martin’s. También Heinz, Bachoco, Pilgrim’s, UGASA, Sargento, Mr. Wings y King Fry.',
+    'Distribuidor oficial de Lamb Weston en Monterrey, con relación directa con Agrosuper, Bachoco, Pilgrim’s, UGASA, Smithfield, Comarco, Sargento, Martin’s, Heinz, Mr. Wings y Ricos.',
   alternates: { canonical: '/marcas/' },
 }
 
@@ -50,11 +50,11 @@ export default function Page() {
       <Hero
         eyebrow="Portafolio"
         h1="Las marcas que distribuimos"
-        answerFirst="MACSA es distribuidor oficial de Lamb Weston en Monterrey y distribuidor directo de Agrosuper y de Martin’s, sin intermediarios de por medio. El resto del portafolio son marcas de línea con existencia continua: Heinz, Bachoco, Pilgrim’s, UGASA, Sargento, Mr. Wings, VenturaFoods y King Fry, entre otras."
-        anclas={['distribuidor oficial de Lamb Weston', 'sin intermediarios', 'existencia continua']}
+        answerFirst="MACSA es distribuidor oficial de Lamb Weston en Monterrey, y con la mayor parte del portafolio la relación es directa con el fabricante, sin intermediarios de por medio: Agrosuper, Bachoco, Pilgrim’s, UGASA, Smithfield, Comarco, Sargento, Twin City Foods, Martin’s, Heinz, Mr. Wings y Ricos. Todas son marcas de línea con existencia continua."
+        anclas={['distribuidor oficial de Lamb Weston', 'la relación es directa con el fabricante', 'existencia continua']}
         chips={[
           { etiqueta: 'Oficial', valor: 'Lamb Weston' },
-          { etiqueta: 'Directo', valor: 'Agrosuper y Martin’s' },
+          { etiqueta: 'Directo', valor: `${MARCAS_DIRECTAS.length} marcas sin intermediario` },
           { etiqueta: 'Categorías', valor: `${MARCAS.length} en portafolio` },
           { etiqueta: 'Origen', valor: 'Nacional e importado' },
         ]}
@@ -68,8 +68,8 @@ export default function Page() {
 
       <Seccion
         eyebrow="Relación directa"
-        titulo="Tres marcas donde no hay intermediario"
-        intro="La diferencia se nota en el precio y en la existencia: cuando la relación es directa, el producto no depende de la disponibilidad de un tercero."
+        titulo="Dónde no hay intermediario"
+        intro="La diferencia se nota en el precio y en la existencia: cuando la relación es directa, el producto no depende de la disponibilidad de un tercero. En la tabla de abajo está el portafolio completo, con la etiqueta Directo en cada marca donde compramos a la fuente."
       >
         <div className="grid gap-px bg-hielo-300 lg:grid-cols-3">
           {RELACIONES.map((r) => (
@@ -124,7 +124,18 @@ export default function Page() {
                     {m.categoria}
                   </td>
                   <td className="border-b border-hielo-200 px-4 py-3 text-humo-900">
-                    {m.marcas.join(', ')}
+                    <ul className="flex flex-wrap gap-x-2 gap-y-1.5">
+                      {m.marcas.map((marca) => (
+                        <li key={marca.nombre} className="flex items-center gap-1.5">
+                          <span>{marca.nombre}</span>
+                          {marca.directo && (
+                            <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
+                              Directo
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                   </td>
                 </tr>
               ))}
@@ -132,7 +143,7 @@ export default function Page() {
           </table>
         </div>
         <p className="mt-5 max-w-prosa text-[14px] leading-relaxed text-humo-400">
-          No somos fabricantes: somos distribuidores. Trabajamos con marcas de línea y existencia
+          Somos distribuidores especializados en el servicio de alimentos. Trabajamos con marcas de línea y existencia
           continua, no con saldos ni productos de oportunidad.
         </p>
       </Seccion>

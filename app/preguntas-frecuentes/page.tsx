@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const PREGUNTAS = [
   {
     p: '¿Le venden a cualquier persona?',
-    r: 'No. La venta es exclusiva a negocios: restaurantes, cocinas, fast food, barras, comedores y negocios de delivery. No hay venta al público en general.',
+    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
   },
   {
     p: '¿Hasta qué hora puedo pedir para que me llegue mañana?',
@@ -39,7 +39,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Qué significa IQF?',
-    r: 'Congelado pieza por pieza. Las piezas no se pegan, así que puedes tomar la porción exacta que necesitas sin descongelar la caja completa, y el producto va directo del congelador a la freidora.',
+    r: 'Congelación rápida individual: cada pieza se congela por separado y no se pegan entre sí, así que puedes tomar la porción exacta que necesitas sin descongelar la caja completa. Si la caja llega hecha un bloque, el producto se descongeló en el camino. Aplica a la papa Lamb Weston, a las verduras y el elote, y a los quesos empanizados; la pechuga y la carne para hamburguesa vienen en bloque por su naturaleza.',
   },
   {
     p: '¿Cómo se manejan las devoluciones?',
@@ -55,7 +55,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Entregan fuera de Monterrey?',
-    r: 'Sí, con modos distintos según la ciudad: ruta diaria en el área metropolitana, reparto en desarrollo en el corredor sur de Nuevo León, corredor a Saltillo y Torreón, y viaje dedicado a la zona de Tampico y Ciudad Victoria cuando el pedido lo justifica.',
+    r: 'Sí, con modos distintos según la ciudad: ruta diaria en el área metropolitana, reparto en días fijos en el corredor sur de Nuevo León, y corredor a Saltillo y Torreón, donde además tenemos una segunda bodega con productos adicionales.',
   },
   {
     p: '¿Son distribuidor autorizado?',

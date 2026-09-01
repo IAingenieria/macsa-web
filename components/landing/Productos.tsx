@@ -1,5 +1,5 @@
 import { Seccion } from '@/components/landing/Secciones'
-import { destacadosDe, porFamilia, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
+import { destacadosDe, porFamilia, porPorcion, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
 import { waLink } from '@/lib/site'
 
 /* ── Tarjeta de producto con foto oficial ──────────────────────────── */
@@ -41,12 +41,24 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
               <dd className="font-medium text-humo-900">{p.presentacion}</dd>
             </div>
           )}
-          {p.rendimiento && (
+          {p.marca && (
+            <div className="flex gap-2">
+              <dt className="text-humo-400">Marca</dt>
+              <dd className="font-medium text-humo-900">{p.marca}</dd>
+            </div>
+          )}
+          {p.rendimiento?.tipo === 'porcion' && (
             <div className="flex gap-2">
               <dt className="text-humo-400">Rinde</dt>
               <dd className="font-medium text-humo-900">
                 ~{p.rendimiento.g150} órdenes de 150 g
               </dd>
+            </div>
+          )}
+          {p.rendimiento?.tipo === 'piezas' && (
+            <div className="flex gap-2">
+              <dt className="text-humo-400">Rinde</dt>
+              <dd className="font-medium text-humo-900">{p.rendimiento.piezas} piezas por caja</dd>
             </div>
           )}
         </dl>
@@ -110,7 +122,10 @@ export function GaleriaProductos({
 
 export function Rendimiento({ familia, skus }: { familia?: string; skus?: string[] }) {
   const universo = skus ? porSkus(skus) : familia ? porFamilia(familia) : []
-  const conRendimiento = universo.filter((p) => p.rendimiento && p.kg)
+  // Sólo el producto que se sirve por porción entra a esta tabla. Lo que se
+  // cuenta por pieza (cáscara de papa, munchers, pan) enseña sus piezas en la
+  // ficha, no un rendimiento por gramaje que no significa nada.
+  const conRendimiento = porPorcion(universo).filter((p) => p.kg)
   if (conRendimiento.length < 2) return null
 
   const muestra = conRendimiento.slice(0, 8)
@@ -154,10 +169,10 @@ export function Rendimiento({ familia, skus }: { familia?: string; skus?: string
                   {p.kg} kg
                 </td>
                 <td className="border-b border-hielo-200 px-4 py-3 text-right font-mono text-[13.5px] font-semibold tabular-nums text-navy">
-                  {p.rendimiento!.g150}
+                  {p.rendimiento.g150}
                 </td>
                 <td className="border-b border-hielo-200 px-4 py-3 text-right font-mono text-[13.5px] tabular-nums text-humo-900">
-                  {p.rendimiento!.g200}
+                  {p.rendimiento.g200}
                 </td>
               </tr>
             ))}

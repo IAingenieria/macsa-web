@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
+import BuscadorCatalogo from '@/components/landing/BuscadorCatalogo'
 import { CATALOGO, porFamilia } from '@/lib/catalogo'
 import { FAMILIAS } from '@/lib/familias'
 import { EMPRESA } from '@/lib/site'
@@ -43,6 +44,14 @@ export default function Page() {
 
       <BarraConfianza />
 
+      <Seccion
+        eyebrow="Encuentra rápido"
+        titulo="Busca por producto, marca o código"
+        intro="Escribe lo que buscas como lo dices en tu cocina: “dedos de queso”, “gajo”, “Lamb Weston” o el código, si ya lo tienes."
+      >
+        <BuscadorCatalogo productos={CATALOGO} />
+      </Seccion>
+
       {conProductos.map((f) => {
         const productos = porFamilia(f.slug)
         return (
@@ -82,9 +91,14 @@ export default function Page() {
                     {p.presentacion && (
                       <p className="mt-2 text-[13px] text-humo">{p.presentacion}</p>
                     )}
-                    {p.rendimiento && (
+                    {p.rendimiento?.tipo === 'porcion' && (
                       <p className="mt-1 text-[13px] text-humo-400">
                         ~{p.rendimiento.g150} órdenes de 150 g
+                      </p>
+                    )}
+                    {p.rendimiento?.tipo === 'piezas' && (
+                      <p className="mt-1 text-[13px] text-humo-400">
+                        {p.rendimiento.piezas} piezas por caja
                       </p>
                     )}
                   </div>

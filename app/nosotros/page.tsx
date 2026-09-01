@@ -18,6 +18,8 @@ const CLIENTES = [
   'Fast food y comida rápida',
   'Negocios de delivery y para llevar',
   'Negocios de alitas y boneless',
+  'Escuelas, universidades y comedores industriales',
+  'Hoteles y cafeterías',
 ]
 
 const VENTAJAS = [
@@ -30,16 +32,16 @@ const VENTAJAS = [
     d: 'Pollo de Chile y panadería importada de Estados Unidos, sin intermediarios de por medio.',
   },
   {
-    t: 'Cadena de frío completa',
-    d: 'Sin cortes en toda la ruta: congelador, andén refrigerado y camioneta refrigerada.',
+    t: 'Logística garantizada',
+    d: 'Cadena de frío sin cortes en toda la ruta: congelador, andén refrigerado y camioneta refrigerada.',
   },
   {
     t: 'Producto de línea, no saldos',
     d: 'El mismo código está disponible cada vez que el cliente lo vuelve a pedir.',
   },
   {
-    t: 'Todo congelado es IQF',
-    d: 'Congelado pieza por pieza: va directo del congelador a la freidora, sin descongelar.',
+    t: 'Comprometidos con la calidad',
+    d: 'Buscamos las mejores marcas del mercado y cuidamos la cadena de conservación para que el producto te llegue como salió de fábrica.',
   },
 ]
 
@@ -53,13 +55,13 @@ export default function Page() {
 
       <Hero
         eyebrow="Monterrey y área metropolitana"
-        h1="Somos distribuidores, no fabricantes"
+        h1="Somos distribuidores especializados en el servicio de alimentos"
         answerFirst="MACSA de la Sultana es distribuidor de alimentos congelados y abarrotes para food service en Monterrey y su área metropolitana. Trabajamos con marcas de línea y existencia continua, no con saldos ni productos de oportunidad, y toda la operación se sostiene sobre una cadena de frío que no se rompe en ningún punto."
         anclas={['marcas de línea y existencia continua', 'no se rompe en ningún punto']}
         chips={[
           { etiqueta: 'Razón social', valor: EMPRESA.razonSocial },
           { etiqueta: 'CEDIS', valor: 'Guadalupe, Nuevo León' },
-          { etiqueta: 'Venta', valor: 'Exclusiva a negocios' },
+          { etiqueta: 'Venta', valor: 'Desde una pieza o una caja' },
           { etiqueta: 'Corte', valor: `${EMPRESA.corteHora} h` },
         ]}
         ctaWhatsApp="Hola, quiero conocer más de MACSA."
@@ -72,8 +74,8 @@ export default function Page() {
 
       <Seccion
         eyebrow="A quién le vendemos"
-        titulo="Sólo a negocios"
-        intro="No hay venta al público en general. Estos son los negocios que surtimos todos los días."
+        titulo="Enfocados en el servicio de alimentos"
+        intro="Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y servicio a domicilio a partir de un pedido mínimo. Estos son los negocios que surtimos todos los días."
       >
         <ul className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-3">
           {CLIENTES.map((c) => (

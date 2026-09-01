@@ -74,21 +74,9 @@ export default function Page() {
               </p>
             </div>
 
-            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-humo-400">
-              Líneas de ventas
-            </p>
-            <ul className="mt-2 space-y-2">
-              {EMPRESA.whatsapp.map((w) => (
-                <li key={w.e164}>
-                  <a
-                    href={waLink('Hola, quiero información de sus productos.', w.e164)}
-                    className="font-mono text-[14px] font-semibold text-fry-700 hover:text-navy"
-                  >
-                    {w.numero}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Antes vivia aqui la lista de celulares de los vendedores. Se
+                retiro el 31-ago-2026: el WhatsApp del sitio es uno solo y es
+                el de arriba, que ademas registra al prospecto en el CRM. */}
           </div>
 
           <div className="bg-white p-7">
@@ -139,11 +127,12 @@ export default function Page() {
               {EMPRESA.direccion.ciudad}, {EMPRESA.direccion.estado}
             </address>
             <p className="mt-5 max-w-prosa text-[14.5px] leading-relaxed text-humo">
-              Desde aquí sale el reparto diario al área metropolitana de Monterrey, el corredor a
-              Saltillo y Torreón, y los viajes dedicados a la zona de Tampico y Ciudad Victoria.
+              Desde aquí sale el reparto diario al área metropolitana de Monterrey, el reparto en
+              días fijos del corredor sur de Nuevo León y el corredor a Saltillo y Torreón, donde
+              además tenemos una segunda bodega.
             </p>
             <Link href="/cobertura/" className="btn-secundario mt-6">
-              Ver las 30 ciudades
+              Ver las ciudades donde entregamos
             </Link>
           </div>
           <div className="border border-hielo-300 bg-white p-7">
@@ -160,8 +149,9 @@ export default function Page() {
                 necesitamos los datos fiscales del negocio. También trabajamos con remisión.
               </li>
               <li>
-                <span className="font-semibold text-navy">Venta a negocios.</span> No hay venta al
-                público en general.
+                <span className="font-semibold text-navy">Punto de venta.</span> Puedes llevarte
+                desde una pieza o una caja, según el producto. A domicilio manejamos un pedido
+                mínimo.
               </li>
             </ul>
             <Link href="/alta-de-cliente/" className="btn-primario mt-6">

@@ -28,6 +28,20 @@ interface Fila {
   i: string
 }
 
+/**
+ * Cómo se mide lo que rinde una caja.
+ *
+ * Antes se calculaba SIEMPRE por gramaje, y eso producía disparates: una caja
+ * de cáscara de papa anunciaba "45 órdenes de 150 g" cuando lo que trae son
+ * 200 cazolitas, y un puré seco rendía el triple de lo que decía porque se
+ * hidrata. Edgar lo marcó el 31-ago-2026: hay producto que se mide por
+ * porción y producto que se mide por pieza, y confundirlos es un dato falso
+ * en la ficha. Cuando no sabemos las piezas, no se enseña nada.
+ */
+export type Rendimiento =
+  | { tipo: 'porcion'; g150: number; g200: number }
+  | { tipo: 'piezas'; piezas: number }
+
 export interface ProductoCatalogo {
   sku: string
   nombre: string
@@ -36,8 +50,10 @@ export interface ProductoCatalogo {
   familia: string
   pesoLb: number | null
   kg: number | null
-  /** Órdenes por caja según el gramaje de la porción */
-  rendimiento: { g150: number; g200: number } | null
+  /** Qué rinde una caja, o null cuando no se puede afirmar. */
+  rendimiento: Rendimiento | null
+  /** Fabricante. Lo pidió Edgar: el cliente pregunta por la marca, no por el SKU. */
+  marca: string | null
 }
 
 const LB_A_KG = 0.45359237
@@ -115,6 +131,96 @@ const EXCEPCIONES: Record<string, string> = {
   RN48: 'appetizers-y-quesos',
 }
 
+/**
+ * Códigos que NO salen al sitio aunque estén activos en la base.
+ *
+ * Son duplicados: el mismo producto dado de alta dos veces con clave distinta.
+ * Enseñar los dos hace que el cliente pida uno y el vendedor cotice el otro.
+ * Marcados por Edgar el 31-ago-2026; se ocultan aquí y no en la base, que es
+ * de Microsip y sigue necesitando la clave vieja para el historial de ventas.
+ */
+const OCULTOS = new Set([
+  'C27', // gajo sazonado 8 cortes — se queda C2700
+  'D17', // el mismo gajo de 8 cortes con otra clave
+  'X9182', // crisscut sazonada — se queda D23
+])
+
+/**
+ * Producto que se mide POR PIEZA, no por gramaje de porción.
+ * El número sale del catálogo del fabricante; mientras no lo tengamos, la
+ * ficha no dice cuánto rinde — que es mejor que decir un número inventado.
+ */
+const PIEZAS_POR_CAJA: Record<string, number> = {
+  '2200D': 200, // cáscara de papa: 200 cazolitas por caja (confirmado por Edgar)
+  '22G': 200,
+}
+
+/** Va por pieza, pero todavía no sabemos cuántas trae la caja. */
+const POR_PIEZA = new Set([
+  'A26', // tater rounds
+  '12143', // hash brown ovals
+  'H30', // hash brown cilindro
+  'P38', 'P39', 'P40', 'F6037', // munchers rellenos
+  'RN48', // dip de nacho, 48 piezas de 99 g
+  'MPP', 'PHS', 'PGD', 'PHM', 'PHM5', 'PM12', // pan Martin's
+])
+
+/**
+ * Producto al que NO se le calcula rendimiento por gramaje: el puré es polvo
+ * que se hidrata, así que los gramos de la caja no son gramos de plato.
+ */
+const SIN_RENDIMIENTO = new Set(['M0011', 'M14', 'M16', 'M18', 'M22', 'N88'])
+
+/**
+ * El fabricante de cada producto.
+ *
+ * La base no tiene columna de marca — `categoria` mezcla marca con línea
+ * ("Martins", "Heinz", pero también "Papa" y "Aderezo"). Edgar pidió el
+ * 31-ago-2026 que la marca salga en la ficha: el cliente pregunta por los
+ * dedos de queso de Sargento o por el muncher de Lamb Weston, nunca por P38.
+ * Primero manda el SKU, luego la categoría; si ninguno resuelve, no se
+ * inventa: la ficha se queda sin marca.
+ */
+const MARCA_POR_SKU: Record<string, string> = {
+  // Salsas de mesa que no son de la marca de su categoría
+  'HZ-TAB': 'Tabasco',
+  STAB: 'Tabasco',
+  'RD-CC': 'Cajun Chef',
+  CAJUNL: 'Cajun Chef',
+  RN48: 'Ricos',
+  // Pollo: la marca va en la descripción, no en la categoría
+  'POL-APC': 'Bachoco',
+  'POL-TP': 'Bachoco',
+  'POL-HP': "Pilgrim's",
+  'POL-NP': "Pilgrim's",
+  'POL-PP': "Pilgrim's",
+  PSCH13: 'Agrosuper',
+}
+
+const MARCA_POR_CATEGORIA: Record<string, string> = {
+  Papa: 'Lamb Weston',
+  Aro: 'Lamb Weston',
+  Aderezo: 'Ventura Foods',
+  Heinz: 'Heinz',
+  Martins: "Martin's",
+  'RD Mex Foods': "Martin's",
+  Sargento: 'Sargento',
+  Queso: 'Sargento',
+  'Queso/Snack': 'Sargento',
+  Vegetal: 'Twin City Foods',
+  'Vegetales TCF': 'Twin City Foods',
+  Ugasa: 'UGASA',
+  Smithfield: 'Smithfield',
+  Paradiso: 'Paradiso',
+  'Mr Wings': 'Mr. Wings',
+  'Hello Buffalo': 'Hello Buffalo',
+  'La Pocima': 'La Pócima',
+}
+
+function marcaDe(fila: Fila): string | null {
+  return MARCA_POR_SKU[fila.s] ?? MARCA_POR_CATEGORIA[fila.c] ?? null
+}
+
 /** Mapa de la categoría de la base a la familia del sitio. */
 const POR_CATEGORIA: Record<string, string> = {
   Papa: 'papa-a-la-francesa',
@@ -147,16 +253,22 @@ function familiaDe(fila: Fila): string {
   return EXCEPCIONES[fila.s] ?? POR_CATEGORIA[fila.c] ?? 'otros'
 }
 
-function rendimientoDe(pesoLb: number | null) {
+function rendimientoDe(sku: string, pesoLb: number | null): Rendimiento | null {
+  const piezas = PIEZAS_POR_CAJA[sku]
+  if (piezas) return { tipo: 'piezas', piezas }
+  if (POR_PIEZA.has(sku) || SIN_RENDIMIENTO.has(sku)) return null
   if (!pesoLb) return null
   const gramos = pesoLb * LB_A_KG * 1000
   return {
+    tipo: 'porcion',
     g150: Math.round(gramos / 150),
     g200: Math.round(gramos / 200),
   }
 }
 
-export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[]).map((f) => {
+export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[])
+  .filter((f) => !OCULTOS.has(f.s))
+  .map((f) => {
   const kg = f.w ? Math.round(f.w * LB_A_KG * 10) / 10 : null
   return {
     sku: f.s,
@@ -166,7 +278,8 @@ export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[]).map((f) 
     familia: familiaDe(f),
     pesoLb: f.w,
     kg,
-    rendimiento: rendimientoDe(f.w),
+    rendimiento: rendimientoDe(f.s, f.w),
+    marca: marcaDe(f),
   }
 })
 
@@ -183,6 +296,13 @@ export const CONTEO = {
   total: CATALOGO.length,
   conRendimiento: CATALOGO.filter((p) => p.rendimiento).length,
 }
+
+/** Los que se miden por porción — los únicos que entran a la tabla de costeo. */
+export const porPorcion = (ps: ProductoCatalogo[]) =>
+  ps.filter(
+    (p): p is ProductoCatalogo & { rendimiento: { tipo: 'porcion'; g150: number; g200: number } } =>
+      p.rendimiento?.tipo === 'porcion',
+  )
 
 /** Los productos de una lista concreta de codigos (para los productos ancla). */
 export const porSkus = (skus: string[]) => {

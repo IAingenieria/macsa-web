@@ -7,8 +7,8 @@ import type { Familia } from './familias'
 export function faqBase(f: Familia): { p: string; r: string }[] {
   return [
     {
-      p: `¿Le venden ${f.nombre.toLowerCase()} a particulares?`,
-      r: 'No. Vendemos exclusivamente a negocios: restaurantes, cocinas, fast food, barras y comedores. No hay venta al público en general.',
+      p: `¿Tengo que comprar caja completa de ${f.nombre.toLowerCase()}?`,
+      r: 'No necesariamente. Contamos con un punto de venta donde te puedes llevar desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo.',
     },
     {
       p: '¿Hasta qué hora puedo pedir para que me llegue mañana?',

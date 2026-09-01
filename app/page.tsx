@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const PREGUNTAS = [
   {
     p: '¿Le venden a cualquier persona?',
-    r: 'No. Vendemos exclusivamente a negocios: restaurantes, cocinas, fast food, barras y comedores. No hay venta al público en general.',
+    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
   },
   {
     p: '¿Cuál es el pedido mínimo?',
@@ -50,7 +50,7 @@ const PREGUNTAS = [
   },
 ]
 
-const ORDEN_MODOS: Modo[] = ['diaria', 'desarrollo', 'corredor', 'dedicado', 'consulta']
+const ORDEN_MODOS: Modo[] = ['diaria', 'desarrollo', 'corredor', 'consulta']
 
 export default function Home() {
   return (
@@ -69,8 +69,8 @@ export default function Home() {
         chips={[
           { etiqueta: 'Líneas', valor: '14 familias de producto' },
           { etiqueta: 'Corte', valor: '20:00 h para entrega al día siguiente' },
-          { etiqueta: 'Congelado', valor: 'IQF, pieza por pieza' },
-          { etiqueta: 'Cobertura', valor: 'NL, Coahuila y Tamaulipas' },
+          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
+          { etiqueta: 'Cobertura', valor: 'Nuevo León y Coahuila' },
         ]}
         ctaWhatsApp="Hola, quiero información de sus productos y precios."
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
@@ -83,7 +83,7 @@ export default function Home() {
       <Seccion
         eyebrow="Catálogo"
         titulo="Catorce líneas, todas de producto de línea"
-        intro="No somos fabricantes: somos distribuidores. Trabajamos con marcas de línea y existencia continua, no con saldos ni productos de oportunidad."
+        intro="Somos distribuidores especializados en el servicio de alimentos. Trabajamos con marcas de línea y existencia continua, no con saldos ni productos de oportunidad."
       >
         <div className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-3">
           {FAMILIAS.map((f) => (

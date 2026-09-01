@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
+import BuscadorCatalogo from '@/components/landing/BuscadorCatalogo'
+import { CATALOGO } from '@/lib/catalogo'
 import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { EMPRESA } from '@/lib/site'
@@ -11,7 +13,7 @@ import { breadcrumbSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Catálogo de alimentos congelados para restaurante',
   description:
-    'Catorce líneas de producto para food service: papa Lamb Weston, pollo Agrosuper, salsas para alitas, aderezos, Heinz, aceites, panadería Martin’s y más. Todo IQF, con existencia continua.',
+    'Catorce líneas de producto para food service: papa Lamb Weston, pollo Agrosuper, salsas para alitas, aderezos, Heinz, aceites, panadería Martin’s y más. Producto de línea con existencia continua y cadena de frío garantizada.',
   alternates: { canonical: '/catalogo/' },
 }
 
@@ -30,7 +32,7 @@ export default function Page() {
         anclas={['catorce líneas', 'producto de línea con existencia continua']}
         chips={[
           { etiqueta: 'Líneas', valor: `${FAMILIAS.length} familias` },
-          { etiqueta: 'Congelado', valor: 'IQF, pieza por pieza' },
+          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Precios', valor: 'En el portal, con tu lista' },
           { etiqueta: 'Corte', valor: `${EMPRESA.corteHora} h` },
         ]}
@@ -41,6 +43,14 @@ export default function Page() {
       />
 
       <BarraConfianza />
+
+      <Seccion
+        eyebrow="Encuentra rápido"
+        titulo="Busca por producto, marca o código"
+        intro="Escribe lo que buscas como lo dices en tu cocina: “dedos de queso”, “gajo”, “Lamb Weston” o el código, si ya lo tienes."
+      >
+        <BuscadorCatalogo productos={CATALOGO} />
+      </Seccion>
 
       <Seccion
         eyebrow="Por línea de producto"
