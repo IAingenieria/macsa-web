@@ -41,7 +41,11 @@ import unicodedata
 import fitz
 from PIL import Image
 
-SALIDA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_fotos_catalogo")
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# El segundo argumento permite sacar otro catalogo a otra carpeta sin pisar
+# lo ya extraido: el de Emiliano y la guia de linea de Lamb Weston conviven.
+SALIDA = os.path.join(RAIZ, sys.argv[2] if len(sys.argv) > 2 else "_fotos_catalogo")
+BASE_SKUS = os.path.join(RAIZ, "_fotos_catalogo", "_base.json")
 
 # Un lado de 800 px basta para una ficha: la tarjeta la pinta a 320 y la
 # ficha grande a 640. Más allá es peso que el cliente descarga sin verlo.
@@ -171,7 +175,7 @@ def es_encabezado(lineas):
 
 def cargar_skus():
     """Los SKU activos, para reconocer un código cuando aparece en el PDF."""
-    ruta = os.path.join(SALIDA, "_base.json")
+    ruta = BASE_SKUS
     if not os.path.exists(ruta):
         print("aviso: falta _base.json, no se reconoceran codigos")
         return []
@@ -279,5 +283,5 @@ def main(ruta_pdf):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        sys.exit("uso: python scripts/extraer_catalogo_pdf.py <ruta del pdf>")
+        sys.exit("uso: python scripts/extraer_catalogo_pdf.py <pdf> [carpeta de salida]")
     main(sys.argv[1])
