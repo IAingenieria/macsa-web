@@ -29,6 +29,214 @@
       "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700165207_C1N1-600x600.jpg"
     },
     {
+      "s": "P-0155",
+      "d": "Salsa De Mezcal 3.8 L (4.0 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mezcal.webp"
+    },
+    {
+      "s": "P-0198",
+      "d": "Salsa Mango Habanero 3.8 L (4.2 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-habanero.webp"
+    },
+    {
+      "s": "P-0199",
+      "d": "Salsa Mango Hot 3.8 L (4.2 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-hot.webp"
+    },
+    {
+      "s": "P-0203",
+      "d": "Salsa Sriracha 4.0 kg (3.8L)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/sriracha.webp"
+    },
+    {
+      "s": "P-0204",
+      "d": "Salsa BBQ SIN AZUCAR 3.8 L",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-sin-azucar.webp"
+    },
+    {
+      "s": "P-0206",
+      "d": "Salsa Ketchup Sin Azucar 3.8L",
+      "c": "Aderezo",
+      "p": "Galon 3.8 L",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/catsup-sin-azucar.webp"
+    },
+    {
+      "s": "P069",
+      "d": "Salsa para Alitas  3.8 L (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mr-wings.webp"
+    },
+    {
+      "s": "P071",
+      "d": "Salsa Original Hot 3.8 L (4.0 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/original-hot.webp"
+    },
+    {
+      "s": "P073",
+      "d": "Aderezo Honey Mustard 3.8 L (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/honey-mustard.webp"
+    },
+    {
+      "s": "P074",
+      "d": "Salsa Habanero Cream 3.8 L (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/habanero-cream.webp"
+    },
+    {
+      "s": "P075",
+      "d": "Salsa Pina Hot 3.8 L (4.2 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/pina-hot.webp"
+    },
+    {
+      "s": "P076",
+      "d": "Salsa BBQ Chipotle 3.8 L (4.1 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-chipotle.webp"
+    },
+    {
+      "s": "P078",
+      "d": "Salsa De Teriyaki 3.8 L (4.7 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/teriyaki.webp"
+    },
+    {
+      "s": "P079",
+      "d": "Salsa De BBQ 3.8 L (4.1 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq.webp"
+    },
+    {
+      "s": "P080",
+      "d": "Salsa De Tamarindo 3.8 L (4.3 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/tamarindo.webp"
+    },
+    {
+      "s": "P081",
+      "d": "Salsa BBQ Habanero 3.8 L (4.1 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-habanero.webp"
+    },
+    {
+      "s": "P082",
+      "d": "Sazonador Lemon Pepper Hot Bote de 800 gr.",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-hot-800g.webp"
+    },
+    {
+      "s": "P083",
+      "d": "Salsa X Hot 3.8 L (4 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/xhot.webp"
+    },
+    {
+      "s": "P084",
+      "d": "Sazonador Fuego 800g",
+      "c": "Aderezo",
+      "p": "Pieza 800g",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-fuego-800g.webp"
+    },
+    {
+      "s": "P085",
+      "d": "Salsa Cajun 3.8 L (4.0 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/cajun.webp"
+    },
+    {
+      "s": "P086",
+      "d": "Salsa Naranja Chipotle 3.8 L (4.3 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/naranja-chipotle.webp"
+    },
+    {
+      "s": "P089",
+      "d": "Sazonador Lemon Pepper Bote 800 gr",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-800g.webp"
+    },
+    {
+      "s": "P093",
+      "d": "Aderezo Lemon Pepper 3.8 L (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/lemon-pepper.webp"
+    },
+    {
+      "s": "P095",
+      "d": "Aderezo Ranch 3.8 lt (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ranch.webp"
+    },
+    {
+      "s": "P101",
+      "d": "Aderezo Ajo Parmesano 3.8 L (3.8 kg)",
+      "c": "Aderezo",
+      "p": null,
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ajo-parmesano.webp"
+    },
+    {
+      "s": "P137",
+      "d": "Salsa Guacamole 3.8L",
+      "c": "Aderezo",
+      "p": "Galon 3.8 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/guacamole.webp"
+    },
+    {
       "s": "RCHC",
       "d": "RCHC RANCH CULINAIRE 3.78 L",
       "c": "Aderezo",
@@ -61,22 +269,6 @@
       "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700174414_C1N1-600x600.jpg"
     },
     {
-      "s": "VNT-MAY",
-      "d": "Mayonesa Wilsey",
-      "c": "Aderezo",
-      "p": "Galón",
-      "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700165207_C1N1-600x600.jpg"
-    },
-    {
-      "s": "VNT-RAN",
-      "d": "Ranch Culinarie",
-      "c": "Aderezo",
-      "p": "Galón",
-      "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/07503028526253_C1N1-600x600.jpg"
-    },
-    {
       "s": "STAB",
       "d": "STAB SALSA TABASCO BOTELLA DE 60ML CON 24 PZ",
       "c": "Heinz",
@@ -101,6 +293,30 @@
       "i": "https://potatorolls.com/wp-content/uploads/2020/06/sandwichRollsTile.png"
     },
     {
+      "s": "ALEMON",
+      "d": "ADEREZO LEMON PEPPER GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/lemon-pepper.webp"
+    },
+    {
+      "s": "ALITAS",
+      "d": "SALSA ALITAS MR WINGS GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mr-wings.webp"
+    },
+    {
+      "s": "AP",
+      "d": "ADEREZO AJO PARMESANO GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ajo-parmesano.webp"
+    },
+    {
       "s": "BBQ",
       "d": "SALSA BBQ GALON",
       "c": "Mr Wings",
@@ -109,12 +325,156 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p23_9373d9ca.webp"
     },
     {
+      "s": "BBQCHIPOTLE",
+      "d": "SALSA BBQ CHIPOTLE GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-chipotle.webp"
+    },
+    {
+      "s": "BBQHABANERO",
+      "d": "BBQ HABANERO 3.8 L MR. WINGS",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-habanero.webp"
+    },
+    {
+      "s": "BBQSA",
+      "d": "BBQSA BBQ SIN AZUCAR MR. WINGS",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-sin-azucar.webp"
+    },
+    {
+      "s": "CAJUN",
+      "d": "SALSA CAJUN GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/cajun.webp"
+    },
+    {
+      "s": "CREAM",
+      "d": "SALSA HABANERO CREAM GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/habanero-cream.webp"
+    },
+    {
+      "s": "HONEY",
+      "d": "SALSA HONEY MUSTARD GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/honey-mustard.webp"
+    },
+    {
+      "s": "LP",
+      "d": "SAZONADOR LEMON PEPPER BOTE 800 GR",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-800g.webp"
+    },
+    {
+      "s": "LPH",
+      "d": "SAZONADOR LEMON PEPPER HOT BOTE 800 GR",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-hot-800g.webp"
+    },
+    {
+      "s": "MANGOH",
+      "d": "SALSA MANGO HABANERO GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-habanero.webp"
+    },
+    {
+      "s": "MANGOHOT",
+      "d": "SALSA MANGO HOT GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-hot.webp"
+    },
+    {
+      "s": "MEZCAL",
+      "d": "SALSA MEZCAL GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mezcal.webp"
+    },
+    {
+      "s": "NACHIPOTLE",
+      "d": "SALSA  NARANJA CHIPOTLE GALO",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/naranja-chipotle.webp"
+    },
+    {
+      "s": "ORIGINALHOT",
+      "d": "SALSA ORIGINAL HOT GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/original-hot.webp"
+    },
+    {
+      "s": "PIÑA",
+      "d": "SALSA PIÑA HOT GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/pina-hot.webp"
+    },
+    {
       "s": "RANCH",
       "d": "ADEREZO RANCH GALON",
       "c": "Mr Wings",
       "p": "Por definir",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p24_14181f90.webp"
+    },
+    {
+      "s": "SCH38",
+      "d": "SCH38 SALSA SRIRACHA 3.8 L",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/sriracha.webp"
+    },
+    {
+      "s": "TAMARINDO",
+      "d": "SALSA TAMARINDO GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/tamarindo.webp"
+    },
+    {
+      "s": "TERIYAKI",
+      "d": "SALSA DE TERIYAKI GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/teriyaki.webp"
+    },
+    {
+      "s": "XHOT",
+      "d": "SALSA X-HOT GALON",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/xhot.webp"
     },
     {
       "s": "12021",
