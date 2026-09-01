@@ -129,6 +129,18 @@ const EXCEPCIONES: Record<string, string> = {
   PM12: 'panaderia',
   // Está en "Queso" pero es dip de nacho
   RN48: 'appetizers-y-quesos',
+  // Están en "Papa" y son verdura congelada. Salieron a la luz el 31-ago con
+  // las fotos del catálogo de Emiliano: sin esta excepción, el elote aparecía
+  // dentro de la papa a la francesa.
+  EE48: 'verduras-y-elote',
+  EM96: 'verduras-y-elote',
+  EED: 'verduras-y-elote',
+  CHZ: 'verduras-y-elote',
+  MC: 'verduras-y-elote',
+  // Está en "RD Mex Foods" pero es el dedo de queso de Sargento
+  DQS: 'appetizers-y-quesos',
+  // Está en "Mr Wings" pero es aderezo de barra, no salsa para alitas
+  RANCH: 'aderezos',
 }
 
 /**

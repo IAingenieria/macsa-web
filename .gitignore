@@ -7,3 +7,7 @@ out/
 
 # Las paginas producto x ciudad las escribe scripts/generar_geo.mjs en cada build.
 app/(generado)/
+
+# Fotos extraidas del catalogo en PDF: son un paso intermedio, viven en
+# Supabase Storage. El repo no las necesita.
+_fotos_catalogo/
