@@ -73,7 +73,7 @@ def main():
     ventas = json.load(io.open(os.path.join(CARPETA, "_ventas2026.json"), encoding="utf-8"))
     imp, ult = ventas["importe"], ventas["ultima"]
 
-    vivos, dormidos = [], []
+    vivos, dormidos, sin_precio = [], [], []
     for p in sin:
         sku = p["sku"]
         fila = {
@@ -84,7 +84,12 @@ def main():
             "lb": p.get("peso_lb"),
             "ultima": ult.get(sku, ""),
         }
-        if sku in imp:
+        # Un producto sin precio no se puede cotizar, así que su foto no sirve
+        # de nada mientras Jorge no lo liste. No se le pide a Emiliano: se
+        # aparta para que lo vea quien puede resolverlo.
+        if not p.get("con_precio"):
+            sin_precio.append(fila)
+        elif sku in imp:
             fila["peso"] = imp[sku]
             vivos.append(fila)
         else:
@@ -106,9 +111,11 @@ def main():
     datos = {
         "vivos": agrupar(vivos),
         "dormidos": agrupar(sorted(dormidos, key=lambda f: f["sku"])),
+        "sin_precio": agrupar(sorted(sin_precio, key=lambda f: f["sku"])),
         "n_vivos": len(vivos),
         "n_dormidos": len(dormidos),
-        "n_con_foto": 113,
+        "n_sin_precio": len(sin_precio),
+        "n_publicados": 76,
         "n_total": 394,
     }
 
@@ -116,6 +123,7 @@ def main():
     io.open(SALIDA, "w", encoding="utf-8", newline="\n").write(html)
     print(f"se venden y no tienen foto: {len(vivos)}")
     print(f"sin venta en 2026:          {len(dormidos)}")
+    print(f"sin precio (van a Jorge):   {len(sin_precio)}")
     print(f"{os.path.getsize(SALIDA) / 1024:.0f} KB → {SALIDA}")
 
 
@@ -235,13 +243,13 @@ PLANTILLA = """<title>Fotos que faltan</title>
 
 <main>
   <div class="intro">
-    <p>Emiliano: el sitio saca las fichas de producto de la lista de precios, y sólo enseña las que
-    tienen foto. Hoy son <strong>113 de 394</strong>, así que <strong>el cliente no encuentra en la
-    página la mayor parte de lo que vendemos</strong>. Del catálogo en PDF ya se sacaron las que
-    traía; éstas son las que siguen faltando.</p>
-    <p>No hace falta que las consigas todas. <strong>Empieza por las 100 de arriba</strong>: son las
-    que sí se están vendiendo este año. Las otras están abajo y de ésas lo que necesitamos saber es
-    otra cosa — si todavía se manejan.</p>
+    <p>Emiliano: el sitio saca las fichas de la lista de precios y sólo publica un producto cuando
+    tiene <strong>foto</strong> y <strong>precio</strong>. Hoy cumplen las dos cosas
+    <strong id="i-pub"></strong> de <strong id="i-tot"></strong>, así que <strong>el cliente no
+    encuentra en la página la mayor parte de lo que vendemos</strong>. Del catálogo en PDF ya se
+    sacaron las fotos que traía; éstas son las que siguen faltando.</p>
+    <p>No hace falta que las consigas todas, y están puestas en el orden en que conviene atacarlas.
+    <strong>Empieza por el primer bloque</strong>: son las que se están vendiendo este año.</p>
   </div>
 
   <div class="como">
@@ -266,10 +274,16 @@ PLANTILLA = """<title>Fotos que faltan</title>
   <div id="vivos"></div>
 
   <h2 class="seccion">Y estas otras, ¿todavía se manejan?</h2>
-  <p class="seccion-sub">No registran una sola venta en lo que va del año. Antes de buscarles foto,
-    lo útil es saber cuáles ya no se venden: ésas se apagan y dejan de estorbar en la lista de
-    precios y en el cotizador.</p>
+  <p class="seccion-sub">Tienen precio, pero no registran una sola venta en lo que va del año. Antes
+    de buscarles foto, lo útil es saber cuáles ya no se venden: ésas se apagan y dejan de estorbar
+    en la lista de precios y en el cotizador.</p>
   <div id="dormidos"></div>
+
+  <h2 class="seccion">Éstas no las busques todavía</h2>
+  <p class="seccion-sub">No tienen precio en ninguna lista, así que aunque tuvieran foto el vendedor
+    no las podría cotizar y el sitio no las publica. Van aquí para que <strong>Jorge</strong> decida
+    si les pone precio o se apagan. En cuanto tengan precio, pasan a la lista de arriba.</p>
+  <div id="sinprecio"></div>
 </main>
 
 <div id="panel">
@@ -292,9 +306,12 @@ PLANTILLA = """<title>Fotos que faltan</title>
 
   document.getElementById('resumen').innerHTML = `
     <div class="dato"><div class="n">${D.n_total}</div><div class="t">productos en la lista</div></div>
-    <div class="dato"><div class="n">${D.n_con_foto}</div><div class="t">ya tienen foto</div></div>
+    <div class="dato"><div class="n">${D.n_publicados}</div><div class="t">se publican hoy</div></div>
     <div class="dato acento"><div class="n">${D.n_vivos}</div><div class="t">faltan y SÍ se venden</div></div>
-    <div class="dato"><div class="n">${D.n_dormidos}</div><div class="t">faltan y no se han vendido este año</div></div>`
+    <div class="dato"><div class="n">${D.n_dormidos}</div><div class="t">faltan y no se han vendido este año</div></div>
+    <div class="dato"><div class="n">${D.n_sin_precio}</div><div class="t">sin precio — las ve Jorge</div></div>`
+  document.getElementById('i-pub').textContent = D.n_publicados
+  document.getElementById('i-tot').textContent = D.n_total
 
   const fila = (f, conPrio) => `
     <tr data-sku="${f.sku}">
@@ -329,6 +346,7 @@ PLANTILLA = """<title>Fotos que faltan</title>
 
   pintar('vivos', D.vivos, true)
   pintar('dormidos', D.dormidos, false)
+  pintar('sinprecio', D.sin_precio, false)
 
   function refrescar(tr) {
     const v = estado[tr.dataset.sku]
@@ -338,7 +356,7 @@ PLANTILLA = """<title>Fotos que faltan</title>
 
   function avance() {
     const n = Object.values(estado).filter(Boolean).length
-    const total = D.n_vivos + D.n_dormidos
+    const total = D.n_vivos + D.n_dormidos + D.n_sin_precio
     document.getElementById('hechas').textContent = n
     document.getElementById('medidor').style.width = (n / total * 100) + '%'
   }
@@ -358,7 +376,7 @@ PLANTILLA = """<title>Fotos que faltan</title>
   })
 
   document.getElementById('copiar').addEventListener('click', () => {
-    const todas = [...D.vivos, ...D.dormidos].flatMap(([cat, fs]) => fs.map((f) => ({ ...f, cat })))
+    const todas = [...D.vivos, ...D.dormidos, ...D.sin_precio].flatMap(([cat, fs]) => fs.map((f) => ({ ...f, cat })))
     const lineas = todas.filter((f) => estado[f.sku])
       .map((f) => `${estado[f.sku]}\\t${f.sku}\\t${f.nombre}\\t${f.cat}`)
     document.getElementById('salida').value = lineas.length

@@ -99,7 +99,7 @@ export const GIROS: Giro[] = [
 export const giro = (slug: string) => GIROS.find((g) => g.slug === slug)
 
 /**
- * El portafolio de marcas, y con cuáles la relación es DIRECTA.
+ * El portafolio de marcas, con cuáles la relación es DIRECTA y su logotipo.
  *
  * Edgar repasó la lista el 31-ago-2026 y la corrigió marca por marca: casi
  * todo el portafolio es directo — Lamb Weston, el pollo, las hamburguesas,
@@ -107,61 +107,82 @@ export const giro = (slug: string) => GIROS.find((g) => g.slug === slug)
  * Ventura Foods, que llega por intermediario. Decirlo es una ventaja real
  * frente al competidor, y decirlo mal es prometer lo que no se sostiene: por
  * eso `directo` se marca marca por marca y no por categoría.
+ *
+ * Los LOGOTIPOS salieron del catálogo oficial en PDF, con su canal alfa (la
+ * SMask del PDF): sin aplicarla salían con caja negra y los que son de tinta
+ * clara desaparecían. ⚠️ Siete de los 21 son de tinta oscura —Lamb Weston,
+ * Ventura, Sargento, Pilgrim's, Ricos, Sweet Baby Ray's, Mike's Hot Honey— así
+ * que **la placa que los sostiene tiene que ser clara**. Es el mismo problema
+ * que apareció en S132 con los dos logotipos azul marino del índice.
  */
 export interface MarcaPortafolio {
   nombre: string
   directo: boolean
+  /** Archivo en el bucket `catalogo/marcas/`. Sin logo, se pinta el nombre. */
+  logo?: string
 }
 
+const LOGOS = 'https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/marcas/'
+
+/** URL del logotipo de una marca, o null si no lo tenemos. */
+export const logoDe = (m: MarcaPortafolio) => (m.logo ? `${LOGOS}${m.logo}.png` : null)
+
 export const MARCAS: { categoria: string; marcas: MarcaPortafolio[] }[] = [
-  { categoria: 'Papas', marcas: [{ nombre: 'Lamb Weston', directo: true }] },
+  { categoria: 'Papas', marcas: [{ nombre: 'Lamb Weston', directo: true, logo: 'lamb-weston' }] },
   {
     categoria: 'Pollo',
     marcas: [
-      { nombre: 'Agrosuper', directo: true },
-      { nombre: 'Freskecito', directo: true },
-      { nombre: 'Bachoco', directo: true },
-      { nombre: "Pilgrim's", directo: true },
+      { nombre: 'Agrosuper', directo: true, logo: 'agrosuper' },
+      { nombre: 'Freskecito', directo: true, logo: 'freskecito' },
+      { nombre: 'Bachoco', directo: true, logo: 'bachoco' },
+      { nombre: "Pilgrim's", directo: true, logo: 'pilgrims' },
     ],
   },
   {
     categoria: 'Carnes y hamburguesa',
     marcas: [
-      { nombre: 'UGASA', directo: true },
+      { nombre: 'UGASA', directo: true, logo: 'ugasa' },
       { nombre: 'Smithfield', directo: true },
+      // Estaba en el catálogo impreso y no en el portafolio del sitio.
+      { nombre: 'Sugardale', directo: false, logo: 'sugardale' },
     ],
   },
   {
     categoria: 'Appetizers y quesos',
     marcas: [
       { nombre: 'Comarco', directo: true },
-      { nombre: 'Sargento', directo: true },
+      { nombre: 'Sargento', directo: true, logo: 'sargento' },
     ],
   },
-  { categoria: 'Verduras congeladas', marcas: [{ nombre: 'Twin City Foods', directo: true }] },
+  {
+    categoria: 'Verduras congeladas',
+    marcas: [{ nombre: 'Twin City Foods', directo: true, logo: 'twin-city-foods' }],
+  },
   {
     categoria: 'Panadería',
-    marcas: [{ nombre: "Martin's Famous Potato Rolls", directo: true }],
+    marcas: [{ nombre: "Martin's Famous Potato Rolls", directo: true, logo: 'martins' }],
   },
   {
     categoria: 'Salsas para alitas',
     marcas: [
-      { nombre: 'Mr. Wings', directo: true },
-      { nombre: 'Hello Buffalo', directo: false },
-      { nombre: 'Cajun Chef', directo: false },
+      { nombre: 'Mr. Wings', directo: true, logo: 'mr-wings' },
+      { nombre: 'Hello Buffalo', directo: false, logo: 'hello-buffalo' },
+      { nombre: 'Cajun Chef', directo: false, logo: 'cajun-chef' },
       { nombre: 'La Pócima', directo: false },
+      { nombre: "Sweet Baby Ray's", directo: false, logo: 'sweet-baby-rays' },
+      { nombre: "Mike's Hot Honey", directo: false, logo: 'mikes-hot-honey' },
     ],
   },
   {
     categoria: 'Aderezos y salsas',
     marcas: [
-      { nombre: 'Ricos', directo: true },
+      { nombre: 'Ricos', directo: true, logo: 'ricos' },
       // La unica del portafolio que NO es directa. Lo marco Edgar.
-      { nombre: 'VenturaFoods', directo: false },
-      { nombre: 'abal', directo: false },
+      { nombre: 'VenturaFoods', directo: false, logo: 'ventura-foods' },
+      { nombre: 'abal', directo: false, logo: 'abal' },
     ],
   },
-  { categoria: 'Condimentos', marcas: [{ nombre: 'Heinz', directo: true }] },
+  { categoria: 'Condimentos', marcas: [{ nombre: 'Heinz', directo: true, logo: 'heinz' }] },
   {
     categoria: 'Aceites para freír',
     marcas: [
@@ -169,8 +190,12 @@ export const MARCAS: { categoria: string; marcas: MarcaPortafolio[] }[] = [
       { nombre: 'Golden Chef', directo: false },
     ],
   },
-  { categoria: 'Toppings para pizza', marcas: [{ nombre: 'Paradiso', directo: false }] },
+  { categoria: 'Toppings para pizza', marcas: [{ nombre: 'Paradiso', directo: false, logo: 'paradiso' }] },
+  { categoria: 'Postres', marcas: [{ nombre: 'Sol', directo: false, logo: 'sol' }] },
 ]
 
 /** Cuántas marcas del portafolio son relación directa. */
 export const MARCAS_DIRECTAS = MARCAS.flatMap((c) => c.marcas).filter((m) => m.directo)
+
+/** Las que tienen logotipo, para la tira de marcas. */
+export const MARCAS_CON_LOGO = MARCAS.flatMap((c) => c.marcas).filter((m) => m.logo)

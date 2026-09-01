@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
-import { MARCAS, MARCAS_DIRECTAS } from '@/lib/giros'
+import { MARCAS, MARCAS_CON_LOGO, MARCAS_DIRECTAS, logoDe } from '@/lib/giros'
 import { FAMILIAS } from '@/lib/familias'
 import { asset } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
@@ -55,7 +55,7 @@ export default function Page() {
         chips={[
           { etiqueta: 'Oficial', valor: 'Lamb Weston' },
           { etiqueta: 'Directo', valor: `${MARCAS_DIRECTAS.length} marcas sin intermediario` },
-          { etiqueta: 'Categorías', valor: `${MARCAS.length} en portafolio` },
+          { etiqueta: 'Marcas', valor: `${MARCAS.flatMap((c) => c.marcas).length} en portafolio` },
           { etiqueta: 'Origen', valor: 'Nacional e importado' },
         ]}
         ctaWhatsApp="Hola, ¿qué manejan de una marca en particular?"
@@ -101,6 +101,39 @@ export default function Page() {
       </Seccion>
 
       <Seccion
+        eyebrow="El portafolio"
+        titulo="Las marcas que llegan en nuestro camión"
+        intro="Son las que aparecen en el catálogo impreso. Con la mayoría compramos directo al fabricante."
+      >
+        {/* Placa BLANCA a propósito: siete de estos logotipos son de tinta
+            oscura (Lamb Weston, Ventura, Sargento, Pilgrim's, Ricos, Sweet Baby
+            Ray's, Mike's Hot Honey) y sobre un fondo oscuro desaparecen. */}
+        <ul className="grid grid-cols-2 gap-px bg-hielo-300 sm:grid-cols-3 lg:grid-cols-5">
+          {MARCAS_CON_LOGO.map((m) => (
+            <li
+              key={m.nombre}
+              className="flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-white p-5"
+            >
+              <img
+                src={logoDe(m)!}
+                alt={m.nombre}
+                width={180}
+                height={90}
+                loading="lazy"
+                decoding="async"
+                className="max-h-[54px] w-auto max-w-[80%] object-contain"
+              />
+              {m.directo && (
+                <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
+                  Directo
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Seccion>
+
+      <Seccion
         eyebrow="Portafolio completo"
         titulo="Todas las marcas, por categoría"
         fondo="hielo"
@@ -127,6 +160,17 @@ export default function Page() {
                     <ul className="flex flex-wrap gap-x-2 gap-y-1.5">
                       {m.marcas.map((marca) => (
                         <li key={marca.nombre} className="flex items-center gap-1.5">
+                          {logoDe(marca) && (
+                            <img
+                              src={logoDe(marca)!}
+                              alt=""
+                              width={72}
+                              height={36}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-5 w-auto max-w-[68px] object-contain"
+                            />
+                          )}
                           <span>{marca.nombre}</span>
                           {marca.directo && (
                             <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
