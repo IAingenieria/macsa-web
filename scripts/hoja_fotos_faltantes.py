@@ -79,6 +79,7 @@ def bonito(desc, sku):
 def main():
     sin = json.load(io.open(os.path.join(CARPETA, "_sinfoto.json"), encoding="utf-8"))
     ventas = json.load(io.open(os.path.join(CARPETA, "_ventas2026.json"), encoding="utf-8"))
+    resumen = json.load(io.open(os.path.join(CARPETA, "_resumen.json"), encoding="utf-8"))
     imp, ult = ventas["importe"], ventas["ultima"]
 
     vivos, dormidos, sin_precio = [], [], []
@@ -125,8 +126,11 @@ def main():
         "n_vivos": len(vivos),
         "n_dormidos": len(dormidos),
         "n_sin_precio": len(sin_precio),
-        "n_publicados": 76,
-        "n_total": 394,
+        # Se leen del resumen que deja `datos_hoja.py`, nunca a mano: la
+        # primera version los traia fijos y la hoja anunciaba "76 de 394"
+        # cuando ya eran otros.
+        "n_publicados": resumen["publicados"],
+        "n_total": resumen["total"],
     }
 
     html = (

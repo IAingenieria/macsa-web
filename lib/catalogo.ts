@@ -240,6 +240,13 @@ const OCULTOS = new Set([
   'C27', // gajo sazonado 8 cortes — se queda C2700
   'D17', // el mismo gajo de 8 cortes con otra clave
   'X9182', // crisscut sazonada — se queda D23
+  // Marcados "ya no se maneja" en la hoja de fotos (macsa-fotos) el 1-sep.
+  // Siguen ACTIVOS en la lista de precios, así que el sitio los publicaba: se
+  // ocultan aquí mientras Jorge decide apagarlos en la base, que es donde de
+  // verdad hay que apagarlos para que salgan también del cotizador.
+  '3412', // mozzarella sticks
+  'P-0206', // salsa ketchup sin azúcar 3.8 L
+  'P084', // sazonador fuego 800 g
 ])
 
 /**
