@@ -12,7 +12,7 @@ import { breadcrumbSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Tienda — catálogo de producto con ficha',
   description:
-    'Catálogo de MACSA con ficha por código: presentación, kilos por caja y rendimiento en órdenes. Pide por WhatsApp o entra al portal con tu precio.',
+    'Catálogo de MACSA con ficha por código: presentación, kilos por caja y piezas por caja cuando el producto se cuenta. Pide por WhatsApp o entra al portal con tu precio.',
   alternates: { canonical: '/tienda/' },
 }
 
@@ -90,11 +90,6 @@ export default function Page() {
                     </h3>
                     {p.presentacion && (
                       <p className="mt-2 text-[13px] text-humo">{p.presentacion}</p>
-                    )}
-                    {p.rendimiento?.tipo === 'porcion' && (
-                      <p className="mt-1 text-[13px] text-humo-400">
-                        ~{p.rendimiento.g150} órdenes de 150 g
-                      </p>
                     )}
                     {p.rendimiento?.tipo === 'piezas' && (
                       <p className="mt-1 text-[13px] text-humo-400">

@@ -52,7 +52,7 @@ export const FAMILIAS: Familia[] = [
       { codigo: '12021', nombre: 'Papa ondulada 1/2 extra larga', presentacion: 'Caja 13.6 kg (30 lb)' },
       { codigo: '12045', nombre: 'Thin cut crinkle cut 5/16', presentacion: 'Caja' },
       { codigo: 'D23', nombre: 'Papa crisscut sazonada', presentacion: 'Caja 12.2 kg (27 lb)' },
-      { codigo: 'C0034', nombre: 'Papa 1/4 colossal crisp', presentacion: 'Caja 12.2 kg (27 lb)' },
+      { codigo: 'C0034', nombre: 'Papa 1/4 con cobertura crujiente', presentacion: 'Caja 12.2 kg (27 lb)' },
       { codigo: '32Q', nombre: 'Papa steak cut', presentacion: 'Caja 13.6 kg (30 lb)' },
       { codigo: '30H', nombre: 'Papa chips', presentacion: 'Caja 13.6 kg (30 lb)' },
       { codigo: '32N', nombre: 'Papa en cubo', presentacion: 'Caja 16.34 kg' },
@@ -139,15 +139,15 @@ export const FAMILIAS: Familia[] = [
     h1: 'Aderezos para restaurante',
     tagline: 'Ranch, Blue Cheese, César y cuatro más.',
     answerFirst:
-      'MACSA distribuye aderezos para food service de VenturaFoods y Ricos: Ranch, Blue Cheese, Miel Mostaza, Ajo Parmesano, Lemon Pepper y César, en las presentaciones de volumen que usa una cocina profesional. Producto de línea con existencia permanente, no saldos ni oportunidades.',
-    anclas: ['producto de línea', 'existencia permanente'],
-    marcas: ['VenturaFoods', 'Ricos', 'abal'],
+      'MACSA es distribuidor directo de Ricos, y maneja además la línea Culinaire y Wilsey de VenturaFoods: Ranch, Blue Cheese, Miel Mostaza, Ajo Parmesano, Lemon Pepper y César, en las presentaciones de volumen que usa una cocina profesional. Producto de línea con existencia permanente, no saldos ni oportunidades.',
+    anclas: ['distribuidor directo de Ricos', 'existencia permanente'],
+    // Edgar, 31-ago: "todo el portafolio es directo menos Ventura Foods; Ricos
+    // sí es directo". Jorge, 2-sep: "quitamos todos los VNT" — los códigos
+    // vivos en Microsip son MAY378 (mayonesa) y RCHC (ranch).
+    marcas: ['Ricos', 'VenturaFoods', 'abal'],
     productos: [
-      { codigo: 'VNT-RAN', nombre: 'Aderezo Ranch', presentacion: 'Volumen' },
-      { codigo: 'RCHC', nombre: 'Aderezo Ranch Culinaire', presentacion: 'Volumen' },
-      { codigo: 'VNT-HM', nombre: 'Aderezo miel mostaza', presentacion: 'Volumen' },
-      { codigo: 'VNT-MAY', nombre: 'Mayonesa VenturaFoods', presentacion: 'Volumen' },
-      { codigo: 'VNT-BBQ', nombre: 'Salsa BBQ VenturaFoods', presentacion: 'Volumen' },
+      { codigo: 'RCHC', nombre: 'Aderezo Ranch Culinaire', presentacion: 'Galón 3.78 L' },
+      { codigo: 'MAY378', nombre: 'Mayonesa Wilsey', presentacion: 'Galón 3.78 L' },
       { codigo: 'RN48', nombre: 'Ricos portion cup 3.5 oz', presentacion: 'Caja' },
     ],
     giros: ['alitas-y-boneless', 'hamburgueseria', 'cafeteria', 'dark-kitchen'],
@@ -184,7 +184,8 @@ export const FAMILIAS: Familia[] = [
       { codigo: 'HZ-MAY', nombre: 'Mayonesa Heinz', presentacion: 'Cubeta, botella y sachet' },
       { codigo: 'HZ-MOS', nombre: 'Mostaza Heinz', presentacion: 'Botella, pouch y sobre' },
       { codigo: 'HZ-JAL', nombre: 'Jalapeño Heinz', presentacion: 'Caja 500 sobres 8 g' },
-      { codigo: 'HZ-BBQ', nombre: 'Salsa BBQ Heinz', presentacion: 'Volumen' },
+      // Jorge, 2-sep-2026: "HBBQ es el bueno"; HZBBQP es la presentación PET.
+      { codigo: 'HBBQ', nombre: 'Salsa BBQ Heinz', presentacion: 'Galón 3.78 L' },
       { codigo: 'HZ-TAB', nombre: 'Salsa Tabasco roja', presentacion: 'Caja 24 botellas 60 ml' },
     ],
     giros: ['fast-food', 'hamburgueseria', 'comida-corrida', 'cafeteria', 'hotel'],
@@ -292,7 +293,9 @@ export const FAMILIAS: Familia[] = [
     answerFirst:
       'MACSA maneja postres y churros congelados listos para freír u hornear. Es la línea que convierte una cuenta promedio en una cuenta con postre sin agregar un solo minuto de preparación en cocina ni contratar repostería.',
     anclas: ['listos para freír u hornear', 'sin agregar un solo minuto'],
-    marcas: ['SolChurros', 'RD'],
+    // Jorge, 2-sep-2026: SolChurros no se menciona — "no les quiero hacer
+    // promoción" hasta tener garantía de que lo protejan como distribuidor.
+    marcas: ['RD'],
     productos: [],
     giros: ['comida-corrida', 'cafeteria', 'hotel', 'fast-food'],
     pilar: false,

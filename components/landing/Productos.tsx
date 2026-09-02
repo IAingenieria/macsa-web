@@ -1,5 +1,5 @@
 import { Seccion } from '@/components/landing/Secciones'
-import { destacadosDe, porFamilia, porPorcion, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
+import { destacadosDe, porFamilia, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
 import { waLink } from '@/lib/site'
 
 /* ── Tarjeta de producto con foto oficial ──────────────────────────── */
@@ -45,14 +45,6 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
             <div className="flex gap-2">
               <dt className="text-humo-400">Marca</dt>
               <dd className="font-medium text-humo-900">{p.marca}</dd>
-            </div>
-          )}
-          {p.rendimiento?.tipo === 'porcion' && (
-            <div className="flex gap-2">
-              <dt className="text-humo-400">Rinde</dt>
-              <dd className="font-medium text-humo-900">
-                ~{p.rendimiento.g150} órdenes de 150 g
-              </dd>
             </div>
           )}
           {p.rendimiento?.tipo === 'piezas' && (
@@ -113,76 +105,6 @@ export function GaleriaProductos({
           <Tarjeta key={p.sku} p={p} ciudad={ciudad} />
         ))}
       </div>
-    </Seccion>
-  )
-}
-
-/* ── Rendimiento por porción ★ ─────────────────────────────────────── */
-/* El dato que ningún competidor publica y el que decide la compra.      */
-
-export function Rendimiento({ familia, skus }: { familia?: string; skus?: string[] }) {
-  const universo = skus ? porSkus(skus) : familia ? porFamilia(familia) : []
-  // Sólo el producto que se sirve por porción entra a esta tabla. Lo que se
-  // cuenta por pieza (cáscara de papa, munchers, pan) enseña sus piezas en la
-  // ficha, no un rendimiento por gramaje que no significa nada.
-  const conRendimiento = porPorcion(universo).filter((p) => p.kg)
-  if (conRendimiento.length < 2) return null
-
-  const muestra = conRendimiento.slice(0, 8)
-
-  return (
-    <Seccion
-      eyebrow="Costeo"
-      titulo="Cuántas órdenes salen de una caja"
-      intro="Nadie publica este dato y es el que de verdad usas para sacar tu costo por orden. Está calculado sobre el peso real de cada caja; ajústalo al gramaje que sirves."
-      fondo="hielo"
-    >
-      <div className="overflow-x-auto border border-hielo-300 bg-white">
-        <table className="w-full min-w-[560px] border-collapse text-left text-[15px]">
-          <thead>
-            <tr className="bg-hielo-100">
-              <th className="border-b border-hielo-300 px-4 py-3 font-display text-[12px] font-semibold uppercase tracking-wider text-humo">
-                Código
-              </th>
-              <th className="border-b border-hielo-300 px-4 py-3 font-display text-[12px] font-semibold uppercase tracking-wider text-humo">
-                Producto
-              </th>
-              <th className="border-b border-hielo-300 px-4 py-3 text-right font-display text-[12px] font-semibold uppercase tracking-wider text-humo">
-                Caja
-              </th>
-              <th className="border-b border-hielo-300 px-4 py-3 text-right font-display text-[12px] font-semibold uppercase tracking-wider text-humo">
-                Órdenes 150 g
-              </th>
-              <th className="border-b border-hielo-300 px-4 py-3 text-right font-display text-[12px] font-semibold uppercase tracking-wider text-humo">
-                Órdenes 200 g
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {muestra.map((p) => (
-              <tr key={p.sku} className="odd:bg-white even:bg-hielo-50">
-                <td className="border-b border-hielo-200 px-4 py-3 font-mono text-[13px] font-semibold text-navy-600">
-                  {p.sku}
-                </td>
-                <td className="border-b border-hielo-200 px-4 py-3 text-humo-900">{p.nombre}</td>
-                <td className="border-b border-hielo-200 px-4 py-3 text-right font-mono text-[13.5px] tabular-nums text-humo">
-                  {p.kg} kg
-                </td>
-                <td className="border-b border-hielo-200 px-4 py-3 text-right font-mono text-[13.5px] font-semibold tabular-nums text-navy">
-                  {p.rendimiento.g150}
-                </td>
-                <td className="border-b border-hielo-200 px-4 py-3 text-right font-mono text-[13.5px] tabular-nums text-humo-900">
-                  {p.rendimiento.g200}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p className="mt-4 max-w-prosa text-[14px] leading-relaxed text-humo-400">
-        Cálculo sobre el peso neto de la caja, sin merma. El rendimiento real depende de tu
-        gramaje y de cómo sirvas la orden.
-      </p>
     </Seccion>
   )
 }

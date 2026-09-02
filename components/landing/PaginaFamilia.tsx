@@ -14,7 +14,7 @@ import { FAMILIAS, type Familia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
 import { MODOS, porModo } from '@/lib/ciudades'
-import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
+import { GaleriaProductos } from '@/components/landing/Productos'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { heroFamilia } from '@/lib/heroes'
 
@@ -84,8 +84,6 @@ export default function PaginaFamilia({
         familia={f.slug}
         titulo={`${f.nombre} que manejamos`}
       />
-
-      <Rendimiento familia={f.slug} />
 
       <Seccion
         eyebrow="Catálogo completo"

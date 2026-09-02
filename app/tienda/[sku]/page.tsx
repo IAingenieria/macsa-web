@@ -134,25 +134,10 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
                 </dd>
               </div>
             )}
-            {/* El rendimiento se dice en la unidad del producto: por porción
-                lo que se sirve al gramo, por pieza lo que se cuenta (cáscara de
-                papa, munchers, pan). Si no sabemos las piezas, no se dice nada. */}
-            {p.rendimiento?.tipo === 'porcion' && (
-              <>
-                <div className="flex justify-between gap-6 py-3">
-                  <dt className="text-[14.5px] text-humo">Rinde con porción de 150 g</dt>
-                  <dd className="text-right font-mono text-[15px] font-semibold tabular-nums text-navy">
-                    ~{p.rendimiento.g150} órdenes
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-6 py-3">
-                  <dt className="text-[14.5px] text-humo">Rinde con porción de 200 g</dt>
-                  <dd className="text-right font-mono text-[15px] font-semibold tabular-nums text-navy">
-                    ~{p.rendimiento.g200} órdenes
-                  </dd>
-                </div>
-              </>
-            )}
+            {/* El rendimiento sólo se dice por pieza (cáscara de papa, aros,
+                munchers, dedos de queso). Las órdenes por gramaje se quitaron el
+                2-sep-2026 por instrucción de Jorge y Edgar. Si no sabemos las
+                piezas, no se dice nada. */}
             {p.rendimiento?.tipo === 'piezas' && (
               <div className="flex justify-between gap-6 py-3">
                 <dt className="text-[14.5px] text-humo">Piezas por caja</dt>

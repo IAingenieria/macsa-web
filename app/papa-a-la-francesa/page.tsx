@@ -26,7 +26,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Cuántas órdenes salen de una caja?',
-    r: 'Depende del gramaje de tu porción. Con la caja estándar de 13.6 kg y una orden de 150 gramos salen alrededor de 90 órdenes; con porción de 200 gramos, cerca de 68. Te ayudamos a sacar el costo por orden con el precio de tu lista.',
+    r: 'Depende del gramaje que sirvas y del corte. La caja estándar es de 13.6 kg; tu asesor te ayuda a sacar el costo por orden con tu gramaje y el precio de tu lista.',
   },
   {
     p: '¿Son distribuidor autorizado de Lamb Weston?',
@@ -51,7 +51,7 @@ const GUIA = {
     'La pregunta que más nos hacen no es el precio: es cuál corte aguanta el trayecto. Esta es la respuesta corta, por tipo de corte — el código exacto te lo damos al cotizar.',
   filas: [
     { cuando: 'Sirve en mesa y se come de inmediato', usa: 'Corte recto 3/8, el clásico de restaurante' },
-    { cuando: 'Manda a domicilio o por aplicación', usa: 'Corte con cobertura: Stealth o Colossal Crisp' },
+    { cuando: 'Manda a domicilio o por aplicación', usa: 'Corte con cobertura crujiente' },
     { cuando: 'Quiere que el plato luzca más', usa: 'Twister, crisscut o corte delgado' },
     { cuando: 'Quiere llenar más el plato por volumen', usa: 'Gajo sazonado de 8 cortes' },
     { cuando: 'Busca la papa más crujiente', usa: 'Corte delgado 5/16, recto u ondulado' },

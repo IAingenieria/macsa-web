@@ -170,7 +170,7 @@ export default function Home() {
       <Seccion
         eyebrow="Contacto"
         titulo="Te cotizamos hoy mismo"
-        intro="Déjanos tus datos y un asesor te contacta con precio y disponibilidad. O escríbenos por WhatsApp si prefieres resolverlo al momento."
+        intro="Obtén un descuento en tu primera compra. Déjanos tus datos y un asesor te contacta con precio y disponibilidad, o escríbenos por WhatsApp si prefieres resolverlo al momento. Y si ya eres cliente frecuente, comunícate con tu asesor para mejorar tus precios."
       >
         <div className="max-w-2xl">
           <FormularioProspecto />

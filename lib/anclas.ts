@@ -66,13 +66,17 @@ export const ANCLAS: Ancla[] = [
     factura: 6383000,
     giros: ['bar-y-cantina', 'alitas-y-boneless', 'hamburgueseria'],
   },
+  // Jorge, junta del 2-sep-2026: nada de nombres técnicos del fabricante
+  // ("colossal", "stealth") — el cliente entiende "con cobertura"; el
+  // vendedor explica el detalle. (El comentario va FUERA del objeto: el
+  // generador de páginas parte los registros por "{ slug:".)
   {
-    slug: 'papa-colossal-crisp',
-    nombre: 'Papa colossal crisp',
-    h1: 'Papa colossal crisp con recubrimiento',
+    slug: 'papa-con-cobertura',
+    nombre: 'Papa con cobertura crujiente',
+    h1: 'Papa a la francesa con cobertura crujiente',
     familia: 'papa-a-la-francesa',
     answerFirst:
-      'La papa colossal crisp trae un recubrimiento que la mantiene crujiente mucho más tiempo, así que es la que conviene cuando la orden sale a domicilio o para llevar. MACSA la maneja en corte de 1/4 y de 3/8, congelada IQF, como distribuidor oficial de Lamb Weston en Monterrey.',
+      'La papa con cobertura trae un recubrimiento que la mantiene crujiente mucho más tiempo, así que es la que conviene cuando la orden sale a domicilio o para llevar. MACSA la maneja en corte grueso de 1/4 y en corte recto de 3/8, congelada IQF, como distribuidor oficial de Lamb Weston en Monterrey.',
     anclas: ['crujiente mucho más tiempo', 'a domicilio o para llevar'],
     skus: ['C0034', 'C0057'],
     factura: 6660000,
@@ -180,7 +184,7 @@ export const ANCLAS: Ancla[] = [
     h1: 'Papa a la francesa corte 1/4 gruesa',
     familia: 'papa-a-la-francesa',
     answerFirst:
-      'El corte 1/4 es la papa gruesa: menos superficie por porción, más papa por mordida y menos absorción de aceite. MACSA la maneja con recubrimiento stealth, con cáscara y con capeado de cerveza, en caja de 12.2 kg y congelada IQF.',
+      'El corte 1/4 es la papa gruesa: menos superficie por porción, más papa por mordida y menos absorción de aceite. MACSA la maneja con cobertura crujiente, con cáscara y con capeado de cerveza, en caja de 12.2 kg y congelada IQF.',
     anclas: ['más papa por mordida', 'menos absorción de aceite'],
     skus: ['S34', 'HVT', 'H21', 'LW203', '25030', '32C', '45Q', 'S53', 'S0032'],
     factura: 2900000,
@@ -204,9 +208,9 @@ export const ANCLAS: Ancla[] = [
     h1: 'Mayonesa para restaurante en galón y cubeta',
     familia: 'aderezos',
     answerFirst:
-      'La mayonesa de food service se compra en volumen: MACSA la maneja en galón de 3.78 litros de VenturaFoods y en las presentaciones Heinz de cubeta, botella y sachet, incluida la de limón. La presentación se elige según si el consumo es de cocina, de barra o de mesa.',
+      'La mayonesa de food service se compra en volumen: MACSA la maneja en galón de 3.78 litros (Wilsey) y en las presentaciones Heinz de cubeta, botella y sachet, incluida la de limón. La presentación se elige según si el consumo es de cocina, de barra o de mesa.',
     anclas: ['se compra en volumen', 'de cocina, de barra o de mesa'],
-    skus: ['MAY378', 'VNT-MAY', 'HZ-MAY'],
+    skus: ['MAY378', 'HZ-MAY'],
     factura: 877000,
     giros: ['hamburgueseria', 'fast-food', 'comida-corrida', 'cafeteria'],
   },

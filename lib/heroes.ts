@@ -40,7 +40,7 @@ const POR_ANCLA: Record<string, Hero> = {
   'papa-3-8': { imagen: 'recto', lambWeston: true },
   'papa-5-16': { imagen: 'crinkle', lambWeston: true },
   'papa-1-4': { imagen: 'cortes', lambWeston: true },
-  'papa-colossal-crisp': { imagen: 'papas-parejas', lambWeston: true },
+  'papa-con-cobertura': { imagen: 'papas-parejas', lambWeston: true },
   'pure-de-papa': { imagen: 'lw-producto', lambWeston: true },
   'hash-brown': { imagen: 'congelador', lambWeston: true },
   'aro-de-cebolla': { imagen: 'crinkle', lambWeston: true },

@@ -55,7 +55,7 @@ const CONTENIDO: Record<string, Contenido> = {
       filas: [
         { cuando: 'Vende alitas y boneless', usa: 'Ranch RCHC y Blue Cheese' },
         { cuando: 'Vende ensaladas y wraps', usa: 'César y Ranch' },
-        { cuando: 'Quiere un dulce para empanizados', usa: 'Miel mostaza VNT-HM' },
+        { cuando: 'Quiere un dulce para empanizados', usa: 'Miel mostaza' },
         { cuando: 'Necesita base para salsas de la casa', usa: 'Mayonesa Wilsey MAY378' },
       ],
     },

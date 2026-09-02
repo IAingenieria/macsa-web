@@ -10,7 +10,7 @@ import {
   FAQ,
   Seccion,
 } from '@/components/landing/Secciones'
-import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
+import { GaleriaProductos } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { heroAncla } from '@/lib/heroes'
@@ -170,8 +170,6 @@ export default function PaginaAncla({
         titulo={c ? `${a.nombre} con entrega en ${c.nombre}` : `Códigos de ${a.nombre.toLowerCase()}`}
         ciudad={c?.nombre}
       />
-
-      <Rendimiento skus={a.skus} />
 
       <Seccion
         eyebrow="Para qué negocio"

@@ -15,7 +15,7 @@ import { FAMILIAS, familia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
-import { GaleriaProductos, Rendimiento } from '@/components/landing/Productos'
+import { GaleriaProductos } from '@/components/landing/Productos'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { heroFamilia } from '@/lib/heroes'
 
@@ -125,8 +125,6 @@ export default function PaginaGeo({
         titulo={`${f.nombre} con entrega en ${c.nombre}`}
         ciudad={c.nombre}
       />
-
-      <Rendimiento familia={f.slug} />
 
       <Seccion
         eyebrow="Catálogo completo"

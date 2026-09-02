@@ -49,9 +49,12 @@ export const MODOS: Record<
   },
   corredor: {
     titulo: 'Corredor Saltillo — Torreón',
-    promesa: 'Entrega aprovechando la ruta',
+    promesa: 'Entrega los miércoles con la ruta',
+    // Jorge, junta del 2-sep-2026: "Monterrey–Saltillo mínimo unos 5,000
+    // pesos, en el día que tenemos ruta para allá: miércoles. Torreón no
+    // tiene problema" (ahí hay bodega).
     detalle:
-      'Ya hacemos el viaje a Torreón y Saltillo queda en el camino, así que la entrega no carga un flete dedicado. Se programa con la salida de la semana.',
+      'Ya hacemos el viaje a Torreón y Saltillo queda en el camino, así que la entrega no carga un flete dedicado. La ruta sale los miércoles. En Saltillo, Ramos Arizpe y Arteaga el pedido mínimo es de $5,000; Torreón no tiene mínimo porque ahí contamos con bodega.',
     color: 'navy',
   },
   consulta: {

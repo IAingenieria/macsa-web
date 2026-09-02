@@ -142,7 +142,7 @@ export const TIPS: Tip[] = [
     ],
     segundos: 30,
     archivo: 'v1788049133/tip06-la-papa-barata-sale-cara-envio',
-    relacionado: ['papa-a-la-francesa', 'papa-3-8', 'papa-crisscut', 'papa-colossal-crisp'],
+    relacionado: ['papa-a-la-francesa', 'papa-3-8', 'papa-crisscut', 'papa-con-cobertura'],
   },
   {
     n: 7,
@@ -239,7 +239,7 @@ export const TIPS: Tip[] = [
     ],
     segundos: 30,
     archivo: 'v1788049101/tip11-la-papa-no-es-papa-es-la-region-envio',
-    relacionado: ['papa-a-la-francesa', 'papa-3-8', 'papa-colossal-crisp'],
+    relacionado: ['papa-a-la-francesa', 'papa-3-8', 'papa-con-cobertura'],
   },
 ]
 

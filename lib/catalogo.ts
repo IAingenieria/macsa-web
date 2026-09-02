@@ -37,10 +37,13 @@ interface Fila {
  * hidrata. Edgar lo marcó el 31-ago-2026: hay producto que se mide por
  * porción y producto que se mide por pieza, y confundirlos es un dato falso
  * en la ficha. Cuando no sabemos las piezas, no se enseña nada.
+ *
+ * Jorge y Edgar, junta del 1-2 sep 2026: las órdenes de 150 g y 200 g se
+ * ELIMINAN por completo ("prefiero eliminar estas"). Sólo queda el conteo por
+ * pieza para lo que se cuenta (aros, munchers, dedos de queso, cáscara); lo
+ * demás no dice rendimiento y el vendedor lo explica.
  */
-export type Rendimiento =
-  | { tipo: 'porcion'; g150: number; g200: number }
-  | { tipo: 'piezas'; piezas: number }
+export type Rendimiento = { tipo: 'piezas'; piezas: number }
 
 export interface ProductoCatalogo {
   sku: string
@@ -152,11 +155,40 @@ const SIGLAS = new Set([
 const MINUSCULAS = new Set(['de', 'con', 'sin', 'y', 'a', 'la', 'el', 'en', 'del', 'para', 'por'])
 
 /**
+ * Nombre comercial para los códigos cuya descripción de Microsip trae el
+ * nombre técnico del fabricante. Jorge, junta del 2-sep-2026: "para no
+ * confundir al cliente, nada de Stealth o Colossal: cortes rectos, gruesos,
+ * con o sin piel o con cobertura; el vendedor explica el detalle".
+ * Se aplica sólo en el sitio; la base sigue diciendo lo que dice Microsip.
+ */
+const NOMBRE_COMERCIAL: Record<string, string> = {
+  C0034: 'Papa 1/4 con cobertura crujiente',
+  C0057: 'Papa 3/8 con cobertura crujiente',
+  H0057: 'Papa recta 3/8 con cobertura, sin cáscara (bolsa)',
+  S12: 'Papa recta 5/16 con cáscara y cobertura',
+  S15: 'Papa crisscut con cobertura',
+  S19: 'Papa recta 3/8 con cobertura, con cáscara',
+  S34: 'Papa recta 1/4 con cobertura',
+}
+
+/**
  * Quita el SKU repetido al frente y convierte las MAYÚSCULAS de Microsip a
  * Title Case. No toca la base: es sólo presentación.
  */
 export function tituloBonito(descripcion: string, sku: string): string {
+  const comercial = NOMBRE_COMERCIAL[sku.toUpperCase()]
+  if (comercial) return comercial
+
   let t = descripcion.trim()
+
+  // Red de seguridad para códigos nuevos que lleguen con el nombre técnico
+  // del fabricante, y para las notas internas entre paréntesis ("(= S57
+  // bolsa plastico)") que no son para el cliente.
+  t = t
+    .replace(/\s*\(=[^)]*\)/g, '')
+    .replace(/\bCOLOSSAL CRISP\b/gi, 'CON COBERTURA CRUJIENTE')
+    .replace(/\bCOBERTURA STEALTH\b/gi, 'COBERTURA')
+    .replace(/\bSTEALTH\b/gi, 'CON COBERTURA')
 
   // "12021 PAPA ONDULADA…" → "PAPA ONDULADA…"
   if (t.toUpperCase().startsWith(sku.toUpperCase())) {
@@ -247,6 +279,17 @@ const OCULTOS = new Set([
   '3412', // mozzarella sticks
   'P-0206', // salsa ketchup sin azúcar 3.8 L
   'P084', // sazonador fuego 800 g
+  // Boneless Bachoco por kilo. Jorge, junta del 2-sep-2026: "no pongas qué
+  // código es ni presentación, porque nos la cambian: viene a granel y vienen
+  // cajitas chiquitas. Como presencia de marca te lo dejo". Microsip lo
+  // confirma: el 4440 (activo en la lista) no vende desde enero y el 5330
+  // (apagado en la lista) vendió hoy. Bachoco queda como marca en pollo.
+  '4440',
+  '5330',
+  // Códigos VNT que Microsip no conoce: sin inventario y sin una sola venta
+  // en 12 meses. Jorge, 2-sep-2026: "quitamos todos los VNT".
+  'VNT-BBQ',
+  'VNT-HM',
 ])
 
 /**
@@ -257,14 +300,32 @@ const OCULTOS = new Set([
 const PIEZAS_POR_CAJA: Record<string, number> = {
   '2200D': 200, // cáscara de papa: 200 cazolitas por caja (confirmado por Edgar)
   '22G': 200,
+  // Hoja de piezas por caja que mandó Edgar el 2-sep-2026 (caja master).
+  // Cuando la hoja da un rango se toma el promedio, como dijo Jorge de las
+  // fichas de Lamb Weston ("de 25 a 30 por libra, pues 28").
+  '30410': 320, // aro empanizado gourmet: 40 por caja individual, 8 cajas
+  '30423': 200, // aro capeado con cerveza: 50 por bolsa, 4 bolsas
+  '34000': 496, // aro preformado: 62 por bolsa, 8 bolsas
+  'P38': 504, // muncher redondo jalapeño cheddar: 84 por bolsa, 6 bolsas
+  'P40': 504, // muncher redondo cheddar: 84 por bolsa, 6 bolsas
+  'P39': 360, // popper de jalapeño con cheddar: 60 por bolsa, 6 bolsas
+  '12143': 212, // hash brown ovalado: 35-36 por bolsa, 212-213 por caja
+  // Los dedos de queso venían SIN código en la hoja. El código lo puso
+  // Microsip: DQS es el que se factura (213 ventas en 12 meses, caja de 12 lb)
+  // y DQSH el horneable. Los RD-S* y DDS no existen en el inventario.
+  'DQS': 168, // dedo de queso mozzarella: 56 por bolsa, 3 bolsas
+  'DQSH': 144, // dedo de queso horneable: 36 por bolsa, 4 bolsas
 }
 
 /** Va por pieza, pero todavía no sabemos cuántas trae la caja. */
-const POR_PIEZA = new Set([
-  'A26', // tater rounds
-  '12143', // hash brown ovals
-  'H30', // hash brown cilindro
-  'P38', 'P39', 'P40', 'F6037', // munchers rellenos
+export const POR_PIEZA = new Set([
+  'A26', // tater rounds: no vino en la hoja
+  // La hoja de Edgar dice "H30 · Tater Puffs dados de papa cubicada · 1,560",
+  // pero en Microsip H30 es "PAPA HASH BROWN CILINDRO" (49 cajas, vende).
+  // No es el mismo producto: no se carga hasta aclarar cuál de los dos es.
+  'H30',
+  'F6037', // muncher tocino: no vino en la hoja
+  'DQS24', // dedo de queso caja 24 lb: la hoja sólo dio la de 12 lb
   'RN48', // dip de nacho, 48 piezas de 99 g
   'MPP', 'PHS', 'PGD', 'PHM', 'PHM5', 'PM12', // pan Martin's
 ])
@@ -273,7 +334,7 @@ const POR_PIEZA = new Set([
  * Producto al que NO se le calcula rendimiento por gramaje: el puré es polvo
  * que se hidrata, así que los gramos de la caja no son gramos de plato.
  */
-const SIN_RENDIMIENTO = new Set(['M0011', 'M14', 'M16', 'M18', 'M22', 'N88'])
+export const SIN_RENDIMIENTO = new Set(['M0011', 'M14', 'M16', 'M18', 'M22', 'N88'])
 
 /**
  * El fabricante de cada producto.
@@ -292,6 +353,13 @@ const MARCA_POR_SKU: Record<string, string> = {
   'RD-CC': 'Cajun Chef',
   CAJUNL: 'Cajun Chef',
   RN48: 'Ricos',
+  // Dedos de queso Sargento: Microsip los tiene en la categoría "RD Mex Foods"
+  // y el nombre dice "SANRGENTO", así que ni la categoría ni el texto los
+  // resolvían. Edgar, junta del 2-sep-2026: "los dedos de queso (Sargento) no
+  // aparecen cuando el usuario los busca".
+  DQS: 'Sargento',
+  DQS24: 'Sargento',
+  DQSH: 'Sargento',
   // Pollo: la marca va en la descripción, no en la categoría
   'POL-APC': 'Bachoco',
   'POL-TP': 'Bachoco',
@@ -357,17 +425,14 @@ function familiaDe(fila: Fila): string {
   return EXCEPCIONES[fila.s] ?? POR_CATEGORIA[fila.c] ?? 'otros'
 }
 
-function rendimientoDe(sku: string, pesoLb: number | null): Rendimiento | null {
+function rendimientoDe(sku: string): Rendimiento | null {
   const piezas = PIEZAS_POR_CAJA[sku]
   if (piezas) return { tipo: 'piezas', piezas }
-  if (POR_PIEZA.has(sku) || SIN_RENDIMIENTO.has(sku)) return null
-  if (!pesoLb) return null
-  const gramos = pesoLb * LB_A_KG * 1000
-  return {
-    tipo: 'porcion',
-    g150: Math.round(gramos / 150),
-    g200: Math.round(gramos / 200),
-  }
+  // Lo que va por pieza sin número (POR_PIEZA), lo que no se mide (purés,
+  // SIN_RENDIMIENTO) y todo lo que antes se calculaba por gramaje: sin dato.
+  // Las órdenes de 150 g / 200 g se quitaron el 2-sep-2026 por instrucción
+  // de Jorge y Edgar.
+  return null
 }
 
 export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[])
@@ -382,7 +447,7 @@ export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[])
     familia: familiaDe(f),
     pesoLb: f.w,
     kg,
-    rendimiento: rendimientoDe(f.s, f.w),
+    rendimiento: rendimientoDe(f.s),
     marca: marcaDe(f),
   }
 })
@@ -400,13 +465,6 @@ export const CONTEO = {
   total: CATALOGO.length,
   conRendimiento: CATALOGO.filter((p) => p.rendimiento).length,
 }
-
-/** Los que se miden por porción — los únicos que entran a la tabla de costeo. */
-export const porPorcion = (ps: ProductoCatalogo[]) =>
-  ps.filter(
-    (p): p is ProductoCatalogo & { rendimiento: { tipo: 'porcion'; g150: number; g200: number } } =>
-      p.rendimiento?.tipo === 'porcion',
-  )
 
 /** Los productos de una lista concreta de codigos (para los productos ancla). */
 export const porSkus = (skus: string[]) => {

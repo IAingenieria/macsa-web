@@ -328,7 +328,7 @@ export function FAQ({ preguntas }: { preguntas: { p: string; r: string }[] }) {
 
 export function CTAFinal({
   titulo = '¿Empezamos con una muestra?',
-  texto = 'Lo habitual antes del primer pedido es una muestra sin compromiso: la llevamos, la pruebas en tu cocina y decides.',
+  texto = 'Lo habitual antes del primer pedido es una muestra sin compromiso: la llevamos, la pruebas en tu cocina y decides. En tu primera compra tienes descuento, y si ya eres cliente frecuente, tu asesor puede mejorar tus precios.',
   mensaje = 'Hola, me interesa una muestra sin compromiso.',
 }: {
   titulo?: string

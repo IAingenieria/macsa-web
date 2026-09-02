@@ -25,8 +25,17 @@ const normalizar = (t: string) =>
 
 /** Sinónimos: cómo lo dice el cliente → cómo está escrito en el catálogo. */
 const SINONIMOS: Record<string, string[]> = {
-  'dedos de queso': ['muncher', 'queso', 'cheddar'],
-  jalapeno: ['muncher', 'jalapeno'],
+  // Edgar, junta del 2-sep-2026: "dedos de queso (Sargento)" y "jalapeños
+  // poppers (Ruby)" no salían. Los dedos son los de mozzarella (DQS), no los
+  // munchers de cheddar; y "popper" es como Edgar mismo llama al P39.
+  'dedos de queso': ['dedo de queso', 'mozzarella', 'sargento'],
+  'dedo de queso': ['dedo de queso', 'mozzarella', 'sargento'],
+  sargento: ['sargento', 'dedo de queso'],
+  poppers: ['popper', 'jalapeno'],
+  popper: ['popper', 'jalapeno'],
+  'jalapenos poppers': ['popper', 'jalapeno'],
+  'jalapeno poppers': ['popper', 'jalapeno'],
+  jalapeno: ['muncher', 'jalapeno', 'popper'],
   papas: ['papa'],
   frances: ['papa recta'],
   gajo: ['gajo', 'wedge'],
@@ -59,9 +68,13 @@ export default function BuscadorCatalogo({ productos }: { productos: ProductoCat
     const terminos = consulta.split(/\s+/)
     const extra = SINONIMOS[consulta] ?? []
 
+    // "dedos" tiene que encontrar "dedo" y "aros" a "aro": si la palabra
+    // termina en s, también se prueba sin ella.
+    const contiene = (texto: string, t: string) =>
+      texto.includes(t) || (t.length > 3 && t.endsWith('s') && texto.includes(t.slice(0, -1)))
     const coincide = indice.filter(
       ({ texto }) =>
-        terminos.every((t) => texto.includes(t)) || extra.some((t) => texto.includes(normalizar(t))),
+        terminos.every((t) => contiene(texto, t)) || extra.some((t) => texto.includes(normalizar(t))),
     )
     return coincide.slice(0, 24).map(({ p }) => p)
   }, [q, indice])
