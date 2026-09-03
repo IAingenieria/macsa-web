@@ -4,6 +4,16 @@
 name = "macsa-web"
 compatibility_date = "2026-08-29"
 
+# Dominio definitivo: macsamty.mx (Jorge lo compro el 2-sep-2026; la zona vive
+# en la cuenta Cloudflare de Goodman Tech). Cloudflare crea el DNS y el
+# certificado al desplegar. Pages sigue como respaldo con noindex.
+# OJO: `routes` va ANTES de [assets] — en TOML, lo que sigue a una tabla le
+# pertenece, y un `routes` debajo de [assets] se ignora sin avisar.
+routes = [
+  { pattern = "macsamty.mx", custom_domain = true },
+  { pattern = "www.macsamty.mx", custom_domain = true },
+]
+
 [assets]
 directory = "./out"
 not_found_handling = "404-page"

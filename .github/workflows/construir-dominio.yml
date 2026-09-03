@@ -1,0 +1,66 @@
+name: Construir para macsamty.mx
+
+# Construye el sitio con las variables del dominio definitivo y deja el `out/`
+# como artefacto. NO despliega: el worker `macsa-web` se despliega desde la
+# maquina de Luis con `npx wrangler deploy` (la sesion OAuth vive ahi), y asi
+# ningun token de Cloudflare entra al repo, que es publico.
+#
+# Nacio el 2-sep-2026 porque un `next build` local de 700 paginas no termina
+# cuando la maquina esta ocupada (un render de Remotion la deja al 100 %), y
+# el build en Actions tarda cuatro minutos.
+#
+# Como usarlo desde la maquina:
+#   gh run list --workflow construir-dominio.yml -L1
+#   gh run download <id> -n out-dominio -D out
+#   npx wrangler deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dominio
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Raiz del dominio: sin base path.
+      NEXT_PUBLIC_SITE_URL: https://macsamty.mx
+      # Dominio definitivo: se indexa. (Pages sigue con noindex como respaldo.)
+      NEXT_PUBLIC_NOINDEX: '0'
+      # El bot debe tener macsamty.mx en WEB_SITES o el widget contesta 403.
+      NEXT_PUBLIC_BOT_WIDGET: https://forja-crm-69958e.shy-block-053a.workers.dev/widget.js
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm install --no-audit --no-fund
+
+      - name: Generar las paginas producto x ciudad
+        run: node scripts/generar_geo.mjs
+
+      - name: Compilar
+        run: npm run build
+
+      - name: Comprobar que salio con el dominio y sin noindex
+        run: |
+          test "$(grep -c '<loc>https://macsamty.mx/' out/sitemap.xml)" -gt 600
+          ! grep -q 'noindex' out/index.html
+          grep -q 'Allow: /' out/robots.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: out-dominio
+          path: out
+          retention-days: 3
+          if-no-files-found: error

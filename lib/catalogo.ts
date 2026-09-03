@@ -309,22 +309,31 @@ const PIEZAS_POR_CAJA: Record<string, number> = {
   'P38': 504, // muncher redondo jalapeño cheddar: 84 por bolsa, 6 bolsas
   'P40': 504, // muncher redondo cheddar: 84 por bolsa, 6 bolsas
   'P39': 360, // popper de jalapeño con cheddar: 60 por bolsa, 6 bolsas
-  '12143': 212, // hash brown ovalado: 35-36 por bolsa, 212-213 por caja
+  '12143': 213, // hash brown ovalado: ficha LW 6/5# = 30 lb, patty de 2.25 oz → 213
+  // Cotejado contra las fichas oficiales de lambweston.com (2-sep-2026): P38,
+  // P40 y F6037 son 6/3# = 18 lb a 25-31 ct/lb (→ 504); P39 a 19-21 ct/lb
+  // (→ 360); 30423 es 4/2.5# = 10 lb a 15-25 ct/lb (→ 200). Cuadran con la
+  // hoja de Edgar. La cáscara 22G la ficha la da a 12-13 ct/lb sobre 5/3# =
+  // 15 lb (≈ 188): se deja el 200 que Edgar confirmó dos veces.
+  // La hoja decía "H30 · Tater Puffs dados de papa cubicada" y Microsip
+  // "PAPA HASH BROWN CILINDRO": la ficha de Lamb Weston lo resuelve —
+  // H30 ES "Tater Puffs™" (6/5# = 30 lb). Mismo producto, nombre local.
+  'H30': 1560, // tater puffs: 260 por bolsa de 5 lb, 6 bolsas (hoja de Edgar)
+  // Estos dos no venían en la hoja; salen de la ficha oficial.
+  'A26': 2040, // tater roundabouts: ficha LW 6/5# = 30 lb, ~68 ct/lb
+  'F6037': 504, // muncher tocino: ficha LW 6/3# = 18 lb, 25-31 ct/lb
   // Los dedos de queso venían SIN código en la hoja. El código lo puso
   // Microsip: DQS es el que se factura (213 ventas en 12 meses, caja de 12 lb)
   // y DQSH el horneable. Los RD-S* y DDS no existen en el inventario.
+  // ⚠️ Sargento empaca la caja de 12 lb en 4 bolsas de 3 lb; la hoja de Edgar
+  // cuenta 3 bolsas de 56 → 168. Si son 4, serían 224. Se deja lo de Edgar
+  // hasta que alguien abra una caja.
   'DQS': 168, // dedo de queso mozzarella: 56 por bolsa, 3 bolsas
   'DQSH': 144, // dedo de queso horneable: 36 por bolsa, 4 bolsas
 }
 
 /** Va por pieza, pero todavía no sabemos cuántas trae la caja. */
 export const POR_PIEZA = new Set([
-  'A26', // tater rounds: no vino en la hoja
-  // La hoja de Edgar dice "H30 · Tater Puffs dados de papa cubicada · 1,560",
-  // pero en Microsip H30 es "PAPA HASH BROWN CILINDRO" (49 cajas, vende).
-  // No es el mismo producto: no se carga hasta aclarar cuál de los dos es.
-  'H30',
-  'F6037', // muncher tocino: no vino en la hoja
   'DQS24', // dedo de queso caja 24 lb: la hoja sólo dio la de 12 lb
   'RN48', // dip de nacho, 48 piezas de 99 g
   'MPP', 'PHS', 'PGD', 'PHM', 'PHM5', 'PM12', // pan Martin's
