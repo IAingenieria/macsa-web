@@ -11,3 +11,6 @@ app/(generado)/
 # Fotos extraidas del catalogo en PDF: son un paso intermedio, viven en
 # Supabase Storage. El repo no las necesita.
 _fotos_catalogo/
+
+# Artefacto descargado de Actions (construir-dominio.yml) para el deploy del worker
+out_dominio/
