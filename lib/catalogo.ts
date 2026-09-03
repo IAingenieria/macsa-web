@@ -169,6 +169,9 @@ const NOMBRE_COMERCIAL: Record<string, string> = {
   S15: 'Papa crisscut con cobertura',
   S19: 'Papa recta 3/8 con cobertura, con cáscara',
   S34: 'Papa recta 1/4 con cobertura',
+  // Microsip dice "PAPA HASH BROWN CILINDRO"; Lamb Weston y Edgar le dicen Tater
+  // Puffs, y así lo busca el cliente.
+  H30: 'Tater Puffs, dados de papa (hash brown en cubo)',
 }
 
 /**
