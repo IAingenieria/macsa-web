@@ -261,6 +261,13 @@ const EXCEPCIONES: Record<string, string> = {
   DQS: 'appetizers-y-quesos',
   // Está en "Mr Wings" pero es aderezo de barra, no salsa para alitas
   RANCH: 'aderezos',
+  // Estrenan foto el 12-sep-2026 (fotos aprobadas de Emiliano). Están en
+  // "RD Mex Foods", "Salsa" y "Heinz" pero son toppings de pizza: sin esto el
+  // pepperoni salía dentro de postres y la salsa para pizza entre las de alitas.
+  PPM: 'toppings-para-pizza',
+  SPP6: 'toppings-para-pizza',
+  SPP: 'toppings-para-pizza',
+  SPPA: 'toppings-para-pizza',
 }
 
 /**
@@ -379,6 +386,31 @@ const MARCA_POR_SKU: Record<string, string> = {
   'POL-NP': "Pilgrim's",
   'POL-PP': "Pilgrim's",
   PSCH13: 'Agrosuper',
+  // Fotos aprobadas del 12-sep-2026: la marca la dice la foto, no la categoría.
+  // El cheddar RB4011 es de Ricos (la categoría "Queso" lo volvía Sargento) y
+  // el jalapeño popper 7617 es de Lamb Weston (la categoría "Queso/Snack" también).
+  RB4011: 'Ricos',
+  '7617': 'Lamb Weston',
+  PPM: 'Margherita',
+  SPP6: 'Paradiso',
+  'RD-SPZ': 'Paradiso',
+  SPP: 'Heinz',
+  SPPA: 'Abal',
+  SBA4: 'Abal',
+  BBQA: 'Abal',
+  SALS3000: 'Abal',
+  STM144: 'Tabasco',
+  GCH20: 'Golden Chef',
+  KF: 'King Fry',
+  SHBLP: 'Hello Buffalo',
+  SHBO: 'Hello Buffalo',
+  // Freskecito es la marca de Bafar (equivalentes BN/BE, S149).
+  'POL-FN': 'Bafar',
+  'POL-FE': 'Bafar',
+  // Molten de RD Mex Foods: la categoría lo volvería Martin's y no lo es.
+  // Cadena vacía = "sin marca" a propósito (ver marcaDe).
+  'RD-MLB': '',
+  MM: '',
 }
 
 const MARCA_POR_CATEGORIA: Record<string, string> = {
@@ -402,7 +434,10 @@ const MARCA_POR_CATEGORIA: Record<string, string> = {
 }
 
 function marcaDe(fila: Fila): string | null {
-  return MARCA_POR_SKU[fila.s] ?? MARCA_POR_CATEGORIA[fila.c] ?? null
+  const porSku = MARCA_POR_SKU[fila.s]
+  // '' en el mapa significa "este SKU no lleva marca": no cae a la categoría.
+  if (porSku !== undefined) return porSku || null
+  return MARCA_POR_CATEGORIA[fila.c] ?? null
 }
 
 /** Mapa de la categoría de la base a la familia del sitio. */

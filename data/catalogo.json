@@ -1,24 +1,40 @@
 {
   "_nota": "Snapshot del catálogo real. Se regenera con scripts/sincronizar_catalogo.mjs. Sólo productos activos, no descontinuados, CON foto oficial del fabricante y CON precio en alguna lista: lo que no se puede cotizar no se publica. NO contiene precios: publicarlos es decisión de Jorge.",
   "_fuente": "precios_listas_macsa · proyecto Supabase CEDIS",
-  "_generado": "2026-09-01",
+  "_generado": "2026-09-13",
   "_filtro": "activo is not false and descontinuado is not true and imagen_url is not null and (p1 > 0 or p2 > 0 or p3 > 0)",
   "productos": [
+    {
+      "s": "GCH20",
+      "d": "ACEITE GOLDEN CHEF",
+      "c": "Aceite",
+      "p": "Bidón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/aceite-golden-chef.webp"
+    },
+    {
+      "s": "KF",
+      "d": "ACEITE KING FRY BIDÓN 20 LT",
+      "c": "Aceite",
+      "p": "Bidón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/aceite-king-fry.webp"
+    },
+    {
+      "s": "AMG",
+      "d": "AMG ACEITE MANTEQUILLA 3.79 L",
+      "c": "Aderezo",
+      "p": "Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/aceite-mantequilla-phase.webp"
+    },
     {
       "s": "AMM",
       "d": "AMM ADEREZO MIEL MOSTAZA CULINAIRE 1.89 L",
       "c": "Aderezo",
       "p": "1/2 Galón",
       "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700174414_C1N1-600x600.jpg"
-    },
-    {
-      "s": "HZ-TAB",
-      "d": "Salsa Tabasco Roja 24/60 Ml",
-      "c": "Aderezo",
-      "p": "Caja",
-      "w": null,
-      "i": "https://www.tabasco.com/wp-content/uploads/2022/08/OriginalRed_CGI_Bottle_500x1000.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/miel-mostaza-culinaire.webp"
     },
     {
       "s": "MAY378",
@@ -26,215 +42,7 @@
       "c": "Aderezo",
       "p": "Galón",
       "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700165207_C1N1-600x600.jpg"
-    },
-    {
-      "s": "P-0155",
-      "d": "Salsa De Mezcal 3.8 L (4.0 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mezcal.webp"
-    },
-    {
-      "s": "P-0198",
-      "d": "Salsa Mango Habanero 3.8 L (4.2 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-habanero.webp"
-    },
-    {
-      "s": "P-0199",
-      "d": "Salsa Mango Hot 3.8 L (4.2 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-hot.webp"
-    },
-    {
-      "s": "P-0203",
-      "d": "Salsa Sriracha 4.0 kg (3.8L)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/sriracha.webp"
-    },
-    {
-      "s": "P-0204",
-      "d": "Salsa BBQ SIN AZUCAR 3.8 L",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-sin-azucar.webp"
-    },
-    {
-      "s": "P-0206",
-      "d": "Salsa Ketchup Sin Azucar 3.8L",
-      "c": "Aderezo",
-      "p": "Galon 3.8 L",
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/catsup-sin-azucar.webp"
-    },
-    {
-      "s": "P069",
-      "d": "Salsa para Alitas  3.8 L (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mr-wings.webp"
-    },
-    {
-      "s": "P071",
-      "d": "Salsa Original Hot 3.8 L (4.0 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/original-hot.webp"
-    },
-    {
-      "s": "P073",
-      "d": "Aderezo Honey Mustard 3.8 L (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/honey-mustard.webp"
-    },
-    {
-      "s": "P074",
-      "d": "Salsa Habanero Cream 3.8 L (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/habanero-cream.webp"
-    },
-    {
-      "s": "P075",
-      "d": "Salsa Pina Hot 3.8 L (4.2 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/pina-hot.webp"
-    },
-    {
-      "s": "P076",
-      "d": "Salsa BBQ Chipotle 3.8 L (4.1 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-chipotle.webp"
-    },
-    {
-      "s": "P078",
-      "d": "Salsa De Teriyaki 3.8 L (4.7 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/teriyaki.webp"
-    },
-    {
-      "s": "P079",
-      "d": "Salsa De BBQ 3.8 L (4.1 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq.webp"
-    },
-    {
-      "s": "P080",
-      "d": "Salsa De Tamarindo 3.8 L (4.3 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/tamarindo.webp"
-    },
-    {
-      "s": "P081",
-      "d": "Salsa BBQ Habanero 3.8 L (4.1 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-habanero.webp"
-    },
-    {
-      "s": "P082",
-      "d": "Sazonador Lemon Pepper Hot Bote de 800 gr.",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-hot-800g.webp"
-    },
-    {
-      "s": "P083",
-      "d": "Salsa X Hot 3.8 L (4 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/xhot.webp"
-    },
-    {
-      "s": "P084",
-      "d": "Sazonador Fuego 800g",
-      "c": "Aderezo",
-      "p": "Pieza 800g",
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-fuego-800g.webp"
-    },
-    {
-      "s": "P085",
-      "d": "Salsa Cajun 3.8 L (4.0 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/cajun.webp"
-    },
-    {
-      "s": "P086",
-      "d": "Salsa Naranja Chipotle 3.8 L (4.3 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/naranja-chipotle.webp"
-    },
-    {
-      "s": "P089",
-      "d": "Sazonador Lemon Pepper Bote 800 gr",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-800g.webp"
-    },
-    {
-      "s": "P093",
-      "d": "Aderezo Lemon Pepper 3.8 L (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/lemon-pepper.webp"
-    },
-    {
-      "s": "P095",
-      "d": "Aderezo Ranch 3.8 lt (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ranch.webp"
-    },
-    {
-      "s": "P101",
-      "d": "Aderezo Ajo Parmesano 3.8 L (3.8 kg)",
-      "c": "Aderezo",
-      "p": null,
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ajo-parmesano.webp"
-    },
-    {
-      "s": "P137",
-      "d": "Salsa Guacamole 3.8L",
-      "c": "Aderezo",
-      "p": "Galon 3.8 kg",
-      "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/guacamole.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mayonesa-wilsey.webp"
     },
     {
       "s": "RCHC",
@@ -242,31 +50,111 @@
       "c": "Aderezo",
       "p": "Galón",
       "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/07503028526253_C1N1-600x600.jpg"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/ranch-culinaire.webp"
     },
     {
-      "s": "RD-CC",
-      "d": "Salsa Cajun Chef",
+      "s": "SGP",
+      "d": "SGP SALSA GARLIC PARMESAN SAUCE CRAFT 3.78 L",
       "c": "Aderezo",
       "p": "Galón",
       "w": null,
-      "i": "https://www.cajunchefshop.com/image/cache/catalog/product/Cajun-Chef-Louisiana-Hot-Sauce-128-OZ-228x228.jpg"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/ajo-parmesano-sauce-craft.webp"
     },
     {
-      "s": "VNT-BBQ",
-      "d": "BBQ Culinarie",
-      "c": "Aderezo",
-      "p": "Galón",
+      "s": "C1000",
+      "d": "C1000 CATSUP HEINZ 1000 SOBRE DE 9GR",
+      "c": "Heinz",
+      "p": "Caja 1000 sobres",
       "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700192692_C1N1-600x600.jpg"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/catsup-sobres.webp"
     },
     {
-      "s": "VNT-HM",
-      "d": "Honey Mustard Culinarie",
-      "c": "Aderezo",
-      "p": "1/2 Galón",
+      "s": "C1008",
+      "d": "C1008 CATSUP HEINZ 1008 SOBRE DE 9GR",
+      "c": "Heinz",
+      "p": "Caja",
       "w": null,
-      "i": "https://www.venturafoods.mx/wp-content/uploads/sites/3/2023/11/00026700174414_C1N1-600x600.jpg"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/catsup-sobres.webp"
+    },
+    {
+      "s": "C16",
+      "d": "C16 CATSUP HEINZ RED PET BOTELLA CAJA CON 16PZ. DE 397GR",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/catsup-botella.webp"
+    },
+    {
+      "s": "C192",
+      "d": "C192 CATSUP HEINZ 192 SOBRE DE 8GR",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/catsup-sobres.webp"
+    },
+    {
+      "s": "CP6",
+      "d": "CP6 CATSUP POUNCH HEINZ CAJA CON 6 BLS DE 3KG",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/catsup-pouch.webp"
+    },
+    {
+      "s": "HBBQ",
+      "d": "HBBQ  SALSA BBQ 4/3. HEINZ",
+      "c": "Heinz",
+      "p": "Galón 3.78 L (pieza)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/bbq-heinz-galon.webp"
+    },
+    {
+      "s": "M200",
+      "d": "M200 MAYONESA HEINZ 200 SOBRES DE 8GR",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mayonesa-sobre.webp"
+    },
+    {
+      "s": "M24",
+      "d": "M24 HEINZ MAYONESA LIMON PET 390G",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mayonesa-limon-botella.webp"
+    },
+    {
+      "s": "M4B",
+      "d": "M4B MAYONESA HEINZ POUNCH CAJA CON 4 BLS DE 3KG",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mayonesa-pouch.webp"
+    },
+    {
+      "s": "MAY13",
+      "d": "MAY13 MAYONESA LIMON HEIZ CUBETA DE 13KG",
+      "c": "Heinz",
+      "p": "Cubeta",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mayonesa-limon-cubeta.webp"
+    },
+    {
+      "s": "MZ16",
+      "d": "MZ16 MOSTAZA HEINZ PET 16/13OZ",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mostaza-botella.webp"
+    },
+    {
+      "s": "SPPA",
+      "d": "SPPA ABAL POUCH SALSA P PIZZA 6/ 3KG",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/salsa-para-pizza-abal.webp"
     },
     {
       "s": "STAB",
@@ -274,13 +162,29 @@
       "c": "Heinz",
       "p": "Caja",
       "w": null,
-      "i": "https://www.tabasco.com/wp-content/uploads/2022/08/OriginalRed_CGI_Bottle_500x1000.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/salsa-tabasco-60ml.webp"
+    },
+    {
+      "s": "SHBLP",
+      "d": "SHBLP SALSA HELLO BUFFALO LEMON PEPPER DE 3.54 L",
+      "c": "Hello Buffalo",
+      "p": "Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/shblp.webp"
+    },
+    {
+      "s": "SHBO",
+      "d": "SHBO SALSA HELLO BUFFALO ORIGINAL DE 3.54 L",
+      "c": "Hello Buffalo",
+      "p": "Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/shbo.webp"
     },
     {
       "s": "MPP",
       "d": "MPP MARTINS SWEET PARTY POTATO ROLLS 24 EACH PER BOX 8 PER",
       "c": "Martins",
-      "p": null,
+      "p": "Caja 8 x 24 pz (192 pz)",
       "w": null,
       "i": "https://potatorolls.com/wp-content/uploads/Sweet-Party_12-Pack_R1.1.1_500x500px-e1696365074691.png"
     },
@@ -288,7 +192,7 @@
       "s": "PHS",
       "d": "PHS INSTANT POTATO SANDWICH 9-8 EACH",
       "c": "Martins",
-      "p": null,
+      "p": "Caja 9 x 8 pz (72 pz)",
       "w": null,
       "i": "https://potatorolls.com/wp-content/uploads/2020/06/sandwichRollsTile.png"
     },
@@ -296,7 +200,7 @@
       "s": "ALEMON",
       "d": "ADEREZO LEMON PEPPER GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/lemon-pepper.webp"
     },
@@ -304,7 +208,7 @@
       "s": "ALITAS",
       "d": "SALSA ALITAS MR WINGS GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mr-wings.webp"
     },
@@ -312,7 +216,7 @@
       "s": "AP",
       "d": "ADEREZO AJO PARMESANO GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/ajo-parmesano.webp"
     },
@@ -320,7 +224,7 @@
       "s": "BBQ",
       "d": "SALSA BBQ GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p23_9373d9ca.webp"
     },
@@ -328,7 +232,7 @@
       "s": "BBQCHIPOTLE",
       "d": "SALSA BBQ CHIPOTLE GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-chipotle.webp"
     },
@@ -336,7 +240,7 @@
       "s": "BBQHABANERO",
       "d": "BBQ HABANERO 3.8 L MR. WINGS",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "3.8 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-habanero.webp"
     },
@@ -344,7 +248,7 @@
       "s": "BBQSA",
       "d": "BBQSA BBQ SIN AZUCAR MR. WINGS",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/bbq-sin-azucar.webp"
     },
@@ -352,7 +256,7 @@
       "s": "CAJUN",
       "d": "SALSA CAJUN GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/cajun.webp"
     },
@@ -360,7 +264,7 @@
       "s": "CREAM",
       "d": "SALSA HABANERO CREAM GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/habanero-cream.webp"
     },
@@ -368,7 +272,7 @@
       "s": "HONEY",
       "d": "SALSA HONEY MUSTARD GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/honey-mustard.webp"
     },
@@ -376,7 +280,7 @@
       "s": "LP",
       "d": "SAZONADOR LEMON PEPPER BOTE 800 GR",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Bote 800 g",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-800g.webp"
     },
@@ -384,7 +288,7 @@
       "s": "LPH",
       "d": "SAZONADOR LEMON PEPPER HOT BOTE 800 GR",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Bote 800 g",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/saz-lemon-pepper-hot-800g.webp"
     },
@@ -392,7 +296,7 @@
       "s": "MANGOH",
       "d": "SALSA MANGO HABANERO GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-habanero.webp"
     },
@@ -400,7 +304,7 @@
       "s": "MANGOHOT",
       "d": "SALSA MANGO HOT GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mango-hot.webp"
     },
@@ -408,7 +312,7 @@
       "s": "MEZCAL",
       "d": "SALSA MEZCAL GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/mezcal.webp"
     },
@@ -416,7 +320,7 @@
       "s": "NACHIPOTLE",
       "d": "SALSA  NARANJA CHIPOTLE GALO",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/naranja-chipotle.webp"
     },
@@ -424,7 +328,7 @@
       "s": "ORIGINALHOT",
       "d": "SALSA ORIGINAL HOT GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/original-hot.webp"
     },
@@ -432,7 +336,7 @@
       "s": "PIÑA",
       "d": "SALSA PIÑA HOT GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/pina-hot.webp"
     },
@@ -440,7 +344,7 @@
       "s": "RANCH",
       "d": "ADEREZO RANCH GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p24_14181f90.webp"
     },
@@ -448,7 +352,7 @@
       "s": "SCH38",
       "d": "SCH38 SALSA SRIRACHA 3.8 L",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "3.8 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/sriracha.webp"
     },
@@ -456,7 +360,7 @@
       "s": "TAMARINDO",
       "d": "SALSA TAMARINDO GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/tamarindo.webp"
     },
@@ -464,7 +368,7 @@
       "s": "TERIYAKI",
       "d": "SALSA DE TERIYAKI GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/teriyaki.webp"
     },
@@ -472,7 +376,7 @@
       "s": "XHOT",
       "d": "SALSA X-HOT GALON",
       "c": "Mr Wings",
-      "p": "Por definir",
+      "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/mrwings/xhot.webp"
     },
@@ -482,7 +386,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/12021_LW-Supreme-CC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/12021.webp"
     },
     {
       "s": "12045",
@@ -493,12 +397,20 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/12045_LW-Supreme-Thin-CC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
+      "s": "12143",
+      "d": "Hash Brown Ovals",
+      "c": "Papa",
+      "p": "Caja 13.6 kg (30 lb)",
+      "w": 30,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/12143.webp"
+    },
+    {
       "s": "22G",
       "d": "22G CASCARA DE PAPA",
       "c": "Papa",
       "p": "Caja 6.8 kg (15 lb)",
       "w": 15,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/22G_Trinity?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/22g.webp"
     },
     {
       "s": "30410",
@@ -506,7 +418,7 @@
       "c": "Papa",
       "p": "Caja 7.3 kg (16 lb)",
       "w": 16,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/30410_trinity?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/30410.webp"
     },
     {
       "s": "30423",
@@ -514,7 +426,7 @@
       "c": "Papa",
       "p": "Caja 4.5 kg (10 lb)",
       "w": 10,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/30423_LW-Gourmet-Breaded-Onion-Rings-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/30423.webp"
     },
     {
       "s": "30H",
@@ -522,7 +434,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/30H_Chips-Skin-On-Frozen-Potatoes_Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/30h.webp"
     },
     {
       "s": "32L",
@@ -530,7 +442,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32L_LW-Private-Reserve-RC-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/32l.webp"
     },
     {
       "s": "32N",
@@ -538,7 +450,7 @@
       "c": "Papa",
       "p": "Caja 16.34 kg",
       "w": null,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32N_LW-Private-Reserve-Breakfast-Cubes-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/32n.webp"
     },
     {
       "s": "32Q",
@@ -546,7 +458,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/32Q_LW-Private-Reserve-Steak-Cut-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/32q.webp"
     },
     {
       "s": "34000",
@@ -554,15 +466,7 @@
       "c": "Papa",
       "p": "Caja 7.3 kg (16 lb)",
       "w": 16,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p08_d655a438.webp"
-    },
-    {
-      "s": "A26",
-      "d": "Tater Rounds",
-      "c": "Papa",
-      "p": "Caja 13.6 kg (30 lb)",
-      "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/A26_LW-Tater-Roundabouts-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/34000.webp"
     },
     {
       "s": "B36",
@@ -570,7 +474,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/B36_LW-Supreme-RC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/b36.webp"
     },
     {
       "s": "B91",
@@ -578,7 +482,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/B91_LW-Seasoned-RC-Skin-On-Original-Recipe-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/b91.webp"
     },
     {
       "s": "C0034",
@@ -586,7 +490,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C0034_LW-Colossal-Crisp-SS-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/c0034.webp"
     },
     {
       "s": "C0057",
@@ -594,15 +498,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C0057_LW-Colossal-Crisp-RC-Parchment?$PORTRAIT_X1_JPG$"
-    },
-    {
-      "s": "C27",
-      "d": "C27 PAPA GAJO SAZONADA 8 CORTES (SEASONED 8 CUT WEDGE)",
-      "c": "Papa",
-      "p": "Caja 13.6 kg (30 lb)",
-      "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C27_LW-Seasoned-Wedge-Cut-Original-Recipe-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/c0057.webp"
     },
     {
       "s": "C2700",
@@ -610,15 +506,15 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/C2700_plated-1?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/c2700.webp"
     },
     {
       "s": "CHZ",
       "d": "CHZ CHICHARO ZANAHORIA 12/40 OZ",
       "c": "Papa",
-      "p": "Por definir",
+      "p": "Caja 13.6 kg (12 x 40 oz)",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_48eaabfc.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mezcla-chicharo-zanahoria.webp"
     },
     {
       "s": "D23",
@@ -626,39 +522,31 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/D23_LW-Seasoned-CrissCut-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/d23.webp"
     },
     {
       "s": "EE48",
       "d": "EE48 ELOTE ENTERO 48 PZ",
       "c": "Papa",
-      "p": "Por definir",
+      "p": "Caja 48 pz",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_eb2eed8c.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/elote-entero.webp"
     },
     {
       "s": "EED",
       "d": "EED ELOTE DESGRANADO",
       "c": "Papa",
-      "p": "Por definir",
+      "p": "Caja 13.6 kg (30 lb)",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_217e12f7.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/elote-desgranado.webp"
     },
     {
       "s": "EM96",
       "d": "EM96 ELOTE MITADES 96 PZ",
       "c": "Papa",
-      "p": "Por definir",
+      "p": "Caja 96 pz",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_b54fc10e.webp"
-    },
-    {
-      "s": "F6037",
-      "d": "Muncher Tocino",
-      "c": "Papa",
-      "p": "Caja 8.2 kg (18 lb)",
-      "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/Bacon_Muncher_PARCHMENT_960px_by_640px_0066?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/elote-en-mitades.webp"
     },
     {
       "s": "F6064",
@@ -666,7 +554,15 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/Straight_Seashore_Parchment_0519?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/f6064.webp"
+    },
+    {
+      "s": "G2300",
+      "d": "G2300 PAPA 3/8 CRISPY",
+      "c": "Papa",
+      "p": "Caja 12.26 kg",
+      "w": 27,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/g2300.webp"
     },
     {
       "s": "H0057",
@@ -677,12 +573,20 @@
       "i": "https://lambweston.scene7.com/is/image/lambweston/S57_LW-Stealth-Fries-RC-Parchment?$PORTRAIT_X1_JPG$"
     },
     {
+      "s": "H21",
+      "d": "H21 PAPA 1/4 6/6 LB",
+      "c": "Papa",
+      "p": "Caja 16.3 kg (36 lb)",
+      "w": 36,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/h21.webp"
+    },
+    {
       "s": "H30",
       "d": "H30 PAPA HASH BROWN CILINDRO",
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/H30_LW-Tater-Puffs-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/h30.webp"
     },
     {
       "s": "H3031",
@@ -690,7 +594,7 @@
       "c": "Papa",
       "p": "Caja 11.3 kg (25 lb)",
       "w": 25,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/H3031-2?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/h3031.webp"
     },
     {
       "s": "H72",
@@ -698,7 +602,15 @@
       "c": "Papa",
       "p": "Caja 16.3 kg (36 lb)",
       "w": 36,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p05_deb4d6e7.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/h72.webp"
+    },
+    {
+      "s": "HVT",
+      "d": "HVT PAPA 1/4 X 5/16",
+      "c": "Papa",
+      "p": "Caja 16.3 kg",
+      "w": 35.94,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hvt.webp"
     },
     {
       "s": "I11",
@@ -706,7 +618,15 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/I11_LW-Supreme-CC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/i11.webp"
+    },
+    {
+      "s": "KF101",
+      "d": "KF101  PAPA 3/8 RECTA CRUNCY",
+      "c": "Papa",
+      "p": "Caja (equiv C0057)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/c0057.webp"
     },
     {
       "s": "L0092",
@@ -714,7 +634,7 @@
       "c": "Papa",
       "p": "Caja 6.8 kg (15 lb)",
       "w": 15,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/L0092_LW-RC-Sweet-Potatoes-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/l0092.webp"
     },
     {
       "s": "LW200",
@@ -722,7 +642,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/LW200_LW-COD-RC-Crispy-on-Delivery-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/lw200.webp"
     },
     {
       "s": "LW201",
@@ -738,7 +658,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/LW203_LW-COD-SS-Crispy-on-Delivery-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/lw203.webp"
     },
     {
       "s": "M22",
@@ -752,9 +672,9 @@
       "s": "MC",
       "d": "MC MEZCLA CAMPESINA 12/40",
       "c": "Papa",
-      "p": "Por definir",
+      "p": "Caja 13.6 kg (12 x 40 oz)",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p12_fe3334ce.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/mezcla-campesina.webp"
     },
     {
       "s": "P38",
@@ -762,7 +682,7 @@
       "c": "Papa",
       "p": "Caja 8.2 kg (18 lb)",
       "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/P38_LW-Southwestern-Cheddar-Cheese-Diced-Potatoes-Jalapenos-Round-Shape-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/p38.webp"
     },
     {
       "s": "P40",
@@ -770,7 +690,7 @@
       "c": "Papa",
       "p": "Caja 8.2 kg (18 lb)",
       "w": 18,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/P40_LW-Cheddar-Cheese-Diced-Potatoes-Round-Shape-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/p40.webp"
     },
     {
       "s": "S0022",
@@ -778,7 +698,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S0022_LW-Stealth-Fries-Thin-CC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s0022.webp"
     },
     {
       "s": "S01",
@@ -794,7 +714,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S12_LW-Stealth--Fries-Thin-RC-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s12.webp"
     },
     {
       "s": "S13",
@@ -802,7 +722,7 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S13_LW-Stealth-Fries-Trim-Fries-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s13.webp"
     },
     {
       "s": "S15",
@@ -810,7 +730,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S15_LW-Stealth-Fries-CrissCut-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s15.webp"
     },
     {
       "s": "S19",
@@ -818,7 +738,15 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S19_LW-Stealth-Fries-RC-Skin-On-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s19.webp"
+    },
+    {
+      "s": "S1901",
+      "d": "S1901 PAPA 3/8 RECTA CON CASCARA Y COBERTURA",
+      "c": "Papa",
+      "p": "Caja (equiv S19, distinta litografía)",
+      "w": 30,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s19.webp"
     },
     {
       "s": "S34",
@@ -826,7 +754,7 @@
       "c": "Papa",
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S34_LW-Stealth-Fries-SS-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s34.webp"
     },
     {
       "s": "S57",
@@ -834,7 +762,23 @@
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb, bolsa papel)",
       "w": 30,
-      "i": "https://lambweston.scene7.com/is/image/lambweston/S57_LW-Stealth-Fries-RC-Parchment?$PORTRAIT_X1_JPG$"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/s57.webp"
+    },
+    {
+      "s": "X7211B",
+      "d": "X7211B PAPA 3/8 STEALTH",
+      "c": "Papa",
+      "p": "Caja (oportunidad, equiv S19)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/papa-3-8-oportunidad.webp"
+    },
+    {
+      "s": "X9181",
+      "d": "X9181 LW SEASONED 1/4 TWISTER",
+      "c": "Papa",
+      "p": "Caja 13.6 kg (30 lb)",
+      "w": 30,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/x9181.webp"
     },
     {
       "s": "X9182",
@@ -848,33 +792,41 @@
       "s": "4440",
       "d": "4440 BONELESS NATURAL BACHOCO",
       "c": "Pollo",
-      "p": "4.54 kg",
+      "p": "Por kilo (caja 10 lb)",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p09_b01097d1.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/boneless-bachoco.webp"
     },
     {
       "s": "ACH13",
       "d": "ACH13 ALA CHILENA AGROSUPER 13 KG.",
       "c": "Pollo",
-      "p": "Por definir",
+      "p": "Caja 13 kg",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p09_6ceaf0cd.webp"
     },
     {
-      "s": "POL-AGR",
-      "d": "Pechuga IQF Agrosuper",
+      "s": "POL-FE",
+      "d": "Freskecito Enchilado Bafar",
       "c": "Pollo",
-      "p": "Caja 13 kg",
+      "p": "Caja 10 kg",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p09_556b0812.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/be.webp"
     },
     {
-      "s": "POL-APC",
-      "d": "Ala Picosita Fully Cooked Bachoco",
+      "s": "POL-FN",
+      "d": "Freskecito Natural Bafar",
+      "c": "Pollo",
+      "p": "Caja 10 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/bn.webp"
+    },
+    {
+      "s": "POL-HP",
+      "d": "Hamburguesa de Pechuga Pilgrims",
       "c": "Pollo",
       "p": "Caja 12 kg",
       "w": null,
-      "i": "https://bachoco.com.mx/wp-content/uploads/2019/08/charola-alitas-picositas-600x600-1.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hamburguesa-de-pollo-pilgrim-s.webp"
     },
     {
       "s": "POL-TE",
@@ -882,15 +834,7 @@
       "c": "Pollo",
       "p": "Caja 12 kg",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p09_709dd6a9.webp"
-    },
-    {
-      "s": "POL-TP",
-      "d": "Tender Empanizado Bachoco",
-      "c": "Pollo",
-      "p": "Caja 12 kg",
-      "w": null,
-      "i": "https://bachoco.com.mx/wp-content/uploads/2019/11/tender-empanizado.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/tender-pilgrim-s.webp"
     },
     {
       "s": "PSCH13",
@@ -898,7 +842,7 @@
       "c": "Pollo",
       "p": "Caja 13 kg",
       "w": null,
-      "i": "https://bachoco.com.mx/wp-content/uploads/2019/12/charola-pechuga-sin-piel-600x600-1.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/psch13.webp"
     },
     {
       "s": "PAYM",
@@ -906,7 +850,55 @@
       "c": "Postres",
       "p": "Caja 60 pzas",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p14_42da6125.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pay-de-manzana.webp"
+    },
+    {
+      "s": "RD-MLB",
+      "d": "Molten + ieps",
+      "c": "Postres",
+      "p": "Caja 36 Piezas",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pastel-molten.webp"
+    },
+    {
+      "s": "SC-BITEF",
+      "d": "Churro Bite Relleno Frito",
+      "c": "Postres",
+      "p": "50pz/10bl",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/churro-bites.webp"
+    },
+    {
+      "s": "SC-CHU12",
+      "d": "Churro Tradicional 12 cm",
+      "c": "Postres",
+      "p": "50pz/4bl",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/churros.webp"
+    },
+    {
+      "s": "SC-FRITO12",
+      "d": "Churro Frito 12 cm",
+      "c": "Postres",
+      "p": "50pz/4bl",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/churros.webp"
+    },
+    {
+      "s": "SC-PANELOT",
+      "d": "Pan de Elote",
+      "c": "Postres",
+      "p": "52pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-de-elote.webp"
+    },
+    {
+      "s": "SC-PANZANA",
+      "d": "Pan de Zanahoria",
+      "c": "Postres",
+      "p": "52pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-de-zanahoria.webp"
     },
     {
       "s": "RB4011",
@@ -914,7 +906,7 @@
       "c": "Queso",
       "p": "Caja 6b/3 kilos",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p24_edd2dabf.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/queso-cheddar-ricos.webp"
     },
     {
       "s": "RN48",
@@ -928,9 +920,17 @@
       "s": "3412",
       "d": "3412 MOZZARELLA STICKS",
       "c": "Queso/Snack",
-      "p": "Por definir",
+      "p": "Caja 5.4 kg (12 lb)",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/may_3412.webp"
+    },
+    {
+      "s": "7617",
+      "d": "7617 JALAPEÑO POPPERS CREAM",
+      "c": "Queso/Snack",
+      "p": "Caja 230 pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/7617.webp"
     },
     {
       "s": "CAJUNL",
@@ -938,7 +938,7 @@
       "c": "RD Mex Foods",
       "p": "Galón",
       "w": null,
-      "i": "https://www.cajunchefshop.com/image/cache/catalog/product/Cajun-Chef-Louisiana-Hot-Sauce-128-OZ-228x228.jpg"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/salsa-cajun-chef.webp"
     },
     {
       "s": "DQS",
@@ -946,7 +946,7 @@
       "c": "RD Mex Foods",
       "p": "Caja 12 Lb",
       "w": null,
-      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/p08_69d6d9c8.webp"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/dqs.webp"
     },
     {
       "s": "PGD",
@@ -954,7 +954,7 @@
       "c": "RD Mex Foods",
       "p": "8 pz/8 pz",
       "w": null,
-      "i": "https://potatorolls.com/wp-content/uploads/2020/06/longRollsTile.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-martin-s-hot-dog.webp"
     },
     {
       "s": "PHM",
@@ -962,7 +962,7 @@
       "c": "RD Mex Foods",
       "p": "5 pq/12 pz",
       "w": null,
-      "i": "https://potatorolls.com/wp-content/uploads/2020/06/sandwichRollsTile.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-martin-s-4-pulgadas.webp"
     },
     {
       "s": "PHM5",
@@ -970,7 +970,7 @@
       "c": "RD Mex Foods",
       "p": "4 pq/8 pz",
       "w": null,
-      "i": "https://potatorolls.com/wp-content/uploads/2020/06/sandwichRollsTile.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-martin-s-5-pulgadas.webp"
     },
     {
       "s": "PM12",
@@ -978,7 +978,63 @@
       "c": "RD Mex Foods",
       "p": "7pq/12pz",
       "w": null,
-      "i": "https://potatorolls.com/wp-content/uploads/12_Slider_R20.8.15_500px.png"
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pan-martin-s-sliders.webp"
+    },
+    {
+      "s": "PPM",
+      "d": "PEPPERONI MARGHERITA",
+      "c": "RD Mex Foods",
+      "p": "Caja 11.36 Kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/pepperoni.webp"
+    },
+    {
+      "s": "SPP6",
+      "d": "SALSA PARA PIZZA PARADISO",
+      "c": "RD Mex Foods",
+      "p": " 6 B/ 107oz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/salsa-para-pizza-paradiso.webp"
+    },
+    {
+      "s": "SPP",
+      "d": "SPP SALSA PARA PIZA POUCH 6/3KG",
+      "c": "Salsa",
+      "p": "Caja 18 kg (6 x 3 kg)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/salsa-para-pizza-heinz.webp"
+    },
+    {
+      "s": "HAM200",
+      "d": "HAM200 HAMBURGUESA  PREMIUN UGASA 200 G 22PZ",
+      "c": "Ugasa",
+      "p": "Caja 22 pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hamburguesa-ugasa-sirve-para-las-3.webp"
+    },
+    {
+      "s": "HAR150",
+      "d": "HAR150 HAM. ARRACHERA UGASA 150 G 30PZ",
+      "c": "Ugasa",
+      "p": "Caja 30 pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hamburguesa-ugasa-sirve-para-las-3.webp"
+    },
+    {
+      "s": "PRM150",
+      "d": "PRM150 HAM.PREMIUM UGASA 150 G 30PZ",
+      "c": "Ugasa",
+      "p": "Caja 30 pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hamburguesa-ugasa-sirve-para-las-3.webp"
+    },
+    {
+      "s": "SRL150",
+      "d": "SRL150 HAM.SIRLON UGASA 150 G 30PZ",
+      "c": "Ugasa",
+      "p": "Caja 30 pz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/aprobadas/hamburguesa-ugasa-sirve-para-las-3.webp"
     }
   ]
 }
