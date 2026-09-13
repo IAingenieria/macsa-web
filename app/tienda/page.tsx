@@ -70,7 +70,7 @@ export default function Page() {
                   href={`/tienda/${p.sku.toLowerCase()}/`}
                   className="group flex flex-col bg-white transition-colors hover:bg-hielo-50"
                 >
-                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-hielo-50 p-3">
+                  <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">
                     <img
                       src={p.imagen}
                       alt={`${p.nombre} — código ${p.sku}`}

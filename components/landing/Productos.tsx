@@ -11,7 +11,7 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
 
   return (
     <article className="flex flex-col bg-white">
-      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-hielo-50 p-3">
+      <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">
         {/* Foto oficial del fabricante. Se usa <img> y no next/image porque
             el export estático no optimiza y así no hay configuración de
             dominios que mantener. */}
