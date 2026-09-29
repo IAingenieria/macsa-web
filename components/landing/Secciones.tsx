@@ -142,6 +142,7 @@ export function Cobertura({ ciudad, producto }: { ciudad: Ciudad; producto?: str
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a
+            data-chat
             href={waLink(
               `Hola, escribo desde ${ciudad.nombre}. Quiero información${
                 producto ? ` de ${producto}` : ''
@@ -267,7 +268,7 @@ export function ComoPedir({ contexto }: { contexto?: string }) {
           <p className="mt-2 text-[14px] leading-relaxed text-humo">
             Lo más rápido. Mándanos lo que necesitas y te confirmamos existencia y fecha de entrega.
           </p>
-          <a href={waLink(mensaje)} className="btn-primario mt-5 !px-4 !py-2 text-[14px]">
+          <a data-chat href={waLink(mensaje)} className="btn-primario mt-5 !px-4 !py-2 text-[14px]">
             Escribir ahora
           </a>
         </div>
@@ -343,7 +344,7 @@ export function CTAFinal({
         </h2>
         <p className="mt-4 max-w-prosa leading-relaxed text-hielo-200">{texto}</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href={waLink(mensaje)} className="btn-primario">
+          <a data-chat href={waLink(mensaje)} className="btn-primario">
             Pedir una muestra
           </a>
           <Link href="/contacto/" className="btn-fantasma">

@@ -407,6 +407,19 @@ const MARCA_POR_SKU: Record<string, string> = {
   // Freskecito es la marca de Bafar (equivalentes BN/BE, S149).
   'POL-FN': 'Bafar',
   'POL-FE': 'Bafar',
+  // S170 (29-sep-2026): el pollo que S162 prendió con la clave de Microsip.
+  // La categoría "Pollo" no dice marca; la descripción sí.
+  '4011': "Pilgrim's",
+  '6670': "Pilgrim's",
+  '6671': "Pilgrim's",
+  '6673': "Pilgrim's",
+  '4707': 'Bachoco',
+  BN: 'Bafar',
+  BE: 'Bafar',
+  // Fotos nuevas de la carpeta: la A.1. es de Kraft Heinz pero su marca es A.1.,
+  // y la sriracha de tapa verde es la de Huy Fong (lo dice la foto).
+  A1: 'A.1.',
+  SRIRACHA: 'Huy Fong',
   // Molten de RD Mex Foods: la categoría lo volvería Martin's y no lo es.
   // Cadena vacía = "sin marca" a propósito (ver marcaDe).
   'RD-MLB': '',

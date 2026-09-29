@@ -15,6 +15,7 @@ import { GIROS } from '@/lib/giros'
 import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
 import { MODOS, porModo } from '@/lib/ciudades'
 import { GaleriaProductos } from '@/components/landing/Productos'
+import { porFamilia } from '@/lib/catalogo'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { heroFamilia } from '@/lib/heroes'
 
@@ -67,7 +68,11 @@ export default function PaginaFamilia({
           { etiqueta: 'Marcas', valor: f.marcas.join(', ') },
           {
             etiqueta: 'Códigos',
-            valor: f.productos.length ? `${f.productos.length} en catálogo` : 'Lista completa a solicitud',
+            // Cuenta el catálogo con ficha (lo mismo que dice la galería de abajo), no la
+            // tabla escrita a mano: Heinz decía "6 en catálogo" y la galería "24 códigos".
+            valor: porFamilia(f.slug).length
+              ? `${porFamilia(f.slug).length} en catálogo`
+              : 'Lista completa a solicitud',
           },
           { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },

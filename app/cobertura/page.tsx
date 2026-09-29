@@ -31,7 +31,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Cuál es el pedido mínimo para que salgan a mi ciudad?',
-    r: 'Depende de la distancia y de la línea de producto. Escríbenos qué necesitas y te confirmamos el volumen que hace viable la entrega.',
+    r: 'En el área metropolitana de Monterrey la entrega a domicilio es a partir de $1,500. Para otras ciudades depende de la distancia y de la línea de producto: escríbenos qué necesitas y te confirmamos el volumen que hace viable la entrega.',
   },
 ]
 
@@ -152,6 +152,7 @@ export default function Page() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
+              data-chat
               href={waLink('Hola, quiero saber si pueden entregar en mi ciudad. Manejo un volumen de…')}
               className="btn-primario"
             >

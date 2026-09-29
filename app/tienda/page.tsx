@@ -4,6 +4,7 @@ import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import BuscadorCatalogo from '@/components/landing/BuscadorCatalogo'
 import { CATALOGO, porFamilia } from '@/lib/catalogo'
+import { fotoChica, srcSetFoto, SIZES_TARJETA } from '@/lib/foto'
 import { FAMILIAS } from '@/lib/familias'
 import { EMPRESA } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
@@ -72,10 +73,12 @@ export default function Page() {
                 >
                   <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">
                     <img
-                      src={p.imagen}
+                      src={fotoChica(p.imagen)}
+                      srcSet={srcSetFoto(p.imagen)}
+                      sizes={SIZES_TARJETA}
                       alt={`${p.nombre} — código ${p.sku}`}
-                      width={320}
-                      height={240}
+                      width={400}
+                      height={400}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-contain mix-blend-multiply"

@@ -18,5 +18,48 @@ import { BOT_WIDGET } from '@/lib/site'
  */
 export default function BotWidget() {
   if (!BOT_WIDGET) return null
-  return <script src={BOT_WIDGET} async />
+  return (
+    <>
+      <script src={BOT_WIDGET} async />
+      <script dangerouslySetInnerHTML={{ __html: ABRIR_CHAT }} />
+    </>
+  )
 }
+
+/**
+ * Los botones de pedido y precio abren el chat del bot (29-sep-2026).
+ *
+ * Luis: "el whatsapp de pedidos hace direccionamiento a [wa.me]… ¿por qué no
+ * se abre el chat del bot de Forja?". El widget no expone una función para
+ * abrirse, pero monta su panel en un shadow root ABIERTO dentro de
+ * `[data-forja-widget]`: se hace clic en su propia burbuja y se deja el
+ * mensaje escrito en su caja de texto — el visitante lo revisa y lo envía,
+ * como en WhatsApp. Si el widget aún no cargó (o cambia su estructura), la
+ * función devuelve false y el enlace sigue a WhatsApp: nunca un botón muerto.
+ */
+const ABRIR_CHAT = `
+window.macsaAbrirChat = function (msg) {
+  var host = document.querySelector('[data-forja-widget]');
+  var raiz = host && host.shadowRoot;
+  var panel = raiz && raiz.querySelector('.panel');
+  var caja = raiz && raiz.querySelector('textarea');
+  if (!panel || !caja) return false;
+  if (!panel.classList.contains('abierto')) {
+    var burbuja = raiz.querySelector('.burbuja');
+    if (burbuja) burbuja.click();
+  }
+  if (msg) {
+    caja.value = msg;
+    caja.dispatchEvent(new Event('input'));
+  }
+  caja.focus();
+  return true;
+};
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[data-chat]') : null;
+  if (!a) return;
+  var msg = '';
+  try { msg = new URL(a.href).searchParams.get('text') || ''; } catch (_) {}
+  if (window.macsaAbrirChat(msg)) e.preventDefault();
+});
+`

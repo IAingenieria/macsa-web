@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import type { ProductoCatalogo } from '@/lib/catalogo'
+import { fotoChica } from '@/lib/foto'
 
 /**
  * Búsqueda rápida del catálogo.
@@ -116,7 +117,7 @@ export default function BuscadorCatalogo({ productos }: { productos: ProductoCat
                 className="flex h-full items-center gap-3 bg-white p-3 transition-colors hover:bg-hielo-50"
               >
                 <img
-                  src={p.imagen}
+                  src={fotoChica(p.imagen)}
                   alt=""
                   width={56}
                   height={56}

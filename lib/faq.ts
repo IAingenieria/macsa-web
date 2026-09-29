@@ -8,7 +8,7 @@ export function faqBase(f: Familia): { p: string; r: string }[] {
   return [
     {
       p: `¿Tengo que comprar caja completa de ${f.nombre.toLowerCase()}?`,
-      r: 'No necesariamente. Contamos con un punto de venta donde te puedes llevar desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo.',
+      r: 'No necesariamente. Contamos con un punto de venta donde te puedes llevar desde una pieza o una caja, según el producto, y manejamos servicio a domicilio con un pedido mínimo de $1,500.',
     },
     {
       p: '¿Hasta qué hora puedo pedir para que me llegue mañana?',

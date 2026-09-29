@@ -75,7 +75,7 @@ export default function Page() {
       <Seccion
         eyebrow="A quién le vendemos"
         titulo="Enfocados en el servicio de alimentos"
-        intro="Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y servicio a domicilio a partir de un pedido mínimo. Estos son los negocios que surtimos todos los días."
+        intro="Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y servicio a domicilio con un pedido mínimo de $1,500. Estos son los negocios que surtimos todos los días."
       >
         <ul className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-3">
           {CLIENTES.map((c) => (

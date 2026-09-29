@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Breadcrumb, Seccion } from '@/components/landing/Secciones'
 import Hero from '@/components/landing/Hero'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { EMPRESA, WA_BOT, waLink } from '@/lib/site'
+import { EMPRESA, waLink } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
@@ -57,26 +57,30 @@ export default function Page() {
               Lo más rápido para levantar un pedido o pedir el catálogo.
             </p>
 
-            {/* MacsaIA: contesta a cualquier hora y ya trae el catálogo. */}
+            <a
+              href={waLink('Hola, quiero información de sus productos.')}
+              className="mt-4 block font-mono text-[15px] font-semibold text-fry-700 hover:text-navy"
+            >
+              {EMPRESA.whatsapp[0].numero}
+            </a>
+
+            {/* MacsaIA: el chat del bot en esta misma página (29-sep-2026). */}
             <div className="mt-4 border-l-4 border-fry bg-fry-100 px-4 py-3">
               <p className="font-display text-[14px] font-semibold text-navy">
                 Atención inmediata, a cualquier hora
               </p>
               <a
-                href={waLink('Hola, quiero información de sus productos.', WA_BOT)}
-                className="mt-1 block font-mono text-[14px] font-semibold text-fry-700 hover:text-navy"
+                data-chat
+                href={waLink('Hola, quiero información de sus productos.')}
+                className="mt-1 block text-[14px] font-semibold text-fry-700 hover:text-navy"
               >
-                +52 81 8179 1096
+                Abrir el chat →
               </a>
               <p className="mt-1.5 text-[12.5px] leading-snug text-humo">
                 Te contesta nuestro asistente con el catálogo y las presentaciones. Si necesitas a
                 una persona, te pasa con un asesor.
               </p>
             </div>
-
-            {/* Antes vivia aqui la lista de celulares de los vendedores. Se
-                retiro el 31-ago-2026: el WhatsApp del sitio es uno solo y es
-                el de arriba, que ademas registra al prospecto en el CRM. */}
           </div>
 
           <div className="bg-white p-7">
@@ -150,8 +154,8 @@ export default function Page() {
               </li>
               <li>
                 <span className="font-semibold text-navy">Punto de venta.</span> Puedes llevarte
-                desde una pieza o una caja, según el producto. A domicilio manejamos un pedido
-                mínimo.
+                desde una pieza o una caja, según el producto. A domicilio el pedido
+                mínimo es de $1,500.
               </li>
             </ul>
             <Link href="/alta-de-cliente/" className="btn-primario mt-6">

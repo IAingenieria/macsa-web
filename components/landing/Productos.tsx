@@ -1,6 +1,7 @@
 import { Seccion } from '@/components/landing/Secciones'
 import { destacadosDe, porFamilia, porSkus, type ProductoCatalogo } from '@/lib/catalogo'
 import { waLink } from '@/lib/site'
+import { fotoChica, srcSetFoto, SIZES_TARJETA } from '@/lib/foto'
 
 /* ── Tarjeta de producto con foto oficial ──────────────────────────── */
 
@@ -16,10 +17,12 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
             el export estático no optimiza y así no hay configuración de
             dominios que mantener. */}
         <img
-          src={p.imagen}
+          src={fotoChica(p.imagen)}
+          srcSet={srcSetFoto(p.imagen)}
+          sizes={SIZES_TARJETA}
           alt={`${p.nombre} — código ${p.sku}, ${p.presentacion ?? 'presentación a confirmar'}`}
-          width={320}
-          height={240}
+          width={400}
+          height={400}
           loading="lazy"
           decoding="async"
           className="h-full w-full object-contain mix-blend-multiply"
@@ -56,6 +59,7 @@ function Tarjeta({ p, ciudad }: { p: ProductoCatalogo; ciudad?: string }) {
         </dl>
 
         <a
+          data-chat
           href={waLink(mensaje)}
           className="mt-auto pt-4 font-display text-[13.5px] font-semibold text-navy-600 hover:text-fry-700"
         >

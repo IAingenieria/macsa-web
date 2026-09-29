@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { CATALOGO, porFamilia } from '@/lib/catalogo'
+import { fotoChica, srcSetFoto, SIZES_FICHA, SIZES_TARJETA } from '@/lib/foto'
 import { familia as buscarFamilia } from '@/lib/familias'
 import { ANCLAS } from '@/lib/anclas'
 import { EMPRESA, SITE_URL, waLink } from '@/lib/site'
@@ -98,9 +99,12 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
         <div className="flex items-center justify-center border border-hielo-300 bg-hielo-50 p-8">
           <img
             src={p.imagen}
+            srcSet={srcSetFoto(p.imagen)}
+            sizes={SIZES_FICHA}
             alt={`${p.nombre} — código ${p.sku}, ${p.presentacion ?? 'presentación a confirmar'}`}
-            width={640}
-            height={640}
+            width={800}
+            height={800}
+            fetchPriority="high"
             className="max-h-[420px] w-full object-contain mix-blend-multiply"
           />
         </div>
@@ -163,7 +167,7 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={waLink(mensaje)} className="btn-primario">
+            <a data-chat href={waLink(mensaje)} className="btn-primario">
               Pedir precio de {p.sku}
             </a>
             <a href={EMPRESA.portalUrl} className="btn-secundario">
@@ -224,10 +228,12 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
               >
                 <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">
                   <img
-                    src={x.imagen}
+                    src={fotoChica(x.imagen)}
+                    srcSet={srcSetFoto(x.imagen)}
+                    sizes={SIZES_TARJETA}
                     alt={`${x.nombre} — código ${x.sku}`}
-                    width={320}
-                    height={240}
+                    width={400}
+                    height={400}
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-contain mix-blend-multiply"

@@ -45,34 +45,30 @@ export const EMPRESA = {
   },
   telefonos: ['+52 81 2209 2277', '+52 81 2254 2834'],
   /**
-   * Un solo WhatsApp para todo el sitio, por instruccion de Edgar (31-ago-2026).
-   * Los tres celulares de vendedores que estaban aqui se retiraron: repartian
-   * al prospecto segun a quien le escribiera y ninguno quedaba registrado.
-   * Todo entra ahora por MacsaIA, que captura al CRM y lo asigna despues.
+   * Un solo celular/WhatsApp para todo el sitio. Luis, 29-sep-2026: "el
+   * teléfono celular que va a mostrar la página en todo el site es
+   * +52 871 501 5117", y sí tiene WhatsApp. Sustituye al +52 81 8179 1096 del
+   * bot (31-ago): los pedidos escritos ahora entran por el chat del bot en la
+   * propia página (ver BotWidget), que captura al CRM.
    */
-  whatsapp: [{ numero: '+52 81 8179 1096', e164: '528181791096' }],
+  whatsapp: [{ numero: '+52 871 501 5117', e164: '528715015117' }],
   correo: 'ventasmty@elmariscal.mx',
   portalUrl: 'https://macsa-portal.shy-block-053a.workers.dev',
   corteHora: '20:00',
 } as const
 
 /**
- * WhatsApp de MacsaIA: el mismo numero que atiende el bot en vivo.
+ * WhatsApp del sitio: el celular de contacto (29-sep-2026).
  *
- * Todos los CTA del sitio llegan aqui a proposito. El bot contesta 24/7,
- * tiene el catalogo cargado y captura el prospecto al CRM — y como el
- * visitante escribe desde su telefono, el prospecto llega con numero, que
- * es justo lo que le falta al chat de la web.
- *
- * Las lineas humanas de ventas NO desaparecen: siguen listadas completas
- * en /contacto/ y en el pie de todas las paginas.
+ * Los botones de pedido y precio llevan `data-chat`: con el chat del bot
+ * cargado, BotWidget los intercepta y abre el chat con el mensaje ya escrito
+ * (Luis, 29-sep: "¿por qué no se abre el chat del bot de Forja?"). Este
+ * enlace de WhatsApp queda como respaldo si el chat no cargó, y es el destino
+ * directo del botón verde flotante y del renglón WhatsApp de contacto y pie.
  */
-export const WA_BOT = '528181791096'
+export const WA_CONTACTO = '528715015117'
 
-/** WhatsApp principal para todos los CTA del sitio. */
-export const WA_PRINCIPAL = WA_BOT
-
-export function waLink(mensaje: string, numero: string = WA_PRINCIPAL) {
+export function waLink(mensaje: string, numero: string = WA_CONTACTO) {
   return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
 }
 

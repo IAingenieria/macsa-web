@@ -51,7 +51,9 @@ export default function FormularioProspecto({
 
     // Sin endpoint configurado: se abre WhatsApp con el mensaje ya redactado.
     if (!LEAD_ENDPOINT) {
-      window.open(waLink(mensaje), '_blank', 'noopener')
+      // Con el chat del bot cargado, el mensaje se abre ahí; si no, WhatsApp.
+      const w = window as unknown as { macsaAbrirChat?: (m: string) => boolean }
+      if (!w.macsaAbrirChat?.(mensaje)) window.open(waLink(mensaje), '_blank', 'noopener')
       setEstado('enviado')
       return
     }
@@ -80,11 +82,11 @@ export default function FormularioProspecto({
       <div className="border-l-4 border-ruta bg-white p-7">
         <h3 className="font-display text-[19px] font-bold text-navy">Listo, ya lo recibimos</h3>
         <p className="mt-3 max-w-prosa leading-relaxed text-humo">
-          Un asesor te contacta hoy mismo. Si prefieres adelantarlo, escríbenos directo por
-          WhatsApp y te atendemos al momento.
+          Un asesor te contacta hoy mismo. Si prefieres adelantarlo, escríbenos directo en
+          el chat y te atendemos al momento.
         </p>
-        <a href={waLink('Hola, acabo de llenar el formulario del sitio.')} className="btn-primario mt-5">
-          Escribir por WhatsApp
+        <a data-chat href={waLink('Hola, acabo de llenar el formulario del sitio.')} className="btn-primario mt-5">
+          Escribir al chat
         </a>
       </div>
     )
@@ -147,7 +149,7 @@ export default function FormularioProspecto({
       {estado === 'error' && (
         <p className="mt-4 border-l-4 border-fry bg-fry-100 px-4 py-3 text-[14px] text-humo-900">
           No se pudo enviar. Escríbenos por WhatsApp y te atendemos al momento —{' '}
-          <a href={waLink('Hola, el formulario del sitio no me dejó enviar.')} className="font-semibold text-fry-700">
+          <a data-chat href={waLink('Hola, el formulario del sitio no me dejó enviar.')} className="font-semibold text-fry-700">
             abrir WhatsApp
           </a>
           .

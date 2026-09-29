@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const PREGUNTAS = [
   {
     p: '¿Le venden a cualquier persona?',
-    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
+    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio con un pedido mínimo de $1,500. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
   },
   {
     p: '¿Hasta qué hora puedo pedir para que me llegue mañana?',
@@ -23,7 +23,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Cuál es el pedido mínimo?',
-    r: 'En el área metropolitana de Monterrey trabajamos sin un mínimo rígido. Fuera del área metropolitana el volumen sí define cómo y cuándo llega, y te lo confirmamos antes de comprometer una fecha.',
+    r: 'Para entrega a domicilio el pedido mínimo es de $1,500. En el punto de venta no hay mínimo: te llevas desde una pieza o una caja, según el producto. Fuera del área metropolitana el volumen define cómo y cuándo llega, y te lo confirmamos antes de comprometer una fecha.',
   },
   {
     p: '¿Necesito factura para comprar?',

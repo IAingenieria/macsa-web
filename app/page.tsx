@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 const PREGUNTAS = [
   {
     p: '¿Le venden a cualquier persona?',
-    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio a partir de un pedido mínimo. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
+    r: 'Contamos con un punto de venta donde puedes llevarte desde una pieza o una caja, según el producto, y manejamos servicio a domicilio con un pedido mínimo de $1,500. Estamos enfocados en la industria del servicio de alimentos: restaurantes, cocinas, hoteles, cafeterías, escuelas y comedores.',
   },
   {
     p: '¿Cuál es el pedido mínimo?',
-    r: 'En el área metropolitana de Monterrey trabajamos sin un mínimo rígido: escríbenos lo que necesitas y te confirmamos. Para ciudades fuera del área metropolitana el volumen sí define cómo y cuándo llega, y te lo decimos antes de comprometerlo.',
+    r: 'Para entrega a domicilio el pedido mínimo es de $1,500. En el punto de venta no hay mínimo: te llevas desde una pieza o una caja, según el producto. Para ciudades fuera del área metropolitana el volumen define cómo y cuándo llega, y te lo decimos antes de comprometerlo.',
   },
   {
     p: '¿Necesito estar dado de alta para pedir?',

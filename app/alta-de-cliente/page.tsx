@@ -90,12 +90,13 @@ export default function Page() {
         </ol>
         <div className="mt-9 flex flex-wrap gap-3">
           <a
+            data-chat
             href={waLink(
               'Hola, quiero darme de alta como cliente. Mi negocio es ____ y está en ____.',
             )}
             className="btn-primario"
           >
-            Empezar por WhatsApp
+            Empezar en el chat
           </a>
           <a href={EMPRESA.portalUrl} className="btn-secundario">
             Ya soy cliente, entrar al portal

@@ -125,8 +125,8 @@ export default function Hero({
           )}
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <a href={waLink(ctaWhatsApp)} className="btn-primario">
-              Pedir por WhatsApp
+            <a data-chat href={waLink(ctaWhatsApp)} className="btn-primario">
+              Hacer pedido
             </a>
             {ctaSecundario && (
               <Link href={ctaSecundario.href} className="btn-fantasma">

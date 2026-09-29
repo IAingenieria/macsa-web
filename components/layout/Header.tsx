@@ -54,10 +54,11 @@ export default function Header() {
             Entrar al portal
           </a>
           <a
+            data-chat
             href={waLink('Hola, quiero información de sus productos.')}
             className="btn-primario !px-4 !py-2 text-[14px]"
           >
-            Pedir por WhatsApp
+            Hacer pedido
           </a>
         </div>
       </div>
