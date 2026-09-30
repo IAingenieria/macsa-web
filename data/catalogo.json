@@ -1,7 +1,7 @@
 {
   "_nota": "Snapshot del catálogo real. Se regenera con scripts/sincronizar_catalogo.mjs. Sólo productos activos, no descontinuados, CON foto oficial del fabricante y CON precio en alguna lista: lo que no se puede cotizar no se publica. NO contiene precios: publicarlos es decisión de Jorge.",
   "_fuente": "precios_listas_macsa · proyecto Supabase CEDIS",
-  "_generado": "2026-09-29",
+  "_generado": "2026-09-30",
   "_filtro": "activo is not false and descontinuado is not true and imagen_url is not null and (p1 > 0 or p2 > 0 or p3 > 0)",
   "productos": [
     {
@@ -37,12 +37,52 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/miel-mostaza-culinaire-eb3479-800.webp"
     },
     {
+      "s": "AS64",
+      "d": "ADEREZO SIGNATURE SAUCE CRAFT CUPS 64/37 ML",
+      "c": "Aderezo",
+      "p": "Caja 64 × 37 ml",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/as64-b330ae-800.webp"
+    },
+    {
+      "s": "BBQ64",
+      "d": "SALSA BBQ SWEET AND SPICY SAUCE CRAF CUPS 64/37 ML",
+      "c": "Aderezo",
+      "p": "Caja 64 × 37 ml",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/bbq64-77523e-800.webp"
+    },
+    {
       "s": "BBQC",
       "d": "SALSA BBQ B CULINAIRE 3.78 L",
       "c": "Aderezo",
       "p": "Por definir",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/bbq-culinaire-62fb50-800.webp"
+    },
+    {
+      "s": "BLCHG",
+      "d": "BLCHG ADEREZO BLUE CHEESE CLASSIC GOURMET 3.78 L",
+      "c": "Aderezo",
+      "p": "Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/blchg-063732-800.webp"
+    },
+    {
+      "s": "CESAR",
+      "d": "CESAR ADEREZO CESAR CLASSIC GOURMET 3.78 L",
+      "c": "Aderezo",
+      "p": "Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/cesar-2058b1-800.webp"
+    },
+    {
+      "s": "GP64",
+      "d": "ADEREZO GARLIC PARMESAN SAUCE CRAFT CUPS 64/37 ML",
+      "c": "Aderezo",
+      "p": "Caja 64 × 37 ml",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/gp64-864880-800.webp"
     },
     {
       "s": "MAY378",
@@ -61,12 +101,36 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/ranch-culinaire-713a06-800.webp"
     },
     {
+      "s": "SCH64",
+      "d": "SALSA SWEET CHILLI SAUCE CRAFT CUPS 64/37 ML",
+      "c": "Aderezo",
+      "p": "Caja 64 × 37 ml",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/sch64-547862-800.webp"
+    },
+    {
       "s": "SGP",
       "d": "SGP SALSA GARLIC PARMESAN SAUCE CRAFT 3.78 L",
       "c": "Aderezo",
       "p": "Galón",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/ajo-parmesano-sauce-craft-0062d7-800.webp"
+    },
+    {
+      "s": "SS",
+      "d": "SIGNATURE SAUCE 1.89 L",
+      "c": "Aderezo",
+      "p": "1/2 Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-signature-ventura-foods-eb7514-800.webp"
+    },
+    {
+      "s": "SSCH",
+      "d": "SALSA SWEET CHILLI CULINAIRE",
+      "c": "Aderezo",
+      "p": "1/2 Galón",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-sweet-chili-ventura-foods-b1f526-800.webp"
     },
     {
       "s": "A1",
@@ -221,6 +285,30 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mostaza-botella-9af00c-800.webp"
     },
     {
+      "s": "MZ200",
+      "d": "MZ200 MOSTAZA HEINZ 200 BOBRES 5GR",
+      "c": "Heinz",
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mz200-f1a0c5-800.webp"
+    },
+    {
+      "s": "MZ4B",
+      "d": "MZ4B MOSTAZA HEINZ POUCH CAJA CON 4 BLS DE 3KG",
+      "c": "Heinz",
+      "p": "Caja 12 kg (4 x 3 kg)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mz4b-5a58b3-800.webp"
+    },
+    {
+      "s": "MZ500",
+      "d": "MZ500 MOSTAZA HEINZ 500 BOBRES 5GR",
+      "c": "Heinz",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mz500-34b30b-800.webp"
+    },
+    {
       "s": "MZ60",
       "d": "MUSTARD ROOMSERVICE DIJON 60/ 57G C/U",
       "c": "Heinz",
@@ -269,6 +357,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-tabasco-3-78ml-e6e02a-800.webp"
     },
     {
+      "s": "TP200",
+      "d": "TABASCO PEPPER SAUCE SACHET 3G/200",
+      "c": "Heinz",
+      "p": "Caja 200 sobres 3 g",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/tp200-85cd21-800.webp"
+    },
+    {
       "s": "SHBLP",
       "d": "SHBLP SALSA HELLO BUFFALO LEMON PEPPER DE 3.54 L",
       "c": "Hello Buffalo",
@@ -283,6 +379,14 @@
       "p": "Galón",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/shbo-ce4824-800.webp"
+    },
+    {
+      "s": "SPY",
+      "d": "SPY SALSA SPICY LEMON LA POCIMA",
+      "c": "La Pocima",
+      "p": "Galón 3.85 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/spy-8fb917-800.webp"
     },
     {
       "s": "MPP",
@@ -357,6 +461,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mrwings-bbq-sin-azucar-b8072e-800.webp"
     },
     {
+      "s": "BCH",
+      "d": "BCH BLUE CHEESE GALON 3.8 L",
+      "c": "Mr Wings",
+      "p": "Galón 3.8 L",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/bch-ebd89b-800.webp"
+    },
+    {
       "s": "CAJUN",
       "d": "SALSA CAJUN GALON",
       "c": "Mr Wings",
@@ -405,6 +517,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mrwings-mango-habanero-c5e765-800.webp"
     },
     {
+      "s": "MANGOH414",
+      "d": "SALSA MANGO HABANERO 414 ML.",
+      "c": "Mr Wings",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mangoh414-6bc088-800.webp"
+    },
+    {
       "s": "MANGOHOT",
       "d": "SALSA MANGO HOT GALON",
       "c": "Mr Wings",
@@ -451,6 +571,14 @@
       "p": "Galón 3.78 L",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mrwings-ranch-ad4f51-800.webp"
+    },
+    {
+      "s": "SCAJUN",
+      "d": "SCAJUN  SAZONADOR CAJUN BOTE 650G",
+      "c": "Mr Wings",
+      "p": "Caja 15 botes 650g (venta individual)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/scajun-f531d5-800.webp"
     },
     {
       "s": "SCH38",
@@ -573,8 +701,56 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/34000-4ead5f-800.webp"
     },
     {
+      "s": "36502",
+      "d": "36502 PAPA GROWN IN IDAHO CRISSCUT",
+      "c": "Papa",
+      "p": "Caja 8.2 kg (18 lb)",
+      "w": 18,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/36502-bb48ff-800.webp"
+    },
+    {
+      "s": "36700",
+      "d": "Grown in Idaho Tater puffs",
+      "c": "Papa",
+      "p": "Caja 9.5 kg (21 lb)",
+      "w": 21,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/36700-aef8c5-800.webp"
+    },
+    {
+      "s": "36800",
+      "d": "36800 PAPA GROWN IN IDAHO 5/16",
+      "c": "Papa",
+      "p": "Caja 9.5 kg (21 lb)",
+      "w": 21,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/36800-0cf986-800.webp"
+    },
+    {
+      "s": "36900",
+      "d": "36900 PAPA GROWN IN IDAHO 3/8",
+      "c": "Papa",
+      "p": "Caja 9.5 kg (21 lb)",
+      "w": 21,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/36900-724e61-800.webp"
+    },
+    {
+      "s": "AX046",
+      "d": "Alexia Onion rings",
+      "c": "Papa",
+      "p": "Caja 3.7 kg (8.25 lb)",
+      "w": 8.25,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/ax046-bff993-800.webp"
+    },
+    {
       "s": "B36",
       "d": "B36 PAPA RECTA 3/8 PREMIUM EXTRA LARGA",
+      "c": "Papa",
+      "p": "Caja 13.6 kg (30 lb)",
+      "w": 30,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/b36-eeec08-800.webp"
+    },
+    {
+      "s": "B36-3007",
+      "d": "Papa Recta 3/8 (3007)",
       "c": "Papa",
       "p": "Caja 13.6 kg (30 lb)",
       "w": 30,
@@ -627,6 +803,14 @@
       "p": "Caja 12.2 kg (27 lb)",
       "w": 27,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/d23-363c73-800.webp"
+    },
+    {
+      "s": "DS06",
+      "d": "DS06 PAPA SHOESTRING 1/4",
+      "c": "Papa",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/ds06-662db9-800.webp"
     },
     {
       "s": "EE48",
@@ -877,6 +1061,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/s57-084cec-800.webp"
     },
     {
+      "s": "SC100",
+      "d": "SC100 PAPA RECTA 5/16 CON CASCARA Y COBERTURA STEALTH 6/6 LB",
+      "c": "Papa",
+      "p": "Caja 16.3 kg (6 x 6 lb)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/sc100-537173-800.webp"
+    },
+    {
       "s": "X7211B",
       "d": "X7211B PAPA 3/8 STEALTH",
       "c": "Papa",
@@ -901,12 +1093,28 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/x9182-933b67-800.webp"
     },
     {
+      "s": "1950",
+      "d": "1950 TENDER EMPANIZADO",
+      "c": "Pollo",
+      "p": "Por kilo · caja 12 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/1950-cad518-800.webp"
+    },
+    {
       "s": "4011",
       "d": "4011 PECHUGA EMPANIZADA CON PICANTE PILGRIM´S 12 KG",
       "c": "Pollo",
       "p": "Caja 12 kg",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/pechuga-enchilada-pilgrim-s-9ad037-800.webp"
+    },
+    {
+      "s": "4106",
+      "d": "4106 TENDER EMPANIZADO FRESKESITO",
+      "c": "Pollo",
+      "p": "Por definir",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/4106-2d479d-800.webp"
     },
     {
       "s": "4707",
@@ -957,6 +1165,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/ach13-3073ab-800.webp"
     },
     {
+      "s": "B4927",
+      "d": "B4927 BONELESS NATURAL CRUJIENTE",
+      "c": "Pollo",
+      "p": "Por kilo · caja 12.22 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/b4927-43b538-800.webp"
+    },
+    {
       "s": "BE",
       "d": "BE BONELESS ENCHILADO FRESKECITO",
       "c": "Pollo",
@@ -995,6 +1211,14 @@
       "p": "Caja 13 kg",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/psch13-a2c6cc-800.webp"
+    },
+    {
+      "s": "SAPHOT",
+      "d": "SAPHOT SALSA PARA ALITAS HOT LA POCIMA",
+      "c": "Pollo",
+      "p": "Galón 3.85 kg",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/saphot-c1f6de-800.webp"
     },
     {
       "s": "PAYM",
@@ -1053,6 +1277,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/pan-de-zanahoria-8fe0cb-800.webp"
     },
     {
+      "s": "PCH",
+      "d": "PIONNERCHEDDAR CHEESE SAUCE MIX",
+      "c": "Queso",
+      "p": "Caja 6/29 oz",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/pch-b3ff5a-800.webp"
+    },
+    {
       "s": "RB4011",
       "d": "RB4011 QUESO CHEDDAR BOLSA 6/3KG.",
       "c": "Queso",
@@ -1099,6 +1331,22 @@
       "p": "Caja 12 Lb",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/dqs-4048ae-800.webp"
+    },
+    {
+      "s": "MHE",
+      "d": "MIKES HOT HONEY PURE EXTRA HOT",
+      "c": "RD Mex Foods",
+      "p": "Pieza",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mike-s-hot-honey-6ca682-800.webp"
+    },
+    {
+      "s": "MHH",
+      "d": "MIKES HOT HONEY PURE CHILES",
+      "c": "RD Mex Foods",
+      "p": "Pieza",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mike-s-hot-honey-6ca682-800.webp"
     },
     {
       "s": "PGD",
@@ -1149,6 +1397,14 @@
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-para-pizza-paradiso-1efa75-800.webp"
     },
     {
+      "s": "T01427",
+      "d": "TOCINO REBANADO FC CAJA DE 1.59 KG",
+      "c": "RD Mex Foods",
+      "p": "Caja 3.5 lb (1.59 kg)",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/tocino-en-tira-715987-800.webp"
+    },
+    {
       "s": "SBA4",
       "d": "SALSA BBQ ABAL GAL 4/4KG",
       "c": "Salsa",
@@ -1171,6 +1427,22 @@
       "p": "Por definir",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-sriracha-huy-fong-80d7c4-800.webp"
+    },
+    {
+      "s": "DQS24",
+      "d": "DQS24  DEDO DE QUESO SANRGENTO 24 LB.",
+      "c": "Sargento",
+      "p": "Caja 24 Lb",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/dqs-4048ae-800.webp"
+    },
+    {
+      "s": "DQSH",
+      "d": "Dedo de Queso Horneable",
+      "c": "Sargento",
+      "p": "Caja 12 Lb",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/dqsh-23bc7d-800.webp"
     },
     {
       "s": "HAM200",
@@ -1211,6 +1483,70 @@
       "p": "Caja 30 pz",
       "w": null,
       "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/hamburguesa-ugasa-sirve-para-las-3-4516aa-800.webp"
+    },
+    {
+      "s": "BCH13",
+      "d": "BRACITO CHILENO AGROSUPER 13 KG.",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/bch13-0bffe5-800.webp"
+    },
+    {
+      "s": "BWS",
+      "d": "BUFFALO WING SAUCE GALON 3.79",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-buffalo-sweet-baby-ray-s-088234-800.webp"
+    },
+    {
+      "s": "CHRO",
+      "d": "CHICHARO 12 / 40 OZ",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/chicharo-desgranado-3fa72b-800.webp"
+    },
+    {
+      "s": "HZBBQP",
+      "d": "BBQ PET ORIGINAL HEINZ 16/390 G",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/bbq-heinz-390g-3b94c6-800.webp"
+    },
+    {
+      "s": "HZROY",
+      "d": "HEINZ ROYAL MAYONNAISE SACHET 500/8 G",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/mayonesa-real-sobre-952c87-800.webp"
+    },
+    {
+      "s": "TR12",
+      "d": "TABASCO RED PEPPER 12/12 OZ",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/salsa-tabasco-355ml-59612a-800.webp"
+    },
+    {
+      "s": "UB001",
+      "d": "UB001 PAPA ONDULADA 1/2 6/5 LB",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/papa-1-2-op-dc9e58-800.webp"
+    },
+    {
+      "s": "X0036",
+      "d": "MUNCHER CHEDDAR 12 KG",
+      "c": null,
+      "p": "Caja",
+      "w": null,
+      "i": "https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/web/p40-f4474e-800.webp"
     }
   ]
 }

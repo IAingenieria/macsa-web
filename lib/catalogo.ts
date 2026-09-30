@@ -227,6 +227,20 @@ export function tituloBonito(descripcion: string, sku: string): string {
  * corresponde a cómo los busca el cliente. Verificado uno por uno.
  */
 const EXCEPCIONES: Record<string, string> = {
+  // S170 (30-sep-2026): productos que estrenan foto y su categoría de Microsip no dice la familia.
+  HZBBQP: 'condimentos-heinz', // BBQ Heinz PET 390 g
+  HZROY: 'condimentos-heinz', // mayonesa real Heinz en sobre
+  TR12: 'condimentos-heinz', // Tabasco 12 oz, junto al Tabasco mini
+  BCH13: 'pollo', // bracito chileno Agrosuper
+  MHH: 'salsas-para-alitas', // Mike's Hot Honey (Microsip lo tiene en "Martins")
+  MHE: 'salsas-para-alitas',
+  BWS: 'salsas-para-alitas', // Buffalo Wing Sauce galón (Sweet Baby Ray's)
+  SAPHOT: 'salsas-para-alitas', // salsa Hot La Pócima (Microsip la tiene en "Pollo")
+  UB001: 'papa-a-la-francesa', // papa ondulada 1/2
+  X0036: 'appetizers-y-quesos', // Muncher Cheddar 12 kg, como P40
+  CHRO: 'verduras-y-elote', // chícharo = 40230 Twin City Foods
+  AX046: 'aros-de-cebolla', // aros Alexia (Microsip los tiene en "Papa")
+  T01427: 'carne-y-hamburguesa', // tocino rebanado (Microsip lo tiene en "Martins")
   // Están en "Papa" pero son aros de cebolla
   '30410': 'aros-de-cebolla',
   '30423': 'aros-de-cebolla',
@@ -404,6 +418,31 @@ const MARCA_POR_SKU: Record<string, string> = {
   KF: 'King Fry',
   SHBLP: 'Hello Buffalo',
   SHBO: 'Hello Buffalo',
+  // S170 (30-sep-2026): marca de lo que estrenó foto. Microsip no la trae: sale del proveedor
+  // en las compras (1950/B4927 = Bachoco), de la foto oficial o del código de fabricante.
+  HZBBQP: 'Heinz',
+  HZROY: 'Heinz',
+  TR12: 'Tabasco',
+  TP200: 'Tabasco',
+  BCH13: 'Agrosuper',
+  MHH: "Mike's Hot Honey",
+  MHE: "Mike's Hot Honey",
+  BWS: "Sweet Baby Ray's",
+  SAPHOT: 'La Pócima',
+  X0036: 'Lamb Weston',
+  CHRO: 'Twin City Foods',
+  T01427: '',
+  UB001: '',
+  '1950': 'Bachoco',
+  B4927: 'Bachoco',
+  '4106': 'Bafar',
+  PCH: 'Pioneer',
+  '36900': 'Grown in Idaho',
+  '36502': 'Grown in Idaho',
+  '36800': 'Grown in Idaho',
+  '36700': 'Grown in Idaho',
+  DS06: 'Grown in Idaho',
+  AX046: 'Alexia',
   // Freskecito es la marca de Bafar (equivalentes BN/BE, S149).
   'POL-FN': 'Bafar',
   'POL-FE': 'Bafar',
