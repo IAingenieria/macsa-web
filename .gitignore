@@ -14,3 +14,6 @@ _fotos_catalogo/
 
 # Artefacto descargado de Actions (construir-dominio.yml) para el deploy del worker
 out_dominio/
+
+# Respaldos locales con fecha (no van al repo)
+*.bak_*
