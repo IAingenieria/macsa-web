@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { CATALOGO, porFamilia } from '@/lib/catalogo'
+import { CATALOGO, porFamilia, rutaFicha, slugSku } from '@/lib/catalogo'
 import { fotoChica, srcSetFoto, SIZES_FICHA, SIZES_TARJETA } from '@/lib/foto'
 import { familia as buscarFamilia } from '@/lib/familias'
 import { ANCLAS } from '@/lib/anclas'
@@ -15,15 +15,24 @@ import { breadcrumbSchema, ld } from '@/lib/schema'
  * Ficha de producto. Es la página más específica del sitio y la que puede
  * entrar a Google Shopping el día que se publiquen precios.
  *
- * El Schema es `Product` + `Offer`. NO lleva precio: publicarlo es decisión
- * de Jorge, y `p1` es el precio de distribuidor. Mientras tanto la oferta
- * declara disponibilidad y vendedor, que es verdad y sí sirve.
+ * Schema (2-oct-2026): sólo `BreadcrumbList`. Search Console marcaba cada
+ * `Product` + `Offer` como inválido («Either price or priceSpecification.price
+ * should be specified») y el sitio no publica precio: depende de la lista del
+ * cliente y publicarlo es decisión de Jorge. Un `Product` sin `offers` tampoco
+ * vale (pide offers, review o aggregateRating). El día que haya precio público,
+ * el `Product` vuelve aquí con `offers.price` y ahí sí da tarjeta de producto.
  */
 
-const producto = (sku: string) => CATALOGO.find((p) => p.sku.toLowerCase() === sku.toLowerCase())
+// La ruta llega como segmento ASCII (`rutaFicha`); se decodifica por si un
+// enlace viejo trae el código con acento codificado (`pi%C3%B1a`).
+const producto = (sku: string) => {
+  let s = sku
+  try { s = decodeURIComponent(sku) } catch {}
+  return CATALOGO.find((p) => slugSku(p.sku) === slugSku(s))
+}
 
 export function generateStaticParams() {
-  return CATALOGO.map((p) => ({ sku: p.sku.toLowerCase() }))
+  return CATALOGO.map((p) => ({ sku: slugSku(p.sku) }))
 }
 
 export async function generateMetadata({
@@ -42,7 +51,7 @@ export async function generateMetadata({
       `${p.nombre}, código ${p.sku}${p.presentacion ? `, ${p.presentacion}` : ''}. ` +
       `Congelado, con entrega en Monterrey y su área metropolitana. ` +
       `${fam ? `Línea de ${fam.nombre.toLowerCase()}.` : ''}`.slice(0, 158),
-    alternates: { canonical: `/tienda/${p.sku.toLowerCase()}/` },
+    alternates: { canonical: rutaFicha(p.sku) },
     openGraph: { images: [{ url: p.imagen, alt: p.nombre }] },
   }
 }
@@ -66,32 +75,11 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
     { nombre: p.sku },
   ]
 
-  const productoSchemaFicha = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: p.nombre,
-    sku: p.sku,
-    image: p.imagen,
-    description: `${p.nombre}${p.presentacion ? `, ${p.presentacion}` : ''}. Producto congelado con cadena de frío garantizada.`,
-    ...(p.marca ?? fam?.marcas[0]
-      ? { brand: { '@type': 'Brand', name: p.marca ?? fam!.marcas[0] } }
-      : {}),
-    ...(p.kg ? { weight: { '@type': 'QuantitativeValue', value: p.kg, unitCode: 'KGM' } } : {}),
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'MXN',
-      availability: 'https://schema.org/InStock',
-      seller: { '@id': `${SITE_URL}/#organizacion` },
-      url: `${SITE_URL}/tienda/${p.sku.toLowerCase()}/`,
-    },
-  }
-
   const mensaje = `Hola, quiero precio y disponibilidad del código ${p.sku} — ${p.nombre}.`
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(breadcrumbSchema(migas))} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={ld(productoSchemaFicha)} />
 
       <Breadcrumb items={migas} />
 
@@ -223,7 +211,7 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
             {hermanos.map((x) => (
               <Link
                 key={x.sku}
-                href={`/tienda/${x.sku.toLowerCase()}/`}
+                href={rutaFicha(x.sku)}
                 className="group flex flex-col bg-white transition-colors hover:bg-hielo-50"
               >
                 <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">

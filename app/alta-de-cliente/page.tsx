@@ -42,7 +42,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Le venden a particulares?',
-    r: 'No. La venta es exclusiva a negocios: restaurantes, cocinas, fast food, barras y comedores.',
+    r: 'Sí. Le vendemos a negocios y a particulares: sólo hay que darse de alta como cliente con un formato sencillo, y el alta queda el mismo día.',
   },
   {
     p: '¿Manejan crédito?',
@@ -68,7 +68,7 @@ export default function Page() {
           { etiqueta: 'Tiempo', valor: 'El mismo día' },
           { etiqueta: 'Requisito', valor: 'Datos fiscales del negocio' },
           { etiqueta: 'Alternativa', valor: 'Remisión, sin factura' },
-          { etiqueta: 'Venta', valor: 'Exclusiva a negocios' },
+          { etiqueta: 'Venta', valor: 'Negocios y particulares' },
         ]}
         ctaWhatsApp="Hola, quiero darme de alta como cliente. Mi negocio es…"
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}

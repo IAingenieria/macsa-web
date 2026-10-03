@@ -64,31 +64,14 @@ export function faqSchema(preguntas: { p: string; r: string }[]) {
   }
 }
 
-export function productoSchema(opts: {
-  nombre: string
-  descripcion: string
-  marca: string
-  url: string
-  ciudad?: string
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: opts.nombre,
-    description: opts.descripcion,
-    brand: { '@type': 'Brand', name: opts.marca },
-    url: `${SITE_URL}${opts.url}`,
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'MXN',
-      availability: 'https://schema.org/InStock',
-      seller: { '@id': `${SITE_URL}/#organizacion` },
-      ...(opts.ciudad
-        ? { areaServed: { '@type': 'City', name: opts.ciudad } }
-        : {}),
-    },
-  }
-}
+/*
+ * `productoSchema` (Product + Offer sin precio) se quitó el 2-oct-2026.
+ * Search Console lo marcaba inválido en 752 páginas: «Either "price" or
+ * "priceSpecification.price" should be specified», y un Product sin offers
+ * también falla (pide offers, review o aggregateRating). Las páginas de familia,
+ * ancla y ciudad son de categoría, no de un producto. Cuando Jorge decida
+ * publicar precio, el Product regresa SÓLO en /tienda/[sku] con offers.price.
+ */
 
 /** Serializa el JSON-LD de forma segura para inyectarlo en la página. */
 export function ld(objeto: unknown) {

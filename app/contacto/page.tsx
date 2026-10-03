@@ -10,7 +10,7 @@ import { breadcrumbSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Contacto',
   description:
-    'WhatsApp, teléfono y correo de ventas de MACSA Foodservice. CEDIS en América del Norte 202-B, Las Américas, Guadalupe, Nuevo León. Venta exclusiva a negocios.',
+    'WhatsApp, teléfono y correo de ventas de MACSA Foodservice. CEDIS en América del Norte 202-B, Las Américas, Guadalupe, Nuevo León. Vendemos a negocios y a particulares dados de alta como clientes.',
   alternates: { canonical: '/contacto/' },
 }
 
@@ -23,7 +23,7 @@ export default function Page() {
       <Breadcrumb items={migas} />
 
       <Hero
-        eyebrow="Venta exclusiva a negocios"
+        eyebrow="Negocios y particulares, con alta de cliente"
         h1="Hablemos de lo que necesita tu cocina"
         answerFirst="El canal principal de MACSA es WhatsApp: por ahí mandamos el catálogo, se levanta el pedido y se da seguimiento. También atendemos por teléfono y por correo, y los clientes formales nos mandan su orden de compra. El corte del día es a las 20:00, hora de Monterrey."
         anclas={['el canal principal', 'a las 20:00']}

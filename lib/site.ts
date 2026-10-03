@@ -24,6 +24,15 @@ export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX !== '0'
 export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? ''
 
 /**
+ * Google Analytics 4 (2-oct-2026), directo y sin Tag Manager.
+ * El ID sólo se pone en el build de producción (`construir-dominio.yml`); la
+ * copia de GitHub Pages y cualquier build con noindex no miden. El aviso de
+ * privacidad menciona Google Analytics sólo cuando esto es verdadero.
+ */
+const GA4_CRUDO = process.env.NEXT_PUBLIC_GA4_ID ?? ''
+export const GA4_ID = !NOINDEX && /^G-[A-Z0-9]{4,20}$/.test(GA4_CRUDO) ? GA4_CRUDO : ''
+
+/**
  * URL del widget de MacsaIA (Forja sirve `/widget.js`).
  * Vacia hasta que se active el canal web en el bot de produccion.
  */
@@ -31,7 +40,7 @@ export const BOT_WIDGET = process.env.NEXT_PUBLIC_BOT_WIDGET ?? ''
 
 export const EMPRESA = {
   nombre: 'MACSA Foodservice',
-  razonSocial: 'MACSA de la Sultana',
+  razonSocial: 'Macsa de la Sultana, S.A. de C.V.',
   claim: 'La mejor calidad del mercado la encuentras aquí.',
   descripcion:
     'Distribuidor de alimentos congelados y abarrotes para food service en Monterrey y su área metropolitana. Distribuidor oficial de Lamb Weston, y distribuidor directo de Agrosuper y de Martin’s.',

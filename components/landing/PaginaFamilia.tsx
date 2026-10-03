@@ -12,7 +12,7 @@ import {
 } from '@/components/landing/Secciones'
 import { FAMILIAS, type Familia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
-import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 import { MODOS, porModo } from '@/lib/ciudades'
 import { GaleriaProductos } from '@/components/landing/Productos'
 import { porFamilia } from '@/lib/catalogo'
@@ -45,17 +45,7 @@ export default function PaginaFamilia({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(breadcrumbSchema(migas))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(faqSchema(preguntas))} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={ld(
-          productoSchema({
-            nombre: f.h1,
-            descripcion: f.answerFirst,
-            marca: f.marcas[0] ?? 'MACSA',
-            url: `/${f.slug}/`,
-          }),
-        )}
-      />
+      {/* Sin `Product`: es página de categoría y sin precio Google lo marca inválido (ver lib/schema.ts). */}
 
       <Breadcrumb items={migas} />
 

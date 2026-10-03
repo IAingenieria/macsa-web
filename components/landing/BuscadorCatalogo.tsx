@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import type { ProductoCatalogo } from '@/lib/catalogo'
+import { rutaFicha } from '@/lib/rutaFicha'
 import { fotoChica } from '@/lib/foto'
 
 /**
@@ -113,7 +114,7 @@ export default function BuscadorCatalogo({ productos }: { productos: ProductoCat
           {resultados.map((p) => (
             <li key={p.sku}>
               <Link
-                href={`/tienda/${p.sku.toLowerCase()}/`}
+                href={rutaFicha(p.sku)}
                 className="flex h-full items-center gap-3 bg-white p-3 transition-colors hover:bg-hielo-50"
               >
                 <img

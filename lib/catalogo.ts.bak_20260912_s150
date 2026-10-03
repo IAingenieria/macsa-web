@@ -227,20 +227,6 @@ export function tituloBonito(descripcion: string, sku: string): string {
  * corresponde a cómo los busca el cliente. Verificado uno por uno.
  */
 const EXCEPCIONES: Record<string, string> = {
-  // S170 (30-sep-2026): productos que estrenan foto y su categoría de Microsip no dice la familia.
-  HZBBQP: 'condimentos-heinz', // BBQ Heinz PET 390 g
-  HZROY: 'condimentos-heinz', // mayonesa real Heinz en sobre
-  TR12: 'condimentos-heinz', // Tabasco 12 oz, junto al Tabasco mini
-  BCH13: 'pollo', // bracito chileno Agrosuper
-  MHH: 'salsas-para-alitas', // Mike's Hot Honey (Microsip lo tiene en "Martins")
-  MHE: 'salsas-para-alitas',
-  BWS: 'salsas-para-alitas', // Buffalo Wing Sauce galón (Sweet Baby Ray's)
-  SAPHOT: 'salsas-para-alitas', // salsa Hot La Pócima (Microsip la tiene en "Pollo")
-  UB001: 'papa-a-la-francesa', // papa ondulada 1/2
-  X0036: 'appetizers-y-quesos', // Muncher Cheddar 12 kg, como P40
-  CHRO: 'verduras-y-elote', // chícharo = 40230 Twin City Foods
-  AX046: 'aros-de-cebolla', // aros Alexia (Microsip los tiene en "Papa")
-  T01427: 'carne-y-hamburguesa', // tocino rebanado (Microsip lo tiene en "Martins")
   // Están en "Papa" pero son aros de cebolla
   '30410': 'aros-de-cebolla',
   '30423': 'aros-de-cebolla',
@@ -275,13 +261,6 @@ const EXCEPCIONES: Record<string, string> = {
   DQS: 'appetizers-y-quesos',
   // Está en "Mr Wings" pero es aderezo de barra, no salsa para alitas
   RANCH: 'aderezos',
-  // Estrenan foto el 12-sep-2026 (fotos aprobadas de Emiliano). Están en
-  // "RD Mex Foods", "Salsa" y "Heinz" pero son toppings de pizza: sin esto el
-  // pepperoni salía dentro de postres y la salsa para pizza entre las de alitas.
-  PPM: 'toppings-para-pizza',
-  SPP6: 'toppings-para-pizza',
-  SPP: 'toppings-para-pizza',
-  SPPA: 'toppings-para-pizza',
 }
 
 /**
@@ -400,69 +379,6 @@ const MARCA_POR_SKU: Record<string, string> = {
   'POL-NP': "Pilgrim's",
   'POL-PP': "Pilgrim's",
   PSCH13: 'Agrosuper',
-  // Fotos aprobadas del 12-sep-2026: la marca la dice la foto, no la categoría.
-  // El cheddar RB4011 es de Ricos (la categoría "Queso" lo volvía Sargento) y
-  // el jalapeño popper 7617 es de Lamb Weston (la categoría "Queso/Snack" también).
-  RB4011: 'Ricos',
-  '7617': 'Lamb Weston',
-  PPM: 'Margherita',
-  SPP6: 'Paradiso',
-  'RD-SPZ': 'Paradiso',
-  SPP: 'Heinz',
-  SPPA: 'Abal',
-  SBA4: 'Abal',
-  BBQA: 'Abal',
-  SALS3000: 'Abal',
-  STM144: 'Tabasco',
-  GCH20: 'Golden Chef',
-  KF: 'King Fry',
-  SHBLP: 'Hello Buffalo',
-  SHBO: 'Hello Buffalo',
-  // S170 (30-sep-2026): marca de lo que estrenó foto. Microsip no la trae: sale del proveedor
-  // en las compras (1950/B4927 = Bachoco), de la foto oficial o del código de fabricante.
-  HZBBQP: 'Heinz',
-  HZROY: 'Heinz',
-  TR12: 'Tabasco',
-  TP200: 'Tabasco',
-  BCH13: 'Agrosuper',
-  MHH: "Mike's Hot Honey",
-  MHE: "Mike's Hot Honey",
-  BWS: "Sweet Baby Ray's",
-  SAPHOT: 'La Pócima',
-  X0036: 'Lamb Weston',
-  CHRO: 'Twin City Foods',
-  T01427: '',
-  UB001: '',
-  '1950': 'Bachoco',
-  B4927: 'Bachoco',
-  '4106': 'Bafar',
-  PCH: 'Pioneer',
-  '36900': 'Grown in Idaho',
-  '36502': 'Grown in Idaho',
-  '36800': 'Grown in Idaho',
-  '36700': 'Grown in Idaho',
-  DS06: 'Grown in Idaho',
-  AX046: 'Alexia',
-  // Freskecito es la marca de Bafar (equivalentes BN/BE, S149).
-  'POL-FN': 'Bafar',
-  'POL-FE': 'Bafar',
-  // S170 (29-sep-2026): el pollo que S162 prendió con la clave de Microsip.
-  // La categoría "Pollo" no dice marca; la descripción sí.
-  '4011': "Pilgrim's",
-  '6670': "Pilgrim's",
-  '6671': "Pilgrim's",
-  '6673': "Pilgrim's",
-  '4707': 'Bachoco',
-  BN: 'Bafar',
-  BE: 'Bafar',
-  // Fotos nuevas de la carpeta: la A.1. es de Kraft Heinz pero su marca es A.1.,
-  // y la sriracha de tapa verde es la de Huy Fong (lo dice la foto).
-  A1: 'A.1.',
-  SRIRACHA: 'Huy Fong',
-  // Molten de RD Mex Foods: la categoría lo volvería Martin's y no lo es.
-  // Cadena vacía = "sin marca" a propósito (ver marcaDe).
-  'RD-MLB': '',
-  MM: '',
 }
 
 const MARCA_POR_CATEGORIA: Record<string, string> = {
@@ -486,10 +402,7 @@ const MARCA_POR_CATEGORIA: Record<string, string> = {
 }
 
 function marcaDe(fila: Fila): string | null {
-  const porSku = MARCA_POR_SKU[fila.s]
-  // '' en el mapa significa "este SKU no lleva marca": no cae a la categoría.
-  if (porSku !== undefined) return porSku || null
-  return MARCA_POR_CATEGORIA[fila.c] ?? null
+  return MARCA_POR_SKU[fila.s] ?? MARCA_POR_CATEGORIA[fila.c] ?? null
 }
 
 /** Mapa de la categoría de la base a la familia del sitio. */
@@ -550,8 +463,6 @@ export const CATALOGO: ProductoCatalogo[] = (datos.productos as Fila[])
     marca: marcaDe(f),
   }
 })
-
-export { slugSku, rutaFicha } from './rutaFicha'
 
 export const porFamilia = (slug: string) => CATALOGO.filter((p) => p.familia === slug)
 

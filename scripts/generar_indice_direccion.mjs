@@ -239,7 +239,7 @@ bloques += `
       ${ps
         .map(
           (p) =>
-            `<a class="chip sku" href="${url('tienda/' + p.s.toLowerCase())}" target="_blank" rel="noopener" title="${esc(p.d)}">${esc(p.s)}</a>`,
+            `<a class="chip sku" href="${url('tienda/' + p.s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase())}" target="_blank" rel="noopener" title="${esc(p.d)}">${esc(p.s)}</a>`,
         )
         .join('')}
     </div></div>`,

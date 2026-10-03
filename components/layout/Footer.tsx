@@ -138,7 +138,7 @@ export default function Footer() {
       <div className="border-t border-navy-700">
         <div className="contenedor flex flex-col gap-3 py-6 text-[12px] text-humo-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {EMPRESA.razonSocial}. Venta exclusiva a negocios.
+            © {new Date().getFullYear()} {EMPRESA.razonSocial} · Venta a negocios y a particulares con alta de cliente.
           </p>
           <Link href="/aviso-de-privacidad/" className="hover:text-white">
             Aviso de privacidad

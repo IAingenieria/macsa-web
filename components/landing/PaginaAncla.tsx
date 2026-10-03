@@ -18,7 +18,7 @@ import { ANCLAS, ancla as buscarAncla } from '@/lib/anclas'
 import { familia as buscarFamilia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, ciudad as buscarCiudad } from '@/lib/ciudades'
-import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 import { porSkus } from '@/lib/catalogo'
 
 /**
@@ -93,7 +93,7 @@ export default function PaginaAncla({
         ]),
     {
       p: `¿Le venden ${a.nombre.toLowerCase()} a particulares?`,
-      r: 'No. La venta es exclusiva a negocios: restaurantes, cocinas, fast food, barras y comedores.',
+      r: 'Sí. Le vendemos a negocios y a particulares: sólo hay que darse de alta como cliente con un formato sencillo, y el alta queda el mismo día.',
     },
     {
       p: '¿Puedo probar antes de comprar?',
@@ -113,18 +113,7 @@ export default function PaginaAncla({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(breadcrumbSchema(migas))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(faqSchema(preguntas))} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={ld(
-          productoSchema({
-            nombre: h1,
-            descripcion: answerFirst,
-            marca: fam?.marcas[0] ?? 'MACSA',
-            url: c ? `/${a.slug}-en-${c.slug}/` : `/${a.slug}/`,
-            ciudad: c?.nombre,
-          }),
-        )}
-      />
+      {/* Sin `Product`: es página de categoría y sin precio Google lo marca inválido (ver lib/schema.ts). */}
 
       <Breadcrumb items={migas} />
 

@@ -14,7 +14,7 @@ import {
 import { FAMILIAS, familia } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, ciudad as buscarCiudad } from '@/lib/ciudades'
-import { breadcrumbSchema, faqSchema, ld, productoSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 import { GaleriaProductos } from '@/components/landing/Productos'
 import { ConsejosRelacionados } from '@/components/landing/Consejos'
 import { heroFamilia } from '@/lib/heroes'
@@ -67,7 +67,7 @@ export default function PaginaGeo({
     },
     {
       p: `¿Le venden a particulares en ${c.nombre}?`,
-      r: 'No. La venta es exclusiva a negocios: restaurantes, cocinas, fast food, barras y comedores.',
+      r: 'Sí. Le vendemos a negocios y a particulares: sólo hay que darse de alta como cliente con un formato sencillo, y el alta queda el mismo día.',
     },
     {
       p: '¿Puedo probar el producto antes de comprarlo?',
@@ -83,18 +83,7 @@ export default function PaginaGeo({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(breadcrumbSchema(migas))} />
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(faqSchema(preguntas))} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={ld(
-          productoSchema({
-            nombre: h1,
-            descripcion: answerFirst,
-            marca: f.marcas[0] ?? 'MACSA',
-            url: `/${f.slug}-en-${c.slug}/`,
-            ciudad: c.nombre,
-          }),
-        )}
-      />
+      {/* Sin `Product`: es página de categoría y sin precio Google lo marca inválido (ver lib/schema.ts). */}
 
       <Breadcrumb items={migas} />
 

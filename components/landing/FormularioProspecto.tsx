@@ -49,6 +49,15 @@ export default function FormularioProspecto({
       `${datos.ciudad ? ` en ${datos.ciudad}` : ''}. ` +
       `${datos.necesito || 'Quiero información de sus productos.'}`
 
+    // GA4: contacto. Sin esperar respuesta (va por beacon), así WhatsApp no lo
+    // bloquea el navegador como ventana emergente. Sin GA4 no hace nada.
+    const w0 = window as unknown as { macsaEvento?: (n: string, d: Record<string, string>) => void }
+    w0.macsaEvento?.('generate_lead', {
+      metodo: LEAD_ENDPOINT ? 'formulario' : 'formulario_chat',
+      producto: producto ?? 'sin producto',
+      ciudad: datos.ciudad || ciudad || 'sin ciudad',
+    })
+
     // Sin endpoint configurado: se abre WhatsApp con el mensaje ya redactado.
     if (!LEAD_ENDPOINT) {
       // Con el chat del bot cargado, el mensaje se abre ahí; si no, WhatsApp.
@@ -101,7 +110,7 @@ export default function FormularioProspecto({
     <form onSubmit={enviar} className="border border-hielo-300 bg-white p-7">
       <h3 className="font-display text-[19px] font-bold text-navy">{titulo}</h3>
       <p className="mt-2 max-w-prosa text-[14.5px] leading-relaxed text-humo">
-        Te contestamos hoy mismo con precio y disponibilidad. Venta exclusiva a negocios.
+        Te contestamos hoy mismo con precio y disponibilidad. Vendemos a negocios y a particulares dados de alta como clientes.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

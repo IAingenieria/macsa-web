@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CTAFinal, Seccion } from '@/components/landing/Secciones'
 import BuscadorCatalogo from '@/components/landing/BuscadorCatalogo'
-import { CATALOGO, porFamilia } from '@/lib/catalogo'
+import { CATALOGO, porFamilia, rutaFicha } from '@/lib/catalogo'
 import { fotoChica, srcSetFoto, SIZES_TARJETA } from '@/lib/foto'
 import { FAMILIAS } from '@/lib/familias'
 import { EMPRESA } from '@/lib/site'
@@ -68,7 +68,7 @@ export default function Page() {
               {productos.map((p) => (
                 <Link
                   key={p.sku}
-                  href={`/tienda/${p.sku.toLowerCase()}/`}
+                  href={rutaFicha(p.sku)}
                   className="group flex flex-col bg-white transition-colors hover:bg-hielo-50"
                 >
                   <div className="flex aspect-square items-center justify-center overflow-hidden bg-hielo-50 p-3">

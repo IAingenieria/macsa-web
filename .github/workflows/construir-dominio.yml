@@ -36,6 +36,10 @@ jobs:
       NEXT_PUBLIC_NOINDEX: '0'
       # El bot debe tener macsamty.mx en WEB_SITES o el widget contesta 403.
       NEXT_PUBLIC_BOT_WIDGET: https://forja-crm-69958e.shy-block-053a.workers.dev/widget.js
+      # GA4 (2-oct-2026): sólo producción mide. Vacío = no se carga y el aviso
+      # de privacidad no menciona Google Analytics. Propiedad «macsamty.mx» en la
+      # cuenta de GA4 «MACSA» (no es secreto: viaja en el HTML).
+      NEXT_PUBLIC_GA4_ID: G-MQW22VY6EQ
     steps:
       - uses: actions/checkout@v4
 
@@ -57,6 +61,9 @@ jobs:
           test "$(grep -c '<loc>https://macsamty.mx/' out/sitemap.xml)" -gt 600
           ! grep -q 'noindex' out/index.html
           grep -q 'Allow: /' out/robots.txt
+
+      - name: Verificar SEO del build (sitemap, canonical, aviso, llms.txt, IndexNow, GA4)
+        run: node scripts/verificar_seo.mjs
 
       - uses: actions/upload-artifact@v4
         with:

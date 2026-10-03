@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
 import { SITE_URL } from '@/lib/site'
-import { CATALOGO } from '@/lib/catalogo'
+import { CATALOGO, rutaFicha } from '@/lib/catalogo'
 import { TIPS } from '@/lib/tips'
 
 /**
@@ -10,8 +10,9 @@ import { TIPS } from '@/lib/tips'
  * yaan-web. Nadie mantiene una lista a mano: la página que existe entra sola.
  */
 
-// aviso-de-privacidad va noindex: una pagina noindex NO debe ir en el sitemap.
-const EXCLUIR = ['api', 'sitemap.xml', 'robots.txt', 'aviso-de-privacidad']
+// Una pagina noindex NO debe ir en el sitemap. El aviso de privacidad se
+// indexa desde el 2-oct-2026 (ya no es borrador) y entra solo por el barrido.
+const EXCLUIR = ['api', 'sitemap.xml', 'robots.txt', 'llms.txt']
 
 function excluida(nombre: string) {
   return (
@@ -65,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // que el barrido de directorios NO las ve: hay que agregarlas a mano desde
     // el catalogo. Es el hueco mas facil de dejar abierto sin darse cuenta.
     ...CATALOGO.map((p) => ({
-      url: `${SITE_URL}/tienda/${p.sku.toLowerCase()}/`,
+      url: `${SITE_URL}${rutaFicha(p.sku)}`,
       lastModified: ahora,
       changeFrequency: 'monthly' as const,
       priority: 0.6,

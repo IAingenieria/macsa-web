@@ -75,8 +75,8 @@ export default function Page() {
       <Hero
         eyebrow="Antes de tu primer pedido"
         h1="Preguntas frecuentes"
-        answerFirst="Estas son las preguntas que más nos hacen los restaurantes antes de su primer pedido con MACSA: el corte del día es a las 20:00, la venta es exclusiva a negocios, se puede facturar o trabajar con remisión, y lo normal es empezar con una muestra sin compromiso."
-        anclas={['exclusiva a negocios', 'una muestra sin compromiso']}
+        answerFirst="Estas son las preguntas que más nos hacen los restaurantes antes de su primer pedido con MACSA: el corte del día es a las 20:00, vendemos a negocios y a particulares que se dan de alta como clientes, se puede facturar o trabajar con remisión, y lo normal es empezar con una muestra sin compromiso."
+        anclas={['se dan de alta como clientes', 'una muestra sin compromiso']}
         ctaWhatsApp="Hola, tengo una duda sobre sus productos."
         ctaSecundario={{ href: '/alta-de-cliente/', label: 'Darme de alta' }}
         imagen={HEROES['preguntas-frecuentes'].imagen}
