@@ -51,7 +51,22 @@ export const EMPRESA = {
     estado: 'Nuevo León',
     estadoCorto: 'NL',
     pais: 'MX',
+    /** C.P. de la ficha verificada de Google (2-oct-2026). */
+    cp: '67128',
   },
+  /**
+   * Horario y fecha de apertura tal como están en el Perfil de Negocio de
+   * Google (verificado, 2-oct-2026). Google cruza la ficha con el sitio: si
+   * cambian allá, se cambian aquí.
+   */
+  horario: [
+    { dias: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], etiqueta: 'Lunes a jueves', abre: '08:30', cierra: '17:00' },
+    { dias: ['Friday'], etiqueta: 'Viernes', abre: '09:00', cierra: '17:00' },
+    { dias: ['Saturday'], etiqueta: 'Sábado', abre: '09:00', cierra: '13:00' },
+  ],
+  fundacion: '2018-03-04',
+  /** Ficha de Google Maps (Macsa de la Sultana, verificada). Va en `sameAs`. */
+  perfilGoogle: 'https://maps.google.com/?cid=16059455057004438297',
   /**
    * Luis, 2-oct-2026: "hay un solo número para llamadas de clientes +52 871 501
    * 5117" (el mismo del WhatsApp; distinto al WhatsApp del bot de Forja). Los

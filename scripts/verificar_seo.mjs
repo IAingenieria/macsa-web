@@ -53,6 +53,17 @@ for (const rel of ['index.html', 'contacto/index.html']) {
   const h = leer(rel)
   if (!h.includes('href="tel:+528715015117"')) falla(`${rel} sin liga tel:+528715015117`)
 }
+// El sitio dice lo mismo que el Perfil de Negocio de Google (2-oct-2026)
+{
+  const h = leer('index.html')
+  for (const [qué, re] of [
+    ['C.P. 67128 en el Schema', /"postalCode":"67128"/],
+    ['horario en el Schema', /"openingHoursSpecification":\[\{"@type":"OpeningHoursSpecification","dayOfWeek":\["Monday"/],
+    ['sameAs con la ficha de Maps', /"sameAs":\["https:\/\/maps\.google\.com\/\?cid=16059455057004438297"\]/],
+    ['teléfono 871 en el Schema', /"telephone":"\+52 871 501 5117"/],
+  ]) if (!re.test(h)) falla(`portada sin ${qué}`)
+}
+
 // Un solo número para clientes (Luis, 2-oct-2026): los fijos 81 ya no van en ninguna página
 for (const u of locs) {
   const h = leer(decodeURIComponent(u.slice(BASE.length + 1)) + 'index.html')

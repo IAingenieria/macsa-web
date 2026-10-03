@@ -22,10 +22,20 @@ export const organizacionSchema = {
     streetAddress: EMPRESA.direccion.calle,
     addressLocality: `${EMPRESA.direccion.colonia}, ${EMPRESA.direccion.ciudad}`,
     addressRegion: EMPRESA.direccion.estadoCorto,
+    postalCode: EMPRESA.direccion.cp,
     addressCountry: EMPRESA.direccion.pais,
   },
   telephone: EMPRESA.telefonos[0],
   email: EMPRESA.correo,
+  // Lo mismo que el Perfil de Negocio de Google (2-oct-2026): Google cruza los dos.
+  foundingDate: EMPRESA.fundacion,
+  openingHoursSpecification: EMPRESA.horario.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.dias,
+    opens: h.abre,
+    closes: h.cierra,
+  })),
+  sameAs: [EMPRESA.perfilGoogle],
   areaServed: CIUDADES.map((c) => ({
     '@type': 'City',
     name: c.nombre,

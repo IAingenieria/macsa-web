@@ -30,10 +30,19 @@ export default function Footer() {
           <address className="mt-5 not-italic text-[13px] leading-relaxed text-hielo-300">
             {EMPRESA.direccion.calle}
             <br />
-            Col. {EMPRESA.direccion.colonia}, {EMPRESA.direccion.ciudad}
+            Col. {EMPRESA.direccion.colonia}, {EMPRESA.direccion.cp} {EMPRESA.direccion.ciudad}
             <br />
             {EMPRESA.direccion.estado}
           </address>
+          <p className="mt-3 text-[13px] leading-relaxed text-hielo-300">
+            {EMPRESA.horario.map((h) => `${h.etiqueta} ${h.abre}–${h.cierra}`).join(' · ')} · Domingo cerrado
+          </p>
+          <a
+            href={EMPRESA.perfilGoogle}
+            className="mt-2 inline-block text-[13px] font-semibold text-fry hover:text-white"
+          >
+            Ver en Google Maps
+          </a>
         </div>
 
         <div>

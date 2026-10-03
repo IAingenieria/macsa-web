@@ -55,7 +55,7 @@ export default function Page() {
           <h2 className={h2}>1. Quién es el responsable</h2>
           <p>
             <strong className="text-navy">{EMPRESA.razonSocial}</strong> ({EMPRESA.nombre}), con
-            domicilio en {d.calle}, Col. {d.colonia}, {d.ciudad}, {d.estado}, México, y sitio de
+            domicilio en {d.calle}, Col. {d.colonia}, C.P. {d.cp}, {d.ciudad}, {d.estado}, México, y sitio de
             internet <a href={SITE_URL} className="font-semibold text-fry-700">macsamty.mx</a>, es
             responsable del uso y protección de tus datos personales.
           </p>
