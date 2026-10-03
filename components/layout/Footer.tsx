@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { asset, EMPRESA } from '@/lib/site'
+import { asset, EMPRESA, telLink } from '@/lib/site'
 import { FAMILIAS } from '@/lib/familias'
 import { GIROS } from '@/lib/giros'
 import { porModo } from '@/lib/ciudades'
@@ -81,8 +81,10 @@ export default function Footer() {
               </li>
             ))}
             {EMPRESA.telefonos.map((t) => (
-              <li key={t} className="text-hielo-300">
-                Tel. {t}
+              <li key={t}>
+                <a href={telLink(t)} className="text-hielo-300 hover:text-white">
+                  Llamar al {t}
+                </a>
               </li>
             ))}
             <li>

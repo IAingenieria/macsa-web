@@ -40,7 +40,7 @@ const fallas = []
 {
   const e = entorno({ conGtag: false, chatListo: false })
   try {
-    e.clic(e.elemento({ href: 'tel:+528122092277' }))
+    e.clic(e.elemento({ href: 'tel:+528715015117' }))
     e.clic(e.elemento({ href: 'https://wa.me/528715015117?text=hola' }))
     e.clic(e.elemento({}, ['burbuja']))
   } catch (err) { fallas.push('sin GA4 un clic truena: ' + err.message) }
@@ -49,7 +49,7 @@ const fallas = []
 // 2) Con GA4
 {
   const e = entorno({ conGtag: true, chatListo: true })
-  e.clic(e.elemento({ href: 'tel:+528122092277' }))
+  e.clic(e.elemento({ href: 'tel:+528715015117' }))
   e.clic(e.elemento({ href: 'https://wa.me/528715015117?text=hola', 'data-chat': '' }))
   e.clic(e.elemento({}, ['burbuja']))
   const e2 = entorno({ conGtag: true, chatListo: false })

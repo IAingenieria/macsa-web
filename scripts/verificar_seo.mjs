@@ -48,6 +48,17 @@ else {
 if (!existe(`${LLAVE}.txt`) || leer(`${LLAVE}.txt`).trim() !== LLAVE) falla('llave de IndexNow ausente o distinta')
 if (!/Sitemap: https:\/\/macsamty\.mx\/sitemap\.xml/.test(leer('robots.txt'))) falla('robots.txt sin sitemap del dominio')
 
+// 3b) Teléfonos tocables (2-oct-2026): el pie de cada página y Contacto llevan tel:
+for (const rel of ['index.html', 'contacto/index.html']) {
+  const h = leer(rel)
+  if (!h.includes('href="tel:+528715015117"')) falla(`${rel} sin liga tel:+528715015117`)
+}
+// Un solo número para clientes (Luis, 2-oct-2026): los fijos 81 ya no van en ninguna página
+for (const u of locs) {
+  const h = leer(decodeURIComponent(u.slice(BASE.length + 1)) + 'index.html')
+  if (/2209 ?2277|2254 ?2834/.test(h)) { falla(`aún muestra un fijo 81: ${u}`); break }
+}
+
 // 4) Aviso de privacidad: indexable, en el sitemap y con las fracciones del art. 15 LFPDPPP 2025
 if (!locs.includes(`${BASE}/aviso-de-privacidad/`)) falla('el aviso no está en el sitemap')
 const aviso = leer('aviso-de-privacidad/index.html').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ')

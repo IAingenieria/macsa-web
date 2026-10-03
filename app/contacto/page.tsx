@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Breadcrumb, Seccion } from '@/components/landing/Secciones'
 import Hero from '@/components/landing/Hero'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { EMPRESA, waLink } from '@/lib/site'
+import { EMPRESA, telLink, waLink } from '@/lib/site'
 import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
@@ -86,12 +86,17 @@ export default function Page() {
           <div className="bg-white p-7">
             <h2 className="font-display text-[18px] font-bold text-navy">Teléfono y correo</h2>
             <p className="mt-2 text-[14px] leading-relaxed text-humo">
-              Para órdenes de compra y temas administrativos.
+              Llamadas, órdenes de compra y temas administrativos.
             </p>
             <ul className="mt-4 space-y-2">
               {EMPRESA.telefonos.map((t) => (
-                <li key={t} className="font-mono text-[14px] text-humo-900">
-                  {t}
+                <li key={t}>
+                  <a
+                    href={telLink(t)}
+                    className="font-mono text-[14px] font-semibold text-fry-700 hover:text-navy"
+                  >
+                    {t}
+                  </a>
                 </li>
               ))}
               <li>

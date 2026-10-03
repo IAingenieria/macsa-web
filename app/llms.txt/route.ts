@@ -15,7 +15,10 @@ import { CIUDADES, MODOS } from '@/lib/ciudades'
 export const dynamic = 'force-static'
 
 export function GET() {
-  const tel = [...EMPRESA.whatsapp.map((w) => `${w.numero} (WhatsApp)`), ...EMPRESA.telefonos].join(' · ')
+  // Un solo número para llamadas y WhatsApp (Luis, 2-oct-2026): no repetirlo.
+  const tel = [...new Set([...EMPRESA.telefonos, ...EMPRESA.whatsapp.map((w) => w.numero)])]
+    .map((n) => `${n} (llamadas y WhatsApp)`)
+    .join(' · ')
   const d = EMPRESA.direccion
   const porModo = (Object.keys(MODOS) as (keyof typeof MODOS)[])
     .map((m) => {

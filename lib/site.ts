@@ -52,7 +52,12 @@ export const EMPRESA = {
     estadoCorto: 'NL',
     pais: 'MX',
   },
-  telefonos: ['+52 81 2209 2277', '+52 81 2254 2834'],
+  /**
+   * Luis, 2-oct-2026: "hay un solo número para llamadas de clientes +52 871 501
+   * 5117" (el mismo del WhatsApp; distinto al WhatsApp del bot de Forja). Los
+   * fijos 81 2209 2277 y 81 2254 2834 salieron del sitio.
+   */
+  telefonos: ['+52 871 501 5117'],
   /**
    * Un solo celular/WhatsApp para todo el sitio. Luis, 29-sep-2026: "el
    * teléfono celular que va a mostrar la página en todo el site es
@@ -76,6 +81,12 @@ export const EMPRESA = {
  * directo del botón verde flotante y del renglón WhatsApp de contacto y pie.
  */
 export const WA_CONTACTO = '528715015117'
+
+/**
+ * Liga para llamar (2-oct-2026): los teléfonos fijos salían como texto y en el
+ * celular no se podían tocar; con `tel:` además GA4 cuenta `contacto_llamada`.
+ */
+export const telLink = (telefono: string) => `tel:${telefono.split(' ').join('')}`
 
 export function waLink(mensaje: string, numero: string = WA_CONTACTO) {
   return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
