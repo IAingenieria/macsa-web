@@ -32,6 +32,11 @@ const APP = path.join(RAIZ, 'app')
 const GEN = path.join(APP, '(generado)')
 const MARCA = '/* GENERADO por scripts/generar_geo.mjs — no editar a mano. */'
 
+// [S182] seco o congelado (data/secos.json, de sku_clasificacion_macsa)
+const SECOS = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data', 'secos.json'), 'utf8'))
+const _SECO = new Set([...SECOS.seco, ...SECOS.seco_por_linea, ...(SECOS.seco_manual ?? [])]), _CONG = new Set(SECOS.congelado)
+const esSeco = (skus) => { const c = skus.filter((s) => _SECO.has(s) || _CONG.has(s)); return c.length > 0 && c.every((s) => _SECO.has(s)) }
+
 /** Extrae los registros de un archivo TS sin necesidad de compilarlo. */
 function registros(archivo) {
   const src = fs.readFileSync(path.join(RAIZ, 'lib', archivo), 'utf8')
@@ -44,7 +49,8 @@ function registros(archivo) {
       const region = b.match(/region:\s*'([^']+)'/)?.[1]
       const estado = b.match(/estado:\s*'([^']+)'/)?.[1]
       if (!slug) return null
-      return { slug, nombre: nombre ?? slug, region, estado, pilar: /pilar:\s*true/.test(b) }
+      const skus = [...(b.match(/skus:\s*\[([^\]]*)\]/)?.[1] ?? '').matchAll(/'([^']+)'/g), ...b.matchAll(/codigo:\s*'([^']+)'/g)].map((m) => m[1])
+      return { slug, nombre: nombre ?? slug, region, estado, pilar: /pilar:\s*true/.test(b), skus }
     })
     .filter(Boolean)
 }
@@ -75,14 +81,14 @@ export default function Page() {
 }
 `
 
-const anclaCiudad = (slug, c, nombre) => `${MARCA}
+const anclaCiudad = (slug, c, nombre, seco) => `${MARCA}
 import type { Metadata } from 'next'
 import PaginaAncla from '@/components/landing/PaginaAncla'
 
 export const metadata: Metadata = {
   title: '${nombre} por mayoreo en ${c.nombre}',
   description:
-    '${nombre} por mayoreo con entrega en ${c.nombre}. Distribuidor para restaurantes con cadena de frío garantizada y existencia continua. Punto de venta y servicio a domicilio.',
+    '${nombre} por mayoreo con entrega en ${c.nombre}. Distribuidor para restaurantes con ${seco ? '' : 'cadena de frío garantizada y '}existencia continua. Punto de venta y servicio a domicilio.',
   alternates: { canonical: '/${slug}-en-${c.slug}/' },
   // Sobrescribe el geo.region del layout: si no, una pagina de Saltillo se
   // declararia de Nuevo Leon.
@@ -97,14 +103,14 @@ export default function Page() {
 }
 `
 
-const familiaCiudad = (slug, c, nombre) => `${MARCA}
+const familiaCiudad = (slug, c, nombre, seco) => `${MARCA}
 import type { Metadata } from 'next'
 import PaginaGeo from '@/components/landing/PaginaGeo'
 
 export const metadata: Metadata = {
   title: '${nombre} por mayoreo en ${c.nombre}',
   description:
-    '${nombre} por mayoreo con entrega en ${c.nombre}. Distribuidor para restaurantes con cadena de frío garantizada y existencia continua. Punto de venta y servicio a domicilio.',
+    '${nombre} por mayoreo con entrega en ${c.nombre}. Distribuidor para restaurantes con ${seco ? '' : 'cadena de frío garantizada y '}existencia continua. Punto de venta y servicio a domicilio.',
   alternates: { canonical: '/${slug}-en-${c.slug}/' },
   other: {
     'geo.region': '${c.region}',
@@ -146,14 +152,14 @@ function generar() {
     escribir(a.slug, pilarAncla(a.slug, a.nombre))
     pilares++
     for (const c of ciudades) {
-      escribir(`${a.slug}-en-${c.slug}`, anclaCiudad(a.slug, c, a.nombre))
+      escribir(`${a.slug}-en-${c.slug}`, anclaCiudad(a.slug, c, a.nombre, esSeco(a.skus)))
       geoAnclas++
     }
   }
 
   for (const f of familias) {
     for (const c of ciudades) {
-      escribir(`${f.slug}-en-${c.slug}`, familiaCiudad(f.slug, c, f.nombre))
+      escribir(`${f.slug}-en-${c.slug}`, familiaCiudad(f.slug, c, f.nombre, esSeco(f.skus)))
       geoFamilias++
     }
   }

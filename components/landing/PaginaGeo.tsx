@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Link from 'next/link'import { esSeco } from '@/lib/secos'
+
 import Hero from '@/components/landing/Hero'
 import {
   BarraConfianza,
@@ -35,6 +36,7 @@ export default function PaginaGeo({
   ciudadSlug: string
 }) {
   const f = familia(familiaSlug)!
+  const seco = esSeco(f.productos.map((p) => p.codigo))
   const c = buscarCiudad(ciudadSlug)!
   const modo = MODOS[c.modo]
 
@@ -96,7 +98,9 @@ export default function PaginaGeo({
           { etiqueta: 'Ciudad', valor: `${c.nombre}, ${c.estado}` },
           { etiqueta: 'Entrega', valor: modo.promesa },
           { etiqueta: 'Marcas', valor: f.marcas.slice(0, 2).join(', ') },
-          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
+          seco
+            ? { etiqueta: 'Existencia', valor: 'Continua, mismo código' }
+            : { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
         ]}
         ctaWhatsApp={`Hola, escribo desde ${c.nombre}. Quiero precio de ${f.nombre.toLowerCase()}.`}
         ctaSecundario={{ href: `/${f.slug}/`, label: `Ver toda la línea` }}
@@ -104,7 +108,7 @@ export default function PaginaGeo({
         lambWeston={heroFamilia(f.slug).lambWeston}
       />
 
-      <BarraConfianza />
+      <BarraConfianza seco={seco} />
 
       {/* ★ La sección que ninguna competencia puede copiar */}
       <Cobertura ciudad={c} producto={f.nombre.toLowerCase()} />
@@ -149,7 +153,7 @@ export default function PaginaGeo({
 
       <ConsejosRelacionados slug={f.slug} />
 
-      <CadenaFrio />
+      {!seco && <CadenaFrio />}
 
       <ComoPedir contexto={`${f.nombre.toLowerCase()} en ${c.nombre}`} modo={c.modo} />
 

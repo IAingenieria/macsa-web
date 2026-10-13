@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { esSeco } from '@/lib/secos'
 import Hero from '@/components/landing/Hero'
 import {
   BarraConfianza,
@@ -38,6 +39,7 @@ export default function PaginaFamilia({
     { nombre: 'Catálogo', url: '/catalogo/' },
     { nombre: f.nombre },
   ]
+  const seco = esSeco(f.productos.map((p) => p.codigo))
   const girosDeLaFamilia = GIROS.filter((g) => f.giros.includes(g.slug))
   const conRuta = porModo('diaria')
 
@@ -64,7 +66,9 @@ export default function PaginaFamilia({
               ? `${porFamilia(f.slug).length} en catálogo`
               : 'Lista completa a solicitud',
           },
-          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
+          seco
+            ? { etiqueta: 'Existencia', valor: 'Continua, mismo código' }
+            : { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },
         ]}
         ctaWhatsApp={`Hola, quiero información y precio de ${f.nombre.toLowerCase()}.`}
@@ -73,7 +77,7 @@ export default function PaginaFamilia({
         lambWeston={heroFamilia(f.slug).lambWeston}
       />
 
-      <BarraConfianza />
+      <BarraConfianza seco={seco} />
 
       <GaleriaProductos
         familia={f.slug}
@@ -146,7 +150,7 @@ export default function PaginaFamilia({
         titulo={`Cómo sacarle más a tu ${f.nombre.toLowerCase()}`}
       />
 
-      <CadenaFrio />
+      {!seco && <CadenaFrio />}
 
       {/* Enlazado por silo: hacia las ciudades (eje geográfico de la matriz) */}
       <Seccion

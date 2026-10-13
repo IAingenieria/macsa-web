@@ -118,9 +118,17 @@ export function waLink(mensaje: string, numero: string = WA_CONTACTO) {
  */
 export const CONFIANZA = [
   { valor: 'Oficial', etiqueta: 'Distribuidor Lamb Weston en Monterrey' },
-  { valor: 'Directo', etiqueta: 'Agrosuper y Martin’s, sin intermediarios' },
+  { valor: 'Directo', etiqueta: 'Heinz, Agrosuper y Martin’s, sin intermediarios' },
   { valor: 'Calidad', etiqueta: 'Las mejores marcas del mercado' },
   { valor: 'Logística', etiqueta: 'Cadena de frío garantizada, sin cortes' },
+] as const
+
+/** [S182] Para páginas de producto seco: sin «cadena de frío». */
+export const CONFIANZA_SECO = [
+  { valor: 'Directo', etiqueta: 'Heinz, Agrosuper y Martin’s, sin intermediarios' },
+  { valor: 'Oficial', etiqueta: 'Distribuidor Lamb Weston en Monterrey' },
+  { valor: 'Calidad', etiqueta: 'Las mejores marcas del mercado' },
+  { valor: 'Entrega', etiqueta: 'Al día siguiente en el área metropolitana' },
 ] as const
 
 /**

@@ -6,6 +6,7 @@ import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { CIUDADES_INTENCION, INTENCIONES, intencion, intencionEnCiudad, slugIntencionCiudad } from '@/lib/intenciones'
 import { ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
+import { esSeco } from '@/lib/secos'
 
 /**
  * PÁGINA DE BÚSQUEDA (S182). Contesta la frase con que busca el comprador
@@ -16,6 +17,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
   const it = ciudad ? intencionEnCiudad(slug, ciudad) : intencion(slug)!
   const c = ciudad ? buscarCiudad(ciudad) : undefined
   const base = intencion(slug)!
+  const seco = esSeco(it.skus)
   const migas = c
     ? [{ nombre: 'Inicio', url: '/' }, { nombre: base.h1, url: `/${base.slug}/` }, { nombre: c.nombre }]
     : [{ nombre: 'Inicio', url: '/' }, { nombre: it.h1 }]
@@ -40,14 +42,16 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
           c
             ? { etiqueta: 'Pedido mínimo', valor: ciudad === 'torreon' ? 'Sin mínimo (bodega en Torreón)' : '$5,000' }
             : { etiqueta: 'A domicilio', valor: 'Desde $1,500' },
-          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
+          seco
+            ? { etiqueta: 'Existencia', valor: 'Continua, mismo código' }
+            : { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Clientes', valor: 'Negocios y particulares' },
         ]}
         ctaWhatsApp={it.whatsapp}
         ctaSecundario={{ href: '/alta-de-cliente/', label: 'Darme de alta como cliente' }}
       />
 
-      <BarraConfianza />
+      <BarraConfianza seco={seco} logo={it.logo ? { src: it.logo, alt: 'Heinz' } : undefined} />
 
       {it.logo && (
         <section className="bg-white py-8">
@@ -90,7 +94,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
         </ul>
       </Seccion>
 
-      <CadenaFrio />
+      {!seco && <CadenaFrio />}
 
       <ComoPedir contexto={it.h1.toLowerCase()} modo={c?.modo} />
 

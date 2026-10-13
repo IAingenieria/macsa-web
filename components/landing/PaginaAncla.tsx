@@ -20,6 +20,7 @@ import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 import { porSkus } from '@/lib/catalogo'
+import { esSeco } from '@/lib/secos'
 
 /**
  * PRODUCTO ANCLA × CIUDAD — la malla fina de la matriz.
@@ -61,6 +62,7 @@ export default function PaginaAncla({
     : a.answerFirst
 
   const productos = porSkus(a.skus)
+  const seco = esSeco(a.skus)
   const girosDelAncla = GIROS.filter((g) => a.giros.includes(g.slug))
   const cercanas = c
     ? CIUDADES.filter((x) => x.estado === c.estado && x.slug !== c.slug).slice(0, 6)
@@ -99,10 +101,10 @@ export default function PaginaAncla({
       p: '¿Puedo probar antes de comprar?',
       r: 'Sí. Lo habitual antes del primer pedido es una muestra sin compromiso para que la pruebes en tu cocina.',
     },
-    {
+    ...(seco ? [] : [{
       p: '¿Hay que descongelar antes de usarlo?',
       r: 'No. El producto va directo del congelador a la freidora o a la plancha, sin descongelar: descongelarlo es justo lo que lo deja aguado.',
-    },
+    }]),
     {
       p: '¿Siempre tienen el mismo producto?',
       r: 'Sí. Trabajamos con marcas de línea y existencia continua: el mismo código está disponible cada vez que lo vuelves a pedir.',
@@ -133,7 +135,9 @@ export default function PaginaAncla({
             valor: c ? modo!.promesa : 'Al día siguiente en el área metropolitana',
           },
           { etiqueta: 'Códigos', valor: `${a.skus.length} presentaciones` },
-          { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
+          seco
+            ? { etiqueta: 'Existencia', valor: 'Continua, mismo código' }
+            : { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
         ]}
         ctaWhatsApp={
           c
@@ -149,7 +153,7 @@ export default function PaginaAncla({
         lambWeston={heroAncla(a.slug).lambWeston}
       />
 
-      <BarraConfianza />
+      <BarraConfianza seco={seco} />
 
       {/* ★ Cobertura real: la sección que ninguna competencia puede copiar */}
       {c && <Cobertura ciudad={c} producto={a.nombre.toLowerCase()} />}
@@ -183,7 +187,7 @@ export default function PaginaAncla({
         titulo={`Cómo sacarle más a tu ${a.nombre.toLowerCase()}`}
       />
 
-      <CadenaFrio />
+      {!seco && <CadenaFrio />}
 
       <ComoPedir contexto={c ? `${a.nombre.toLowerCase()} en ${c.nombre}` : a.nombre.toLowerCase()} modo={c?.modo} />
 
