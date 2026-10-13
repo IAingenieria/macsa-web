@@ -43,7 +43,7 @@ export const EMPRESA = {
   razonSocial: 'Macsa de la Sultana, S.A. de C.V.',
   claim: 'La mejor calidad del mercado la encuentras aquí.',
   descripcion:
-    'Distribuidor de alimentos congelados y abarrotes para food service en Monterrey y su área metropolitana. Distribuidor oficial de Lamb Weston, y distribuidor directo de Agrosuper y de Martin’s.',
+    'Distribuidor de alimentos congelados y abarrotes para food service en Monterrey y su área metropolitana. Distribuidor oficial de Lamb Weston, y distribuidor directo de Heinz, de Agrosuper y de Martin’s.',
   direccion: {
     calle: 'América del Norte 202-B',
     colonia: 'Las Américas',

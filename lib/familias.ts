@@ -173,7 +173,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'condimentos-heinz',
     nombre: 'Condimentos Heinz',
-    h1: 'Distribuidor de condimentos Heinz para restaurantes',
+    h1: 'Condimentos Heinz por mayoreo para restaurantes',
     tagline: 'Línea completa: sobre, botella, pouch y cubeta.',
     answerFirst:
       'MACSA distribuye la línea completa de condimentos Heinz para food service: catsup en sobre, botella y pouch; mayonesa en cubeta, botella y sachet, incluida la de limón; mostaza en botella, pouch y sobre; más jalapeño, BBQ y Tabasco. La presentación se elige según si el consumo es de mesa, de barra o de cocina.',

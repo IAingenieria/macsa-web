@@ -31,6 +31,14 @@ const RELACIONES = [
     familia: 'pollo',
   },
   {
+    marca: 'Heinz',
+    logo: 'https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/marcas/heinz.png',
+    relacion: 'Distribuidor directo',
+    detalle:
+      'Compramos a Kraft Heinz por carga completa: catsup, mayonesa y mostaza en sobre, pouch, botella y cubeta.',
+    familia: 'condimentos-heinz',
+  },
+  {
     marca: "Martin's Famous Potato Rolls",
     relacion: 'Distribuidor directo',
     detalle:

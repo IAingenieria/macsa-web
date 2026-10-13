@@ -49,6 +49,17 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
 
       <BarraConfianza />
 
+      {it.logo && (
+        <section className="bg-white py-8">
+          <div className="contenedor flex flex-wrap items-center gap-6">
+            <img src={it.logo} alt="Heinz" width={140} height={70} className="h-14 w-auto" loading="lazy" />
+            <p className="max-w-prosa text-[15px] leading-relaxed text-humo">
+              <b className="text-navy">Distribuidor directo de Heinz.</b> Compramos a Kraft Heinz por carga completa, sin intermediarios.
+            </p>
+          </div>
+        </section>
+      )}
+
       {c && <Cobertura ciudad={c} producto={base.h1.toLowerCase()} />}
 
       <Seccion eyebrow="Por qué con nosotros" titulo="Lo que te resolvemos" fondo="hielo">
