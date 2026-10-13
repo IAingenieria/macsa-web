@@ -27,6 +27,8 @@ export interface Intencion {
   eyebrow: string
   /** Answer-First: 40–60 palabras, la frase buscada en la primera oración */
   answerFirst: string
+  /** Qué surtimos, sin hablar de entrega (para las variantes por ciudad) */
+  resumen: string
   /** Códigos reales del catálogo del sitio */
   skus: string[]
   tituloProductos: string
@@ -47,6 +49,7 @@ const PARTICULARES =
 export const INTENCIONES: Intencion[] = [
   {
     slug: 'distribuidor-de-papas-congeladas-monterrey',
+    resumen: 'papa a la francesa, gajo, crisscut y con cobertura, por caja; somos distribuidor oficial de Lamb Weston',
     titulo: 'Distribuidor de papas congeladas en Monterrey',
     h1: 'Distribuidor de papas congeladas en Monterrey',
     descripcion:
@@ -81,6 +84,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'papas-a-la-francesa-por-mayoreo',
+    resumen: 'Lamb Weston en corte delgado, mediano y grueso, con cobertura y sazonadas, por caja cerrada',
     titulo: 'Papas a la francesa congeladas por mayoreo',
     h1: 'Papas a la francesa congeladas por mayoreo',
     descripcion:
@@ -113,6 +117,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'alitas-por-mayoreo',
+    resumen: 'ala chilena Agrosuper en caja de 13 kg y alita picosita Bachoco por kilo, más salsas para alitas por galón',
     titulo: 'Alitas de pollo por mayoreo en Monterrey',
     h1: 'Alitas de pollo por mayoreo en Monterrey',
     descripcion:
@@ -145,6 +150,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'boneless-por-mayoreo',
+    resumen: 'boneless natural Bachoco, Freskecito natural y enchilado y boneless crujiente, por kilo en caja cerrada',
     titulo: 'Boneless de pollo por mayoreo en Monterrey',
     h1: 'Boneless de pollo por mayoreo en Monterrey',
     descripcion:
@@ -176,6 +182,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'pechuga-de-pollo-congelada-por-mayoreo',
+    resumen: 'media pechuga sin piel Agrosuper en caja de 13 kg y pechuga empanizada con picante Pilgrim’s en caja de 12 kg',
     titulo: 'Pechuga de pollo congelada por mayoreo',
     h1: 'Pechuga de pollo congelada por mayoreo',
     descripcion:
@@ -206,6 +213,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'distribuidor-de-pollo-congelado-monterrey',
+    resumen: 'pechuga, alitas, boneless, tenders, nuggets y hamburguesa de pechuga de Agrosuper, Bachoco, Pilgrim’s y Freskecito, por caja',
     titulo: 'Distribuidor de pollo congelado en Monterrey',
     h1: 'Distribuidor de pollo congelado en Monterrey',
     descripcion:
@@ -238,6 +246,7 @@ export const INTENCIONES: Intencion[] = [
   },
   {
     slug: 'distribuidora-de-alimentos-congelados-monterrey',
+    resumen: 'papa Lamb Weston, pollo, alitas, boneless, appetizers, verduras y postres, además de abarrotes Heinz y salsas',
     titulo: 'Distribuidora de alimentos congelados en Monterrey',
     h1: 'Distribuidora de alimentos congelados en Monterrey',
     descripcion:
@@ -271,3 +280,68 @@ export const INTENCIONES: Intencion[] = [
 ]
 
 export const intencion = (slug: string) => INTENCIONES.find((x) => x.slug === slug)
+
+/* ── Las mismas búsquedas en las ciudades grandes del corredor (S182, pedido de Luis) ───────────────────────
+ * «¿Dónde quedan Saltillo o Torreón?». Cada variante cambia lo que de verdad cambia en esa ciudad: el día de
+ * entrega, el mínimo y la bodega (lib/ciudades.ts, modo `corredor`, junta con Jorge del 2-sep-2026). */
+export const CIUDADES_INTENCION = ['saltillo', 'torreon'] as const
+
+const sinMonterrey = (s: string) => s.replace(/ en Monterrey$/, '')
+export const slugBase = (slug: string) => slug.replace(/-monterrey$/, '')
+export const slugIntencionCiudad = (slug: string, ciudad: string) => `${slugBase(slug)}-en-${ciudad}`
+
+interface CiudadCorredor {
+  slug: string
+  nombre: string
+  estado: string
+  minimo: string
+  entrega: string
+  extra?: string
+}
+
+const CORREDOR: Record<(typeof CIUDADES_INTENCION)[number], CiudadCorredor> = {
+  saltillo: {
+    slug: 'saltillo',
+    nombre: 'Saltillo',
+    estado: 'Coahuila',
+    minimo: 'El pedido mínimo en Saltillo es de $5,000.',
+    entrega:
+      'Saltillo queda en el camino de nuestra ruta a Torreón, que sale los miércoles: la entrega no carga un flete dedicado.',
+  },
+  torreon: {
+    slug: 'torreon',
+    nombre: 'Torreón',
+    estado: 'Coahuila',
+    minimo: 'En Torreón no hay pedido mínimo.',
+    entrega: 'La ruta a Torreón sale los miércoles.',
+    extra: 'En Torreón contamos con una segunda bodega, con productos adicionales a los que viajan en la ruta.',
+  },
+}
+
+export function intencionEnCiudad(slug: string, ciudad: string): Intencion & { ciudad: string } {
+  const it = intencion(slug)!
+  const c = CORREDOR[ciudad as keyof typeof CORREDOR]
+  const frase = sinMonterrey(it.h1)
+  return {
+    ...it,
+    slug: slugIntencionCiudad(slug, c.slug),
+    titulo: `${frase} en ${c.nombre}`,
+    h1: `${frase} en ${c.nombre}`,
+    descripcion: `${frase} en ${c.nombre}, ${c.estado}, para restaurantes y negocios de comida. ${c.entrega} ${c.minimo}`,
+    eyebrow: `${c.nombre}, ${c.estado} · Corredor Saltillo — Torreón`,
+    answerFirst: `${/^Distribuidor/.test(frase) ? 'MACSA es' : 'MACSA surte'} ${frase.charAt(0).toLowerCase() + frase.slice(1)} en ${c.nombre}, ${c.estado}: ${it.resumen}. ${c.entrega} ${c.minimo}${c.extra ? ' ' + c.extra : ''}`,
+    puntos: [
+      ...it.puntos.filter((p) => p.texto !== ENTREGA && p.texto !== MINIMO),
+      { titulo: `Entrega en ${c.nombre}`, texto: `${c.entrega} ${c.minimo}` },
+    ],
+    preguntas: [
+      { p: `¿Qué día entregan en ${c.nombre}?`, r: `${c.entrega} Te confirmamos la fecha al levantar el pedido.` },
+      { p: `¿Hay pedido mínimo en ${c.nombre}?`, r: c.minimo },
+      ...(c.extra ? [{ p: `¿Tienen bodega en ${c.nombre}?`, r: c.extra }] : []),
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    enlaces: [{ url: `/${it.slug}/`, texto: `${sinMonterrey(it.h1)} en Monterrey` }, ...it.enlaces],
+    whatsapp: `Hola, escribo desde ${c.nombre}. ${it.whatsapp.replace(/^Hola, /, '')}`,
+    ciudad: c.slug,
+  }
+}

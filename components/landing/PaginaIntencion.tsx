@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
-import { BarraConfianza, Breadcrumb, CadenaFrio, ComoPedir, FAQ, Seccion } from '@/components/landing/Secciones'
+import { BarraConfianza, Breadcrumb, CadenaFrio, Cobertura, ComoPedir, FAQ, Seccion } from '@/components/landing/Secciones'
 import { GaleriaProductos } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { INTENCIONES, intencion } from '@/lib/intenciones'
+import { CIUDADES_INTENCION, INTENCIONES, intencion, intencionEnCiudad, slugIntencionCiudad } from '@/lib/intenciones'
+import { ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 
 /**
@@ -11,9 +12,13 @@ import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
  * («distribuidor de papas congeladas», «alitas por mayoreo») y reparte hacia
  * las páginas de producto, que llevan el nombre técnico. Ver lib/intenciones.ts.
  */
-export default function PaginaIntencion({ slug }: { slug: string }) {
-  const it = intencion(slug)!
-  const migas = [{ nombre: 'Inicio', url: '/' }, { nombre: it.h1 }]
+export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad?: string }) {
+  const it = ciudad ? intencionEnCiudad(slug, ciudad) : intencion(slug)!
+  const c = ciudad ? buscarCiudad(ciudad) : undefined
+  const base = intencion(slug)!
+  const migas = c
+    ? [{ nombre: 'Inicio', url: '/' }, { nombre: base.h1, url: `/${base.slug}/` }, { nombre: c.nombre }]
+    : [{ nombre: 'Inicio', url: '/' }, { nombre: it.h1 }]
   const otras = INTENCIONES.filter((x) => x.slug !== it.slug)
 
   return (
@@ -29,8 +34,12 @@ export default function PaginaIntencion({ slug }: { slug: string }) {
         answerFirst={it.answerFirst}
         anclas={[]}
         chips={[
-          { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },
-          { etiqueta: 'A domicilio', valor: 'Desde $1,500' },
+          c
+            ? { etiqueta: 'Entrega', valor: 'Miércoles, con la ruta' }
+            : { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },
+          c
+            ? { etiqueta: 'Pedido mínimo', valor: ciudad === 'torreon' ? 'Sin mínimo (bodega en Torreón)' : '$5,000' }
+            : { etiqueta: 'A domicilio', valor: 'Desde $1,500' },
           { etiqueta: 'Cadena de frío', valor: 'Garantizada, sin cortes' },
           { etiqueta: 'Clientes', valor: 'Negocios y particulares' },
         ]}
@@ -39,6 +48,8 @@ export default function PaginaIntencion({ slug }: { slug: string }) {
       />
 
       <BarraConfianza />
+
+      {c && <Cobertura ciudad={c} producto={base.h1.toLowerCase()} />}
 
       <Seccion eyebrow="Por qué con nosotros" titulo="Lo que te resolvemos" fondo="hielo">
         <div className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-4">
@@ -83,6 +94,23 @@ export default function PaginaIntencion({ slug }: { slug: string }) {
       </Seccion>
 
       <FAQ preguntas={it.preguntas} />
+
+      {!c && (
+        <Seccion eyebrow="Corredor Saltillo — Torreón" titulo="¿Estás en Coahuila?" fondo="hielo">
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {CIUDADES_INTENCION.map((cs) => (
+              <li key={cs}>
+                <Link
+                  href={`/${slugIntencionCiudad(base.slug, cs)}/`}
+                  className="block rounded border border-hielo-300 bg-white px-4 py-3 font-semibold text-navy hover:border-fry"
+                >
+                  {intencionEnCiudad(base.slug, cs).h1} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Seccion>
+      )}
 
       <Seccion eyebrow="También te puede interesar" titulo="Otras búsquedas frecuentes" fondo="hielo">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
