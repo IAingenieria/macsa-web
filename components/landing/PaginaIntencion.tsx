@@ -81,7 +81,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
 
       <CadenaFrio />
 
-      <ComoPedir contexto={it.h1.toLowerCase()} />
+      <ComoPedir contexto={it.h1.toLowerCase()} modo={c?.modo} />
 
       <Seccion
         eyebrow="Contacto"

@@ -185,7 +185,7 @@ export default function PaginaAncla({
 
       <CadenaFrio />
 
-      <ComoPedir contexto={c ? `${a.nombre.toLowerCase()} en ${c.nombre}` : a.nombre.toLowerCase()} />
+      <ComoPedir contexto={c ? `${a.nombre.toLowerCase()} en ${c.nombre}` : a.nombre.toLowerCase()} modo={c?.modo} />
 
       <Seccion
         eyebrow="Contacto"

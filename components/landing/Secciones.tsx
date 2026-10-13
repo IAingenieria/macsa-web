@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { asset, CONFIANZA, EMPRESA, waLink } from '@/lib/site'
-import { MODOS, type Ciudad } from '@/lib/ciudades'
+import { MODOS, type Ciudad, type Modo } from '@/lib/ciudades'
 import type { Producto } from '@/lib/familias'
 
 /* ── Envoltorio de sección ─────────────────────────────────────────── */
@@ -251,7 +251,9 @@ export function CadenaFrio() {
 
 /* ── §12 · Cómo pedir ──────────────────────────────────────────────── */
 
-export function ComoPedir({ contexto }: { contexto?: string }) {
+/* [S182] `modo`: en el corredor Saltillo–Torreón la entrega es los miércoles; la frase del día siguiente sólo vale en
+   la ruta diaria. Antes se decía en todas las páginas de ciudad. */
+export function ComoPedir({ contexto, modo }: { contexto?: string; modo?: Modo }) {
   const mensaje = contexto
     ? `Hola, quiero hacer un pedido de ${contexto}.`
     : 'Hola, quiero hacer un pedido.'
@@ -260,7 +262,11 @@ export function ComoPedir({ contexto }: { contexto?: string }) {
     <Seccion
       eyebrow="Cómo pedir"
       titulo="Tres formas de levantar tu pedido"
-      intro={`El canal principal es WhatsApp: por ahí mandamos el catálogo, se levanta el pedido y se da seguimiento. El corte es a las ${EMPRESA.corteHora} h — dentro del corte entregamos al día siguiente.`}
+      intro={`El canal principal es WhatsApp: por ahí mandamos el catálogo, se levanta el pedido y se da seguimiento. El corte es a las ${EMPRESA.corteHora} h — ${
+        !modo || modo === 'diaria'
+          ? 'dentro del corte entregamos al día siguiente en el área metropolitana.'
+          : `en tu ciudad: ${MODOS[modo].promesa.toLowerCase()}.`
+      }`}
     >
       <div className="grid gap-px bg-hielo-300 sm:grid-cols-3">
         <div className="bg-white p-6">

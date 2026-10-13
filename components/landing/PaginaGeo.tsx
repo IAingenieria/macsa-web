@@ -151,7 +151,7 @@ export default function PaginaGeo({
 
       <CadenaFrio />
 
-      <ComoPedir contexto={`${f.nombre.toLowerCase()} en ${c.nombre}`} />
+      <ComoPedir contexto={`${f.nombre.toLowerCase()} en ${c.nombre}`} modo={c.modo} />
 
       <FAQ preguntas={preguntas} />
 
