@@ -38,7 +38,7 @@ export default function PaginaGeo({
   const c = buscarCiudad(ciudadSlug)!
   const modo = MODOS[c.modo]
 
-  const h1 = `${f.nombre} en ${c.nombre}`
+  const h1 = `${f.nombre} por mayoreo en ${c.nombre}`
   const migas = [
     { nombre: 'Inicio', url: '/' },
     { nombre: f.nombre, url: `/${f.slug}/` },

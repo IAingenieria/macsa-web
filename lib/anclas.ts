@@ -33,7 +33,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'media-pechuga-de-pollo',
     nombre: 'Media pechuga de pollo',
-    h1: 'Media pechuga de pollo sin piel congelada',
+    h1: 'Media pechuga de pollo congelada por mayoreo',
     familia: 'pollo',
     answerFirst:
       'La media pechuga de pollo sin piel es el producto de mayor movimiento de MACSA y llega congelada en caja de 13 kg. Rinde para milanesa, empanizado, plancha y guisado con el mismo código, que es justo lo que necesita una cocina de alto volumen para no multiplicar claves de inventario.',
@@ -45,7 +45,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-crisscut',
     nombre: 'Papa crisscut',
-    h1: 'Papa crisscut sazonada congelada',
+    h1: 'Papa crisscut sazonada congelada por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'La papa crisscut sazonada es el corte enrejado que más se comparte en barra: se ve más en el plato y aguanta la salsa sin ablandarse. MACSA la maneja como distribuidor oficial de Lamb Weston, congelada IQF en caja de 12.2 kg, lista para ir del congelador a la freidora.',
@@ -57,7 +57,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'muncher-de-jalapeno',
     nombre: 'Muncher de jalapeño',
-    h1: 'Muncher de jalapeño con queso cheddar',
+    h1: 'Munchers de jalapeño con queso por mayoreo',
     familia: 'appetizers-y-quesos',
     answerFirst:
       'El muncher de jalapeño con queso cheddar es la botana de entrada que más margen deja en barra, y va de la caja a la freidora sin ninguna preparación previa. MACSA lo maneja en caja de 8.2 kg, congelado pieza por pieza, junto con la versión de tocino y la de papa con forma de jalapeño.',
@@ -73,7 +73,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-con-cobertura',
     nombre: 'Papa con cobertura crujiente',
-    h1: 'Papa a la francesa con cobertura crujiente',
+    h1: 'Papa a la francesa con cobertura por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'La papa con cobertura trae un recubrimiento que la mantiene crujiente mucho más tiempo, así que es la que conviene cuando la orden sale a domicilio o para llevar. MACSA la maneja en corte grueso de 1/4 y en corte recto de 3/8, congelada IQF, como distribuidor oficial de Lamb Weston en Monterrey.',
@@ -85,7 +85,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-3-8',
     nombre: 'Papa 3/8',
-    h1: 'Papa a la francesa corte 3/8',
+    h1: 'Papa a la francesa 3/8 congelada por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'El corte 3/8 es la papa a la francesa clásica de restaurante y el más pedido del catálogo. MACSA lo maneja con y sin cáscara, liso, sazonado y con recubrimiento crispy, todo en caja de 13.6 kg y congelado IQF: va del congelador a la freidora sin descongelar.',
@@ -97,7 +97,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-5-16',
     nombre: 'Papa 5/16',
-    h1: 'Papa a la francesa corte 5/16 delgada',
+    h1: 'Papa a la francesa delgada 5/16 por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'El corte 5/16 es la papa delgada, la que queda más crujiente y rinde más porciones por caja porque cada orden pesa menos. MACSA la maneja recta, ondulada y estilo seashore, con y sin cáscara, en caja de 13.6 kg y congelada IQF.',
@@ -109,7 +109,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'queso-cheddar',
     nombre: 'Queso cheddar',
-    h1: 'Queso cheddar en bolsa para food service',
+    h1: 'Queso cheddar por mayoreo para restaurante',
     familia: 'appetizers-y-quesos',
     answerFirst:
       'El queso cheddar en bolsa de 3 kg es de los productos que más factura MACSA, y por una razón simple: es lo que convierte una orden de papas en una orden de papas con queso, sin agregar un solo minuto de cocina. Se maneja en caja de seis bolsas.',
@@ -121,7 +121,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'pure-de-papa',
     nombre: 'Puré de papa',
-    h1: 'Puré de papa congelado para restaurante',
+    h1: 'Puré de papa congelado por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'El puré de papa congelado de Lamb Weston llega listo para calentar y servir, con textura consistente plato tras plato: no depende de quién esté en la estufa. MACSA lo maneja en cinco versiones —mezcla, original, estilo casero, con ajo y yukon— para guarnición de alto volumen.',
@@ -133,7 +133,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-gajo',
     nombre: 'Papa gajo',
-    h1: 'Papa gajo sazonada de 8 cortes',
+    h1: 'Papa gajo sazonada congelada por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'La papa gajo sazonada de ocho cortes es la guarnición que más llena el plato por caja, y la que se pide para compartir en barra. MACSA la maneja sazonada y natural, en caja de 13.6 kg y congelada IQF, como distribuidor oficial de Lamb Weston en Monterrey.',
@@ -145,7 +145,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'aceite-para-freidora',
     nombre: 'Aceite para freidora',
-    h1: 'Aceite para freidora de restaurante en bidón',
+    h1: 'Aceite para freidora por mayoreo, en bidón',
     familia: 'aceite-para-freir',
     answerFirst:
       'El aceite para freidora se compra por rendimiento, no por litro: MACSA maneja King Fry en bidón de 20 litros y Golden Chef. El equipo recomienda King Fry porque es parcialmente hidrogenado, se convierte en manteca en frío y aguanta más ciclos, así que son menos cambios de aceite por semana.',
@@ -157,7 +157,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'boneless-de-pollo',
     nombre: 'Boneless de pollo',
-    h1: 'Boneless de pollo congelado natural y enchilado',
+    h1: 'Boneless de pollo por mayoreo, natural y enchilado',
     familia: 'pollo',
     answerFirst:
       'El boneless de pollo es la base del negocio de alitas, y MACSA lo maneja natural y enchilado. El natural te deja salsear al momento con los sabores que tengas en barra; el enchilado ya trae el picante integrado. Todo congelado, con cadena de frío sin cortes.',
@@ -169,7 +169,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'elote-congelado',
     nombre: 'Elote congelado',
-    h1: 'Elote congelado entero, en mitades y desgranado',
+    h1: 'Elote congelado por mayoreo: entero, mitades y desgranado',
     familia: 'verduras-y-elote',
     answerFirst:
       'El elote congelado se maneja en tres presentaciones —entero de 48 piezas, en mitades de 96 y desgranado— y al ser IQF puedes tomar la porción exacta que necesitas sin descongelar la caja completa. Es la guarnición más barata por porción del catálogo de MACSA.',
@@ -181,7 +181,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'papa-1-4',
     nombre: 'Papa 1/4',
-    h1: 'Papa a la francesa corte 1/4 gruesa',
+    h1: 'Papa a la francesa 1/4 congelada por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'El corte 1/4 es la papa gruesa: menos superficie por porción, más papa por mordida y menos absorción de aceite. MACSA la maneja con cobertura crujiente, con cáscara y con capeado de cerveza, en caja de 12.2 kg y congelada IQF.',
@@ -193,7 +193,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'pan-para-hamburguesa',
     nombre: 'Pan para hamburguesa',
-    h1: "Pan para hamburguesa Martin's Potato Rolls",
+    h1: "Pan para hamburguesa Martin's por mayoreo",
     familia: 'panaderia',
     answerFirst:
       'MACSA es distribuidor directo de Martin’s, la panadería importada de Estados Unidos, sin intermediarios. Los Potato Rolls son el pan que usan las hamburgueserías que compiten por producto y no por precio: miga suave, corteza que aguanta la salsa y tamaño consistente caja tras caja.',
@@ -205,7 +205,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'mayonesa',
     nombre: 'Mayonesa',
-    h1: 'Mayonesa para restaurante en galón y cubeta',
+    h1: 'Mayonesa por galón y cubeta, por mayoreo',
     familia: 'aderezos',
     answerFirst:
       'La mayonesa de food service se compra en volumen: MACSA la maneja en galón de 3.78 litros (Wilsey) y en las presentaciones Heinz de cubeta, botella y sachet, incluida la de limón. La presentación se elige según si el consumo es de cocina, de barra o de mesa.',
@@ -217,7 +217,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'aro-de-cebolla',
     nombre: 'Aro de cebolla',
-    h1: 'Aros de cebolla congelados para freidora',
+    h1: 'Aros de cebolla congelados por mayoreo',
     familia: 'aros-de-cebolla',
     answerFirst:
       'Los aros de cebolla congelados se manejan en tres estilos: preformado de cebolla molida con tamaño uniforme, gourmet de cebolla entera con empanizado tipo panko, y capeado de cerveza. El preformado es el que más se vende porque cada aro sale igual y la porción no varía.',
@@ -229,7 +229,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'dedos-de-queso',
     nombre: 'Dedos de queso',
-    h1: 'Dedos de queso y mozzarella sticks congelados',
+    h1: 'Dedos de queso congelados por mayoreo',
     familia: 'appetizers-y-quesos',
     answerFirst:
       'Los dedos de queso y los mozzarella sticks son la entrada de mayor rotación en barra y van directo de la caja a la freidora. MACSA maneja el dedo de queso Sargento en caja de 5.44 kg y los mozzarella sticks, ambos congelados y sin preparación previa.',
@@ -241,7 +241,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'catsup-heinz',
     nombre: 'Catsup Heinz',
-    h1: 'Catsup Heinz en sobre, pouch y botella',
+    h1: 'Catsup Heinz por mayoreo: sobre, pouch y botella',
     familia: 'condimentos-heinz',
     answerFirst:
       'La catsup Heinz se maneja en las tres presentaciones de food service: sobre de 9 gramos para llevar, pouch de 3 kg para dispensador y botella para mesa. MACSA distribuye la línea completa de Heinz, y la presentación correcta depende de si tu consumo es de mostrador o de mesa.',
@@ -253,7 +253,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'salsa-para-alitas',
     nombre: 'Salsa para alitas',
-    h1: 'Salsa para alitas por galón',
+    h1: 'Salsa para alitas por galón, por mayoreo',
     familia: 'salsas-para-alitas',
     answerFirst:
       'La salsa para alitas por galón es la presentación de cocina de alto volumen, y MACSA maneja quince sabores de Mr. Wings, Hello Buffalo, La Pócima y Cajun Chef. Del BBQ y el Lemon Pepper al Mango Habanero y el X-Hot, todos con existencia continua del mismo código.',
@@ -265,7 +265,7 @@ export const ANCLAS: Ancla[] = [
   {
     slug: 'hash-brown',
     nombre: 'Hash brown',
-    h1: 'Hash brown y papa para desayuno congelada',
+    h1: 'Hash brown congelado por mayoreo',
     familia: 'papa-a-la-francesa',
     answerFirst:
       'El hash brown congelado resuelve la estación de desayunos sin pelar ni rallar una sola papa. MACSA lo maneja en óvalo, cilindro, rallado y en cubo, además de los tater rounds, todo IQF y listo para plancha o freidora directo del congelador.',

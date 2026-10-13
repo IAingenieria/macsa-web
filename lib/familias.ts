@@ -35,7 +35,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'papa-a-la-francesa',
     nombre: 'Papa a la francesa',
-    h1: 'Papa a la francesa congelada Lamb Weston',
+    h1: 'Distribuidor de papas a la francesa congeladas',
     tagline: 'La línea principal. Distribuidor oficial en Monterrey.',
     answerFirst:
       'MACSA es distribuidor oficial de Lamb Weston en Monterrey y maneja más de veinte cortes de papa a la francesa congelada, todos IQF: van del congelador a la freidora sin descongelar. Caja estándar de 13.6 kg con existencia permanente, así que el mismo código está disponible cada vez que lo vuelves a pedir.',
@@ -65,7 +65,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'pollo',
     nombre: 'Pollo',
-    h1: 'Pollo congelado para restaurante',
+    h1: 'Distribuidor de pollo congelado para restaurantes',
     tagline: 'Distribuidor directo de Agrosuper, sin intermediarios.',
     answerFirst:
       'MACSA es distribuidor directo de Agrosuper para pollo congelado, sin intermediarios de por medio. La media pechuga sin piel es el producto de mayor movimiento, y el catálogo cubre boneless natural y enchilado, alitas, tenders, nuggets y pechuga empanizada. Cadena de frío sin cortes desde el andén hasta tu cocina.',
@@ -91,7 +91,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'salsas-para-alitas',
     nombre: 'Salsas para alitas',
-    h1: 'Salsas para alitas por galón',
+    h1: 'Salsas para alitas por mayoreo',
     tagline: 'Quince sabores en galón, listos para servir.',
     answerFirst:
       'MACSA distribuye salsas para alitas por galón en quince sabores, de Mr. Wings, Hello Buffalo, La Pócima y Cajun Chef. Del BBQ y el Lemon Pepper al Mango Habanero y el X-Hot, todas en presentación de galón para cocina de alto volumen, con existencia continua del mismo código.',
@@ -119,7 +119,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'aros-de-cebolla',
     nombre: 'Aros de cebolla',
-    h1: 'Aros de cebolla congelados',
+    h1: 'Distribuidor de aros de cebolla congelados',
     tagline: 'Gourmet, capeado de cerveza y preformado.',
     answerFirst:
       'MACSA maneja aros de cebolla congelados en tres estilos: gourmet de cebolla entera con empanizado tipo panko, capeado de cerveza también de cebolla entera, y preformado de cebolla molida con tamaño uniforme. Todos IQF y en caja, para freidora directa sin descongelar.',
@@ -136,7 +136,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'aderezos',
     nombre: 'Aderezos',
-    h1: 'Aderezos para restaurante',
+    h1: 'Aderezos para restaurante por mayoreo',
     tagline: 'Ranch, Blue Cheese, César y cuatro más.',
     answerFirst:
       'MACSA es distribuidor directo de Ricos, y maneja además la línea Culinaire y Wilsey de VenturaFoods: Ranch, Blue Cheese, Miel Mostaza, Ajo Parmesano, Lemon Pepper y César, en las presentaciones de volumen que usa una cocina profesional. Producto de línea con existencia permanente, no saldos ni oportunidades.',
@@ -156,7 +156,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'sazonadores',
     nombre: 'Sazonadores',
-    h1: 'Sazonadores para alitas y botana',
+    h1: 'Sazonadores para alitas por mayoreo',
     tagline: 'Lemon Pepper, Cajun y Fuego, en bote.',
     answerFirst:
       'MACSA maneja sazonadores en bote para alitas y botana: Lemon Pepper, Lemon Pepper Hot, Cajun y Fuego. Se usan sobre producto ya frito para dar sabor sin salsa, y son la base de las alitas secas que hoy piden más los clientes de barra.',
@@ -173,7 +173,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'condimentos-heinz',
     nombre: 'Condimentos Heinz',
-    h1: 'Condimentos Heinz para food service',
+    h1: 'Distribuidor de condimentos Heinz para restaurantes',
     tagline: 'Línea completa: sobre, botella, pouch y cubeta.',
     answerFirst:
       'MACSA distribuye la línea completa de condimentos Heinz para food service: catsup en sobre, botella y pouch; mayonesa en cubeta, botella y sachet, incluida la de limón; mostaza en botella, pouch y sobre; más jalapeño, BBQ y Tabasco. La presentación se elige según si el consumo es de mesa, de barra o de cocina.',
@@ -194,7 +194,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'aceite-para-freir',
     nombre: 'Aceite para freír',
-    h1: 'Aceite para freidora de restaurante',
+    h1: 'Aceite para freír por mayoreo para restaurantes',
     tagline: 'King Fry y Golden Chef, en bidón.',
     answerFirst:
       'MACSA distribuye aceite para freidora en bidón: King Fry y Golden Chef. El equipo recomienda King Fry porque es parcialmente hidrogenado, se convierte en manteca en frío y da mayor rendimiento y durabilidad en la freidora — menos cambios de aceite por semana.',
@@ -210,7 +210,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'carne-y-hamburguesa',
     nombre: 'Carne y hamburguesa',
-    h1: 'Carne y carne para hamburguesa congelada',
+    h1: 'Carne para hamburguesa congelada por mayoreo',
     tagline: 'UGASA y Smithfield.',
     answerFirst:
       'MACSA maneja carne y carne para hamburguesa congelada de UGASA y Smithfield, en las presentaciones de volumen que usa una cocina de alta rotación. Producto de línea con existencia continua y cadena de frío sin cortes desde el andén refrigerado hasta la entrega.',
@@ -223,7 +223,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'appetizers-y-quesos',
     nombre: 'Appetizers y quesos',
-    h1: 'Appetizers y quesos congelados',
+    h1: 'Botanas y appetizers congelados por mayoreo',
     tagline: 'Poppers, dedos de queso y muncher.',
     answerFirst:
       'MACSA distribuye appetizers y quesos congelados de Comarco y Sargento: jalapeño poppers con crema, muncher de jalapeño con queso cheddar y dedos de queso. Son los productos de entrada que más margen dejan en barra, y todos van de la caja a la freidora sin preparación previa.',
@@ -239,7 +239,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'verduras-y-elote',
     nombre: 'Verduras y elote',
-    h1: 'Verduras congeladas y elote',
+    h1: 'Verduras congeladas por mayoreo',
     tagline: 'Elote entero, en mitades y desgranado.',
     answerFirst:
       'MACSA maneja verduras congeladas de Twin City Foods y elote en tres presentaciones: entero de 48 piezas, en mitades de 96 piezas y desgranado. Todo IQF, así que se toma la porción exacta que se necesita sin descongelar la caja completa.',
@@ -257,7 +257,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'panaderia',
     nombre: 'Panadería',
-    h1: "Pan para hamburguesa Martin's",
+    h1: "Distribuidor de pan Martin's para hamburguesa",
     tagline: "Martin's Famous Potato Rolls, importado.",
     answerFirst:
       'MACSA es distribuidor directo de Martin’s, la panadería importada de Estados Unidos, sin intermediarios. Los Potato Rolls son el pan que usan las hamburgueserías que compiten por producto y no por precio: miga suave, corteza que aguanta la salsa y tamaño consistente caja tras caja.',
@@ -275,7 +275,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'toppings-para-pizza',
     nombre: 'Productos para pizza',
-    h1: 'Toppings y productos para pizza',
+    h1: 'Toppings para pizza por mayoreo',
     tagline: 'Pepperoni, salchicha italiana, salsa y chile quebrado.',
     answerFirst:
       'MACSA surte la pizzería completa, no sólo el topping: pepperoni y salchicha italiana de Paradiso, salsa para pizza, chile quebrado Heinz, y los quesos empanizados que se venden como entrada de la misma carta. Producto de línea con existencia permanente, que es lo que necesita una pizzería para no cambiar de receta a mitad de temporada.',
@@ -288,7 +288,7 @@ export const FAMILIAS: Familia[] = [
   {
     slug: 'postres-y-churros',
     nombre: 'Postres y churros',
-    h1: 'Postres y churros congelados',
+    h1: 'Postres y churros congelados por mayoreo',
     tagline: 'Churros y molten cake.',
     answerFirst:
       'MACSA maneja postres y churros congelados listos para freír u hornear. Es la línea que convierte una cuenta promedio en una cuenta con postre sin agregar un solo minuto de preparación en cocina ni contratar repostería.',

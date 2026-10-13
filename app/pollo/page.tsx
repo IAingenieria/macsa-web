@@ -6,7 +6,7 @@ import { faqBase } from '@/lib/faq'
 const f = familia('pollo')!
 
 export const metadata: Metadata = {
-  title: 'Pollo congelado para restaurante en Monterrey',
+  title: 'Distribuidor de pollo congelado en Monterrey: pechuga, alitas y boneless',
   description: metaDesc(f),
   alternates: { canonical: '/pollo/' },
 }

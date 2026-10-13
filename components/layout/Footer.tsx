@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { asset, EMPRESA, telLink } from '@/lib/site'
 import { FAMILIAS } from '@/lib/familias'
-import { GIROS } from '@/lib/giros'
+import { INTENCIONES } from '@/lib/intenciones'
 import { porModo } from '@/lib/ciudades'
 
 export default function Footer() {
@@ -69,11 +69,13 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="font-mono text-[10px] uppercase tracking-[0.16em] text-fry">Tu negocio</h2>
+          <h2 className="font-mono text-[10px] uppercase tracking-[0.16em] text-fry">Lo que más nos buscan</h2>
           <ul className="mt-4 space-y-2 text-[14px]">
-            {GIROS.slice(0, 7).map((g) => (
-              <li key={g.slug} className="text-hielo-300">
-                {g.nombre}
+            {INTENCIONES.map((x) => (
+              <li key={x.slug}>
+                <Link href={`/${x.slug}/`} className="text-hielo-300 hover:text-white">
+                  {x.h1}
+                </Link>
               </li>
             ))}
           </ul>

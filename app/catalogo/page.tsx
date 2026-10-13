@@ -11,7 +11,7 @@ import { HEROES } from '@/lib/heroes'
 import { breadcrumbSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Catálogo de alimentos congelados para restaurante',
+  title: 'Catálogo de alimentos congelados por mayoreo para restaurante',
   description:
     'Catorce líneas de producto para food service: papa Lamb Weston, pollo Agrosuper, salsas para alitas, aderezos, Heinz, aceites, panadería Martin’s y más. Producto de línea con existencia continua y cadena de frío garantizada.',
   alternates: { canonical: '/catalogo/' },

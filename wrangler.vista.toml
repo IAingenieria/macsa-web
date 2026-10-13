@@ -1,0 +1,16 @@
+# [S182 · 13-oct-2026] VISTA PREVIA de los títulos con palabras del comprador y las 7 páginas de búsqueda.
+# Worker APARTE: sin `routes` (no toca macsamty.mx) y servido sólo en workers.dev. El build de esta carpeta va con
+# NEXT_PUBLIC_NOINDEX=1 (robots Disallow + meta noindex) para que Google no indexe una copia del sitio.
+#   Construir: NEXT_PUBLIC_NOINDEX=1 NEXT_PUBLIC_GA4_ID= NEXT_PUBLIC_SITE_URL=https://macsa-web-vista.shy-block-053a.workers.dev npm run build
+#              y copiar out/ a _vista_s182/
+#   Publicar:  npx wrangler deploy -c wrangler.vista.toml
+# Borrar este worker cuando los cambios suban a producción.
+name = "macsa-web-vista"
+compatibility_date = "2026-08-29"
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./_vista_s182"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"

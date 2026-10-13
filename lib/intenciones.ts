@@ -1,0 +1,273 @@
+/**
+ * PÁGINAS DE BÚSQUEDA — S182 (13-oct-2026).
+ *
+ * Las 776 páginas se nombraron con el vocabulario del catálogo ("papa 5/16",
+ * "media pechuga sin piel") y el comprador no busca así. Estas páginas usan
+ * las frases que sugiere el autocompletado de Google México (consultado el
+ * 13-oct-2026, hl=es&gl=mx):
+ *   «distribuidor de papas congeladas», «distribuidor de papas fritas»,
+ *   «papas a la francesa congeladas mayoreo», «alitas por mayoreo»,
+ *   «alitas bachoco por mayoreo», «boneless por mayoreo», «boneless por kilo
+ *   mayoreo», «distribuidora de alimentos congelados en monterrey»,
+ *   «comercializadora de pollo».
+ *
+ * Regla: el título lleva la frase del comprador; el nombre técnico va adentro.
+ * Nada se inventa: códigos y presentaciones salen de data/catalogo.json, las
+ * marcas de lib/site.ts y lib/catalogo.ts, la entrega de lib/ciudades.ts y el
+ * mínimo de $1,500 de lo que ya publica el sitio. Sin precios (los autoriza
+ * Dirección) y sin atributos físicos que el producto no garantice.
+ */
+
+export interface Intencion {
+  slug: string
+  /** <title> (la plantilla del layout agrega «| MACSA Foodservice») */
+  titulo: string
+  h1: string
+  descripcion: string
+  eyebrow: string
+  /** Answer-First: 40–60 palabras, la frase buscada en la primera oración */
+  answerFirst: string
+  /** Códigos reales del catálogo del sitio */
+  skus: string[]
+  tituloProductos: string
+  /** Páginas de producto o familia relacionadas (enlazado interno) */
+  enlaces: { url: string; texto: string }[]
+  puntos: { titulo: string; texto: string }[]
+  preguntas: { p: string; r: string }[]
+  whatsapp: string
+}
+
+const ENTREGA =
+  'En el área metropolitana de Monterrey hay ruta diaria: el pedido que entra antes de las 20:00 se entrega al día siguiente, y nunca se programa domingo.'
+const MINIMO =
+  'La entrega a domicilio es a partir de $1,500 por pedido. En el punto de venta de Guadalupe no hay mínimo.'
+const PARTICULARES =
+  'Sí. Le vendemos a negocios y a particulares: sólo hay que darse de alta como cliente con un formato sencillo, y el alta queda el mismo día.'
+
+export const INTENCIONES: Intencion[] = [
+  {
+    slug: 'distribuidor-de-papas-congeladas-monterrey',
+    titulo: 'Distribuidor de papas congeladas en Monterrey',
+    h1: 'Distribuidor de papas congeladas en Monterrey',
+    descripcion:
+      'Distribuidor de papas congeladas y papas fritas para restaurantes en Monterrey. Distribuidor oficial de Lamb Weston: cortes 1/4, 5/16, 3/8, gajo y crisscut por caja, con entrega al día siguiente.',
+    eyebrow: 'Distribuidor oficial de Lamb Weston',
+    answerFirst:
+      'MACSA es distribuidor de papas congeladas en Monterrey y su área metropolitana, y distribuidor oficial de Lamb Weston. Surtimos papa a la francesa, papa gajo, crisscut, con cobertura y para desayuno, por caja y con cadena de frío, a restaurantes, alitas, hamburgueserías y cocinas industriales, con entrega al día siguiente.',
+    skus: ['B36', 'S12', 'D23', 'C2700', 'C0034', 'C0057', '12045', 'S34'],
+    tituloProductos: 'Papas congeladas que surtimos por caja',
+    enlaces: [
+      { url: '/papa-a-la-francesa/', texto: 'Papa a la francesa congelada' },
+      { url: '/papa-3-8/', texto: 'Papa a la francesa 3/8' },
+      { url: '/papa-5-16/', texto: 'Papa a la francesa delgada 5/16' },
+      { url: '/papa-crisscut/', texto: 'Papa crisscut sazonada' },
+      { url: '/papa-gajo/', texto: 'Papa gajo sazonada' },
+      { url: '/papa-con-cobertura/', texto: 'Papa con cobertura' },
+      { url: '/papas-a-la-francesa-por-mayoreo/', texto: 'Papas a la francesa por mayoreo' },
+    ],
+    puntos: [
+      { titulo: 'Distribuidor oficial de Lamb Weston', texto: 'La papa llega del fabricante a nuestra bodega y de ahí a tu cocina, sin intermediarios.' },
+      { titulo: 'Todos los cortes', texto: 'Delgada, mediana, gruesa, gajo, crisscut, con cobertura y para desayuno: el mismo código cada vez que lo vuelves a pedir.' },
+      { titulo: 'Cadena de frío sin cortes', texto: 'Del congelador de la bodega al tuyo. La papa es IQF y va directo a la freidora, sin descongelar.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Son distribuidores de papas fritas para restaurante?', r: 'Sí. Surtimos papa congelada lista para freír a restaurantes, alitas, hamburgueserías, comedores industriales y dark kitchens. Somos distribuidor oficial de Lamb Weston.' },
+      { p: '¿Entregan en mi colonia?', r: ENTREGA + ' Para otras ciudades de Nuevo León y Coahuila te confirmamos el día al levantar el pedido.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, busco distribuidor de papas congeladas. ¿Me pasan precio por caja?',
+  },
+  {
+    slug: 'papas-a-la-francesa-por-mayoreo',
+    titulo: 'Papas a la francesa congeladas por mayoreo',
+    h1: 'Papas a la francesa congeladas por mayoreo',
+    descripcion:
+      'Venta de papas a la francesa congeladas por mayoreo, por caja, para restaurantes en Monterrey. Lamb Weston en cortes delgado, mediano y grueso, con entrega a domicilio desde $1,500.',
+    eyebrow: 'Venta por caja · Lamb Weston',
+    answerFirst:
+      'En MACSA vendes papas a la francesa congeladas por mayoreo: por caja, para restaurantes y negocios de comida en Monterrey. Manejamos Lamb Weston en corte delgado, mediano y grueso, con cobertura y sazonadas, siempre el mismo código y con entrega al día siguiente en el área metropolitana.',
+    skus: ['12045', 'S12', 'B36', 'C0057', 'C0034', 'S34', 'B91'],
+    tituloProductos: 'Papas a la francesa por caja',
+    enlaces: [
+      { url: '/papa-1-4/', texto: 'Papa a la francesa 1/4' },
+      { url: '/papa-5-16/', texto: 'Papa a la francesa delgada 5/16' },
+      { url: '/papa-3-8/', texto: 'Papa a la francesa 3/8' },
+      { url: '/papa-con-cobertura/', texto: 'Papa con cobertura' },
+      { url: '/distribuidor-de-papas-congeladas-monterrey/', texto: 'Distribuidor de papas congeladas' },
+    ],
+    puntos: [
+      { titulo: 'Por caja, no por kilo suelto', texto: 'La papa se vende en su caja cerrada del fabricante, la presentación que trae cada ficha del catálogo.' },
+      { titulo: 'Cuántas órdenes salen', texto: 'En las fichas con peso de caja conocido calculamos las órdenes que rinde, para que saques tu costo por orden.' },
+      { titulo: 'Muestra antes del primer pedido', texto: 'Lo habitual es una muestra sin compromiso para que la pruebes en tu freidora.' },
+      { titulo: 'Entrega a domicilio', texto: MINIMO },
+    ],
+    preguntas: [
+      { p: '¿Venden papas a la francesa por mayoreo a negocios chicos?', r: 'Sí. No hace falta ser cadena: con el mínimo de entrega a domicilio o pasando al punto de venta, te llevas tus cajas.' },
+      { p: '¿Qué corte me conviene?', r: 'Si la papa sale de inmediato a la mesa, el corte delgado o el 3/8 funcionan bien. Si se va a domicilio, conviene uno con cobertura, que aguanta más tiempo. Tu asesor te ayuda a elegir con tu menú.' },
+      { p: '¿Cuánto tarda en llegar?', r: ENTREGA },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, quiero papas a la francesa por mayoreo. ¿Me pasan precio por caja?',
+  },
+  {
+    slug: 'alitas-por-mayoreo',
+    titulo: 'Alitas de pollo por mayoreo en Monterrey',
+    h1: 'Alitas de pollo por mayoreo en Monterrey',
+    descripcion:
+      'Venta de alitas de pollo por mayoreo en Monterrey: ala chilena Agrosuper en caja de 13 kg y alita picosita Bachoco por kilo, más salsas para alitas por galón. Entrega al día siguiente.',
+    eyebrow: 'Agrosuper · Bachoco · salsas por galón',
+    answerFirst:
+      'En MACSA compras alitas de pollo por mayoreo en Monterrey: ala chilena Agrosuper en caja de 13 kg y alita picosita Bachoco por kilo, con cadena de frío y entrega al día siguiente en el área metropolitana. Para el negocio de alitas completo, también surtimos salsas por galón, papas y aderezos.',
+    skus: ['ACH13', '4707', 'SAPHOT'],
+    tituloProductos: 'Alitas y salsa por mayoreo',
+    enlaces: [
+      { url: '/pollo/', texto: 'Pollo congelado para restaurante' },
+      { url: '/salsa-para-alitas/', texto: 'Salsa para alitas por galón' },
+      { url: '/salsas-para-alitas/', texto: 'Salsas para alitas' },
+      { url: '/boneless-por-mayoreo/', texto: 'Boneless por mayoreo' },
+      { url: '/papa-crisscut/', texto: 'Papa crisscut para acompañar' },
+    ],
+    puntos: [
+      { titulo: 'Marcas de línea', texto: 'Agrosuper y Bachoco: el mismo producto cada vez que lo vuelves a pedir.' },
+      { titulo: 'Por caja o por kilo', texto: 'El ala chilena va en caja de 13 kg; la alita picosita Bachoco se vende por kilo en caja de 12 kg.' },
+      { titulo: 'Todo para tu barra', texto: 'Salsas para alitas por galón, papas, aderezos y sazonadores en el mismo pedido.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Venden alitas Bachoco por mayoreo?', r: 'Sí. Manejamos la alita picosita Bachoco por kilo, en caja de 12 kg, y el ala chilena Agrosuper en caja de 13 kg. Te confirmamos la existencia del día al levantar el pedido.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Entregan en mi zona?', r: ENTREGA },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, quiero alitas por mayoreo. ¿Me pasan precio y existencia?',
+  },
+  {
+    slug: 'boneless-por-mayoreo',
+    titulo: 'Boneless de pollo por mayoreo en Monterrey',
+    h1: 'Boneless de pollo por mayoreo en Monterrey',
+    descripcion:
+      'Boneless de pollo por mayoreo y por kilo en Monterrey: Bachoco y Freskecito natural y enchilado, en caja. Distribuidor para restaurantes y negocios de alitas, con entrega al día siguiente.',
+    eyebrow: 'Bachoco · Freskecito · por kilo',
+    answerFirst:
+      'En MACSA compras boneless de pollo por mayoreo en Monterrey: boneless natural Bachoco, boneless Freskecito natural y enchilado, y boneless natural crujiente, por kilo en caja cerrada. Surtimos a negocios de alitas, hamburgueserías y restaurantes con cadena de frío y entrega al día siguiente.',
+    skus: ['5330', 'BN', 'BE', 'B4927'],
+    tituloProductos: 'Boneless por kilo, en caja',
+    enlaces: [
+      { url: '/boneless-de-pollo/', texto: 'Boneless de pollo natural y enchilado' },
+      { url: '/alitas-por-mayoreo/', texto: 'Alitas por mayoreo' },
+      { url: '/salsa-para-alitas/', texto: 'Salsa para alitas por galón' },
+      { url: '/pollo/', texto: 'Pollo congelado para restaurante' },
+    ],
+    puntos: [
+      { titulo: 'Se vende por kilo', texto: 'El boneless se cobra por kilo y se entrega en su caja: Bachoco de 3.63 kg, Freskecito de 10.19 kg y el crujiente de 12.22 kg.' },
+      { titulo: 'Natural o enchilado', texto: 'Freskecito en natural y enchilado, para que elijas según tu menú.' },
+      { titulo: 'Directo a la freidora', texto: 'Sin descongelar: descongelarlo es justo lo que lo deja aguado.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Dónde comprar boneless por mayoreo en Monterrey?', r: 'En MACSA: en el punto de venta de Guadalupe o con entrega a domicilio desde $1,500. Manejamos Bachoco y Freskecito.' },
+      { p: '¿El boneless se vende por kilo o por caja?', r: 'Por kilo, y se entrega en la caja del fabricante. El peso de cada caja está en la ficha de cada código.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, quiero boneless por mayoreo. ¿Me pasan precio por kilo?',
+  },
+  {
+    slug: 'pechuga-de-pollo-congelada-por-mayoreo',
+    titulo: 'Pechuga de pollo congelada por mayoreo',
+    h1: 'Pechuga de pollo congelada por mayoreo',
+    descripcion:
+      'Pechuga de pollo congelada por mayoreo en Monterrey: media pechuga sin piel Agrosuper en caja de 13 kg y pechuga empanizada Pilgrim’s. Comercializadora para restaurantes y comedores.',
+    eyebrow: 'Agrosuper · Pilgrim’s · caja de 13 kg',
+    answerFirst:
+      'En MACSA compras pechuga de pollo congelada por mayoreo en Monterrey: media pechuga sin piel Agrosuper en caja de 13 kg, el producto que más movemos, y pechuga empanizada con picante Pilgrim’s en caja de 12 kg. Surtimos a restaurantes, comedores industriales y cocinas con cadena de frío y entrega al día siguiente.',
+    skus: ['PSCH13', '4011'],
+    tituloProductos: 'Pechuga por caja',
+    enlaces: [
+      { url: '/media-pechuga-de-pollo/', texto: 'Media pechuga de pollo congelada' },
+      { url: '/distribuidor-de-pollo-congelado-monterrey/', texto: 'Distribuidor de pollo congelado' },
+      { url: '/pollo/', texto: 'Pollo congelado para restaurante' },
+    ],
+    puntos: [
+      { titulo: 'Caja de 13 kg', texto: 'La media pechuga sin piel Agrosuper va en caja de 13 kg; rinde para milanesa, empanizado, plancha y guisado con el mismo código.' },
+      { titulo: 'Distribuidor directo de Agrosuper', texto: 'El producto llega del fabricante a nuestra bodega, con existencia continua.' },
+      { titulo: 'Para comedores y volumen', texto: 'Surtimos comedores industriales y cocinas de volumen con el mismo producto cada semana.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Venden pechuga de pollo congelada por caja?', r: 'Sí. La media pechuga sin piel Agrosuper se vende en caja de 13 kg y la pechuga empanizada Pilgrim’s en caja de 12 kg.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Entregan en comedores industriales?', r: 'Sí. ' + ENTREGA + ' Para entregas en planta te confirmamos horario de recepción al levantar el pedido.' },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, quiero pechuga de pollo congelada por mayoreo. ¿Me pasan precio por caja?',
+  },
+  {
+    slug: 'distribuidor-de-pollo-congelado-monterrey',
+    titulo: 'Distribuidor de pollo congelado en Monterrey',
+    h1: 'Distribuidor de pollo congelado en Monterrey',
+    descripcion:
+      'Distribuidor y comercializadora de pollo congelado en Monterrey: pechuga, alitas, boneless, tenders y nuggets de Agrosuper, Bachoco, Pilgrim’s y Freskecito, por caja, para restaurantes.',
+    eyebrow: 'Agrosuper · Bachoco · Pilgrim’s · Freskecito',
+    answerFirst:
+      'MACSA es distribuidor de pollo congelado en Monterrey: media pechuga, alitas, boneless, tenders, nuggets y hamburguesa de pechuga de Agrosuper, Bachoco, Pilgrim’s y Freskecito, por caja y con cadena de frío. Surtimos restaurantes, negocios de alitas, hamburgueserías y comedores con entrega al día siguiente en el área metropolitana.',
+    skus: ['PSCH13', 'ACH13', '4707', '5330', 'BN', '6671', '6673', 'POL-HP'],
+    tituloProductos: 'Pollo congelado que surtimos',
+    enlaces: [
+      { url: '/pollo/', texto: 'Pollo congelado para restaurante' },
+      { url: '/pechuga-de-pollo-congelada-por-mayoreo/', texto: 'Pechuga por mayoreo' },
+      { url: '/alitas-por-mayoreo/', texto: 'Alitas por mayoreo' },
+      { url: '/boneless-por-mayoreo/', texto: 'Boneless por mayoreo' },
+      { url: '/media-pechuga-de-pollo/', texto: 'Media pechuga de pollo' },
+    ],
+    puntos: [
+      { titulo: 'Cuatro marcas de línea', texto: 'Agrosuper, Bachoco, Pilgrim’s y Freskecito: el mismo código cada vez que lo vuelves a pedir.' },
+      { titulo: 'Del natural al empanizado', texto: 'Media pechuga, alas y boneless, y también tenders, nuggets y hamburguesa de pechuga empanizados.' },
+      { titulo: 'Cadena de frío', texto: 'Del congelador de la bodega al tuyo, sin cortes.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Son comercializadora de pollo?', r: 'Sí. Comercializamos y distribuimos pollo congelado de Agrosuper, Bachoco, Pilgrim’s y Freskecito para negocios de comida, junto con papa, salsas y abarrotes en el mismo pedido.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Entregan fuera de Monterrey?', r: 'Sí, en Nuevo León y Coahuila. En el área metropolitana hay ruta diaria; para otras ciudades te confirmamos el día al levantar el pedido.' },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, busco distribuidor de pollo congelado. ¿Me pasan su lista?',
+  },
+  {
+    slug: 'distribuidora-de-alimentos-congelados-monterrey',
+    titulo: 'Distribuidora de alimentos congelados en Monterrey',
+    h1: 'Distribuidora de alimentos congelados en Monterrey',
+    descripcion:
+      'Distribuidora de alimentos congelados en Monterrey para restaurantes: papa Lamb Weston, pollo, alitas, boneless, appetizers, verduras y abarrotes Heinz, con cadena de frío y entrega al día siguiente.',
+    eyebrow: 'Food service · Nuevo León y Coahuila',
+    answerFirst:
+      'MACSA es una distribuidora de alimentos congelados en Monterrey para food service: papa Lamb Weston, pollo, alitas, boneless, appetizers, verduras y postres, además de abarrotes Heinz y salsas. Surtimos restaurantes, cocinas industriales y negocios de comida con cadena de frío garantizada y entrega al día siguiente en el área metropolitana.',
+    skus: ['B36', 'D23', 'PSCH13', 'ACH13', '5330', '34000', 'EM96', 'RB4011'],
+    tituloProductos: 'Lo que más nos piden',
+    enlaces: [
+      { url: '/catalogo/', texto: 'Catálogo completo' },
+      { url: '/distribuidor-de-papas-congeladas-monterrey/', texto: 'Distribuidor de papas congeladas' },
+      { url: '/distribuidor-de-pollo-congelado-monterrey/', texto: 'Distribuidor de pollo congelado' },
+      { url: '/marcas/', texto: 'Marcas que distribuimos' },
+      { url: '/cobertura/', texto: 'Cobertura de entrega' },
+    ],
+    puntos: [
+      { titulo: 'Un solo proveedor', texto: 'Papa, pollo, appetizers, verduras, postres, salsas y abarrotes Heinz en el mismo pedido.' },
+      { titulo: 'Marcas que conoces', texto: 'Distribuidor oficial de Lamb Weston y distribuidor directo de Agrosuper y de Martin’s.' },
+      { titulo: 'Cadena de frío garantizada', texto: 'Sin cortes del almacén a tu cocina.' },
+      { titulo: 'Entrega al día siguiente', texto: ENTREGA },
+    ],
+    preguntas: [
+      { p: '¿Qué zonas cubren?', r: 'Monterrey y su área metropolitana con ruta diaria, y otras ciudades de Nuevo León y Coahuila, como Saltillo y Torreón, con fecha que te confirmamos al levantar el pedido.' },
+      { p: '¿Hay pedido mínimo?', r: MINIMO },
+      { p: '¿Cómo me doy de alta como cliente?', r: 'Con un formato sencillo en la página de alta de cliente; el alta queda el mismo día.' },
+      { p: '¿Le venden a particulares?', r: PARTICULARES },
+    ],
+    whatsapp: 'Hola, busco distribuidora de alimentos congelados para mi negocio.',
+  },
+]
+
+export const intencion = (slug: string) => INTENCIONES.find((x) => x.slug === slug)

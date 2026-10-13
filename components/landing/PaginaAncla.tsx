@@ -44,7 +44,7 @@ export default function PaginaAncla({
   const fam = buscarFamilia(a.familia)
   const modo = c ? MODOS[c.modo] : undefined
 
-  const h1 = c ? `${a.nombre} en ${c.nombre}` : a.h1
+  const h1 = c ? `${a.nombre} por mayoreo en ${c.nombre}` : a.h1
 
   const migas = [
     { nombre: 'Inicio', url: '/' },

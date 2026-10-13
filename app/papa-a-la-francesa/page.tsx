@@ -6,7 +6,7 @@ import { faqBase } from '@/lib/faq'
 const f = familia('papa-a-la-francesa')!
 
 export const metadata: Metadata = {
-  title: 'Papa a la francesa congelada Lamb Weston en Monterrey',
+  title: 'Distribuidor de papas a la francesa congeladas en Monterrey',
   description: metaDesc(f),
   alternates: { canonical: '/papa-a-la-francesa/' },
 }

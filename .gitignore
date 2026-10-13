@@ -17,3 +17,6 @@ out_dominio/
 
 # Respaldos locales con fecha (no van al repo)
 *.bak_*
+
+# [S182] build de la vista previa (noindex) para macsa-web-vista
+_vista_s182/

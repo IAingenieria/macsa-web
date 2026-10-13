@@ -6,7 +6,7 @@ import { faqBase } from '@/lib/faq'
 const f = familia('salsas-para-alitas')!
 
 export const metadata: Metadata = {
-  title: 'Salsas para alitas por galón en Monterrey',
+  title: 'Salsas para alitas por mayoreo en Monterrey',
   description: metaDesc(f),
   alternates: { canonical: '/salsas-para-alitas/' },
 }
