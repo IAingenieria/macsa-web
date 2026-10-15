@@ -3,7 +3,7 @@ import Hero from '@/components/landing/Hero'
 import { BarraConfianza, Breadcrumb, CadenaFrio, Cobertura, ComoPedir, FAQ, Seccion } from '@/components/landing/Secciones'
 import { GaleriaProductos } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
-import { CIUDADES_INTENCION, INTENCIONES, intencion, intencionEnCiudad, slugIntencionCiudad } from '@/lib/intenciones'
+import { CIUDADES_INTENCION, CON_PAGINA_EN_CIUDAD, INTENCIONES, intencion, intencionEnCiudad, slugIntencionCiudad } from '@/lib/intenciones'
 import { ciudad as buscarCiudad } from '@/lib/ciudades'
 import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 import { esSeco } from '@/lib/secos'
@@ -110,7 +110,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
 
       <FAQ preguntas={it.preguntas} />
 
-      {!c && (
+      {!c && CON_PAGINA_EN_CIUDAD.has(base.slug) && (
         <Seccion eyebrow="Corredor Saltillo — Torreón" titulo="¿Estás en Coahuila?" fondo="hielo">
           <ul className="grid gap-3 sm:grid-cols-2">
             {CIUDADES_INTENCION.map((cs) => (
