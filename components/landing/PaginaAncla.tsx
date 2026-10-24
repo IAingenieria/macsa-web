@@ -58,7 +58,7 @@ export default function PaginaAncla({
   // El Answer-First del ancla, reencuadrado para la ciudad cuando la hay.
   const answerFirst = c
     ? `MACSA entrega ${a.nombre.toLowerCase()} en ${c.nombre}, ${c.estado}. ` +
-      `${a.answerFirst.split('. ').slice(1).join('. ')} ${modo!.promesa} — ${modo!.titulo.toLowerCase()}.`
+      `${a.answerFirst.split('. ').slice(1).join('. ')} ${modo!.promesa} — ${modo!.titulo.charAt(0).toLowerCase() + modo!.titulo.slice(1)}.` /* S193: sin bajar «Torreón»/«Saltillo» */
     : a.answerFirst
 
   const productos = porSkus(a.skus)

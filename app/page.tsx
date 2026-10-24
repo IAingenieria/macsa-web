@@ -50,7 +50,7 @@ const PREGUNTAS = [
   },
 ]
 
-const ORDEN_MODOS: Modo[] = ['diaria', 'desarrollo', 'corredor', 'consulta']
+const ORDEN_MODOS: Modo[] = ['diaria', 'desarrollo', 'corredor', 'semanal', 'consulta']
 
 export default function Home() {
   return (

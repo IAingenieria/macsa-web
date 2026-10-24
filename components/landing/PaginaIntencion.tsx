@@ -37,7 +37,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
         anclas={[]}
         chips={[
           c
-            ? { etiqueta: 'Entrega', valor: 'Miércoles, con la ruta' }
+            ? { etiqueta: 'Entrega', valor: ciudad === 'torreon' ? 'Lunes, con el envío semanal' : 'Miércoles, con la ruta' } // S193
             : { etiqueta: 'Entrega', valor: 'Al día siguiente en el área metropolitana' },
           c
             ? { etiqueta: 'Pedido mínimo', valor: ciudad === 'torreon' ? 'Sin mínimo (bodega en Torreón)' : '$5,000' }
@@ -111,7 +111,7 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
       <FAQ preguntas={it.preguntas} />
 
       {!c && (
-        <Seccion eyebrow="Corredor Saltillo — Torreón" titulo="¿Estás en Coahuila?" fondo="hielo">
+        <Seccion eyebrow="Saltillo los miércoles · Torreón los lunes" titulo="¿Estás en Coahuila?" fondo="hielo">
           <ul className="grid gap-3 sm:grid-cols-2">
             {CIUDADES_INTENCION.map((cs) => (
               <li key={cs}>

@@ -139,8 +139,8 @@ export default function Footer() {
             {conRuta.map((c) => c.nombre).join(' · ')}
           </p>
           <p className="mt-3 text-[13px] leading-relaxed text-humo-400">
-            Y llegamos a Saltillo, Ramos Arizpe, Arteaga y Torreón sobre el corredor, con una
-            segunda bodega en Torreón y más ciudades de Coahuila próximamente.{' '}
+            Y llegamos a Saltillo, Ramos Arizpe y Arteaga los miércoles, y a Torreón cada lunes, con
+            una segunda bodega en Torreón y más ciudades de Coahuila próximamente.{' '}
             <Link href="/cobertura/" className="font-semibold text-fry hover:text-white">
               Ver cobertura completa
             </Link>

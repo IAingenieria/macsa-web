@@ -251,7 +251,7 @@ export function CadenaFrio() {
 
 /* ── §12 · Cómo pedir ──────────────────────────────────────────────── */
 
-/* [S182] `modo`: en el corredor Saltillo–Torreón la entrega es los miércoles; la frase del día siguiente sólo vale en
+/* [S182] `modo`: en Saltillo la entrega es los miércoles (S193: Torreón, los lunes); la frase del día siguiente sólo vale en
    la ruta diaria. Antes se decía en todas las páginas de ciudad. */
 export function ComoPedir({ contexto, modo }: { contexto?: string; modo?: Modo }) {
   const mensaje = contexto

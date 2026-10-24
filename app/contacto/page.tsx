@@ -137,8 +137,8 @@ export default function Page() {
             </address>
             <p className="mt-5 max-w-prosa text-[14.5px] leading-relaxed text-humo">
               Desde aquí sale el reparto diario al área metropolitana de Monterrey, el reparto en
-              días fijos del corredor sur de Nuevo León y el corredor a Saltillo y Torreón, donde
-              además tenemos una segunda bodega.
+              días fijos del corredor sur de Nuevo León, la ruta a Saltillo de los miércoles y el
+              envío semanal a Torreón de los lunes, donde además tenemos una segunda bodega.
             </p>
             <Link href="/cobertura/" className="btn-secundario mt-6">
               Ver las ciudades donde entregamos

@@ -14,7 +14,10 @@
  * No es un olvido: no reponer ninguna sin que Jorge o Edgar lo pidan.
  */
 
-export type Modo = 'diaria' | 'desarrollo' | 'corredor' | 'consulta'
+// S193 (24-oct-2026): Torreón sale del `corredor` a su propio modo `semanal`. El pedido de Torreón viaja
+// cada LUNES (Microsip: 42 de 58 facturas de LUZ LILIANA GARCIA LOPEZ desde agosto, en lunes; lo recoge el
+// camión de Torreón en el CEDIS). El miércoles es la ruta de Saltillo. Luis: «sí se le puede surtir».
+export type Modo = 'diaria' | 'desarrollo' | 'corredor' | 'semanal' | 'consulta'
 
 export type Estado = 'Nuevo León' | 'Coahuila'
 
@@ -48,13 +51,20 @@ export const MODOS: Record<
     color: 'ruta',
   },
   corredor: {
-    titulo: 'Corredor Saltillo — Torreón',
+    titulo: 'Ruta Saltillo',
     promesa: 'Entrega los miércoles con la ruta',
     // Jorge, junta del 2-sep-2026: "Monterrey–Saltillo mínimo unos 5,000
     // pesos, en el día que tenemos ruta para allá: miércoles. Torreón no
-    // tiene problema" (ahí hay bodega).
+    // tiene problema" (ahí hay bodega). Torreón tiene su propio modo (S193).
     detalle:
-      'Ya hacemos el viaje a Torreón y Saltillo queda en el camino, así que la entrega no carga un flete dedicado. La ruta sale los miércoles. En Saltillo, Ramos Arizpe y Arteaga el pedido mínimo es de $5,000; Torreón no tiene mínimo porque ahí contamos con bodega.',
+      'Tenemos ruta a Saltillo los miércoles. En Saltillo, Ramos Arizpe y Arteaga el pedido mínimo es de $5,000.',
+    color: 'navy',
+  },
+  semanal: {
+    titulo: 'Envío semanal a Torreón',
+    promesa: 'Sale cada lunes',
+    detalle:
+      'Cada lunes sale nuestro envío a Torreón y tu pedido se suma a ese viaje. Torreón no tiene pedido mínimo porque ahí contamos con bodega. Te confirmamos la fecha al levantar el pedido.',
     color: 'navy',
   },
   consulta: {
@@ -89,20 +99,21 @@ export const CIUDADES: Ciudad[] = [
   { slug: 'montemorelos', nombre: 'Montemorelos', estado: 'Nuevo León', region: 'MX-NLE', modo: 'desarrollo' },
   { slug: 'linares', nombre: 'Linares', estado: 'Nuevo León', region: 'MX-NLE', modo: 'desarrollo' },
 
-  // ── Modo 3 · Corredor Torreón ───────────────────────────────────────
+  // ── Modo 3 · Ruta Saltillo (miércoles) ──────────────────────────────
   { slug: 'saltillo', nombre: 'Saltillo', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
   { slug: 'ramos-arizpe', nombre: 'Ramos Arizpe', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
   { slug: 'arteaga', nombre: 'Arteaga', estado: 'Coahuila', region: 'MX-COA', modo: 'corredor' },
+  // ── Modo 4 · Envío semanal a Torreón (lunes) ────────────────────────
   {
     slug: 'torreon',
     nombre: 'Torreón',
     estado: 'Coahuila',
     region: 'MX-COA',
-    modo: 'corredor',
+    modo: 'semanal',
     nota: 'En Torreón contamos con una segunda bodega para tu mayor comodidad, con productos adicionales a los que viajan en la ruta.',
   },
 
-  // ── Modo 4 · Bajo consulta ──────────────────────────────────────────
+  // ── Modo 5 · Bajo consulta ──────────────────────────────────────────
   { slug: 'monclova', nombre: 'Monclova', estado: 'Coahuila', region: 'MX-COA', modo: 'consulta' },
 ]
 

@@ -50,7 +50,7 @@ export default function PaginaGeo({
   // El Answer-First del pilar, reencuadrado para la ciudad.
   const answerFirst = `MACSA entrega ${f.nombre.toLowerCase()} en ${c.nombre}, ${c.estado}. ${
     f.answerFirst.split('. ').slice(1).join('. ')
-  } ${modo.promesa} — ${modo.titulo.toLowerCase()}.`
+  } ${modo.promesa} — ${modo.titulo.charAt(0).toLowerCase() + modo.titulo.slice(1)}.` /* S193: sin bajar «Torreón»/«Saltillo» */
 
   const cercanas = CIUDADES.filter((x) => x.estado === c.estado && x.slug !== c.slug).slice(0, 6)
   const girosDeLaFamilia = GIROS.filter((g) => f.giros.includes(g.slug))

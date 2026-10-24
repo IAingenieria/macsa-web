@@ -55,7 +55,7 @@ const PREGUNTAS = [
   },
   {
     p: '¿Entregan fuera de Monterrey?',
-    r: 'Sí, con modos distintos según la ciudad: ruta diaria en el área metropolitana, reparto en días fijos en el corredor sur de Nuevo León, y corredor a Saltillo y Torreón, donde además tenemos una segunda bodega con productos adicionales.',
+    r: 'Sí, con modos distintos según la ciudad: ruta diaria en el área metropolitana, reparto en días fijos en el corredor sur de Nuevo León, ruta a Saltillo los miércoles y envío semanal a Torreón los lunes; en Torreón además tenemos una segunda bodega con productos adicionales.',
   },
   {
     p: '¿Son distribuidor autorizado?',

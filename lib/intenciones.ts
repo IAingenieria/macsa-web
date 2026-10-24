@@ -462,6 +462,9 @@ interface CiudadCorredor {
   estado: string
   minimo: string
   entrega: string
+  /** S193: etiqueta corta del día, para el eyebrow y la tarjeta «Entrega». */
+  dia: string
+  modoTitulo: string
   extra?: string
 }
 
@@ -471,15 +474,20 @@ const CORREDOR: Record<(typeof CIUDADES_INTENCION)[number], CiudadCorredor> = {
     nombre: 'Saltillo',
     estado: 'Coahuila',
     minimo: 'El pedido mínimo en Saltillo es de $5,000.',
-    entrega:
-      'Saltillo queda en el camino de nuestra ruta a Torreón, que sale los miércoles: la entrega no carga un flete dedicado.',
+    entrega: 'La ruta a Saltillo sale los miércoles.',
+    dia: 'Miércoles, con la ruta',
+    modoTitulo: 'Ruta Saltillo',
   },
+  // S193 (24-oct-2026): Torreón es el envío de los LUNES, no la ruta del miércoles (Microsip: 42/58 facturas
+  // de Luz Liliana en lunes). Ver lib/ciudades.ts, modo `semanal`.
   torreon: {
     slug: 'torreon',
     nombre: 'Torreón',
     estado: 'Coahuila',
     minimo: 'En Torreón no hay pedido mínimo.',
-    entrega: 'La ruta a Torreón sale los miércoles.',
+    entrega: 'Cada lunes sale nuestro envío a Torreón y tu pedido se suma a ese viaje.',
+    dia: 'Lunes, con el envío semanal',
+    modoTitulo: 'Envío semanal a Torreón',
     extra: 'En Torreón contamos con una segunda bodega, con productos adicionales a los que viajan en la ruta.',
   },
 }
@@ -494,7 +502,7 @@ export function intencionEnCiudad(slug: string, ciudad: string): Intencion & { c
     titulo: `${frase} en ${c.nombre}`,
     h1: `${frase} en ${c.nombre}`,
     descripcion: `${frase} en ${c.nombre}, ${c.estado}, para restaurantes y negocios de comida. ${c.entrega} ${c.minimo}`,
-    eyebrow: `${c.nombre}, ${c.estado} · Corredor Saltillo — Torreón`,
+    eyebrow: `${c.nombre}, ${c.estado} · ${c.modoTitulo}`,
     answerFirst: `${/^Distribuidor/.test(frase) ? 'MACSA es' : 'MACSA surte'} ${frase.charAt(0).toLowerCase() + frase.slice(1)} en ${c.nombre}, ${c.estado}: ${it.resumen}. ${c.entrega} ${c.minimo}${c.extra ? ' ' + c.extra : ''}`,
     puntos: [
       ...it.puntos.filter((p) => p.texto !== ENTREGA && p.texto !== MINIMO),

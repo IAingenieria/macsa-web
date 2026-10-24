@@ -10,16 +10,16 @@ import { breadcrumbSchema, faqSchema, ld } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Cobertura de entrega — Nuevo León y Coahuila',
   description:
-    'Dónde entrega MACSA: ruta diaria en el área metropolitana de Monterrey, ruta en desarrollo en el sur de Nuevo León y corredor Saltillo–Torreón con bodega propia en Torreón. 26 ciudades con su modo de entrega.',
+    'Dónde entrega MACSA: ruta diaria en el área metropolitana de Monterrey, ruta en desarrollo en el sur de Nuevo León, ruta a Saltillo los miércoles y envío semanal a Torreón los lunes, con bodega propia en Torreón. 26 ciudades con su modo de entrega.',
   alternates: { canonical: '/cobertura/' },
 }
 
-const ORDEN: Modo[] = ['diaria', 'desarrollo', 'corredor', 'consulta']
+const ORDEN: Modo[] = ['diaria', 'desarrollo', 'corredor', 'semanal', 'consulta']
 
 const PREGUNTAS = [
   {
     p: '¿Entregan fuera del área metropolitana de Monterrey?',
-    r: 'Sí, pero no de la misma forma en todas partes. En el área metropolitana tenemos ruta diaria. En el corredor sur de Nuevo León repartimos en días fijos, y sobre el corredor a Saltillo y Torreón entregamos aprovechando el viaje que ya hacemos. En Torreón además tenemos una segunda bodega.',
+    r: 'Sí, pero no de la misma forma en todas partes. En el área metropolitana tenemos ruta diaria. En el corredor sur de Nuevo León repartimos en días fijos. A Saltillo la ruta sale los miércoles, y a Torreón sale un envío cada lunes. En Torreón además tenemos una segunda bodega.',
   },
   {
     p: '¿Cuánto tarda en llegar mi pedido?',
@@ -48,7 +48,7 @@ export default function Page() {
       <Hero
         eyebrow="Nuevo León · Coahuila"
         h1="Dónde entregamos, y cómo llega a cada ciudad"
-        answerFirst="MACSA entrega con ruta diaria en Monterrey y su área metropolitana, con reparto en desarrollo en el corredor sur de Nuevo León, y sobre el corredor Saltillo–Torreón aprovechando el viaje que ya hacemos. En Torreón contamos además con una segunda bodega, con productos adicionales a los que viajan en la ruta, y próximamente abrimos más ciudades de Coahuila."
+        answerFirst="MACSA entrega con ruta diaria en Monterrey y su área metropolitana, con reparto en desarrollo en el corredor sur de Nuevo León, con ruta a Saltillo los miércoles y con un envío semanal a Torreón los lunes. En Torreón contamos además con una segunda bodega, con productos adicionales a los que viajan desde Monterrey, y próximamente abrimos más ciudades de Coahuila."
         anclas={['ruta diaria', 'el viaje que ya hacemos', 'una segunda bodega']}
         chips={[
           { etiqueta: 'Ciudades', valor: `${CIUDADES.length} con modo definido` },
