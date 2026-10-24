@@ -456,6 +456,21 @@ const sinMonterrey = (s: string) => s.replace(/ en Monterrey$/, '')
 export const slugBase = (slug: string) => slug.replace(/-monterrey$/, '')
 export const slugIntencionCiudad = (slug: string, ciudad: string) => `${slugBase(slug)}-en-${ciudad}`
 
+/* Búsquedas que SÍ tienen su página en Saltillo y Torreón (carpetas `app/<base>-en-<ciudad>/`). Sólo a éstas se
+ * enlaza desde «¿Estás en Coahuila?»: las 4 de Heinz del 13-oct (mayonesa, aderezos en sobre, room service, salsa
+ * para pizza) no tienen versión por ciudad y enlazarlas dio 8 ligas a páginas 404 (aviso de Search Console, 15-oct).
+ * Si se crea una página por ciudad nueva, agregar aquí su slug. */
+export const CON_PAGINA_EN_CIUDAD = new Set([
+  'distribuidor-de-papas-congeladas-monterrey',
+  'papas-a-la-francesa-por-mayoreo',
+  'alitas-por-mayoreo',
+  'boneless-por-mayoreo',
+  'pechuga-de-pollo-congelada-por-mayoreo',
+  'distribuidor-de-pollo-congelado-monterrey',
+  'distribuidora-de-alimentos-congelados-monterrey',
+  'distribuidor-de-heinz-monterrey',
+])
+
 interface CiudadCorredor {
   slug: string
   nombre: string
