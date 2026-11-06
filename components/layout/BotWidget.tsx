@@ -60,6 +60,8 @@ document.addEventListener('click', function (e) {
   if (!a) return;
   var msg = '';
   try { msg = new URL(a.href).searchParams.get('text') || ''; } catch (_) {}
+  // S206: el bot todavía no conoce Frites Atelier: esos botones siguen a WhatsApp. Quitar al cargarlo en el bot.
+  if (/Frites Atelier|código (FAA4|F03|F07|LWS902) /i.test(msg)) return;
   if (window.macsaAbrirChat(msg)) e.preventDefault();
 });
 `
