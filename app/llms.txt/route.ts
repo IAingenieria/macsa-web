@@ -49,6 +49,8 @@ export function GET() {
     `- [Catálogo](${SITE_URL}/catalogo/)`,
     `- [Tienda con ficha por código](${SITE_URL}/tienda/)`,
     `- [Marcas](${SITE_URL}/marcas/)`,
+    `- [Frites Atelier, disponible para México a través de MACSA](${SITE_URL}/frites-atelier/): la papa de la marca del chef Sergio Herman, producida en Holanda por Lamb Weston. Lo disponible es la papa, no hay tiendas de la marca en México.`,
+    `- [Cómo vender más papa](${SITE_URL}/como-vender-mas-papa/)`,
     `- [Cadena de frío](${SITE_URL}/cadena-de-frio/)`,
     `- [Preguntas frecuentes](${SITE_URL}/preguntas-frecuentes/)`,
     `- [Darse de alta como cliente](${SITE_URL}/alta-de-cliente/)`,

@@ -5,6 +5,7 @@ const NAV = [
   { href: '/catalogo/', label: 'Catálogo' },
   { href: '/tienda/', label: 'Tienda' },
   { href: '/marcas/', label: 'Marcas' },
+  { href: '/frites-atelier/', label: 'Frites Atelier' },
   { href: '/cobertura/', label: 'Cobertura' },
   { href: '/consejos/', label: 'Consejos' },
   { href: '/cadena-de-frio/', label: 'Cadena de frío' },
@@ -34,12 +35,12 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-5 lg:flex xl:gap-7">
           {NAV.map((n) => (
             <Link
               key={n.href}
               href={n.href}
-              className="font-display text-[14px] font-semibold text-humo-700 transition-colors hover:text-fry-700"
+              className="whitespace-nowrap font-display text-[14px] font-semibold text-humo-700 transition-colors hover:text-fry-700"
             >
               {n.label}
             </Link>
@@ -49,14 +50,14 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href={EMPRESA.portalUrl}
-            className="hidden font-display text-[14px] font-semibold text-navy-600 hover:text-fry-700 sm:inline"
+            className="hidden whitespace-nowrap font-display text-[14px] font-semibold text-navy-600 hover:text-fry-700 sm:inline lg:hidden xl:inline"
           >
             Entrar al portal
           </a>
           <a
             data-chat
             href={waLink('Hola, quiero información de sus productos.')}
-            className="btn-primario !px-4 !py-2 text-[14px]"
+            className="btn-primario whitespace-nowrap !px-4 !py-2 text-[14px]"
           >
             Hacer pedido
           </a>

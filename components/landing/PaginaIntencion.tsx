@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
+import BandaFritesAtelier from '@/components/landing/BandaFritesAtelier'
 import { BarraConfianza, Breadcrumb, CadenaFrio, Cobertura, ComoPedir, FAQ, Seccion } from '@/components/landing/Secciones'
 import { GaleriaProductos } from '@/components/landing/Productos'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
@@ -63,6 +64,8 @@ export default function PaginaIntencion({ slug, ciudad }: { slug: string; ciudad
           </div>
         </section>
       )}
+
+      {/^(distribuidor-de-papas|papas-a-la-francesa)/.test(base.slug) && <BandaFritesAtelier />}
 
       {c && <Cobertura ciudad={c} producto={base.h1.toLowerCase()} />}
 

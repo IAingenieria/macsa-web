@@ -10,6 +10,8 @@ import { ANCLAS } from '@/lib/anclas'
 import { EMPRESA, SITE_URL, waLink } from '@/lib/site'
 import { porModo } from '@/lib/ciudades'
 import { breadcrumbSchema, ld } from '@/lib/schema'
+import BandaFritesAtelier from '@/components/landing/BandaFritesAtelier'
+import { SKUS_FA } from '@/lib/fritesAtelier'
 
 /**
  * Ficha de producto. Es la página más específica del sitio y la que puede
@@ -82,6 +84,8 @@ export default async function Page({ params }: { params: Promise<{ sku: string }
       <script type="application/ld+json" dangerouslySetInnerHTML={ld(breadcrumbSchema(migas))} />
 
       <Breadcrumb items={migas} />
+
+      {SKUS_FA.includes(p.sku) && <BandaFritesAtelier />}
 
       <article className="contenedor grid gap-10 py-12 lg:grid-cols-2 lg:gap-16 lg:py-16">
         <div className="flex items-center justify-center border border-hielo-300 bg-hielo-50 p-8">

@@ -128,7 +128,13 @@ const LOGOS = 'https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public
 export const logoDe = (m: MarcaPortafolio) => (m.logo ? `${LOGOS}${m.logo}.png` : null)
 
 export const MARCAS: { categoria: string; marcas: MarcaPortafolio[] }[] = [
-  { categoria: 'Papas', marcas: [{ nombre: 'Lamb Weston', directo: true, logo: 'lamb-weston' }] },
+  {
+    categoria: 'Papas',
+    marcas: [
+      { nombre: 'Lamb Weston', directo: true, logo: 'lamb-weston' },
+      { nombre: 'Frites Atelier', directo: false, logo: 'frites-atelier' },
+    ],
+  },
   {
     categoria: 'Pollo',
     marcas: [

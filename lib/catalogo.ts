@@ -172,6 +172,11 @@ const NOMBRE_COMERCIAL: Record<string, string> = {
   // Microsip dice "PAPA HASH BROWN CILINDRO"; Lamb Weston y Edgar le dicen Tater
   // Puffs, y así lo busca el cliente.
   H30: 'Tater Puffs, dados de papa (hash brown en cubo)',
+  // S206: las 4 de Lamb Weston Europa que sí se ofrecen (Edgar, 14-oct).
+  FAA4: 'Papa Frites Atelier',
+  F03: 'Papa Private Reserve 9x9 con cáscara',
+  F07: 'Papa Private Reserve 11x11 con cáscara',
+  LWS902: 'Papa Twister sazonada',
 }
 
 /**
@@ -380,6 +385,8 @@ export const SIN_RENDIMIENTO = new Set(['M0011', 'M14', 'M16', 'M18', 'M22', 'N8
  * inventa: la ficha se queda sin marca.
  */
 const MARCA_POR_SKU: Record<string, string> = {
+  // S206: la marca de la bolsa. Las otras tres de Europa son Lamb Weston por categoría.
+  FAA4: 'Frites Atelier',
   // Salsas de mesa que no son de la marca de su categoría
   'HZ-TAB': 'Tabasco',
   STAB: 'Tabasco',

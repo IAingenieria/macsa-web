@@ -71,6 +71,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
+    // La versión en inglés es subcarpeta: el barrido sólo mira el primer nivel.
+    { url: `${SITE_URL}/frites-atelier/en/`, lastModified: ahora, changeFrequency: 'monthly' as const, priority: 0.6 },
     // Mismo caso: /consejos/[tip] tampoco lo ve el barrido de directorios.
     ...TIPS.map((t) => ({
       url: `${SITE_URL}/consejos/${t.slug}/`,

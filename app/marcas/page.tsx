@@ -25,6 +25,14 @@ const RELACIONES = [
     familia: 'papa-a-la-francesa',
   },
   {
+    marca: 'Frites Atelier',
+    logo: '/frites-atelier/logo-frites-atelier-chico.png',
+    relacion: 'Disponible para México, a través de MACSA',
+    detalle:
+      'La marca del chef Sergio Herman, tres estrellas Michelin, producida en Holanda por Lamb Weston.',
+    familia: 'frites-atelier',
+  },
+  {
     marca: 'Agrosuper',
     relacion: 'Distribuidor directo, sin intermediarios',
     detalle: 'Pollo importado de Chile. La media pechuga sin piel es el producto de mayor movimiento.',

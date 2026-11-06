@@ -20,3 +20,7 @@ out_dominio/
 
 # [S182] build de la vista previa (noindex) para macsa-web-vista
 _vista_s182/
+
+# [S206] copias web de Frites Atelier: viven en el bucket, no en el repo
+_fa_web/
+_vista_s206/

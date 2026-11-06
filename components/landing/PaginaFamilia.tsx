@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BandaFritesAtelier from '@/components/landing/BandaFritesAtelier'
 import { esSeco } from '@/lib/secos'
 import Hero from '@/components/landing/Hero'
 import {
@@ -78,6 +79,8 @@ export default function PaginaFamilia({
       />
 
       <BarraConfianza seco={seco} />
+
+      {f.slug === 'papa-a-la-francesa' && <BandaFritesAtelier />}
 
       <GaleriaProductos
         familia={f.slug}

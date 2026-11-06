@@ -14,6 +14,7 @@ import { GIROS } from '@/lib/giros'
 import { CIUDADES, MODOS, porModo, type Modo } from '@/lib/ciudades'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { HEROES } from '@/lib/heroes'
+import BandaFritesAtelier from '@/components/landing/BandaFritesAtelier'
 import { faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -79,6 +80,8 @@ export default function Home() {
       />
 
       <BarraConfianza />
+
+      <BandaFritesAtelier />
 
       <Seccion
         eyebrow="Catálogo"
