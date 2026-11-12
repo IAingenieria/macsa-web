@@ -24,3 +24,7 @@ _vista_s182/
 # [S206] copias web de Frites Atelier: viven en el bucket, no en el repo
 _fa_web/
 _vista_s206/
+
+# Videos de la portada en vista previa local: en producción viven en el bucket medios-web
+public/_previa/
+_previa_local.mjs

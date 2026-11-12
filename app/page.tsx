@@ -15,6 +15,7 @@ import { CIUDADES, MODOS, porModo, type Modo } from '@/lib/ciudades'
 import FormularioProspecto from '@/components/landing/FormularioProspecto'
 import { HEROES } from '@/lib/heroes'
 import BandaFritesAtelier from '@/components/landing/BandaFritesAtelier'
+import { SeccionPapasVideo, SeccionPorQueMacsa, VideoEnFrio, VideoHero } from '@/components/landing/SeccionesVideo'
 import { faqSchema, ld } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -75,11 +76,13 @@ export default function Home() {
         ]}
         ctaWhatsApp="Hola, quiero información de sus productos y precios."
         ctaSecundario={{ href: '/catalogo/', label: 'Ver el catálogo' }}
-        imagen={HEROES['home'].imagen}
         lambWeston={HEROES['home'].lambWeston}
+        lateral={<VideoHero />}
       />
 
       <BarraConfianza />
+
+      <SeccionPorQueMacsa />
 
       <BandaFritesAtelier />
 
@@ -106,6 +109,8 @@ export default function Home() {
           ))}
         </div>
       </Seccion>
+
+      <SeccionPapasVideo />
 
       <Seccion
         eyebrow="Cobertura"
@@ -146,7 +151,7 @@ export default function Home() {
         </div>
       </Seccion>
 
-      <CadenaFrio />
+      <CadenaFrio video={<VideoEnFrio />} />
 
       <Seccion
         eyebrow="Tu negocio"

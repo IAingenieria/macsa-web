@@ -226,7 +226,21 @@ const ESLABONES = [
   { paso: 'Tu cocina', detalle: 'Llega congelado y va directo a la freidora, sin descongelar.' },
 ]
 
-export function CadenaFrio() {
+/* `video` (11-nov-2026): sólo la portada lo pasa. Con video, los cuatro pasos van en dos columnas a su lado. */
+export function CadenaFrio({ video }: { video?: React.ReactNode } = {}) {
+  const pasos = (
+    <ol className={`grid gap-px bg-hielo-300 sm:grid-cols-2 ${video ? '' : 'lg:grid-cols-4'}`}>
+      {ESLABONES.map((e, i) => (
+        <li key={e.paso} className="bg-white p-6">
+          <span className="font-mono text-[11px] font-semibold text-fry-700">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <h3 className="mt-2 font-display text-[17px] font-bold text-navy">{e.paso}</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-humo">{e.detalle}</p>
+        </li>
+      ))}
+    </ol>
+  )
   return (
     <Seccion
       eyebrow="Cadena de frío"
@@ -234,17 +248,14 @@ export function CadenaFrio() {
       intro="Es lo que más cuidamos y la razón por la que el producto llega como debe llegar. Va del congelador a tu cocina sin un solo tramo a la intemperie."
       fondo="hielo"
     >
-      <ol className="grid gap-px bg-hielo-300 sm:grid-cols-2 lg:grid-cols-4">
-        {ESLABONES.map((e, i) => (
-          <li key={e.paso} className="bg-white p-6">
-            <span className="font-mono text-[11px] font-semibold text-fry-700">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <h3 className="mt-2 font-display text-[17px] font-bold text-navy">{e.paso}</h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-humo">{e.detalle}</p>
-          </li>
-        ))}
-      </ol>
+      {video ? (
+        <div className="grid items-start gap-8 md:grid-cols-[minmax(0,240px)_1fr]">
+          <div className="mx-auto w-full max-w-[240px]">{video}</div>
+          {pasos}
+        </div>
+      ) : (
+        pasos
+      )}
     </Seccion>
   )
 }

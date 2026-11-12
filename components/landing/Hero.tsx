@@ -46,6 +46,7 @@ export default function Hero({
   imagen,
   imagenAlt,
   lambWeston = false,
+  lateral,
 }: {
   eyebrow: string
   h1: string
@@ -59,6 +60,11 @@ export default function Hero({
   imagenAlt?: string
   /** Muestra el sello de distribuidor oficial con el logotipo */
   lambWeston?: boolean
+  /**
+   * Pieza a la derecha del titular (en celular, debajo de los botones). La portada la usa para el video de
+   * Alex Jansen (11-nov-2026). Con `lateral` no se pasa `imagen`: ocupan el mismo lugar.
+   */
+  lateral?: React.ReactNode
 }) {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
@@ -93,13 +99,26 @@ export default function Hero({
       />
 
       <div className="contenedor relative py-16 sm:py-20 lg:py-24">
-        <div className={imagen ? 'lg:max-w-[54%]' : ''}>
+        {/* Con `lateral`: en celular el orden es titular → pieza lateral → párrafo y botones; en pantalla
+            grande la pieza ocupa la columna derecha. Sin `lateral` las envolturas no cuentan (`contents`). */}
+        <div
+          className={
+            lateral
+              ? 'flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_270px] lg:gap-x-16'
+              : imagen
+                ? 'lg:max-w-[54%]'
+                : ''
+          }
+        >
+          <div className={lateral ? 'order-1 lg:col-start-1 lg:row-start-1' : 'contents'}>
           <p className="eyebrow !text-fry">{eyebrow}</p>
 
           <h1 className="mt-4 max-w-4xl font-display text-[2.1rem] font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-[3.4rem]">
             {h1}
           </h1>
+          </div>
 
+          <div className={lateral ? 'order-3 lg:col-start-1 lg:row-start-2' : 'contents'}>
           <p className="mt-6 max-w-prosa text-[17px] leading-relaxed text-hielo-200 sm:text-lg">
             {resaltar(answerFirst, anclas)}
           </p>
@@ -134,6 +153,12 @@ export default function Hero({
               </Link>
             )}
           </div>
+          </div>
+          {lateral && (
+            <div className="order-2 mt-7 lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-center">
+              {lateral}
+            </div>
+          )}
         </div>
 
         {chips.length > 0 && (
