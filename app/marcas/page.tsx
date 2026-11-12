@@ -125,27 +125,44 @@ export default function Page() {
             oscura (Lamb Weston, Ventura, Sargento, Pilgrim's, Ricos, Sweet Baby
             Ray's, Mike's Hot Honey) y sobre un fondo oscuro desaparecen. */}
         <ul className="grid grid-cols-2 gap-px bg-hielo-300 sm:grid-cols-3 lg:grid-cols-5">
-          {MARCAS_CON_LOGO.map((m) => (
-            <li
-              key={m.nombre}
-              className="flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-white p-5"
-            >
-              <img
-                src={logoDe(m)!}
-                alt={m.nombre}
-                width={180}
-                height={90}
-                loading="lazy"
-                decoding="async"
-                className="max-h-[54px] w-auto max-w-[80%] object-contain"
-              />
-              {m.directo && (
-                <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
-                  Directo
-                </span>
-              )}
-            </li>
-          ))}
+          {MARCAS_CON_LOGO.map((m) => {
+            const contenido = (
+              <>
+                <img
+                  src={logoDe(m)!}
+                  alt={m.nombre}
+                  width={180}
+                  height={90}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-[54px] w-auto max-w-[80%] object-contain"
+                />
+                {m.directo && (
+                  <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
+                    Directo
+                  </span>
+                )}
+                {m.pagina && (
+                  <span className="font-display text-[13px] font-semibold text-fry-700 group-hover:text-navy">
+                    Ver videos →
+                  </span>
+                )}
+              </>
+            )
+            const caja = 'flex aspect-[3/2] flex-col items-center justify-center gap-2 bg-white p-5'
+            return (
+              <li key={m.nombre} className={m.pagina ? 'flex' : caja}>
+                {/* Marca con página propia (12-nov-2026: Churros Sol): toda la placa es el enlace. */}
+                {m.pagina ? (
+                  <Link href={m.pagina} className={`group w-full transition-colors hover:bg-hielo-50 ${caja}`}>
+                    {contenido}
+                  </Link>
+                ) : (
+                  contenido
+                )}
+              </li>
+            )
+          })}
         </ul>
       </Seccion>
 
@@ -187,7 +204,16 @@ export default function Page() {
                               className="h-5 w-auto max-w-[68px] object-contain"
                             />
                           )}
-                          <span>{marca.nombre}</span>
+                          {marca.pagina ? (
+                            <Link
+                              href={marca.pagina}
+                              className="font-semibold text-fry-700 underline-offset-4 hover:underline"
+                            >
+                              {marca.nombre}
+                            </Link>
+                          ) : (
+                            <span>{marca.nombre}</span>
+                          )}
                           {marca.directo && (
                             <span className="border border-fry bg-fry-100 px-1.5 py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-wider text-fry-700">
                               Directo

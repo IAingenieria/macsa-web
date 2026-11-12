@@ -120,6 +120,8 @@ export interface MarcaPortafolio {
   directo: boolean
   /** Archivo en el bucket `catalogo/marcas/`. Sin logo, se pinta el nombre. */
   logo?: string
+  /** Página propia de la marca: su logotipo en /marcas/ lleva ahí. */
+  pagina?: string
 }
 
 const LOGOS = 'https://jlhvtjsdbdgwvfhjahdi.supabase.co/storage/v1/object/public/catalogo/marcas/'
@@ -197,7 +199,7 @@ export const MARCAS: { categoria: string; marcas: MarcaPortafolio[] }[] = [
     ],
   },
   { categoria: 'Toppings para pizza', marcas: [{ nombre: 'Paradiso', directo: false, logo: 'paradiso' }] },
-  { categoria: 'Postres', marcas: [{ nombre: 'Sol', directo: false, logo: 'sol' }] },
+  { categoria: 'Postres', marcas: [{ nombre: 'Sol', directo: false, logo: 'sol', pagina: '/churros-sol/' }] },
 ]
 
 /** Cuántas marcas del portafolio son relación directa. */

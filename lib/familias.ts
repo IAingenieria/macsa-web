@@ -293,9 +293,10 @@ export const FAMILIAS: Familia[] = [
     answerFirst:
       'MACSA maneja postres y churros congelados listos para freír u hornear. Es la línea que convierte una cuenta promedio en una cuenta con postre sin agregar un solo minuto de preparación en cocina ni contratar repostería.',
     anclas: ['listos para freír u hornear', 'sin agregar un solo minuto'],
-    // Jorge, 2-sep-2026: SolChurros no se menciona — "no les quiero hacer
+    // Jorge, 2-sep-2026: SolChurros no se mencionaba — "no les quiero hacer
     // promoción" hasta tener garantía de que lo protejan como distribuidor.
-    marcas: ['RD'],
+    // 12-nov-2026: el convenio ya está hecho; Sol tiene su página (/churros-sol/).
+    marcas: ['RD', 'Sol'],
     productos: [],
     giros: ['comida-corrida', 'cafeteria', 'hotel', 'fast-food'],
     pilar: false,
